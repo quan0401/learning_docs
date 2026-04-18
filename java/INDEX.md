@@ -171,6 +171,17 @@ How to structure and reason about Spring Boot codebases.
 
 ---
 
+## Tier 10 — JVM Performance & Garbage Collection
+
+Advanced performance topics. Read after you're comfortable with everything above and need to tune pauses, throughput, or memory in production.
+
+73. [JVM Garbage Collection — Concepts and Mental Model](jvm-gc/concepts.md) — heap layout, generational hypothesis, marking, safepoints, barriers _(2026-04-18)_
+74. [JVM Garbage Collectors — Serial, Parallel, CMS, G1, ZGC, Shenandoah](jvm-gc/collectors.md) — which is default per JDK, decision tree, concrete flag recipes _(2026-04-18)_
+75. [GC Pause Diagnosis Playbook](jvm-gc/pause-diagnosis.md) — `-Xlog:gc*`, JFR, async-profiler, heap dumps, pathology cookbook _(2026-04-18)_
+76. [GC Impact on Reactive, Virtual Threads, and Streaming](jvm-gc/reactive-impact.md) — Reactor allocation, SSE p99, Netty direct memory, VT + Generational ZGC _(2026-04-18)_
+
+---
+
 ## Quick Reference by Topic
 
 If you need to look something up rather than learn linearly, here is the same content grouped by topic:
@@ -263,7 +274,15 @@ If you need to look something up rather than learn linearly, here is the same co
 ### Architecture & Meta
 - [Project Structure and Architecture](architecture/project-structure.md)
 
+### JVM Performance & GC
+
+- [GC Concepts and Mental Model](jvm-gc/concepts.md)
+- [JVM Collectors (Serial/Parallel/CMS/G1/ZGC/Shenandoah)](jvm-gc/collectors.md)
+- [GC Pause Diagnosis Playbook](jvm-gc/pause-diagnosis.md)
+- [GC Impact on Reactive, VTs, and Streaming](jvm-gc/reactive-impact.md)
+
 ### Reactive / WebFlux
+
 - [Reactive Programming in Java](reactive-programming-java.md)
 - [Reactor Operator Catalog](reactive/operator-catalog.md)
 - [Sync vs Async Transformation](sync-vs-async-transformation.md)
