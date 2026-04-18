@@ -23,6 +23,7 @@ Skip this tier if you already write Java daily. Otherwise, these docs give you t
 9. [Lombok and Boilerplate Reduction](java-fundamentals/lombok-and-boilerplate.md) — `@Data`, `@Builder`, `@RequiredArgsConstructor`, `@Slf4j`, records vs Lombok _(2026-04-17)_
 10. [Common Design Patterns in Java](java-fundamentals/common-design-patterns.md) — Builder, Factory, Strategy, Proxy, Template Method, Observer — with Spring examples _(2026-04-17)_
 11. [Concurrency Basics](java-fundamentals/concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture`, virtual threads, `synchronized`/`volatile`/atomics _(2026-04-17)_
+11a. [Java Multithreading Deep Dive — Memory Model, Locks, Synchronizers, and Thread Pools](java-fundamentals/multithreading-deep-dive.md) — JMM happens-before, `ReentrantLock`/`StampedLock`, `CountDownLatch`/`Semaphore`/`Phaser`, `ThreadPoolExecutor` internals, deadlock diagnosis _(2026-04-18)_
 12. [Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request](java-fundamentals/virtual-threads.md) — Project Loom, JEP 444, pinning, and when virtual threads beat reactive _(2026-04-17)_
 13. [Structured Concurrency in Java](java-fundamentals/structured-concurrency.md) — StructuredTaskScope, ScopedValue, and the modern fork/join model _(2026-04-17)_
 14. [Structured Concurrency Before Project Loom](java-fundamentals/structured-concurrency-before-loom.md) — pre-Java-21 approaches, Trio, Kotlin, Swift, Reactor, and what Java borrowed _(2026-04-17)_
@@ -199,6 +200,7 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Lombok and Boilerplate](java-fundamentals/lombok-and-boilerplate.md)
 - [Common Design Patterns](java-fundamentals/common-design-patterns.md)
 - [Concurrency Basics](java-fundamentals/concurrency-basics.md)
+- [Multithreading Deep Dive (JMM, locks, synchronizers, pools)](java-fundamentals/multithreading-deep-dive.md)
 - [Virtual Threads (Project Loom)](java-fundamentals/virtual-threads.md)
 - [Structured Concurrency](java-fundamentals/structured-concurrency.md)
 - [Structured Concurrency Before Project Loom](java-fundamentals/structured-concurrency-before-loom.md)
