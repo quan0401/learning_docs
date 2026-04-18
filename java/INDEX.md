@@ -184,6 +184,16 @@ Advanced performance topics. Read after you're comfortable with everything above
 
 ---
 
+## Tier 11 — GraphQL & Federated APIs
+
+Build schema-driven APIs that scale across teams, services, and databases. Read after you're comfortable with REST + WebFlux and know why you need federation.
+
+77. [GraphQL Federation Concepts — Subgraphs, Gateway, and the Apollo Spec](graphql/federation-concepts.md) — `@key`, `@external`, `@requires`, `@provides`, v1 vs v2, composition, router, registry _(2026-04-18)_
+78. [Netflix DGS vs Spring for GraphQL — Building Java Subgraphs](graphql/dgs-and-spring-graphql.md) — library comparison, resolvers, entity fetchers, DataLoader, federation setup, testing _(2026-04-18)_
+79. [Federated GraphQL with Polyglot Persistence — DB-per-Subgraph, Saga, Outbox, Query Planning](graphql/multi-database-patterns.md) — cross-subgraph writes, caching, N+1, tracing, deployment _(2026-04-18)_
+
+---
+
 ## Quick Reference by Topic
 
 If you need to look something up rather than learn linearly, here is the same content grouped by topic:
@@ -284,6 +294,12 @@ If you need to look something up rather than learn linearly, here is the same co
 - [JVM Collectors (Serial/Parallel/CMS/G1/ZGC/Shenandoah)](jvm-gc/collectors.md)
 - [GC Pause Diagnosis Playbook](jvm-gc/pause-diagnosis.md)
 - [GC Impact on Reactive, VTs, and Streaming](jvm-gc/reactive-impact.md)
+
+### GraphQL & Federation
+
+- [GraphQL Federation Concepts](graphql/federation-concepts.md)
+- [Netflix DGS vs Spring for GraphQL](graphql/dgs-and-spring-graphql.md)
+- [Multi-Database Federation Patterns](graphql/multi-database-patterns.md)
 
 ### Reactive / WebFlux
 
