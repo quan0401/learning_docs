@@ -68,6 +68,7 @@ Build HTTP endpoints, handle input, return responses, manage errors.
 33. [Thymeleaf and Server-Side Views](web-layer/thymeleaf-and-views.md) — `th:*` attributes, fragments, layouts, Spring integration, Security dialect _(2026-04-17)_
 34. [Session Management](web-layer/session-management.md) — `HttpSession`, `@SessionAttributes`, Spring Session + Redis, sticky vs externalized _(2026-04-17)_
 35. [Static Resources and i18n](web-layer/static-resources-and-i18n.md) — resource handlers, cache-busting, `MessageSource`, `LocaleResolver` _(2026-04-17)_
+35a. [Scaling Spring MVC Before Virtual Threads — Async Servlet, Tuning, and Resilience](web-layer/mvc-high-throughput.md) — `Callable`/`DeferredResult`/`CompletableFuture`, Tomcat tuning, HikariCP sizing, Resilience4j bulkheads _(2026-04-18)_
 
 ---
 
@@ -230,6 +231,7 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Thymeleaf and Server-Side Views](web-layer/thymeleaf-and-views.md)
 - [Session Management](web-layer/session-management.md)
 - [Static Resources and i18n](web-layer/static-resources-and-i18n.md)
+- [Scaling MVC Before Virtual Threads](web-layer/mvc-high-throughput.md)
 
 ### Data Access
 - [Repository Interfaces](data-repositories/repository-interfaces.md)
