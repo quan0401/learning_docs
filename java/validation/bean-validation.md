@@ -84,7 +84,7 @@ The key players:
 
 ## Standard Constraint Annotations
 
-These annotations live in `javax.validation.constraints` (Java EE) or `jakarta.validation.constraints` (Jakarta EE).
+In Spring Boot 3+, these annotations live in `jakarta.validation.constraints`. Older pre-Jakarta examples may use `javax.validation.constraints`.
 
 | Annotation | Applies To | Description | Example |
 |---|---|---|---|
@@ -127,9 +127,9 @@ Without `@NotNull`, a `null` year would silently pass `@Positive`.
 
 These two annotations look similar but serve different roles.
 
-| Aspect | `@Valid` (JSR 380) | `@Validated` (Spring) |
+| Aspect | `@Valid` (Jakarta Validation) | `@Validated` (Spring) |
 |---|---|---|
-| Package | `javax.validation.Valid` | `org.springframework.validation.annotation.Validated` |
+| Package | `jakarta.validation.Valid` | `org.springframework.validation.annotation.Validated` |
 | Standard | Part of the Bean Validation spec | Spring-specific extension |
 | Validation groups | Not supported | Supports group selection: `@Validated(OnCreate.class)` |
 | Cascading (nested objects) | Triggers nested validation on fields | Does **not** trigger nested validation on fields |
@@ -505,7 +505,7 @@ This is useful for enforcing invariants at the service boundary regardless of ho
 
 ## Manual Validation
 
-When using Spring WebFlux's functional endpoints (router functions), there is no annotation-driven argument resolution. You must validate manually by injecting `javax.validation.Validator`.
+When using Spring WebFlux's functional endpoints (router functions), there is no annotation-driven argument resolution. You must validate manually by injecting `jakarta.validation.Validator`.
 
 This is the pattern from the project's `ReviewsHandler`:
 

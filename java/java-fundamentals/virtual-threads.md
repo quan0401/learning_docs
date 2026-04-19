@@ -327,7 +327,7 @@ Because the API is still in preview as of mid-2026, use it behind `--enable-prev
 |---------|--------------|-----|
 | Pooling virtual threads | Pool becomes the bottleneck; defeats the point | Use `newVirtualThreadPerTaskExecutor()` — one per task |
 | `synchronized` over I/O on Java 21–23 | Thread pins carrier; carrier can't run other virtual threads | Replace with `ReentrantLock`, or upgrade to Java 24+ |
-| `ThreadLocal` with large data | Each virtual thread still has its own copy; memory balloons | Use `ScopedValue` (preview) or keep thread-locals small |
+| `ThreadLocal` with large data | Each virtual thread still has its own copy; memory balloons | Use `ScopedValue` (delivered in Java 25; preview on earlier releases) or keep thread-locals small |
 | CPU-bound work on virtual threads | Carrier threads saturate; no benefit over platform threads | Offload with `Executors.newFixedThreadPool(numCores)` |
 | Pinning from native / JNI frames | Same effect as `synchronized` pre-JEP-491 | Minimize native calls in hot paths |
 | Expecting `Thread.sleep` to use OS sleep | The virtual thread unmounts — fine — but behavior for VERY short sleeps differs from platform threads | Acceptable; test if you relied on precise scheduling |
