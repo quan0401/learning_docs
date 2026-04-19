@@ -194,6 +194,28 @@ Build schema-driven APIs that scale across teams, services, and databases. Read 
 
 ---
 
+## Tier 12 — Production Practices (Observability, K8s, Gateway, Perf, Cloud)
+
+After the core stack, these are what separate hobby projects from production systems.
+
+81. [Distributed Tracing and Metrics Beyond Logs](observability/distributed-tracing.md) — OpenTelemetry, Micrometer, Prometheus, RED/USE _(2026-04-19)_
+82. [Kubernetes for Spring Boot](configurations/kubernetes-spring-boot.md) — probes, ConfigMap/Secret, HPA, graceful shutdown, PDB _(2026-04-19)_
+83. [API Gateway Patterns with Spring Cloud Gateway](web-layer/api-gateway-patterns.md) — routing, rate limiting, BFF, vs Envoy/Kong _(2026-04-19)_
+84. [Distributed Systems Primer](architecture/distributed-systems-primer.md) — CAP, PACELC, consistency, Raft, idempotency, exactly-once myths _(2026-04-19)_
+85. [Performance Testing with Gatling and k6](testing/performance-testing.md) — load scenarios, SLO gates in CI, flame graphs under load _(2026-04-19)_
+86. [GraalVM Native Image for Spring Boot](configurations/graalvm-native-image.md) — AOT, reachability, Lambda cold starts, CRaC _(2026-04-19)_
+87. [gRPC in Java](grpc/grpc-java.md) — protobuf, four RPC modes, interceptors, Reactor-gRPC bridge _(2026-04-19)_
+88. [OIDC and Modern Auth Flows](security/oidc-and-modern-auth.md) — PKCE, refresh rotation, device flow, WebAuthn, MFA _(2026-04-19)_
+89. [Secrets Management](security/secrets-management.md) — Vault, Spring Cloud Vault, k8s secrets, envelope encryption, KMS _(2026-04-19)_
+90. [ArchUnit and Spring Modulith](architecture/archunit-and-modulith.md) — architecture as tests, modular monolith boundaries _(2026-04-19)_
+91. [Feature Flags](configurations/feature-flags.md) — LaunchDarkly/Unleash/Togglz, progressive rollout, experiment-as-code _(2026-04-19)_
+92. [Caching Deep Dive](data-repositories/caching-deep-dive.md) — invalidation, stampede, Redis patterns, Caffeine tuning, CDN _(2026-04-19)_
+93. [Spring Boot on AWS and GCP](cloud/spring-boot-aws-gcp.md) — Spring Cloud AWS, Lambda SnapStart, Cloud Run, IRSA _(2026-04-19)_
+94. [Event Sourcing and CQRS](architecture/event-sourcing-cqrs.md) — event store, aggregates, projections, snapshots, Axon _(2026-04-19)_
+95. [DDD Tactical Patterns in Java](architecture/ddd-tactical-patterns.md) — aggregates, value objects, bounded contexts, domain events _(2026-04-19)_
+
+---
+
 ## Quick Reference by Topic
 
 If you need to look something up rather than learn linearly, here is the same content grouped by topic:
@@ -300,6 +322,36 @@ If you need to look something up rather than learn linearly, here is the same co
 - [GraphQL Federation Concepts](graphql/federation-concepts.md)
 - [Netflix DGS vs Spring for GraphQL](graphql/dgs-and-spring-graphql.md)
 - [Multi-Database Federation Patterns](graphql/multi-database-patterns.md)
+
+### Observability
+
+- [Distributed Tracing and Metrics Beyond Logs](observability/distributed-tracing.md)
+
+### gRPC
+
+- [gRPC in Java](grpc/grpc-java.md)
+
+### Cloud
+
+- [Spring Boot on AWS and GCP](cloud/spring-boot-aws-gcp.md)
+
+### Production Practices
+
+- [Kubernetes for Spring Boot](configurations/kubernetes-spring-boot.md)
+- [API Gateway Patterns](web-layer/api-gateway-patterns.md)
+- [Performance Testing](testing/performance-testing.md)
+- [GraalVM Native Image](configurations/graalvm-native-image.md)
+- [Feature Flags](configurations/feature-flags.md)
+- [Secrets Management](security/secrets-management.md)
+- [OIDC and Modern Auth Flows](security/oidc-and-modern-auth.md)
+- [Caching Deep Dive](data-repositories/caching-deep-dive.md)
+
+### Advanced Architecture
+
+- [Distributed Systems Primer](architecture/distributed-systems-primer.md)
+- [ArchUnit and Spring Modulith](architecture/archunit-and-modulith.md)
+- [Event Sourcing and CQRS](architecture/event-sourcing-cqrs.md)
+- [DDD Tactical Patterns in Java](architecture/ddd-tactical-patterns.md)
 
 ### Reactive / WebFlux
 
