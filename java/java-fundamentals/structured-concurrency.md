@@ -16,8 +16,8 @@ tags: [java, concurrency, structured-concurrency, virtual-threads, scopedvalue]
 - [The Problem Structured Concurrency Solves](#the-problem-structured-concurrency-solves)
 - [Core Concept — Treat Subtasks as a Family](#core-concept--treat-subtasks-as-a-family)
 - [StructuredTaskScope API](#structuredtaskscope-api)
-  - [JDK 21 API (Stable Preview)](#jdk-21-api-stable-preview)
-  - [JDK 25+ API (Latest)](#jdk-25-api-latest)
+  - [JDK 21 API (First Preview)](#jdk-21-api-first-preview)
+  - [JDK 25+ API (`open()` / `Joiner`)](#jdk-25-api-open--joiner)
 - [ShutdownOnFailure — All-or-Nothing Fan-Out](#shutdownonfailure--all-or-nothing-fan-out)
 - [ShutdownOnSuccess — Race for the First Result](#shutdownonsuccess--race-for-the-first-result)
 - [Custom Policies](#custom-policies)
@@ -36,7 +36,7 @@ tags: [java, concurrency, structured-concurrency, virtual-threads, scopedvalue]
 
 ## Summary
 
-Structured concurrency treats a group of related concurrent subtasks as a single unit of work with a clear lexical lifetime — the same way try-with-resources treats a resource. When you `fork` subtasks inside a `StructuredTaskScope`, they must all complete (or be cancelled) before control leaves the scope, and if one fails the scope can cancel its siblings automatically. Introduced as a preview in [JEP 453 (JDK 21)](https://openjdk.org/jeps/453) and iterated through [JEP 505 (JDK 25)](https://openjdk.org/jeps/505) with API refinements, it pairs with [virtual threads](virtual-threads.md) and [`ScopedValue`](https://openjdk.org/jeps/506) to deliver the Loom trifecta: cheap threads, bounded lifetimes, and immutable context propagation. For a TypeScript developer, it's the closest thing Java has to `Promise.all` / `Promise.race` with first-class cancellation and structured error handling.
+Structured concurrency treats a group of related concurrent subtasks as a single unit of work with a clear lexical lifetime — the same way try-with-resources treats a resource. When you `fork` subtasks inside a `StructuredTaskScope`, they must all complete (or be cancelled) before control leaves the scope, and if one fails the scope can cancel its siblings automatically. Introduced as a preview in [JEP 453 (JDK 21)](https://openjdk.org/jeps/453) and iterated through [JEP 525 (JDK 26)](https://openjdk.org/jeps/525) with API refinements, it pairs with [virtual threads](virtual-threads.md) and [`ScopedValue`](https://openjdk.org/jeps/506) to deliver the Loom trifecta: cheap threads, bounded lifetimes, and immutable context propagation. For a TypeScript developer, it's the closest thing Java has to `Promise.all` / `Promise.race` with first-class cancellation and structured error handling.
 
 ---
 
@@ -103,7 +103,7 @@ The net effect: the lifetime of every subtask is bounded by the scope's try-with
 
 ## StructuredTaskScope API
 
-### JDK 21 API (Stable Preview)
+### JDK 21 API (First Preview)
 
 This is the API you'll see in existing code and documentation. Available with `--enable-preview` in JDK 21:
 
@@ -132,7 +132,7 @@ Key members:
 | `Subtask.state()` | `UNAVAILABLE`, `SUCCESS`, `FAILED` |
 | `Subtask.exception()` | Throwable if the subtask failed |
 
-### JDK 25+ API (Latest)
+### JDK 25+ API (`open()` / `Joiner`)
 
 [JEP 505](https://openjdk.org/jeps/505) refines the API — `StructuredTaskScope` is no longer instantiated via public constructors. Instead, static factory methods open scopes with named policies:
 
@@ -283,7 +283,7 @@ Key rules:
 
 ## ScopedValue — The Structured Replacement for ThreadLocal
 
-[`ScopedValue`](https://openjdk.org/jeps/506), introduced in [JEP 446 (JDK 21)](https://openjdk.org/jeps/446) and iterating through JEP 506, is designed to pair with structured concurrency. It solves the same use case as `ThreadLocal` — passing context implicitly — but with structured semantics.
+[`ScopedValue`](https://openjdk.org/jeps/506), previewed in [JEP 446 (JDK 21)](https://openjdk.org/jeps/446) and delivered in [JEP 506 (JDK 25)](https://openjdk.org/jeps/506), is designed to pair with structured concurrency. It solves the same use case as `ThreadLocal` — passing context implicitly — but with structured semantics.
 
 ```java
 public static final ScopedValue<User> CURRENT_USER = ScopedValue.newInstance();
@@ -440,8 +440,7 @@ Structured concurrency is still a **preview feature** as of 2026. API changes ar
 | JDK 23 | JEP 480 | Preview (3rd) | — |
 | JDK 24 | JEP 499 | Preview (4th) | — |
 | JDK 25 | JEP 505 | Preview (5th) | `open()` factory methods replace constructors; `Joiner` types |
-| JDK 26 | JEP 525 | Preview (6th) | — |
-| JDK 27 | JEP 533 | Preview (7th) | — |
+| JDK 26 | JEP 525 | Preview (6th) | Latest preview as of 2026 |
 
 Practical guidance:
 
@@ -547,9 +546,9 @@ The subtasks see the parent's `REQUEST_ID` binding automatically.
 
 ## References
 
-- [JEP 453: Structured Concurrency (Preview)](https://openjdk.org/jeps/453) — first stable preview (JDK 21); the canonical spec most projects target today
+- [JEP 453: Structured Concurrency (Preview)](https://openjdk.org/jeps/453) — first preview in JDK 21; the canonical starting point for existing code examples
 - [JEP 505: Structured Concurrency (Fifth Preview)](https://openjdk.org/jeps/505) — JDK 25 refinement introducing `open()` factories and `Joiner` types
-- [JEP 533: Structured Concurrency (Seventh Preview)](https://openjdk.org/jeps/533) — latest preview as of this writing
+- [JEP 525: Structured Concurrency (Sixth Preview)](https://openjdk.org/jeps/525) — latest preview as of this writing
 - [Structured Concurrency — Oracle Java 21 Core Libraries Guide](https://docs.oracle.com/en/java/javase/21/core/structured-concurrency.html) — official walkthrough with full examples
 - [StructuredTaskScope Javadoc (JDK 21)](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/StructuredTaskScope.html) — complete API reference
 - [StructuredTaskScope.ShutdownOnFailure Javadoc](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/StructuredTaskScope.ShutdownOnFailure.html) — built-in fail-fast policy

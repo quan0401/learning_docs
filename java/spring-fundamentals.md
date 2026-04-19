@@ -133,7 +133,7 @@ Two **different** web frameworks, both from Spring. Pick one per app:
 | | Spring MVC | Spring WebFlux |
 |---|-----------|----------------|
 | Stack | Servlet (blocking) | Reactive (non-blocking) |
-| Default server | Tomcat | Netty |
+| Boot starter default | Tomcat | Netty |
 | Programming model | `@RestController` returning `T` | `@RestController` returning `Mono<T>`/`Flux<T>` |
 | Best with | JPA, traditional apps | R2DBC, reactive Mongo, high-concurrency |
 | API similarity | 95% — same annotations, same patterns | 95% — same annotations, same patterns |
