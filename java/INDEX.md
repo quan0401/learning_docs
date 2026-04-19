@@ -224,6 +224,12 @@ Beyond Spring Boot: other approaches to microservices on the JVM. These docs ass
 97. [Helidon SE — Functional, No-Magic Microservices on Virtual Threads](helidon/helidon-se.md) — WebServer API, Config, routing DSL, no CDI, Express.js parallels _(2026-04-19)_
 98. [Helidon MP — MicroProfile and Jakarta EE on a Lightweight Runtime](helidon/helidon-mp.md) — JAX-RS, CDI, MicroProfile specs, portability, Spring equivalences _(2026-04-19)_
 99. [Helidon Nima — Virtual-Thread-Native Web Server Architecture](helidon/nima-virtual-threads-architecture.md) — from-scratch VT server, blocking sockets, Tomcat/Netty comparison, reactive exit _(2026-04-19)_
+100. [Scheduling Beyond Spring — db-scheduler, Helidon Scheduling, and Quarkus Quartz](scheduling-beyond-spring.md) — db-scheduler with Helidon/Quarkus, Quarkus Quartz clustering, decision guide _(2026-04-19)_
+101. [Quarkus Overview — Supersonic Subatomic Java for Cloud-Native](quarkus/quarkus-overview.md) — build-time DI, ArC/Jandex, dev mode, extensions, framework comparison _(2026-04-19)_
+102. [Quarkus Reactive with Mutiny — Uni, Multi, and RESTEasy Reactive](quarkus/quarkus-reactive-mutiny.md) — Mutiny vs Reactor, Vert.x architecture, reactive data access, messaging _(2026-04-19)_
+103. [Quarkus Native Image — GraalVM, Mandrel, and Serverless Deployment](quarkus/quarkus-native-image.md) — native build, limitations, testing, Lambda/Cloud Run/K8s deployment _(2026-04-19)_
+104. [Quarkus Extensions — Panache, REST Client, Qute, and the Quarkiverse](quarkus/quarkus-extensions.md) — Panache ORM, REST Client, SmallRye, Spring compat layer _(2026-04-19)_
+105. [Quarkus Virtual Threads — @RunOnVirtualThread and the Three Concurrency Models](quarkus/quarkus-virtual-threads.md) — event loop vs worker pool vs VT, pinning, Mutiny complement _(2026-04-19)_
 
 ---
 
@@ -377,9 +383,21 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Reactive Observability](reactive-observability.md)
 - [Advanced Reactive Topics](reactive-advanced-topics.md)
 
-### Helidon / Alternative Frameworks
+### Helidon
 
 - [Helidon Overview](helidon/helidon-overview.md)
 - [Helidon SE](helidon/helidon-se.md)
 - [Helidon MP](helidon/helidon-mp.md)
 - [Helidon Nima Architecture](helidon/nima-virtual-threads-architecture.md)
+
+### Quarkus
+
+- [Quarkus Overview](quarkus/quarkus-overview.md)
+- [Quarkus Reactive with Mutiny](quarkus/quarkus-reactive-mutiny.md)
+- [Quarkus Native Image](quarkus/quarkus-native-image.md)
+- [Quarkus Extensions](quarkus/quarkus-extensions.md)
+- [Quarkus Virtual Threads](quarkus/quarkus-virtual-threads.md)
+
+### Cross-Framework
+
+- [Scheduling Beyond Spring](scheduling-beyond-spring.md)
