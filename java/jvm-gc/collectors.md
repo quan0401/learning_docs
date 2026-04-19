@@ -56,7 +56,7 @@ A common question: *which collector do I actually get if I don't set any flags?*
 | 14 | G1 (CMS removed) | [JEP 363](https://openjdk.org/jeps/363). |
 | 15 | G1 (ZGC GA, Shenandoah GA) | ZGC and Shenandoah leave experimental, but G1 stays default. |
 | 21 | G1 (Generational ZGC available) | [JEP 439](https://openjdk.org/jeps/439) adds generational ZGC behind `-XX:+ZGenerational`. |
-| 24 | G1 (Generational ZGC is *the* ZGC) | Non-generational mode deprecated for removal. |
+| 24 | G1 (Generational ZGC is *the* ZGC) | [JEP 490](https://openjdk.org/jeps/490) removed non-generational mode. |
 
 So for the last decade, if you haven't set a `-XX:+UseXxxGC` flag, you are running G1. On containers with one CPU and a tiny heap, the JVM **auto-switches to Serial** (a subtlety that bites people on lambdas and cron jobs — see [Serial GC](#serial-gc) below).
 
@@ -176,7 +176,7 @@ Original ZGC was **non-generational** — every cycle scanned the entire heap. F
 
 [JEP 439](https://openjdk.org/jeps/439) added Generational ZGC in JDK 21. Young and old are collected separately with different frequencies. Allocation rate headroom roughly doubles vs non-generational ZGC with the same hardware.
 
-As of JDK 24, non-generational ZGC is deprecated for removal — `-XX:+UseZGC` alone gives you Generational. On JDK 21 you need `-XX:+ZGenerational` explicitly.
+As of JDK 24, non-generational ZGC has been removed — `-XX:+UseZGC` alone gives you Generational ZGC. On JDK 21 you need `-XX:+ZGenerational` explicitly.
 
 ### Key ZGC Flags
 

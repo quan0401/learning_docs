@@ -129,7 +129,7 @@ sequenceDiagram
   end
 ```
 
-Google Cloud SDK, GitHub CLI, Azure CLI all use this. Spring Security 6.3+ supports it server-side.
+Google Cloud SDK, GitHub CLI, Azure CLI all use this. For building your own authorization server, Spring Authorization Server supports the device authorization grant.
 
 ---
 

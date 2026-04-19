@@ -82,7 +82,7 @@ For any production VT-heavy service, the flag set is:
 -XX:+UseZGC -XX:+ZGenerational
 ```
 
-Expect this to be the default starting JDK 24.
+This is the default behavior in JDK 24+.
 
 ---
 
