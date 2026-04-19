@@ -215,7 +215,7 @@ Two gotchas:
 
 ## Pagination — the hard part
 
-Reactive repositories do not return `Spring Data Page<T>`. They cannot, cleanly, because `Page` needs a total count and a content list returned together — and producing both requires running two queries and coordinating their results, which is awkward to express as a single `Mono`.
+Reactive repositories do not usually return `Spring Data Page<T>` directly. The awkward part is not that the count is inherently blocking, but that `Page` needs both the content and total-count metadata, which usually means running two queries and coordinating them into one response.
 
 You have three options.
 

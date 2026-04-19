@@ -346,7 +346,7 @@ The client passes sort via query parameters: `GET /movies?sort=year,desc&sort=na
 
 ## Reactive Pagination Patterns
 
-Reactive repositories (`ReactiveCrudRepository`, `ReactiveMongoRepository`) do not support `Page<T>` because the total count requires a separate blocking query that contradicts the non-blocking model. Three alternatives exist:
+Reactive repositories (`ReactiveCrudRepository`, `ReactiveMongoRepository`) do not typically expose a built-in reactive `Page<T>` return type. The practical issue is that page metadata usually needs a second query and explicit coordination, so reactive apps generally use one of these patterns instead:
 
 **1. Manual skip/limit with Flux operators:**
 

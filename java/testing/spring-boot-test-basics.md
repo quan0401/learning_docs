@@ -336,9 +336,9 @@ verify(moviesInfoServiceSpy).getMovieInfoById("abc");
 
 Use `@SpyBean` when you want the real behavior but need to verify interactions or override a single method.
 
-### Spring Boot 3.4+: @MockitoBean and @MockitoSpyBean
+### Spring Framework 6.2 / Spring Boot 3.4+: @MockitoBean and @MockitoSpyBean
 
-Starting with Spring Boot 3.4, new annotations `@MockitoBean` and `@MockitoSpyBean` are available as direct replacements:
+Starting with Spring Framework 6.2, and commonly encountered when upgrading to Spring Boot 3.4+, `@MockitoBean` and `@MockitoSpyBean` are available as direct replacements:
 
 ```java
 // Before (still works but deprecated path)

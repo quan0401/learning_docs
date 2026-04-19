@@ -179,7 +179,7 @@ Spring intercepts the method, runs it on the executor, and wires the result into
 
 ### ThreadPoolTaskExecutor Bean
 
-The default `SimpleAsyncTaskExecutor` creates a **new thread per invocation** — no pooling, no queue, no upper bound. This is unacceptable in production. Configure a pool:
+In plain Spring, `@Async` commonly falls back to `SimpleAsyncTaskExecutor`, which creates a **new thread per invocation** — no pooling, no queue, no upper bound. In modern Spring Boot, the auto-configured default is typically a `ThreadPoolTaskExecutor` unless virtual threads are enabled. Either way, you should understand and configure the executor explicitly for production:
 
 ```java
 @Configuration

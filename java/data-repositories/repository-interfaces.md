@@ -335,7 +335,7 @@ Spring Data supports a wide range of return types from query methods. Use the ty
 | Async (imperative) | `CompletableFuture<T>` | Runs query on a separate thread |
 | Void | `void`, `Mono<Void>` | Typically for delete operations |
 
-`Page<T>` includes total element count (triggers a count query). `Slice<T>` only knows if there is a next slice, avoiding the count overhead. Neither `Page` nor `Slice` is available in the reactive stack because a total count query would require a separate blocking operation that undermines the non-blocking model.
+`Page<T>` includes total element count (triggers a count query). `Slice<T>` only knows if there is a next slice, avoiding the count overhead. In reactive repositories, the common pattern is to return `Flux<T>` with a `Pageable` parameter or to assemble a `Page`-shaped response manually. The main limitation is not that counting is "blocking" by definition, but that page metadata typically requires an additional coordinated query and is not exposed as a built-in reactive wrapper in the common Spring Data reactive repository APIs.
 
 For reactive pagination, the typical pattern is cursor-based or keyset pagination, where the client passes the last seen ID and the repository returns the next N items via a derived query method like `findTop20ByIdGreaterThan(String lastId)`.
 
