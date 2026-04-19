@@ -216,6 +216,17 @@ After the core stack, these are what separate hobby projects from production sys
 
 ---
 
+## Tier 13 — Alternative JVM Frameworks
+
+Beyond Spring Boot: other approaches to microservices on the JVM. These docs assume you know Spring and compare against it.
+
+96. [Helidon Overview — Oracle's Lightweight Microservices Framework](helidon/helidon-overview.md) — SE vs MP, Nima, framework comparison, when to choose Helidon _(2026-04-19)_
+97. [Helidon SE — Functional, No-Magic Microservices on Virtual Threads](helidon/helidon-se.md) — WebServer API, Config, routing DSL, no CDI, Express.js parallels _(2026-04-19)_
+98. [Helidon MP — MicroProfile and Jakarta EE on a Lightweight Runtime](helidon/helidon-mp.md) — JAX-RS, CDI, MicroProfile specs, portability, Spring equivalences _(2026-04-19)_
+99. [Helidon Nima — Virtual-Thread-Native Web Server Architecture](helidon/nima-virtual-threads-architecture.md) — from-scratch VT server, blocking sockets, Tomcat/Netty comparison, reactive exit _(2026-04-19)_
+
+---
+
 ## Quick Reference by Topic
 
 If you need to look something up rather than learn linearly, here is the same content grouped by topic:
@@ -365,3 +376,10 @@ If you need to look something up rather than learn linearly, here is the same co
 - [WebClient DNS Resolver Fix](webclient-netty-dns-resolver-fix.md)
 - [Reactive Observability](reactive-observability.md)
 - [Advanced Reactive Topics](reactive-advanced-topics.md)
+
+### Helidon / Alternative Frameworks
+
+- [Helidon Overview](helidon/helidon-overview.md)
+- [Helidon SE](helidon/helidon-se.md)
+- [Helidon MP](helidon/helidon-mp.md)
+- [Helidon Nima Architecture](helidon/nima-virtual-threads-architecture.md)
