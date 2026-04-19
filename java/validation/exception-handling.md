@@ -51,7 +51,7 @@ tags: [spring-boot, exception-handling, error-handling, webflux, controller-advi
 
 ## Summary
 
-Spring provides centralized exception handling so that error-to-response mapping lives outside your business logic. In Spring MVC, `@ControllerAdvice` classes with `@ExceptionHandler` methods intercept exceptions thrown from any controller. In Spring WebFlux, the same annotation-based model works for annotated controllers, while functional endpoints use `ErrorWebExceptionHandler` or its abstract subclass. Spring 6+ adds RFC 7807 `ProblemDetail` support for structured error responses. The goal is always the same: a single place that translates domain exceptions into consistent, safe HTTP responses with proper status codes, no leaked stack traces, and enough detail for the client to act on.
+Spring provides centralized exception handling so that error-to-response mapping lives outside your business logic. In Spring MVC, `@ControllerAdvice` classes with `@ExceptionHandler` methods intercept exceptions thrown from any controller. In Spring WebFlux, the same annotation-based model works for annotated controllers, while functional endpoints use `ErrorWebExceptionHandler` or its abstract subclass. Spring 6+ adds RFC 9457 `ProblemDetail` support for structured error responses. The goal is always the same: a single place that translates domain exceptions into consistent, safe HTTP responses with proper status codes, no leaked stack traces, and enough detail for the client to act on.
 
 ---
 
@@ -477,9 +477,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 ---
 
-## RFC 7807 Problem Details
+## RFC 9457 Problem Details
 
-Spring 6+ (Spring Boot 3+) has first-class support for [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) structured error responses.
+Spring 6+ (Spring Boot 3+) has first-class support for [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457) structured error responses.
 
 ### ProblemDetail Class
 

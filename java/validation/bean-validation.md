@@ -1,14 +1,14 @@
 ---
-title: "Bean Validation (JSR 380) in Spring Boot"
+title: "Jakarta Validation in Spring Boot"
 date: 2026-04-17
 updated: 2026-04-17
-tags: [bean-validation, jsr-380, spring-boot, validation, webflux, constraints]
+tags: [jakarta-validation, bean-validation, spring-boot, validation, webflux, constraints]
 ---
 
-# Bean Validation (JSR 380) in Spring Boot
+# Jakarta Validation in Spring Boot
 
 **Date:** 2026-04-17 | **Updated:** 2026-04-17
-**Tags:** `bean-validation` `jsr-380` `spring-boot` `validation` `webflux` `constraints`
+**Tags:** `jakarta-validation` `bean-validation` `spring-boot` `validation` `webflux` `constraints`
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ tags: [bean-validation, jsr-380, spring-boot, validation, webflux, constraints]
 
 ## Summary
 
-Bean Validation (JSR 380, now Jakarta Validation) is a Java specification that defines a metadata model and API for validating Java objects using constraint annotations like `@NotNull`, `@Size`, and `@Email`. Spring Boot integrates it deeply: when you add the `spring-boot-starter-validation` dependency, Spring automatically wires Hibernate Validator as the default provider and hooks it into the controller layer, service layer, and functional endpoints. Annotating a `@RequestBody` parameter with `@Valid` triggers constraint evaluation before your handler code runs, and constraint violations propagate as exceptions that your global error handler can catch and translate into structured error responses.
+Jakarta Validation is the current Java validation specification for constraint-based object validation using annotations like `@NotNull`, `@Size`, and `@Email`. In Spring Boot 3+, this is the `jakarta.validation` API, with Hibernate Validator as the default provider. Annotating a `@RequestBody` parameter with `@Valid` triggers constraint evaluation before your handler code runs, and constraint violations propagate as exceptions that your global error handler can catch and translate into structured error responses.
 
 **Dependency (Maven):**
 

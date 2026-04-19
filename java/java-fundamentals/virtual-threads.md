@@ -246,7 +246,7 @@ What this does NOT automatically fix:
 
 - **JDBC drivers and connection pools** that use `synchronized` internally — on Java 21–23, check whether your driver (Postgres, MySQL, MongoDB sync driver) pins virtual threads. Most modern drivers are virtual-thread-aware by 2025.
 - **Your own code.** Audit any `synchronized` critical section that does I/O and migrate to `ReentrantLock` on Java 21–23.
-- **WebFlux endpoints.** WebFlux runs on Reactor Netty with a reactive event loop; virtual threads are an alternative, not an addition. See the comparison below.
+- **WebFlux endpoints.** Spring Boot uses Reactor Netty by default for WebFlux, but WebFlux itself is not limited to Netty. Virtual threads are an alternative to the reactive stack, not an addition to it. See the comparison below.
 
 ---
 

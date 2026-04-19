@@ -637,10 +637,10 @@ Keep the JDBC URL and R2DBC URL in sync (same host/db, different scheme).
 The JDBC datasource is only alive during startup migration; at runtime only
 the R2DBC pool is used.
 
-**Liquibase** does have R2DBC support
-(`liquibase-core` + `liquibase-r2dbc`), but coverage of changeset features
-still lags behind JDBC. Most teams stick with Flyway + JDBC at startup for
-simplicity.
+**Liquibase** is usually still run through JDBC-based workflows in Spring apps.
+If you choose Liquibase here, verify the exact integration path and feature
+coverage against the current Liquibase docs before standardizing on it.
+Most teams stick with Flyway + JDBC at startup for simplicity.
 
 ---
 
