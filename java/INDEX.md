@@ -69,7 +69,7 @@ Build HTTP endpoints, handle input, return responses, manage errors.
 33. [Thymeleaf and Server-Side Views](web-layer/thymeleaf-and-views.md) — `th:*` attributes, fragments, layouts, Spring integration, Security dialect _(2026-04-17)_
 34. [Session Management](web-layer/session-management.md) — `HttpSession`, `@SessionAttributes`, Spring Session + Redis, sticky vs externalized _(2026-04-17)_
 35. [Static Resources and i18n](web-layer/static-resources-and-i18n.md) — resource handlers, cache-busting, `MessageSource`, `LocaleResolver` _(2026-04-17)_
-35a. [Scaling Spring MVC Before Virtual Threads — Async Servlet, Tuning, and Resilience](web-layer/mvc-high-throughput.md) — `Callable`/`DeferredResult`/`CompletableFuture`, Tomcat tuning, HikariCP sizing, Resilience4j bulkheads _(2026-04-18)_
+36. [Scaling Spring MVC Before Virtual Threads — Async Servlet, Tuning, and Resilience](web-layer/mvc-high-throughput.md) — `Callable`/`DeferredResult`/`CompletableFuture`, Tomcat tuning, HikariCP sizing, Resilience4j bulkheads _(2026-04-18)_
 
 ---
 
@@ -77,8 +77,8 @@ Build HTTP endpoints, handle input, return responses, manage errors.
 
 Server push, streaming, and bidirectional channels for both MVC and WebFlux.
 
-36. [Server-Sent Events and HTTP Streaming](realtime/sse-and-streaming.md) — SSE in WebFlux + MVC, NDJSON, heartbeats, EventSource, proxy gotchas _(2026-04-18)_
-37. [WebSockets in Spring](realtime/websockets.md) — `WebSocketHandler` (WebFlux) + STOMP/`@MessageMapping` (MVC), security, backpressure _(2026-04-18)_
+37. [Server-Sent Events and HTTP Streaming](realtime/sse-and-streaming.md) — SSE in WebFlux + MVC, NDJSON, heartbeats, EventSource, proxy gotchas _(2026-04-18)_
+38. [WebSockets in Spring](realtime/websockets.md) — `WebSocketHandler` (WebFlux) + STOMP/`@MessageMapping` (MVC), security, backpressure _(2026-04-18)_
 
 ---
 
@@ -86,16 +86,16 @@ Server push, streaming, and bidirectional channels for both MVC and WebFlux.
 
 Talk to databases, manage transactions, optimize queries.
 
-38. [Spring Data Repository Interfaces — The Data Access Abstraction](data-repositories/repository-interfaces.md) — repository hierarchy, derived queries, projections _(2026-04-17)_
-39. [Queries, Pagination, and Advanced Spring Data Features](data-repositories/queries-and-pagination.md) — `@Query`, `Pageable`, Specifications, auditing, `@EntityGraph` _(2026-04-17)_
-40. [JPA Relationships](data-repositories/jpa-relationships.md) — `@OneToMany`/`@ManyToOne`/`@ManyToMany`, fetch strategies, N+1 problem, cascade types _(2026-04-17)_
-41. [Database Configuration in Spring Boot — MongoDB Reactive, R2DBC, and JPA](configurations/database-config.md) — connection pools, multiple datasources, driver selection _(2026-04-15)_
-42. [JPA Transactions in Spring Boot — With Reactive WebFlux Caveats](jpa-transactions.md) — `@Transactional`, propagation, isolation, self-invocation trap _(2026-04-16)_
-43. [JPA Transaction Propagation and Isolation](jpa-transaction-propagation.md) — all 7 propagation levels, 5 isolation levels, rollback rules, `TransactionTemplate`, reactive caveat _(2026-04-17)_
-44. [Cache Configuration in Spring Boot — Caffeine, Redis, and Reactive Caching](configurations/cache-config.md) — `@Cacheable`, cache managers, eviction strategies _(2026-04-15)_
-45. [R2DBC Deep Dive — Reactive SQL in Spring WebFlux](data-repositories/r2dbc-deep-dive.md) — `DatabaseClient`, `R2dbcRepository`, drivers, pooling, migrations _(2026-04-18)_
-46. [Building a Reactive Data Layer](data-repositories/reactive-data-layer.md) — mixing Mongo + R2DBC + Redis, pagination, auditing, decision guide _(2026-04-18)_
-47. [Reactive Transactions](data-repositories/reactive-transactions.md) — `TransactionalOperator`, `@Transactional` on `Mono`/`Flux`, rollback semantics _(2026-04-18)_
+39. [Spring Data Repository Interfaces — The Data Access Abstraction](data-repositories/repository-interfaces.md) — repository hierarchy, derived queries, projections _(2026-04-17)_
+40. [Queries, Pagination, and Advanced Spring Data Features](data-repositories/queries-and-pagination.md) — `@Query`, `Pageable`, Specifications, auditing, `@EntityGraph` _(2026-04-17)_
+41. [JPA Relationships](data-repositories/jpa-relationships.md) — `@OneToMany`/`@ManyToOne`/`@ManyToMany`, fetch strategies, N+1 problem, cascade types _(2026-04-17)_
+42. [Database Configuration in Spring Boot — MongoDB Reactive, R2DBC, and JPA](configurations/database-config.md) — connection pools, multiple datasources, driver selection _(2026-04-15)_
+43. [JPA Transactions in Spring Boot — With Reactive WebFlux Caveats](jpa-transactions.md) — `@Transactional`, propagation, isolation, self-invocation trap _(2026-04-16)_
+44. [JPA Transaction Propagation and Isolation](jpa-transaction-propagation.md) — all 7 propagation levels, 5 isolation levels, rollback rules, `TransactionTemplate`, reactive caveat _(2026-04-17)_
+45. [Cache Configuration in Spring Boot — Caffeine, Redis, and Reactive Caching](configurations/cache-config.md) — `@Cacheable`, cache managers, eviction strategies _(2026-04-15)_
+46. [R2DBC Deep Dive — Reactive SQL in Spring WebFlux](data-repositories/r2dbc-deep-dive.md) — `DatabaseClient`, `R2dbcRepository`, drivers, pooling, migrations _(2026-04-18)_
+47. [Building a Reactive Data Layer](data-repositories/reactive-data-layer.md) — mixing Mongo + R2DBC + Redis, pagination, auditing, decision guide _(2026-04-18)_
+48. [Reactive Transactions](data-repositories/reactive-transactions.md) — `TransactionalOperator`, `@Transactional` on `Mono`/`Flux`, rollback semantics _(2026-04-18)_
 
 ---
 
@@ -103,9 +103,9 @@ Talk to databases, manage transactions, optimize queries.
 
 Protect the application: who is the caller, and what can they do?
 
-48. [Spring Security Architecture — The Filter Chain](security/security-filter-chain.md) — `SecurityFilterChain`, CSRF, CORS, security headers _(2026-04-17)_
-49. [Authentication and Authorization in Spring Security](security/authentication-authorization.md) — `UserDetailsService`, `@PreAuthorize`, role hierarchy, session management _(2026-04-17)_
-50. [OAuth2 and JWT in Spring Security — Resource Server, Client, and Token Handling](security/oauth2-jwt.md) — JWT validation, OAuth2 Resource Server, Client Credentials, testing _(2026-04-17)_
+49. [Spring Security Architecture — The Filter Chain](security/security-filter-chain.md) — `SecurityFilterChain`, CSRF, CORS, security headers _(2026-04-17)_
+50. [Authentication and Authorization in Spring Security](security/authentication-authorization.md) — `UserDetailsService`, `@PreAuthorize`, role hierarchy, session management _(2026-04-17)_
+51. [OAuth2 and JWT in Spring Security — Resource Server, Client, and Token Handling](security/oauth2-jwt.md) — JWT validation, OAuth2 Resource Server, Client Credentials, testing _(2026-04-17)_
 
 ---
 
@@ -113,9 +113,9 @@ Protect the application: who is the caller, and what can they do?
 
 Verify correctness at every layer.
 
-51. [Spring Boot Testing Fundamentals — @SpringBootTest, Test Slices, and Mocking](testing/spring-boot-test-basics.md) — `@SpringBootTest`, `@WebFluxTest`, `@MockBean`, Mockito, StepVerifier _(2026-04-17)_
-52. [Web Layer Testing — WebTestClient, MockMvc, and Endpoint Verification](testing/web-layer-testing.md) — `WebTestClient` fluent API, `MockMvc`, streaming tests _(2026-04-17)_
-53. [Testcontainers — Integration Testing with Real Infrastructure](testing/testcontainers.md) — Docker containers for MongoDB, PostgreSQL, CI integration _(2026-04-17)_
+52. [Spring Boot Testing Fundamentals — @SpringBootTest, Test Slices, and Mocking](testing/spring-boot-test-basics.md) — `@SpringBootTest`, `@WebFluxTest`, `@MockBean`, Mockito, StepVerifier _(2026-04-17)_
+53. [Web Layer Testing — WebTestClient, MockMvc, and Endpoint Verification](testing/web-layer-testing.md) — `WebTestClient` fluent API, `MockMvc`, streaming tests _(2026-04-17)_
+54. [Testcontainers — Integration Testing with Real Infrastructure](testing/testcontainers.md) — Docker containers for MongoDB, PostgreSQL, CI integration _(2026-04-17)_
 
 ---
 
@@ -123,9 +123,9 @@ Verify correctness at every layer.
 
 Decouple components, run work in the background, schedule recurring tasks.
 
-54. [Spring Application Events — Publishing, Listening, and Event-Driven Patterns](events-async/application-events.md) — `@EventListener`, `@TransactionalEventListener`, event-driven design _(2026-04-17)_
-55. [Async Processing in Spring — @Async, Executors, and Background Tasks](events-async/async-processing.md) — `@Async`, custom executors, virtual threads, self-invocation trap _(2026-04-17)_
-56. [Task Scheduling in Spring — @Scheduled, Cron Expressions, and Distributed Scheduling](events-async/scheduling.md) — `@Scheduled`, cron syntax, ShedLock, Quartz _(2026-04-17)_
+55. [Spring Application Events — Publishing, Listening, and Event-Driven Patterns](events-async/application-events.md) — `@EventListener`, `@TransactionalEventListener`, event-driven design _(2026-04-17)_
+56. [Async Processing in Spring — @Async, Executors, and Background Tasks](events-async/async-processing.md) — `@Async`, custom executors, virtual threads, self-invocation trap _(2026-04-17)_
+57. [Task Scheduling in Spring — @Scheduled, Cron Expressions, and Distributed Scheduling](events-async/scheduling.md) — `@Scheduled`, cron syntax, ShedLock, Quartz _(2026-04-17)_
 
 ---
 
@@ -133,8 +133,8 @@ Decouple components, run work in the background, schedule recurring tasks.
 
 Patterns that apply everywhere: logging, observability, correlation.
 
-57. [Logging in Java and Spring Boot](logging.md) — SLF4J/Logback architecture, MDC, structured JSON logs, reactive MDC propagation, anti-patterns _(2026-04-17)_
-58. [Actuator Deep Dive](actuator-deep-dive.md) — custom `HealthIndicator`, Micrometer metrics, custom `@Endpoint`, K8s probes, securing endpoints _(2026-04-17)_
+58. [Logging in Java and Spring Boot](logging.md) — SLF4J/Logback architecture, MDC, structured JSON logs, reactive MDC propagation, anti-patterns _(2026-04-17)_
+59. [Actuator Deep Dive](actuator-deep-dive.md) — custom `HealthIndicator`, Micrometer metrics, custom `@Endpoint`, K8s probes, securing endpoints _(2026-04-17)_
 
 ---
 
@@ -142,9 +142,9 @@ Patterns that apply everywhere: logging, observability, correlation.
 
 Move beyond in-process events to message brokers and distributed event flows.
 
-59. [Event-Driven Patterns](messaging/event-driven-patterns.md) — event sourcing, CQRS, outbox, saga, idempotency, DLQ, broker-agnostic _(2026-04-17)_
-60. [Reactive Kafka (reactor-kafka)](messaging/reactive-kafka.md) — `KafkaSender`/`KafkaReceiver`, backpressure, offset management, EOS _(2026-04-17)_
-61. [Spring for Apache Kafka](messaging/spring-kafka.md) — `@KafkaListener`, `KafkaTemplate`, `@RetryableTopic`, DLT handling _(2026-04-17)_
+60. [Event-Driven Patterns](messaging/event-driven-patterns.md) — event sourcing, CQRS, outbox, saga, idempotency, DLQ, broker-agnostic _(2026-04-17)_
+61. [Reactive Kafka (reactor-kafka)](messaging/reactive-kafka.md) — `KafkaSender`/`KafkaReceiver`, backpressure, offset management, EOS _(2026-04-17)_
+62. [Spring for Apache Kafka](messaging/spring-kafka.md) — `@KafkaListener`, `KafkaTemplate`, `@RetryableTopic`, DLT handling _(2026-04-17)_
 
 ---
 
@@ -152,16 +152,16 @@ Move beyond in-process events to message brokers and distributed event flows.
 
 Non-blocking, back-pressured, event-loop-based web stack. Learn this last — it reuses everything above but with reactive types.
 
-62. [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — comprehensive guide to `Mono`, `Flux`, operators, and WebFlux fundamentals _(2026-04-14)_
-63. [Reactor Operator Catalog](reactive/operator-catalog.md) — 40+ operators by category: creating, transforming, filtering, combining, aggregating, time-based _(2026-04-17)_
-64. [Synchronous vs Asynchronous Transformation in Project Reactor](sync-vs-async-transformation.md) — `map` vs `flatMap`, when each is appropriate _(2026-04-16)_
-65. [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — `publishOn` vs `subscribeOn`, `parallel`/`boundedElastic`/`single`, virtual threads, BlockHound _(2026-04-17)_
-66. [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — how to isolate blocking code inside reactive pipelines _(2026-04-14)_
-67. [WebClient Configuration in Spring WebFlux](configurations/webclient-config.md) — reactive HTTP client, timeouts, connection pool, filters _(2026-04-15)_
-68. [Server and HTTP Configuration in Spring WebFlux](configurations/server-http-config.md) — Reactor Netty server tuning, compression, HTTP/2 _(2026-04-15)_
-69. [Fixing WebClient DNS Resolution Failures — Netty vs JDK Resolver](webclient-netty-dns-resolver-fix.md) — production-grade DNS resolver fix _(2026-04-16)_
-70. [Reactive Observability — Tracing, Logging, Metrics, and Health in Spring WebFlux](reactive-observability.md) — Micrometer, distributed tracing, structured logging _(2026-04-15)_
-71. [Advanced Reactive Programming in Java — Beyond the Basics](reactive-advanced-topics.md) — backpressure, schedulers, context propagation, error recovery _(2026-04-15)_
+63. [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — comprehensive guide to `Mono`, `Flux`, operators, and WebFlux fundamentals _(2026-04-14)_
+64. [Reactor Operator Catalog](reactive/operator-catalog.md) — 40+ operators by category: creating, transforming, filtering, combining, aggregating, time-based _(2026-04-17)_
+65. [Synchronous vs Asynchronous Transformation in Project Reactor](sync-vs-async-transformation.md) — `map` vs `flatMap`, when each is appropriate _(2026-04-16)_
+66. [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — `publishOn` vs `subscribeOn`, `parallel`/`boundedElastic`/`single`, virtual threads, BlockHound _(2026-04-17)_
+67. [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — how to isolate blocking code inside reactive pipelines _(2026-04-14)_
+68. [WebClient Configuration in Spring WebFlux](configurations/webclient-config.md) — reactive HTTP client, timeouts, connection pool, filters _(2026-04-15)_
+69. [Server and HTTP Configuration in Spring WebFlux](configurations/server-http-config.md) — Reactor Netty server tuning, compression, HTTP/2 _(2026-04-15)_
+70. [Fixing WebClient DNS Resolution Failures — Netty vs JDK Resolver](webclient-netty-dns-resolver-fix.md) — production-grade DNS resolver fix _(2026-04-16)_
+71. [Reactive Observability — Tracing, Logging, Metrics, and Health in Spring WebFlux](reactive-observability.md) — Micrometer, distributed tracing, structured logging _(2026-04-15)_
+72. [Advanced Reactive Programming in Java — Beyond the Basics](reactive-advanced-topics.md) — backpressure, schedulers, context propagation, error recovery _(2026-04-15)_
 
 ---
 
@@ -169,7 +169,7 @@ Non-blocking, back-pressured, event-loop-based web stack. Learn this last — it
 
 How to structure and reason about Spring Boot codebases.
 
-72. [Project Structure and Architecture](architecture/project-structure.md) — layered vs package-by-feature vs hexagonal, clean architecture, anti-patterns _(2026-04-17)_
+73. [Project Structure and Architecture](architecture/project-structure.md) — layered vs package-by-feature vs hexagonal, clean architecture, anti-patterns _(2026-04-17)_
 
 ---
 
@@ -177,10 +177,10 @@ How to structure and reason about Spring Boot codebases.
 
 Advanced performance topics. Read after you're comfortable with everything above and need to tune pauses, throughput, or memory in production.
 
-73. [JVM Garbage Collection — Concepts and Mental Model](jvm-gc/concepts.md) — heap layout, generational hypothesis, marking, safepoints, barriers _(2026-04-18)_
-74. [JVM Garbage Collectors — Serial, Parallel, CMS, G1, ZGC, Shenandoah](jvm-gc/collectors.md) — which is default per JDK, decision tree, concrete flag recipes _(2026-04-18)_
-75. [GC Pause Diagnosis Playbook](jvm-gc/pause-diagnosis.md) — `-Xlog:gc*`, JFR, async-profiler, heap dumps, pathology cookbook _(2026-04-18)_
-76. [GC Impact on Reactive, Virtual Threads, and Streaming](jvm-gc/reactive-impact.md) — Reactor allocation, SSE p99, Netty direct memory, VT + Generational ZGC _(2026-04-18)_
+74. [JVM Garbage Collection — Concepts and Mental Model](jvm-gc/concepts.md) — heap layout, generational hypothesis, marking, safepoints, barriers _(2026-04-18)_
+75. [JVM Garbage Collectors — Serial, Parallel, CMS, G1, ZGC, Shenandoah](jvm-gc/collectors.md) — which is default per JDK, decision tree, concrete flag recipes _(2026-04-18)_
+76. [GC Pause Diagnosis Playbook](jvm-gc/pause-diagnosis.md) — `-Xlog:gc*`, JFR, async-profiler, heap dumps, pathology cookbook _(2026-04-18)_
+77. [GC Impact on Reactive, Virtual Threads, and Streaming](jvm-gc/reactive-impact.md) — Reactor allocation, SSE p99, Netty direct memory, VT + Generational ZGC _(2026-04-18)_
 
 ---
 
@@ -188,9 +188,9 @@ Advanced performance topics. Read after you're comfortable with everything above
 
 Build schema-driven APIs that scale across teams, services, and databases. Read after you're comfortable with REST + WebFlux and know why you need federation.
 
-77. [GraphQL Federation Concepts — Subgraphs, Gateway, and the Apollo Spec](graphql/federation-concepts.md) — `@key`, `@external`, `@requires`, `@provides`, v1 vs v2, composition, router, registry _(2026-04-18)_
-78. [Netflix DGS vs Spring for GraphQL — Building Java Subgraphs](graphql/dgs-and-spring-graphql.md) — library comparison, resolvers, entity fetchers, DataLoader, federation setup, testing _(2026-04-18)_
-79. [Federated GraphQL with Polyglot Persistence — DB-per-Subgraph, Saga, Outbox, Query Planning](graphql/multi-database-patterns.md) — cross-subgraph writes, caching, N+1, tracing, deployment _(2026-04-18)_
+78. [GraphQL Federation Concepts — Subgraphs, Gateway, and the Apollo Spec](graphql/federation-concepts.md) — `@key`, `@external`, `@requires`, `@provides`, v1 vs v2, composition, router, registry _(2026-04-18)_
+79. [Netflix DGS vs Spring for GraphQL — Building Java Subgraphs](graphql/dgs-and-spring-graphql.md) — library comparison, resolvers, entity fetchers, DataLoader, federation setup, testing _(2026-04-18)_
+80. [Federated GraphQL with Polyglot Persistence — DB-per-Subgraph, Saga, Outbox, Query Planning](graphql/multi-database-patterns.md) — cross-subgraph writes, caching, N+1, tracing, deployment _(2026-04-18)_
 
 ---
 
