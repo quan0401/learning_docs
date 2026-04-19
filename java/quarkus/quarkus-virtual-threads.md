@@ -18,6 +18,7 @@ tags: [quarkus, virtual-threads, vertx, concurrency, java]
 - [Supported Extensions](#supported-extensions)
 - [Code Examples](#code-examples)
   - [REST Endpoints](#rest-endpoints)
+  - [Bridging Reactive APIs with uni.await()](#bridging-reactive-apis-with-uniawait)
   - [Kafka Consumers](#kafka-consumers)
   - [Scheduled Jobs](#scheduled-jobs)
 - [Virtual Threads vs Mutiny — Complementary, Not Competing](#virtual-threads-vs-mutiny--complementary-not-competing)
@@ -147,6 +148,51 @@ public class UserResource {
 }
 ```
 
+### Bridging Reactive APIs with uni.await()
+
+This is the key pattern that makes virtual threads and reactive **work together** in Quarkus. Any API returning `Uni<T>` can be consumed from a virtual thread via `uni.await().atMost(...)`:
+
+```java
+@GET
+@RunOnVirtualThread
+public List<Fruit> list() {
+    // Call the reactive Hibernate Panache API from a virtual thread
+    // .await() blocks the virtual thread (NOT the carrier thread)
+    // .atMost() adds a non-blocking timeout for free
+    return Fruit.<Fruit>listAll()
+        .await().atMost(Duration.ofSeconds(5));
+}
+
+@GET
+@Path("/{id}")
+@RunOnVirtualThread
+public Fruit get(@PathParam("id") Long id) {
+    // Reactive find + timeout — sequential blocking code
+    Fruit fruit = Fruit.<Fruit>findById(id)
+        .await().atMost(Duration.ofSeconds(2));
+    if (fruit == null) throw new NotFoundException();
+    return fruit;
+}
+
+@POST
+@RunOnVirtualThread
+public Response create(Fruit fruit) {
+    // Reactive transaction from a virtual thread
+    Panache.withTransaction(fruit::persist)
+        .await().atMost(Duration.ofSeconds(5));
+    return Response.status(Status.CREATED).entity(fruit).build();
+}
+```
+
+Why this matters:
+
+- **Use the reactive data clients** (Hibernate Reactive, reactive PG client) which are more optimized in Quarkus — they're non-blocking under the hood
+- **Write sequential blocking-style code** — no `onItem().transform()` chains, just `await()` and proceed
+- **Free timeout support** — `.atMost(Duration)` throws `TimeoutException` if the `Uni` doesn't complete in time, without needing `@Timeout` from Fault Tolerance
+- **The virtual thread unmounts** during the await — the carrier thread serves other virtual threads in the meantime
+
+This pattern eliminates the main friction point: you don't have to choose between "reactive APIs with good Quarkus integration" and "simple blocking code on virtual threads." You get both.
+
 ### Kafka Consumers
 
 ```java
@@ -268,9 +314,11 @@ CPU-bound computations that never block I/O will occupy a carrier thread indefin
 
 Libraries like Jackson and Netty use `ThreadLocal` for object pooling (reusing buffers across requests handled by the same thread). With virtual threads, each request gets a new thread, so pooled objects are never reused — increasing allocation and GC pressure.
 
-### 3. No Default Opt-In (Yet)
+### 3. No Global Opt-In (Yet)
 
 As of Quarkus 3.x, `@RunOnVirtualThread` must be applied per-method. There is no global config flag equivalent to Spring Boot's `spring.threads.virtual.enabled=true`. A [GitHub issue](https://github.com/quarkusio/quarkus/issues/51031) tracks adding default virtual thread mode for JDK 24+.
+
+> **Clarification on `quarkus.virtual-threads.enabled`**: This property exists but is a **disable flag**, not an opt-in. It defaults to `true` (virtual threads are available). Setting it to `false` forces all `@RunOnVirtualThread`-annotated methods to execute on the worker thread pool instead. It does **not** enable virtual threads globally for all endpoints — you still need the annotation per method. Some third-party tutorials incorrectly describe this as a global opt-in.
 
 ---
 
