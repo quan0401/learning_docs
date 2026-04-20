@@ -18,7 +18,8 @@ tags: [quarkus, virtual-threads, vertx, concurrency, java]
 - [Supported Extensions](#supported-extensions)
 - [Code Examples](#code-examples)
   - [REST Endpoints](#rest-endpoints)
-  - [Bridging Reactive APIs with uni.await()](#bridging-reactive-apis-with-uniawait)
+  - [Recommended Stack: Classic/Blocking Extensions](#recommended-stack-classicblocking-extensions)
+  - [Bridging Reactive APIs with uni.await() (Migration Pattern)](#bridging-reactive-apis-with-uniawait-migration-pattern)
   - [Kafka Consumers](#kafka-consumers)
   - [Scheduled Jobs](#scheduled-jobs)
 - [Virtual Threads vs Mutiny — Complementary, Not Competing](#virtual-threads-vs-mutiny--complementary-not-competing)
@@ -148,50 +149,76 @@ public class UserResource {
 }
 ```
 
-### Bridging Reactive APIs with uni.await()
+### Recommended Stack: Classic/Blocking Extensions
 
-This is the key pattern that makes virtual threads and reactive **work together** in Quarkus. Any API returning `Uni<T>` can be consumed from a virtual thread via `uni.await().atMost(...)`:
+The [official Quarkus virtual threads guide](https://quarkus.io/guides/virtual-threads) explicitly recommends using the **classic (blocking) extensions** with virtual threads, not the reactive variants:
+
+> Use the "classic" variant of the Quarkus extensions. If you use virtual threads, you don't need the reactive variants. Use `quarkus-hibernate-orm-panache` instead of `quarkus-hibernate-reactive-panache`.
+
+The reasoning: virtual threads already handle blocking I/O efficiently — the JVM unmounts the VT from the carrier when it blocks on JDBC. Adding Hibernate Reactive on top doesn't gain anything; it adds reactive layer complexity for no benefit.
 
 ```java
+// Recommended: blocking Hibernate ORM + Panache on a virtual thread
 @GET
 @RunOnVirtualThread
 public List<Fruit> list() {
-    // Call the reactive Hibernate Panache API from a virtual thread
-    // .await() blocks the virtual thread (NOT the carrier thread)
-    // .atMost() adds a non-blocking timeout for free
-    return Fruit.<Fruit>listAll()
-        .await().atMost(Duration.ofSeconds(5));
+    return Fruit.listAll();  // blocking JDBC — fine on a VT
 }
 
 @GET
 @Path("/{id}")
 @RunOnVirtualThread
 public Fruit get(@PathParam("id") Long id) {
-    // Reactive find + timeout — sequential blocking code
-    Fruit fruit = Fruit.<Fruit>findById(id)
-        .await().atMost(Duration.ofSeconds(2));
+    Fruit fruit = Fruit.findById(id);
     if (fruit == null) throw new NotFoundException();
     return fruit;
 }
 
 @POST
+@Transactional
 @RunOnVirtualThread
 public Response create(Fruit fruit) {
-    // Reactive transaction from a virtual thread
-    Panache.withTransaction(fruit::persist)
-        .await().atMost(Duration.ofSeconds(5));
+    fruit.persist();
     return Response.status(Status.CREATED).entity(fruit).build();
 }
 ```
 
-Why this matters:
+Dependencies for this approach:
 
-- **Use the reactive data clients** (Hibernate Reactive, reactive PG client) which are more optimized in Quarkus — they're non-blocking under the hood
-- **Write sequential blocking-style code** — no `onItem().transform()` chains, just `await()` and proceed
-- **Free timeout support** — `.atMost(Duration)` throws `TimeoutException` if the `Uni` doesn't complete in time, without needing `@Timeout` from Fault Tolerance
-- **The virtual thread unmounts** during the await — the carrier thread serves other virtual threads in the meantime
+```xml
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-hibernate-orm-panache</artifactId>  <!-- NOT reactive -->
+</dependency>
+<dependency>
+    <groupId>io.quarkus</groupId>
+    <artifactId>quarkus-jdbc-postgresql</artifactId>  <!-- NOT reactive-pg-client -->
+</dependency>
+```
 
-This pattern eliminates the main friction point: you don't have to choose between "reactive APIs with good Quarkus integration" and "simple blocking code on virtual threads." You get both.
+### Bridging Reactive APIs with uni.await() (Migration Pattern)
+
+If you have an **existing reactive codebase** or need to consume a reactive API from a virtual thread, `uni.await().atMost(...)` is the bridge:
+
+```java
+@GET
+@RunOnVirtualThread
+public List<Fruit> list() {
+    // Consuming a reactive API from a virtual thread
+    // .await() blocks the VT (not the carrier)
+    // .atMost() adds a non-blocking timeout for free
+    return reactiveService.fetchFruits()
+        .await().atMost(Duration.ofSeconds(5));
+}
+```
+
+This pattern is useful for:
+
+- **Migrating** a reactive Quarkus app toward virtual threads incrementally
+- **Consuming reactive APIs** (e.g., reactive REST client, reactive messaging) from VT handlers
+- **Timeout support** — `.atMost(Duration)` throws `TimeoutException` without needing `@Timeout` from Fault Tolerance
+
+But for **new projects**, start with the classic blocking extensions — simpler, recommended by Quarkus, and equally efficient on virtual threads.
 
 ### Kafka Consumers
 
