@@ -113,7 +113,7 @@ A few things worth noting:
 
 1. **Lazy parsing.** V8 does not parse your entire file eagerly. Functions that are declared but not immediately called get "pre-parsed" (syntax-checked but no AST generated). The full parse happens on first invocation. This is why large bundles with lots of unused code still have a cost -- even pre-parsing is not free.
 
-2. **No intermediate tier.** HotSpot has C1 (quick, lightly optimized) *and* C2 (slow, heavily optimized). V8 used to have a middle tier called Sparkplug (a non-optimizing compiler that converts bytecode to machine code without optimization). Sparkplug still exists for faster baseline performance, but the main optimization path is Ignition -> TurboFan. There is also Maglev (a mid-tier optimizing compiler added in 2023) that sits between Ignition and TurboFan for faster, simpler optimizations.
+2. **V8 now has multiple execution tiers.** HotSpot has C1 (quick, lightly optimized) *and* C2 (slow, heavily optimized). Modern V8 similarly has more than just Ignition and TurboFan: Sparkplug is a fast non-optimizing compiler that turns bytecode into machine code quickly, and Maglev is a mid-tier optimizing compiler that sits between Sparkplug and TurboFan. The exact path a function takes depends on V8's heuristics and version, but the mental model is: interpret first, baseline compile quickly, then optimize hot code more aggressively.
 
 3. **TypeScript is invisible here.** `tsc` compiles TS to JS. V8 never sees your type annotations. The types you write in TypeScript *do not help V8 optimize*. V8 discovers types on its own through runtime feedback.
 

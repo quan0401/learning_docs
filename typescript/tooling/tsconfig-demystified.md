@@ -63,7 +63,7 @@ This doc explains every flag you are likely to encounter in a Node.js backend pr
 
 ## The `strict` Family
 
-The `"strict": true` flag is a meta-flag that enables a collection of individual checks. As of TypeScript 5.x, it enables all of the following. Each can be toggled independently.
+The `"strict": true` flag is a meta-flag that enables a collection of individual checks. As of modern TypeScript 5.x releases, it enables all of the following. Each can be toggled independently.
 
 ```jsonc
 // These two configs are equivalent:
@@ -76,6 +76,7 @@ The `"strict": true` flag is a meta-flag that enables a collection of individual
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "strictPropertyInitialization": true,
+    "strictBuiltinIteratorReturn": true,
     "noImplicitThis": true,
     "alwaysStrict": true,
     "useUnknownInCatchVariables": true
@@ -156,16 +157,16 @@ app.get("/users", (req: Request, res: Response) => {
 type Handler = (event: MouseEvent) => void;
 
 // strictFunctionTypes: false — compiles (UNSOUND)
-const handler: Handler = (event: Event) => {
-  console.log(event.clientX); // Runtime error: clientX doesn't exist on Event
+const handler: (event: Event) => void = (event: MouseEvent) => {
+  console.log(event.clientX); // Runtime error if called with a plain Event
 };
 
 // strictFunctionTypes: true — compile error
-// Type '(event: Event) => void' is not assignable to type 'Handler'.
+// Type '(event: MouseEvent) => void' is not assignable to type '(event: Event) => void'.
 //   Types of parameters 'event' and 'event' are incompatible.
 ```
 
-**Java parallel:** Java generics already enforce this via bounded wildcards. `Consumer<Event>` is not assignable to `Consumer<MouseEvent>` because `Consumer` is contravariant in its type parameter.
+**Java parallel:** Java generics already enforce this via bounded wildcards. `Consumer<MouseEvent>` is not assignable to `Consumer<Event>` because a consumer of only `MouseEvent` is too specific to safely stand in for a consumer of any `Event`.
 
 **What breaks when you enable it:** Libraries that use broad event handlers, middleware chains that widen parameter types.
 

@@ -2,7 +2,7 @@
 
 > Not the "setTimeout goes to the callback queue" blog-post version — the actual libuv implementation that determines execution order in Node.js.
 
-Node.js delegates I/O to libuv, a C library that provides an event loop with **six distinct phases**. Each phase has a FIFO queue of callbacks. When the loop enters a phase, it drains that queue (up to a system-dependent limit), then moves to the next phase. Between every phase transition, Node drains two special queues: `process.nextTick` and microtasks.
+Node.js delegates I/O to libuv, a C library that provides an event loop with **six distinct phases**. Each phase has a FIFO queue of callbacks. When the loop enters a phase, it drains that queue (up to a system-dependent limit), then moves to the next phase. Separately from those six phases, Node also drains the `process.nextTick` queue and then the microtask queue at callback boundaries.
 
 ---
 
@@ -29,10 +29,9 @@ Node.js delegates I/O to libuv, a C library that provides an event loop with **s
 │  │     close callbacks        │  socket.on('close'), etc.
 │  └─────────────┬─────────────┘
 │                │
-│  ┌─────────────▼─────────────┐
-│  │  nextTick + microtask      │  Drained between EVERY phase transition
-│  │  queues                    │
-│  └─────────────┬─────────────┘
+│                │
+│       after callbacks: drain `nextTick`,
+│       then drain microtasks
 │                │
 └────────────────┘
 ```

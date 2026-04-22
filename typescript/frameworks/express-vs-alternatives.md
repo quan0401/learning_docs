@@ -236,11 +236,11 @@ const user = await res.json(); // typed as { id: string; name: string; ... }
 
 ---
 
-## 5. Elysia — Bun-Native, Best-in-Class Type Safety
+## 5. Elysia — Bun-First, Strong End-to-End Type Safety
 
 ### Mental Model
 
-Elysia is **Bun-only**. It does not run on Node.js. If your deployment must be Node, stop here.
+Elysia is **Bun-first**, but it is no longer Bun-only. Its sweet spot is still Bun, where you get the tightest integration and strongest performance story, but there is also an official Node.js adapter if your deployment target is Node.
 
 Elysia achieves end-to-end type safety through **function composition** — no decorators, no code generation, no separate schema declaration step. The `t.Object()` schema simultaneously validates at runtime AND infers TypeScript types. Eden Treaty generates a fully typed client from the server definition.
 
@@ -301,8 +301,8 @@ if (data) {
 
 - **Single declaration = runtime validation + TypeScript types.** `t.Object()` is both a validator and a type definition. No `z.infer<>`, no `Static<typeof>`, no separate interface.
 - **Function composition over middleware.** Plugins compose via `.use()` chaining. Each plugin's types propagate through the chain.
-- **Fastest of the four.** Bun's HTTP server plus Elysia's compile-time route optimization.
-- **Trade-off: Bun lock-in.** You cannot deploy Elysia on Node.js. Your CI, your Docker images, your hosting — all must support Bun.
+- **Fastest when you lean into Bun.** Bun's HTTP server plus Elysia's compile-time route optimization make it especially compelling on Bun-native stacks.
+- **Trade-off: Bun is still the primary ecosystem.** You can deploy Elysia on Node.js with the official adapter, but many examples, plugins, and performance claims assume Bun first.
 
 ---
 
