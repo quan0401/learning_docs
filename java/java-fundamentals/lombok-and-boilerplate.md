@@ -48,9 +48,9 @@ Lombok plugs into `javac` via the standard Java annotation processor API. During
 
 ```mermaid
 flowchart LR
-    A[User.java<br/>@Data class User] --> B[javac]
-    B --> C[Lombok<br/>annotation processor]
-    C --> D[User.class<br/>with getters,<br/>setters, equals,<br/>hashCode, toString]
+    A["User.java<br/>#64;Data class User"] --> B[javac]
+    B --> C["Lombok<br/>annotation processor"]
+    C --> D["User.class<br/>with getters,<br/>setters, equals,<br/>hashCode, toString"]
     E[IDE plugin] -. reveals .-> D
     E -. autocomplete .-> A
 ```
@@ -375,11 +375,11 @@ flowchart TD
     A[Need a new class] --> B{Immutable<br/>data holder?}
     B -- yes --> C{Need inheritance<br/>or Builder?}
     C -- no --> D[record]
-    C -- yes --> E[@Value / @Value + @SuperBuilder]
+    C -- yes --> E["#64;Value + #64;SuperBuilder"]
     B -- no --> F{Spring<br/>bean?}
-    F -- yes --> G[@RequiredArgsConstructor<br/>+ @Service/@Component]
+    F -- yes --> G["#64;RequiredArgsConstructor<br/>+ #64;Service / #64;Component"]
     F -- no --> H{Mutable<br/>POJO?}
-    H -- yes --> I[@Data or plain class]
+    H -- yes --> I["#64;Data or plain class"]
     H -- no --> J[Hand-written class]
 ```
 

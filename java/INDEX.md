@@ -22,6 +22,10 @@ Skip this tier if you already write Java daily. Otherwise, these docs give you t
 8. [Date and Time API (java.time)](java-fundamentals/date-and-time-api.md) — `Instant`, `LocalDateTime`, `ZonedDateTime`, `Duration`, formatting, timezones, Jackson integration _(2026-04-17)_
 9. [Lombok and Boilerplate Reduction](java-fundamentals/lombok-and-boilerplate.md) — `@Data`, `@Builder`, `@RequiredArgsConstructor`, `@Slf4j`, records vs Lombok _(2026-04-17)_
 10. [Common Design Patterns in Java](java-fundamentals/common-design-patterns.md) — Builder, Factory, Strategy, Proxy, Template Method, Observer — with Spring examples _(2026-04-17)_
+    - [Creational Patterns Deep Dive](design-patterns/creational-patterns.md) — Step Builder, Abstract Factory, Prototype, Object Pool _(2026-04-19)_
+    - [Structural Patterns Deep Dive](design-patterns/structural-patterns.md) — Decorator chains, Composite, Facade, Flyweight _(2026-04-19)_
+    - [Behavioral Patterns Deep Dive](design-patterns/behavioral-patterns.md) — Command, State machine, Visitor (modern Java), Mediator, Iterator, Memento _(2026-04-19)_
+    - [Enterprise Patterns Deep Dive](design-patterns/enterprise-patterns.md) — Service Layer, Specification, DTO Assembler, Gateway, Unit of Work _(2026-04-19)_
 11. [Concurrency Basics](java-fundamentals/concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture`, virtual threads, `synchronized`/`volatile`/atomics _(2026-04-17)_
 11a. [Java Multithreading Deep Dive — Memory Model, Locks, Synchronizers, and Thread Pools](java-fundamentals/multithreading-deep-dive.md) — JMM happens-before, `ReentrantLock`/`StampedLock`, `CountDownLatch`/`Semaphore`/`Phaser`, `ThreadPoolExecutor` internals, deadlock diagnosis _(2026-04-18)_
 12. [Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request](java-fundamentals/virtual-threads.md) — Project Loom, JEP 444, pinning, and when virtual threads beat reactive _(2026-04-17)_
@@ -248,6 +252,10 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Date and Time API](java-fundamentals/date-and-time-api.md)
 - [Lombok and Boilerplate](java-fundamentals/lombok-and-boilerplate.md)
 - [Common Design Patterns](java-fundamentals/common-design-patterns.md)
+- [Creational Patterns Deep Dive](design-patterns/creational-patterns.md)
+- [Structural Patterns Deep Dive](design-patterns/structural-patterns.md)
+- [Behavioral Patterns Deep Dive](design-patterns/behavioral-patterns.md)
+- [Enterprise Patterns Deep Dive](design-patterns/enterprise-patterns.md)
 - [Concurrency Basics](java-fundamentals/concurrency-basics.md)
 - [Multithreading Deep Dive (JMM, locks, synchronizers, pools)](java-fundamentals/multithreading-deep-dive.md)
 - [Virtual Threads (Project Loom)](java-fundamentals/virtual-threads.md)
