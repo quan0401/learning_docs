@@ -1,14 +1,14 @@
 ---
 title: Modern Java Features for TypeScript Developers
 date: 2026-04-17
-updated: 2026-04-17
-tags: [java, java17, java21, records, sealed, pattern-matching, virtual-threads, spring-boot]
+updated: 2026-04-19
+tags: [java, java17, java21, java25, records, sealed, pattern-matching, virtual-threads, spring-boot]
 ---
 
 # Modern Java Features for TypeScript Developers
 
-**Date:** 2026-04-17  
-**Tags:** `java` `java17` `java21` `records` `sealed-types` `pattern-matching` `virtual-threads`
+**Date:** 2026-04-17 | **Updated:** 2026-04-19
+**Tags:** `java` `java17` `java21` `java25` `records` `sealed-types` `pattern-matching` `virtual-threads`
 
 ## Table of Contents
 
@@ -25,16 +25,17 @@ tags: [java, java17, java21, records, sealed, pattern-matching, virtual-threads,
 11. [Virtual Threads](#virtual-threads)
 12. [`Optional` Improvements](#optional-improvements)
 13. [String API Modernization](#string-api-modernization)
-14. [What to Avoid in Modern Code](#what-to-avoid-in-modern-code)
-15. [TS→Java Modern Feature Cheat Sheet](#tsjava-modern-feature-cheat-sheet)
-16. [Related](#related)
-17. [References](#references)
+14. [Java 25 LTS — What Changed Since 21](#java-25-lts--what-changed-since-21)
+15. [What to Avoid in Modern Code](#what-to-avoid-in-modern-code)
+16. [TS→Java Modern Feature Cheat Sheet](#tsjava-modern-feature-cheat-sheet)
+17. [Related](#related)
+18. [References](#references)
 
 ---
 
 ## Summary
 
-Java evolved dramatically between 8 and 21. Modern Java (17 LTS / 21 LTS) has **records**, **sealed types**, **pattern matching**, **`var`**, **text blocks**, **switch expressions**, and **virtual threads** — most of which bring Java closer to TypeScript's ergonomics while keeping static typing. This doc is a tour of what a TS dev should reach for by default in new Java code. If you learned Java 8 patterns once and put it down, a lot of the verbosity you remember is gone.
+Java evolved dramatically between 8 and 25. Modern Java (21 LTS / **25 LTS**) has **records**, **sealed types**, **pattern matching**, **`var`**, **text blocks**, **switch expressions**, **virtual threads**, **scoped values**, **compact source files**, **flexible constructor bodies**, and **module import declarations** — most of which bring Java closer to TypeScript's ergonomics while keeping static typing. Java 25 (GA September 2025) is the current LTS, adding AOT profiling, compact object headers, generational Shenandoah, and several language refinements. This doc is a tour of what a TS dev should reach for by default in new Java code. If you learned Java 8 patterns once and put it down, a lot of the verbosity you remember is gone.
 
 ---
 
@@ -47,6 +48,7 @@ timeline
     2018 : Java 11 LTS - var, String methods
     2021 : Java 17 LTS - records, sealed, pattern match (preview)
     2023 : Java 21 LTS - virtual threads, record patterns, switch patterns
+    2025 : Java 25 LTS - compact source files, flexible constructors, scoped values, AOT
 ```
 
 | Version | Year | Highlights |
@@ -55,8 +57,12 @@ timeline
 | Java 11 LTS | 2018 | `var`, new String methods, HTTP client |
 | Java 17 LTS | 2021 | Records (stable), sealed types, pattern matching (preview), text blocks |
 | Java 21 LTS | 2023 | Virtual threads, pattern matching for switch, record patterns |
+| Java 22 | 2024 | Unnamed variables `_`, G1 region pinning, Gatherers (preview) |
+| Java 23 | 2024 | Markdown javadoc, ZGC generational default, module imports (preview) |
+| Java 24 | 2025 | `synchronized` no longer pins VTs, ClassFile API, post-quantum crypto, ZGC non-gen removed |
+| **Java 25 LTS** | **2025** | **Compact source files, flexible constructors, scoped values, module imports, compact object headers, AOT profiling, generational Shenandoah** |
 
-**Key constraint:** Spring Boot 3.x requires Java 17+. This project's target is likely 17 or 21. Write modern code — legacy patterns exist in old tutorials, but they are not what you should produce.
+**Key constraint:** Spring Boot 3.x requires Java 17+. Java 25 is the current LTS target for new projects. Write modern Java 25 code — legacy patterns exist in old tutorials, but they are not what you should produce.
 
 If a StackOverflow answer shows a 10-line `if (x instanceof Foo) { Foo f = (Foo) x; ... }` block, ignore it. There's a one-line version now.
 
@@ -367,7 +373,7 @@ Compare to TS template literals:
 const greet = `Hello ${name}, age ${age}`;
 ```
 
-String templates were a preview feature in Java 21 but were withdrawn — don't rely on them yet.
+String templates were a preview feature in Java 21 but were withdrawn in Java 23 — the feature was pulled entirely. As of Java 25, there is no string interpolation in Java. Use `.formatted()` or concatenation.
 
 ---
 
@@ -531,6 +537,114 @@ var msg     = "User %s has %d orders".formatted(name, count);
 
 ---
 
+## Java 25 LTS — What Changed Since 21
+
+Java 25 (GA September 2025) is the current LTS. It includes [18 JEPs](https://openjdk.org/projects/jdk/25/), 11 finalized — the most impactful since Java 21. Key features for application developers:
+
+### Compact Source Files and Instance Main Methods ([JEP 512](https://openjdk.org/jeps/512))
+
+No more `public class Main { public static void main(String[] args) }` for simple programs. Java 25 lets you write:
+
+```java
+void main() {
+    System.out.println("Hello, Java 25!");
+}
+```
+
+No class declaration, no `static`, no `String[] args` (unless you need them). The compiler wraps the code in an implicit class. Great for scripts, prototyping, and teaching. In production services you'll still use explicit classes, but CLI tools and one-off utilities benefit enormously.
+
+### Module Import Declarations ([JEP 511](https://openjdk.org/jeps/511))
+
+Import everything a module exports with one statement:
+
+```java
+import module java.sql;
+
+void main() {
+    System.out.println(Connection.class.getName());
+    System.out.println("Drivers = " + DriverManager.drivers().count());
+}
+```
+
+No more hunting for which package a class lives in. `import module java.base` gives you the entire standard library. Pairs naturally with compact source files for scripting.
+
+### Flexible Constructor Bodies ([JEP 513](https://openjdk.org/jeps/513))
+
+You can now write code **before** `super()` or `this()` — the rigid "super must be first statement" rule from 1995 is gone:
+
+```java
+class OrderApiConfig extends BaseServiceConfig {
+    OrderApiConfig(String inputHost, int inputPort) {
+        // Validation and normalization BEFORE super()
+        String normalizedHost = inputHost.isBlank() ? "127.0.0.1" : inputHost.trim();
+        int normalizedPort = Math.max(1024, inputPort);
+        super(normalizedHost, normalizedPort);
+    }
+}
+```
+
+This cleans up a decades-old pain point — no more static helper methods or factory-method workarounds just to validate before calling `super`.
+
+### Scoped Values ([JEP 506](https://openjdk.org/jeps/506))
+
+A thread-safe, immutable alternative to `ThreadLocal` that's designed for virtual threads and structured concurrency:
+
+```java
+private static final ScopedValue<String> REQUEST_ID = ScopedValue.newInstance();
+
+// Set in the outer scope
+ScopedValue.where(REQUEST_ID, "req-42").run(() -> {
+    handleRequest();   // and all callees can read REQUEST_ID
+});
+
+// Read anywhere in the call chain
+String id = REQUEST_ID.get();
+```
+
+Unlike `ThreadLocal`, scoped values are:
+- **Immutable** within their scope — can't be secretly mutated.
+- **Bounded** — lifetime is the lexical scope, not "until someone calls `.remove()`".
+- **Virtual-thread-friendly** — no per-carrier-thread storage confusion.
+- **Inherited** by child threads in structured concurrency automatically.
+
+Use scoped values for request-scoped context (trace IDs, auth principals, tenant IDs) instead of `ThreadLocal` in all new code. See [structured-concurrency.md](structured-concurrency.md) and [virtual-threads.md](virtual-threads.md).
+
+### Compact Object Headers ([JEP 519](https://openjdk.org/jeps/519))
+
+Object headers shrink from 96–128 bits to 64 bits on 64-bit architectures. Enable with:
+
+```bash
+-XX:+UseCompactObjectHeaders
+```
+
+Every object on the heap saves 4 bytes. For applications with millions of small objects (strings, boxed types, cache entries), this measurably reduces heap size and GC pressure. See [jvm-gc/concepts.md](../jvm-gc/concepts.md) for heap layout.
+
+### AOT Profiling and Command-Line Ergonomics ([JEP 515](https://openjdk.org/jeps/515), [JEP 514](https://openjdk.org/jeps/514))
+
+Profile-guided AOT compilation saves method execution profiles to a cache, then uses them on subsequent startups to optimize faster — cutting warmup time without full native image. Combined with simpler CLI flags, AOT caching becomes practical for containerized services.
+
+### Generational Shenandoah ([JEP 521](https://openjdk.org/jeps/521))
+
+Shenandoah now has a generational mode — matching what ZGC got in JDK 21. This gives Red Hat / OpenJDK users the same generational-hypothesis benefit with sub-ms pauses. See [jvm-gc/collectors.md](../jvm-gc/collectors.md#shenandoah).
+
+### Notable Stepping Stones (JDK 22–24)
+
+Features that matured between 21 and 25 — you may encounter them on JDK 22/23/24 codebases:
+
+- **JDK 22**: Unnamed variables `_` for unused bindings (`catch (Exception _)`), G1 region pinning for JNI.
+- **JDK 23**: Markdown in Javadoc comments (`///` syntax), ZGC generational became the default.
+- **JDK 24**: `synchronized` no longer pins virtual threads ([JEP 491](https://openjdk.org/jeps/491)), ClassFile API finalized, post-quantum cryptography (ML-KEM, ML-DSA), non-generational ZGC removed ([JEP 490](https://openjdk.org/jeps/490)).
+
+### What's Still in Preview (JDK 25)
+
+- **Primitive Types in Patterns** ([JEP 507](https://openjdk.org/jeps/507), 3rd preview) — `case int i when i > 0` in switch.
+- **Structured Concurrency** ([JEP 505](https://openjdk.org/jeps/505), 5th preview) — still iterating.
+- **Stable Values** ([JEP 502](https://openjdk.org/jeps/502), preview) — lazy immutable containers.
+- **PEM Encodings** ([JEP 470](https://openjdk.org/jeps/470), preview) — read/write PEM-encoded crypto objects.
+- **Vector API** ([JEP 508](https://openjdk.org/jeps/508), 10th incubator) — SIMD intrinsics; still incubating.
+
+---
+
 ## What to Avoid in Modern Code
 
 Legacy patterns you'll see in old tutorials but should skip in new code:
@@ -562,7 +676,9 @@ Legacy patterns you'll see in old tutorials but should skip in new code:
 | `readonly`, `const` | `final` keyword |
 | Template literals `` `x: ${x}` `` | `"x: " + x` or `"x: %d".formatted(x)` |
 | Multi-line string with backticks | Text blocks `"""..."""` |
-| `async`/`await` over `Promise` | Virtual threads + plain blocking code (Java 21) |
+| `async`/`await` over `Promise` | Virtual threads + plain blocking code (Java 21+) |
+| `AsyncLocalStorage` (Node) | `ScopedValue` (Java 25) |
+| Top-level `await` (no class needed) | Compact source files — `void main()` (Java 25) |
 | `!` non-null assertion | `Optional.orElseThrow()` |
 | `type Foo = ...` alias | No direct equivalent — use `record` or `interface` |
 | Tuple `[string, number]` | `record Pair<A, B>(A first, B second)` |
@@ -588,4 +704,14 @@ Legacy patterns you'll see in old tutorials but should skip in new code:
 - [JEP 444: Virtual Threads (Java 21)](https://openjdk.org/jeps/444)
 - [JEP 378: Text Blocks](https://openjdk.org/jeps/378)
 - [JEP 286: Local-Variable Type Inference (`var`)](https://openjdk.org/jeps/286)
+- [JEP 506: Scoped Values (Java 25)](https://openjdk.org/jeps/506)
+- [JEP 511: Module Import Declarations (Java 25)](https://openjdk.org/jeps/511)
+- [JEP 512: Compact Source Files and Instance Main Methods (Java 25)](https://openjdk.org/jeps/512)
+- [JEP 513: Flexible Constructor Bodies (Java 25)](https://openjdk.org/jeps/513)
+- [JEP 519: Compact Object Headers (Java 25)](https://openjdk.org/jeps/519)
+- [JEP 515: Ahead-of-Time Method Profiling (Java 25)](https://openjdk.org/jeps/515)
+- [JEP 521: Generational Shenandoah (Java 25)](https://openjdk.org/jeps/521)
+- [JEP 491: Synchronize Virtual Threads Without Pinning (Java 24)](https://openjdk.org/jeps/491)
+- [JEP 490: ZGC — Remove Non-Generational Mode (Java 24)](https://openjdk.org/jeps/490)
+- [JDK 25 — all JEPs since JDK 21](https://openjdk.org/projects/jdk/25/jeps-since-jdk-21)
 - [Spring Boot 3.2 Virtual Threads](https://spring.io/blog/2023/11/23/spring-boot-3-2-0-available-now)
