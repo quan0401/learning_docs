@@ -50,6 +50,8 @@ Creational patterns answer the question: **how do I construct objects without ta
 - **Factory Method / Static Factory** — named construction with extra semantics (caching, subtype selection, parsing).
 - **Singleton** — one instance per process, usually supplied by Spring rather than by your code.
 
+> **Deep dive:** [Creational Patterns — Builder Variants, Abstract Factory, Prototype, Object Pool](../design-patterns/creational-patterns.md)
+
 ---
 
 ## Builder Pattern
@@ -199,6 +201,8 @@ Structural patterns compose classes and objects into larger structures while kee
 - **Adapter** — translates one interface into another.
 - **Facade** — simplifies a complex subsystem behind a single entry point.
 
+> **Deep dive:** [Structural Patterns — Decorator, Composite, Facade, Flyweight](../design-patterns/structural-patterns.md)
+
 ---
 
 ## Proxy Pattern — The Heart of Spring AOP
@@ -270,6 +274,8 @@ Behavioral patterns describe how objects collaborate:
 - **Observer** — publish events to unknown subscribers.
 
 All four are first-class citizens in Spring.
+
+> **Deep dive:** [Behavioral Patterns — Command, State, Visitor, Mediator, Iterator](../design-patterns/behavioral-patterns.md)
 
 ---
 
@@ -445,6 +451,10 @@ See [Modern Java Features](modern-java-features.md) for more on records.
 
 ---
 
+> **Deep dive:** [Enterprise Patterns — Service Layer, Specification, DTO Assembler, Gateway, Unit of Work](../design-patterns/enterprise-patterns.md)
+
+---
+
 ## Anti-Patterns to Avoid
 
 | Anti-Pattern | Why It Hurts | Fix |
@@ -479,6 +489,15 @@ See [Modern Java Features](modern-java-features.md) for more on records.
 
 ## Related
 
+### Deep Dives (companion docs)
+
+- [Creational Patterns Deep Dive](../design-patterns/creational-patterns.md) — Step Builder, Abstract Factory, Prototype, Object Pool.
+- [Structural Patterns Deep Dive](../design-patterns/structural-patterns.md) — Decorator chains, Composite, Facade, Flyweight.
+- [Behavioral Patterns Deep Dive](../design-patterns/behavioral-patterns.md) — Command, State machine, Visitor (modern Java), Mediator, Iterator, Memento.
+- [Enterprise Patterns Deep Dive](../design-patterns/enterprise-patterns.md) — Service Layer, Specification, DTO Assembler, Gateway, Unit of Work.
+
+### Other related docs
+
 - [Spring Fundamentals](../spring-fundamentals.md) — how Spring's IoC container and AOP turn these patterns into annotations.
 - [Type System for TS Devs](type-system-for-ts-devs.md) — why Java uses patterns where TS uses structural types.
 - [Modern Java Features](modern-java-features.md) — records, sealed types, pattern matching.
@@ -486,6 +505,7 @@ See [Modern Java Features](modern-java-features.md) for more on records.
 - [Application Events](../events-async/application-events.md) — Observer pattern in Spring.
 - [Filters and Interceptors](../web-layer/filters-and-interceptors.md) — Chain of Responsibility in the web layer.
 - [Repository Interfaces](../data-repositories/repository-interfaces.md) — Repository pattern with Spring Data.
+- [DDD Tactical Patterns](../architecture/ddd-tactical-patterns.md) — aggregates, value objects, bounded contexts.
 
 ---
 
