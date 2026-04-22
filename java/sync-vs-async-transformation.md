@@ -455,8 +455,11 @@ public Flux<EnrichedUser> enrichUsers(Flux<User> users) {
 
 ## Related
 
-- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational guide covering all major operators including map, flatMap, and concatMap
-- [Advanced Reactive Programming in Java — Beyond the Basics](reactive-advanced-topics.md) — covers parallel processing with ParallelFlux, an alternative to flatMap concurrency for CPU-bound work
+- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational guide covering all major operators.
+- [Advanced Reactive Programming — Beyond the Basics](reactive-advanced-topics.md) — parallel processing with `ParallelFlux`.
+- [Reactor Operator Catalog](reactive/operator-catalog.md) — comprehensive operator reference by category.
+- [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — threading context for `flatMap` concurrency.
+- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — when `flatMap` + `subscribeOn` is the right pattern.
 
 ## References
 

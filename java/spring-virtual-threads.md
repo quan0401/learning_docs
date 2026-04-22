@@ -497,8 +497,8 @@ Cross-ref:
 
 - **`ThreadLocal` still works**, but beware creating millions of virtual
   threads each holding a large `ThreadLocal` map — memory grows.
-  Use `ScopedValue` (preview in Java 21, delivered in Java 25) for new code where
-  appropriate.
+  Use [`ScopedValue`](java-fundamentals/modern-java-features.md#java-25-lts--what-changed-since-21) (preview in Java 21, delivered in Java 25) for new code where
+  appropriate. See the [Java 25 section](java-fundamentals/modern-java-features.md#scoped-values-jep-506) for usage.
 - **Do not pool virtual threads.** Always create per-task. Pooling defeats
   the model and reintroduces all the pool-sizing problems you just removed.
 - **Do not use `Thread.sleep` as a pacing mechanism** in a hot loop.

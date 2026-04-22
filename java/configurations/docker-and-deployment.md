@@ -388,6 +388,8 @@ Spring Boot exposes two separate probes:
 - **`/actuator/health/readiness`** — is the app ready to take traffic?
   Fail → pod removed from service endpoints (but not restarted).
 
+For the full Kubernetes deployment guide (startup probes, graceful shutdown with `preStop`, HPA, PDB, topology spread), see [Kubernetes for Spring Boot](kubernetes-spring-boot.md).
+
 Kubernetes config:
 
 ```yaml
@@ -435,8 +437,8 @@ actuator surface.
 
 ## GraalVM Native Image
 
-**GraalVM native image** compiles your app ahead-of-time into a standalone
-native binary. No JVM at runtime.
+**[GraalVM native image](graalvm-native-image.md)** compiles your app ahead-of-time into a standalone
+native binary. No JVM at runtime. See the [full deep dive](graalvm-native-image.md) for reachability metadata, reflection hints, AOT vs JIT tradeoffs, and CRaC as an alternative.
 
 ```bash
 ./gradlew bootBuildImage -Pnative

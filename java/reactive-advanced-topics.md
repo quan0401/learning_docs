@@ -1342,8 +1342,13 @@ flowchart TD
 
 ## Related
 
-- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational guide covering Flux/Mono basics, operators, WebFlux, WebClient, Sinks, and testing
-- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — practical pattern for offloading blocking JPA to boundedElastic, with subscribeOn placement guidance
+- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational Mono/Flux guide.
+- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — offloading blocking JPA to `boundedElastic`.
+- [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — `publishOn` vs `subscribeOn` deep dive.
+- [Reactor Operator Catalog](reactive/operator-catalog.md) — 40+ operators by category.
+- [Reactive Observability](reactive-observability.md) — tracing and MDC across reactive boundaries.
+- [R2DBC Deep Dive](data-repositories/r2dbc-deep-dive.md) — reactive SQL as an alternative to blocking JPA.
+- [GC Impact on Reactive and Streaming](jvm-gc/reactive-impact.md) — Reactor allocation patterns and GC pressure.
 
 ## References
 

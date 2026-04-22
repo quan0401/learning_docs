@@ -757,9 +757,12 @@ Key differences from the servlet stack:
 
 ## Related
 
-- [security-filter-chain.md](security-filter-chain.md) — SecurityFilterChain configuration and filter ordering
-- [oauth2-jwt.md](oauth2-jwt.md) — OAuth2 Resource Server and JWT authentication
-- [exception-handling.md](../validation/exception-handling.md) — Global exception handling patterns
+- [Security Filter Chain](security-filter-chain.md) — `SecurityFilterChain` configuration and filter ordering.
+- [OAuth2 and JWT](oauth2-jwt.md) — OAuth2 Resource Server and JWT authentication.
+- [OIDC and Modern Auth Flows](oidc-and-modern-auth.md) — PKCE, refresh rotation, WebAuthn, MFA.
+- [Secrets Management](secrets-management.md) — where credentials and signing keys live.
+- [Exception Handling](../validation/exception-handling.md) — global exception handling patterns.
+- [API Gateway Patterns](../web-layer/api-gateway-patterns.md) — gateway-level auth and header forwarding.
 
 ---
 

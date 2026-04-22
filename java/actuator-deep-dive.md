@@ -758,10 +758,13 @@ log correlation. Cross-ref [`reactive-observability.md`](reactive-observability.
 
 ## Related
 
-- [`reactive-observability.md`](reactive-observability.md)
-- [`logging.md`](logging.md)
-- [`security/security-filter-chain.md`](security/security-filter-chain.md)
-- [`configurations/docker-and-deployment.md`](configurations/docker-and-deployment.md)
+- [Reactive Observability](reactive-observability.md) — tracing and MDC in reactive pipelines.
+- [Distributed Tracing and Metrics Beyond Logs](observability/distributed-tracing.md) — OpenTelemetry, Prometheus, RED/USE.
+- [Logging in Java and Spring Boot](logging.md) — SLF4J, MDC, structured JSON logs.
+- [Security Filter Chain](security/security-filter-chain.md) — securing actuator endpoints.
+- [Docker and Deployment](configurations/docker-and-deployment.md) — container health probes.
+- [Kubernetes for Spring Boot](configurations/kubernetes-spring-boot.md) — liveness/readiness/startup probes from actuator.
+- [Performance Testing](testing/performance-testing.md) — Micrometer metrics during load tests.
 
 ## References
 

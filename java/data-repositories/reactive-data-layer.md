@@ -423,14 +423,15 @@ Rule of thumb: a reactive data layer is infrastructure, not a feature. If it sol
 
 ## Related
 
-- `r2dbc-deep-dive.md`
-- `reactive-transactions.md`
-- `repository-interfaces.md`
-- `queries-and-pagination.md`
-- `../reactive-blocking-jpa-pattern.md`
-- `../spring-virtual-threads.md`
-- `../configurations/database-config.md`
-- `../reactive-programming-java.md`
+- [R2DBC Deep Dive](r2dbc-deep-dive.md) — reactive SQL drivers, pooling, migrations.
+- [Reactive Transactions](reactive-transactions.md) — `TransactionalOperator` and `@Transactional` on Mono/Flux.
+- [Repository Interfaces](repository-interfaces.md) — Spring Data repository hierarchy.
+- [Queries and Pagination](queries-and-pagination.md) — `@Query`, Specifications, derived queries.
+- [Wrapping Blocking JPA Calls in a Reactive Chain](../reactive-blocking-jpa-pattern.md) — bridging blocking JPA into reactive pipelines.
+- [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — the imperative alternative to reactive data access.
+- [Database Configuration](../configurations/database-config.md) — MongoDB, R2DBC, and JPA connection setup.
+- [Reactive Programming in Java](../reactive-programming-java.md) — Mono/Flux foundations.
+- [Caching Deep Dive](caching-deep-dive.md) — Caffeine and Redis caching for data layer.
 
 ---
 

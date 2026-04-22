@@ -642,12 +642,13 @@ Cross-reference: `sse-and-streaming.md`.
 
 ## Related
 
-- `sse-and-streaming.md`
-- `../web-layer/spring-mvc-fundamentals.md`
-- `../reactive-programming-java.md`
-- `../reactive-advanced-topics.md`
-- `../security/security-filter-chain.md`
-- `../spring-virtual-threads.md`
+- [Server-Sent Events and HTTP Streaming](sse-and-streaming.md) — the simpler one-directional alternative.
+- [Spring MVC Fundamentals](../web-layer/spring-mvc-fundamentals.md) — DispatcherServlet and the servlet stack.
+- [Reactive Programming in Java](../reactive-programming-java.md) — Mono/Flux foundations for WebFlux WebSocket.
+- [Advanced Reactive Programming](../reactive-advanced-topics.md) — backpressure and context propagation.
+- [Security Filter Chain](../security/security-filter-chain.md) — securing WebSocket endpoints.
+- [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — VTs on the MVC WebSocket stack.
+- [GC Impact on Reactive and Streaming](../jvm-gc/reactive-impact.md) — GC pause impact on long-lived connections.
 
 ## References
 

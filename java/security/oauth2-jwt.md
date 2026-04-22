@@ -632,9 +632,12 @@ class MovieControllerMvcTest {
 
 ## Related
 
-- [Security Filter Chain](security-filter-chain.md) — how the filter chain processes requests, custom filters, exception handling
-- [Authentication and Authorization](authentication-authorization.md) — `@PreAuthorize`, method security, role hierarchies
-- [WebClient Config](../configurations/webclient-config.md) — configuring WebClient with OAuth2 token propagation and retry logic
+- [Security Filter Chain](security-filter-chain.md) — how the filter chain processes requests, custom filters, exception handling.
+- [Authentication and Authorization](authentication-authorization.md) — `@PreAuthorize`, method security, role hierarchies.
+- [OIDC and Modern Auth Flows](oidc-and-modern-auth.md) — PKCE, refresh rotation, WebAuthn, MFA — the next-level auth doc.
+- [Secrets Management](secrets-management.md) — where JWT signing keys and client secrets live.
+- [API Gateway Patterns](../web-layer/api-gateway-patterns.md) — gateway-level JWT validation and header forwarding.
+- [WebClient Config](../configurations/webclient-config.md) — configuring WebClient with OAuth2 token propagation.
 
 ## References
 

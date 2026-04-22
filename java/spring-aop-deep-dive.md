@@ -704,10 +704,13 @@ The proxy looks for the annotation at runtime. `SOURCE` or `CLASS` retention mea
 
 ## Related
 
-- [`spring-fundamentals.md`](./spring-fundamentals.md) — AOP and proxies section; the big-picture intro this doc builds on.
-- [`jpa-transactions.md`](./jpa-transactions.md) — `@Transactional` is the canonical AOP example; same proxy mechanics, same self-invocation trap.
-- [`events-async/async-processing.md`](./events-async/async-processing.md) — `@Async` is another proxy-based feature with identical limitations.
-- [`java-fundamentals/lombok-and-boilerplate.md`](./java-fundamentals/lombok-and-boilerplate.md) — `@Slf4j` and constructor injection patterns used throughout the examples above.
+- [Spring Fundamentals](spring-fundamentals.md) — AOP and proxies section; the big-picture intro this doc builds on.
+- [JPA Transactions](jpa-transactions.md) — `@Transactional` is the canonical AOP example; same proxy mechanics, same self-invocation trap.
+- [Async Processing](events-async/async-processing.md) — `@Async` is another proxy-based feature with identical limitations.
+- [Lombok and Boilerplate](java-fundamentals/lombok-and-boilerplate.md) — `@Slf4j` and constructor injection patterns.
+- [Common Design Patterns — Proxy](java-fundamentals/common-design-patterns.md#proxy-pattern--the-heart-of-spring-aop) — Proxy as a design pattern.
+- [Structural Patterns Deep Dive](design-patterns/structural-patterns.md#proxy-vs-decorator-vs-adapter--when-people-confuse-them) — Proxy vs Decorator vs Adapter.
+- [Security Filter Chain](security/security-filter-chain.md) — AOP-adjacent: Spring Security uses filter chains, not AOP proxies.
 
 ---
 

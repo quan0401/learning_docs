@@ -302,7 +302,7 @@ public void doWork() throws InterruptedException {
 
 Uses:
 - Rate limiting concurrent access to a resource (DB connections, third-party API, expensive computation).
-- Implementing bulkhead patterns without Resilience4j.
+- Implementing bulkhead patterns without [Resilience4j](../web-layer/mvc-high-throughput.md#resilience4j-bulkhead).
 - A semaphore of 1 is essentially a `ReentrantLock` but explicitly non-reentrant.
 
 ### Phaser

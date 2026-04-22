@@ -782,10 +782,14 @@ Don't skip to step 5. Every step adds operational load.
 
 ## Related
 
-- `./reactive-kafka.md` — Kafka with Reactor Kafka (sibling, to be added).
-- `./spring-kafka.md` — Spring for Apache Kafka (sibling, to be added).
-- `../events-async/application-events.md` — Spring's in-process event bus
-  (single JVM, no broker) — the opposite end of the spectrum.
+- [Reactive Kafka (reactor-kafka)](reactive-kafka.md) — backpressure-aware Kafka with Reactor.
+- [Spring for Apache Kafka](spring-kafka.md) — `@KafkaListener`, `KafkaTemplate`, DLT handling.
+- [Application Events](../events-async/application-events.md) — Spring's in-process event bus (single JVM, no broker).
+- [Event Sourcing and CQRS](../architecture/event-sourcing-cqrs.md) — event store, aggregates, projections, snapshots.
+- [Federated GraphQL with Polyglot Persistence](../graphql/multi-database-patterns.md) — saga and outbox in a federation context.
+- [Distributed Systems Primer](../architecture/distributed-systems-primer.md) — idempotency, exactly-once myths, CAP.
+- [DDD Tactical Patterns](../architecture/ddd-tactical-patterns.md) — domain events in bounded contexts.
+- [ArchUnit and Spring Modulith](../architecture/archunit-and-modulith.md) — Modulith persistent events as in-process outbox.
 
 ---
 

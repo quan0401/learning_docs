@@ -151,7 +151,7 @@ sequenceDiagram
     Note over Caller: Outer TX continues independently
 ```
 
-**Key property:** The inner transaction is durable even if the outer one later rolls back. This is the primary reason to reach for `REQUIRES_NEW` — audit logs, outbox writes, counters, and anything that must persist regardless of the outer outcome.
+**Key property:** The inner transaction is durable even if the outer one later rolls back. This is the primary reason to reach for `REQUIRES_NEW` — audit logs, [outbox](graphql/multi-database-patterns.md#outbox-pattern) writes, counters, and anything that must persist regardless of the outer outcome.
 
 **Warning:** Suspending consumes a second connection. In a hot path with a small connection pool, naive use of `REQUIRES_NEW` deadlocks the pool (the outer transaction holds one connection and waits for the inner, which waits for another free connection).
 

@@ -218,7 +218,7 @@ Benefits:
 
 - **Testable.** Mock `PaymentGateway` in service tests — no Stripe sandbox needed.
 - **Swappable.** Switch from Stripe to Adyen by implementing a new gateway; service layer unchanged.
-- **Retryable.** Wrap the gateway implementation with retry/circuit-breaker (Resilience4j) without touching domain code.
+- **Retryable.** Wrap the gateway implementation with retry/[circuit-breaker (Resilience4j)](../web-layer/mvc-high-throughput.md#circuit-breaker) without touching domain code.
 - **Translatable.** Vendor exceptions become domain exceptions. `StripeCardDeclinedException` → `PaymentDeclinedException`.
 
 This is also the **Anti-Corruption Layer** from DDD — see [ddd-tactical-patterns.md](../architecture/ddd-tactical-patterns.md#anti-corruption-layer).

@@ -541,10 +541,14 @@ Two big philosophical differences to remember:
 
 ## Related
 
-- [Type System for TS Devs](type-system-for-ts-devs.md)
-- [Modern Java Features](modern-java-features.md)
-- [Spring Fundamentals](../spring-fundamentals.md)
-- [javac -parameters flag](../javac-parameters-flag.md)
+- [Type System for TS Devs](type-system-for-ts-devs.md) — generics, erasure, primitives vs wrappers.
+- [Modern Java Features](modern-java-features.md) — records, sealed types, Java 25 features.
+- [JVM Garbage Collection — Concepts](../jvm-gc/concepts.md) — heap layout, generational hypothesis, safepoints.
+- [JVM Collectors](../jvm-gc/collectors.md) — Serial, Parallel, G1, ZGC, Shenandoah — decision tree.
+- [GraalVM Native Image](../configurations/graalvm-native-image.md) — AOT compilation, native executables.
+- [Docker and Deployment](../configurations/docker-and-deployment.md) — containerizing JVM apps, layered JARs.
+- [Spring Fundamentals](../spring-fundamentals.md) — the framework that sits on top of all this.
+- [javac -parameters flag](../javac-parameters-flag.md) — a subtle compiler flag that affects Spring.
 
 ## References
 

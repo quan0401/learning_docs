@@ -554,10 +554,13 @@ TS `const enum` is erased to literals. Java enums are real objects with identity
 
 ## Related
 
-- [Collections and Streams](collections-and-streams.md)
-- [Exceptions and Error Handling](exceptions-and-error-handling.md)
-- [Modern Java Features](modern-java-features.md)
-- [Spring Fundamentals](../spring-fundamentals.md)
+- [Collections and Streams](collections-and-streams.md) — `List`/`Set`/`Map` hierarchy, Stream API, generics in practice.
+- [Functional Interfaces and Lambdas](functional-interfaces-and-lambdas.md) — `Function<T,R>`, `Predicate<T>`, method references.
+- [Exceptions and Error Handling](exceptions-and-error-handling.md) — checked vs unchecked, try-with-resources.
+- [Modern Java Features](modern-java-features.md) — records, sealed types, pattern matching, `var`.
+- [Optional Deep Dive](optional-deep-dive.md) — `Optional<T>` as Java's null-safety story.
+- [Equality and Identity](equality-and-identity.md) — `==` vs `.equals()`, `hashCode` contract.
+- [Spring Fundamentals](../spring-fundamentals.md) — how the type system shapes DI and proxying.
 
 ---
 

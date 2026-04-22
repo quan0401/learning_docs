@@ -537,9 +537,12 @@ If a filter is missing, the corresponding `.httpBasic(...)`, `.csrf(...)`, or si
 
 ## Related
 
-- [Filters, Interceptors, and the Request Processing Pipeline](../web-layer/filters-and-interceptors.md) — how the security filter chain fits into the broader servlet/WebFilter pipeline
-- authentication-authorization.md — authentication providers, `UserDetailsService`, and authorization strategies _(planned)_
-- oauth2-jwt.md — OAuth2 resource server and JWT token validation _(planned)_
+- [Filters, Interceptors, and the Request Processing Pipeline](../web-layer/filters-and-interceptors.md) — how the security filter chain fits into the broader servlet/WebFilter pipeline.
+- [Authentication and Authorization](authentication-authorization.md) — `UserDetailsService`, `@PreAuthorize`, role hierarchy.
+- [OAuth2 and JWT](oauth2-jwt.md) — OAuth2 resource server and JWT token validation.
+- [OIDC and Modern Auth Flows](oidc-and-modern-auth.md) — PKCE, WebAuthn, MFA — builds on the filter chain.
+- [Secrets Management](secrets-management.md) — where signing keys and client secrets live.
+- [API Gateway Patterns](../web-layer/api-gateway-patterns.md) — gateway-level auth forwarding.
 
 ---
 

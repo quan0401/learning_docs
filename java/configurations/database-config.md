@@ -416,7 +416,7 @@ See [Wrapping Blocking JPA Calls in a Reactive Chain](../reactive-blocking-jpa-p
 </dependency>
 ```
 
-HikariCP is the default JDBC connection pool — included automatically.
+HikariCP is the default JDBC connection pool — included automatically. For the sizing math (Little's Law, 2×CPU-cores rule), see [Connection Pool Sizing](../web-layer/mvc-high-throughput.md#connection-pool-sizing-hikaricp).
 
 ### HikariCP Configuration
 

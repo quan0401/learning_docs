@@ -536,9 +536,13 @@ List<String> cleaned = list.stream().filter(s -> !s.isEmpty()).toList();
 
 ## Related
 
-- [Type System for TS Devs](type-system-for-ts-devs.md)
-- [Modern Java Features](modern-java-features.md)
-- [Reactive Programming](../reactive-programming-java.md)
+- [Type System for TS Devs](type-system-for-ts-devs.md) — generics, erasure, primitives vs wrappers.
+- [Modern Java Features](modern-java-features.md) — `Stream.toList()`, `mapMulti()`, `teeing()` (Java 16+).
+- [Functional Interfaces and Lambdas](functional-interfaces-and-lambdas.md) — `Function`, `Predicate`, `Consumer`, `Supplier` — used everywhere in streams.
+- [Optional Deep Dive](optional-deep-dive.md) — `Optional.stream()` for flatMapping optionals in pipelines.
+- [Equality and Identity](equality-and-identity.md) — `equals`/`hashCode` contract for `HashSet`/`HashMap` keys.
+- [Reactive Programming](../reactive-programming-java.md) — `Flux` is the reactive analogue of `Stream`.
+- [Multithreading Deep Dive](multithreading-deep-dive.md) — `ForkJoinPool` powers parallel streams.
 
 ---
 

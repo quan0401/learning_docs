@@ -687,9 +687,14 @@ Legacy patterns you'll see in old tutorials but should skip in new code:
 
 ## Related
 
-- [Type System for TS Devs](type-system-for-ts-devs.md)
-- [Collections and Streams](collections-and-streams.md)
-- [Concurrency Basics](concurrency-basics.md)
+- [Type System for TS Devs](type-system-for-ts-devs.md) — nominal types, generics, nullability.
+- [Collections and Streams](collections-and-streams.md) — `Stream.toList()`, `mapMulti()`, `teeing()`.
+- [Concurrency Basics](concurrency-basics.md) — threads, executors, `CompletableFuture`.
+- [Virtual Threads in Java](virtual-threads.md) — full JEP 444 deep dive, pinning, Spring integration.
+- [Structured Concurrency](structured-concurrency.md) — `StructuredTaskScope`, `ScopedValue`.
+- [Multithreading Deep Dive](multithreading-deep-dive.md) — JMM, locks, synchronizers, `ThreadPoolExecutor`.
+- [Lombok and Boilerplate](lombok-and-boilerplate.md) — `@Builder`, `@Value` as predecessors to records.
+- [DDD Tactical Patterns](../architecture/ddd-tactical-patterns.md) — records as value objects, sealed types as aggregate variants.
 
 ---
 

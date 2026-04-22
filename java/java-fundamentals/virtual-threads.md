@@ -403,11 +403,15 @@ Look in the log for `jdk.tracePinnedThreads` output. Each entry is a call site t
 
 ## Related
 
-- [Concurrency Basics](concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture`, how virtual threads fit into Java's overall concurrency story
-- [Modern Java Features](modern-java-features.md) — pattern matching, records, and other Java 17–21 features you'll use alongside virtual threads
-- [Async Processing in Spring](../events-async/async-processing.md) — `@Async`, how Spring's task executor picks up virtual threads
-- [Reactive Programming in Java](../reactive-programming-java.md) — the alternative concurrency model, for comparison
-- [Spring Fundamentals](../spring-fundamentals.md) — the IoC container and AOP model virtual threads slot into
+- [Concurrency Basics](concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture` — the prerequisite.
+- [Multithreading Deep Dive](multithreading-deep-dive.md) — JMM, locks, `ThreadPoolExecutor` — the deeper layer VTs sit on.
+- [Structured Concurrency](structured-concurrency.md) — `StructuredTaskScope`, `ScopedValue` — pairs naturally with VTs.
+- [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — enabling VTs in Spring, JDBC+VTs, migration guide.
+- [Modern Java Features](modern-java-features.md) — Java 25 finalized `ScopedValue` for VT-friendly context sharing.
+- [GC Impact on Reactive and Streaming](../jvm-gc/reactive-impact.md) — VT stack scanning cost, why Generational ZGC pairs with VTs.
+- [Async Processing in Spring](../events-async/async-processing.md) — `@Async` with virtual thread executors.
+- [Reactive Programming in Java](../reactive-programming-java.md) — the alternative concurrency model.
+- [Scaling MVC Before Virtual Threads](../web-layer/mvc-high-throughput.md) — the pre-VT concurrency toolkit VTs replace.
 
 ## References
 

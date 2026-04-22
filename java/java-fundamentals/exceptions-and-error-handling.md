@@ -473,9 +473,12 @@ Key operators: `onErrorMap` (transform), `onErrorResume` (recover with a value),
 
 ## Related
 
-- [Type System for TS Devs](type-system-for-ts-devs.md) — `Optional<T>` and null handling
-- [Exception Handling in Spring Boot](../validation/exception-handling.md) — `@ControllerAdvice`, `ProblemDetail`, reactive error operators
-- [Modern Java Features](modern-java-features.md) — records, sealed types, pattern matching
+- [Type System for TS Devs](type-system-for-ts-devs.md) — `Optional<T>` and null handling.
+- [Optional Deep Dive](optional-deep-dive.md) — when to throw vs return `Optional.empty()`.
+- [Exception Handling in Spring Boot](../validation/exception-handling.md) — `@ControllerAdvice`, `ProblemDetail`, reactive error operators.
+- [Modern Java Features](modern-java-features.md) — records, sealed types, pattern matching.
+- [Logging in Java and Spring Boot](../logging.md) — what to log when exceptions are caught or rethrown.
+- [Advanced Reactive Programming](../reactive-advanced-topics.md) — `onErrorResume`, `retry`, reactive error recovery patterns.
 
 ---
 

@@ -1017,9 +1017,9 @@ public Mono<Order> placeOrder(OrderRequest req) {
 
 If `sendConfirmationEmail` fails **after** the transaction commits, the DB changes are already persisted. There is no `Mono` operator that can "undo" a commit that happened on a different thread. Design for this:
 
-- **Put irreversible external side effects (email, webhook) BEFORE the transactional work** — or use an outbox pattern where the email send is itself part of the transaction (written to a `pending_notifications` table, picked up by a separate worker).
-- **Make downstream operations idempotent** so retries are safe.
-- **Use the saga pattern** for distributed workflows that can't fit in a single DB transaction.
+- **Put irreversible external side effects (email, webhook) BEFORE the transactional work** — or use the [outbox pattern](graphql/multi-database-patterns.md#outbox-pattern) where the email send is itself part of the transaction (written to a `pending_notifications` table, picked up by a separate worker).
+- **Make downstream operations [idempotent](architecture/distributed-systems-primer.md#idempotency)** so retries are safe.
+- **Use the [saga pattern](messaging/event-driven-patterns.md)** for distributed workflows that can't fit in a single DB transaction.
 
 ---
 
@@ -1159,6 +1159,9 @@ Test the transaction boundary on the sync method (simpler, can use `@Transaction
 - [Database Configuration in Spring Boot — MongoDB Reactive, R2DBC, and JPA](configurations/database-config.md) — JPA + HikariCP setup, R2DBC transaction snippets, `open-in-view` setting
 - [Advanced Reactive Programming — Beyond the Basics](reactive-advanced-topics.md) — Reactor Context (the mechanism R2DBC uses where JPA can't), Schedulers, error recovery
 - [Reactive Observability](reactive-observability.md) — tracing transactions with Micrometer, logging transaction boundaries
+- [JPA Transaction Propagation and Isolation](jpa-transaction-propagation.md) — all 7 propagation levels, 5 isolation levels.
+- [Enterprise Patterns — Unit of Work](design-patterns/enterprise-patterns.md#unit-of-work--transaction-as-a-pattern) — `@Transactional` as the Unit of Work pattern.
+- [Scaling MVC Before Virtual Threads](web-layer/mvc-high-throughput.md) — thread pools and transaction context propagation.
 
 ## References
 

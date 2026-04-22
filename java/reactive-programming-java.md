@@ -1108,6 +1108,21 @@ flowchart TB
 
 ---
 
+## Related
+
+- [Advanced Reactive Programming — Beyond the Basics](reactive-advanced-topics.md) — backpressure, schedulers, context propagation, error recovery.
+- [Synchronous vs Asynchronous Transformation](sync-vs-async-transformation.md) — `map` vs `flatMap` deep dive.
+- [Reactor Operator Catalog](reactive/operator-catalog.md) — 40+ operators by category.
+- [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — `publishOn` vs `subscribeOn`, `boundedElastic`, BlockHound.
+- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — offloading blocking code.
+- [WebClient Configuration](configurations/webclient-config.md) — reactive HTTP client setup.
+- [Reactive Observability](reactive-observability.md) — Micrometer, tracing, MDC propagation in reactive.
+- [R2DBC Deep Dive](data-repositories/r2dbc-deep-dive.md) — reactive SQL data access.
+- [Virtual Threads in Java](java-fundamentals/virtual-threads.md) — the alternative concurrency model.
+- [GC Impact on Reactive and Streaming](jvm-gc/reactive-impact.md) — allocation patterns and GC pressure.
+
+---
+
 ## References
 
 - [Project Reactor Core Reference Guide](https://projectreactor.io/docs/core/release/reference/coreFeatures.html) — Comprehensive guide to Flux, Mono, operators, threading, and error handling

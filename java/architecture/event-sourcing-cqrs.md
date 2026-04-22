@@ -40,7 +40,7 @@ They often get confused:
 - **Event-driven** — services publish events when state changes; other services react. State itself is a row-in-table. See [messaging/event-driven-patterns.md](../messaging/event-driven-patterns.md).
 - **Event-sourced** — the event log *is* the state. No "current value" is stored anywhere primary; it's always derived.
 
-Event sourcing implies event-driven, but event-driven doesn't require event sourcing. You can do event-driven with a normal Postgres row plus outbox.
+Event sourcing implies event-driven, but event-driven doesn't require event sourcing. You can do event-driven with a normal Postgres row plus [outbox pattern](../graphql/multi-database-patterns.md#outbox-pattern).
 
 ---
 
@@ -203,7 +203,7 @@ Domains where ES is load-bearing:
 - **Small teams** — ES is more tools, more patterns, more things to debug. Don't impose it on a 3-person team.
 - **Unstable domain** — if you expect to redesign the model every quarter, event schema evolution will bury you.
 
-Rule: start with a row-in-table + outbox. Migrate to ES when a specific business need pushes you there, not for theoretical purity.
+Rule: start with a row-in-table + [outbox](../graphql/multi-database-patterns.md#outbox-pattern). Migrate to ES when a specific business need pushes you there, not for theoretical purity.
 
 ---
 

@@ -1265,9 +1265,13 @@ dependencies {
 
 ## Related
 
-- [Advanced Reactive Programming in Java — Beyond the Basics](reactive-advanced-topics.md) — covers Reactor Context and context propagation in depth (the foundation for trace ID propagation)
-- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — scheduler thread behavior that affects how traces flow through blocking call boundaries
-- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational guide covering the reactive patterns this observability doc builds upon
+- [Advanced Reactive Programming — Beyond the Basics](reactive-advanced-topics.md) — Reactor Context and context propagation.
+- [Wrapping Blocking JPA Calls in a Reactive Chain](reactive-blocking-jpa-pattern.md) — how traces flow through blocking call boundaries.
+- [Reactive Programming in Java](reactive-programming-java.md) — foundational Mono/Flux guide.
+- [Distributed Tracing and Metrics Beyond Logs](observability/distributed-tracing.md) — OpenTelemetry, Prometheus, RED/USE — the non-reactive counterpart.
+- [Logging in Java and Spring Boot](logging.md) — SLF4J, MDC, structured JSON logs.
+- [Actuator Deep Dive](actuator-deep-dive.md) — health indicators, Micrometer endpoint exposure.
+- [GC Impact on Reactive and Streaming](jvm-gc/reactive-impact.md) — Micrometer JVM metrics for GC.
 
 ## References
 

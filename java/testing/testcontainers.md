@@ -632,9 +632,11 @@ container operations to the remote Docker environment.
 
 ## Related
 
-- [spring-boot-test-basics.md](spring-boot-test-basics.md) — @SpringBootTest, test slices, @MockBean, StepVerifier fundamentals
-- web-layer-testing.md — WebTestClient and @WebFluxTest patterns
-- database-config.md — MongoDB and R2DBC connection configuration
+- [Spring Boot Test Basics](spring-boot-test-basics.md) — `@SpringBootTest`, test slices, `@MockBean`, StepVerifier.
+- [Web Layer Testing](web-layer-testing.md) — `WebTestClient` and `@WebFluxTest` patterns.
+- [Database Configuration](../configurations/database-config.md) — MongoDB and R2DBC connection configuration.
+- [Performance Testing](performance-testing.md) — Gatling, k6, JMH for load and benchmark tests.
+- [Kubernetes for Spring Boot](../configurations/kubernetes-spring-boot.md) — Testcontainers in CI on K8s runners.
 
 ---
 

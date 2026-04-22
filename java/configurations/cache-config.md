@@ -590,9 +590,11 @@ spring:
 
 ## Related
 
-- [Database Configuration](database-config.md) — pairs naturally with caching for reducing DB load
-- [WebClient Configuration](webclient-config.md) — caching expensive HTTP responses
-- [Reactive Observability](../reactive-observability.md) — exposing cache hit/miss metrics via Micrometer
+- [Caching Deep Dive](../data-repositories/caching-deep-dive.md) — invalidation strategies, stampede prevention, Redis patterns, CDN, Caffeine tuning.
+- [Database Configuration](database-config.md) — pairs naturally with caching for reducing DB load.
+- [WebClient Configuration](webclient-config.md) — caching expensive HTTP responses.
+- [Reactive Observability](../reactive-observability.md) — exposing cache hit/miss metrics via Micrometer.
+- [Scaling MVC Before Virtual Threads](../web-layer/mvc-high-throughput.md) — caching as the first throughput lever.
 
 ## References
 

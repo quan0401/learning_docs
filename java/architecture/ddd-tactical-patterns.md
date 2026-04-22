@@ -239,7 +239,7 @@ public class TransferService {
         Account target = repo.findById(to).orElseThrow();
         source.withdraw(amount);
         target.deposit(amount);
-        // each in its own transaction — use saga/outbox
+        // each in its own transaction — use saga/outbox (see event-driven-patterns.md)
     }
 }
 ```

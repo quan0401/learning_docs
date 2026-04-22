@@ -202,7 +202,9 @@ Consequences:
 - Classic blocking code (`JdbcTemplate`, `RestTemplate`, `HttpClient.send`) stops being a scalability problem.
 - For pure I/O-bound workloads, virtual threads remove much of the motivation for writing reactive code.
 
-Caveats: virtual threads do **not** help CPU-bound work (still bound by core count), and `synchronized` blocks still pin a virtual thread to its carrier — prefer `ReentrantLock` in hot paths until JDK improvements land.
+Caveats: virtual threads do **not** help CPU-bound work (still bound by core count), and `synchronized` blocks still pin a virtual thread to its carrier (fixed in [JDK 24, JEP 491](https://openjdk.org/jeps/491)) — prefer [`ReentrantLock`](multithreading-deep-dive.md#reentrantlock) in hot paths on older JDKs.
+
+For the full story: [Virtual Threads in Java](virtual-threads.md) covers internals, pinning, and Spring integration. [Multithreading Deep Dive](multithreading-deep-dive.md) covers `ReentrantLock`, `StampedLock`, `ThreadPoolExecutor` internals, and the Java Memory Model.
 
 ---
 
@@ -417,10 +419,14 @@ See the dedicated doc: [Async Processing](../events-async/async-processing.md).
 
 ## Related
 
-- [Modern Java Features](modern-java-features.md)
-- [Reactive Programming in Java](../reactive-programming-java.md)
-- [Async Processing](../events-async/async-processing.md)
-- [Spring Fundamentals](../spring-fundamentals.md)
+- [Multithreading Deep Dive](multithreading-deep-dive.md) — JMM, `ReentrantLock`, `StampedLock`, synchronizers, `ThreadPoolExecutor` internals.
+- [Virtual Threads in Java](virtual-threads.md) — full JEP 444 deep dive, pinning, carriers, Spring integration.
+- [Structured Concurrency](structured-concurrency.md) — `StructuredTaskScope` and `ScopedValue`.
+- [Modern Java Features](modern-java-features.md) — records, sealed types, pattern matching.
+- [Reactive Programming in Java](../reactive-programming-java.md) — the non-blocking alternative concurrency model.
+- [Async Processing](../events-async/async-processing.md) — Spring's `@Async` and `TaskExecutor`.
+- [Spring Fundamentals](../spring-fundamentals.md) — IoC container and AOP proxies.
+- [Scaling MVC Before Virtual Threads](../web-layer/mvc-high-throughput.md) — applied thread pool tuning and `CompletableFuture` controllers.
 
 ---
 

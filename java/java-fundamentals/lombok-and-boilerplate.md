@@ -441,10 +441,13 @@ Migration heuristic: if a class is a pure immutable carrier of values, replace `
 
 ## Related
 
-- [Type System for TS Devs](type-system-for-ts-devs.md)
-- [Equality and Identity](equality-and-identity.md)
-- [Modern Java Features](modern-java-features.md)
-- [Spring Fundamentals](../spring-fundamentals.md)
+- [Type System for TS Devs](type-system-for-ts-devs.md) — generics, records vs interfaces.
+- [Equality and Identity](equality-and-identity.md) — `equals`/`hashCode` contract that `@Data`/`@Value` generate.
+- [Modern Java Features](modern-java-features.md) — records as the native replacement for `@Value`.
+- [Common Design Patterns — Builder](common-design-patterns.md#builder-pattern) — the pattern `@Builder` implements.
+- [Creational Patterns Deep Dive](../design-patterns/creational-patterns.md#builder-variants) — Step Builder, recursive-generic builder beyond `@Builder`.
+- [Spring Fundamentals](../spring-fundamentals.md) — `@RequiredArgsConstructor` + DI.
+- [DDD Tactical Patterns](../architecture/ddd-tactical-patterns.md#value-objects) — records as value objects in DDD.
 
 ---
 

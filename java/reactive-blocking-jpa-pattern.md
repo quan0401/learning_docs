@@ -222,6 +222,18 @@ For this codebase — where reactive `WebClient` calls precede blocking JPA call
 | `Schedulers.parallel()` | CPU-bound computation |
 | `Schedulers.immediate()` | Current thread (testing) |
 
+## Related
+
+- [Reactive Programming in Java with Project Reactor and Spring WebFlux](reactive-programming-java.md) — foundational Mono/Flux guide.
+- [Advanced Reactive Programming — Beyond the Basics](reactive-advanced-topics.md) — deeper scheduler and context propagation.
+- [Reactor Schedulers and Threading](reactive/schedulers-and-threading.md) — `publishOn` vs `subscribeOn` deep dive.
+- [R2DBC Deep Dive](data-repositories/r2dbc-deep-dive.md) — the reactive alternative to blocking JPA.
+- [JPA Transactions in Spring Boot](jpa-transactions.md) — how `@Transactional` works with the blocking code being wrapped.
+- [Virtual Threads and Spring Boot](spring-virtual-threads.md) — VTs as an alternative to reactive for blocking I/O.
+- [Scaling MVC Before Virtual Threads](web-layer/mvc-high-throughput.md) — the MVC-side concurrency story.
+
+---
+
 ## References
 
 - [Threading and Schedulers — Reactor Core Reference Guide](https://projectreactor.io/docs/core/snapshot/reference/coreFeatures/schedulers.html) — official docs on `subscribeOn`, `publishOn`, and scheduler types

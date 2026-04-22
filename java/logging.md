@@ -781,6 +781,9 @@ default. Patch both Logback and Log4j2 promptly.
   — what to log when exceptions are caught, rethrown, or converted.
 - [`spring-fundamentals.md`](./spring-fundamentals.md) — filters,
   interceptors, profiles — the surfaces where MDC setup lives.
+- [Distributed Tracing and Metrics Beyond Logs](observability/distributed-tracing.md) — OpenTelemetry, Prometheus, correlating logs with traces.
+- [Actuator Deep Dive](actuator-deep-dive.md) — exposing log levels and Micrometer endpoints.
+- [Scaling MVC Before Virtual Threads](web-layer/mvc-high-throughput.md) — MDC propagation across async boundaries.
 
 ---
 
