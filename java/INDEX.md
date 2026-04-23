@@ -1,7 +1,7 @@
 # Documentation Index — Learning Path
 
 A progressive path from Java fundamentals through Spring to advanced reactive patterns.
-Work through the tiers in order — each builds on the previous one.
+Work through the tiers in order — each builds on the previous one. Cross-references to the [Networking learning path](../networking/INDEX.md) for protocol and infrastructure topics.
 
 If you're already comfortable with Java (collections, generics, exceptions, streams), **skip to Tier 1 (Spring Foundation)**.
 If you come from TypeScript or another language, start at **Tier 0** below.
