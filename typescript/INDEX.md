@@ -17,16 +17,16 @@ Understanding what happens between your code and runtime. No more copy-pasting `
 
 ---
 
-## Tier 2 — Type System Mastery _(planned)_
+## Tier 2 — Type System Mastery
 
 The type-level programming that separates "using TS" from "understanding TS." Problem-driven — each doc opens with a real scenario.
 
-4. Structural Typing & Type Compatibility _(planned)_
-5. Generics & Constraints in Practice _(planned)_
-6. Conditional Types & `infer` _(planned)_
-7. Mapped Types & Key Remapping _(planned)_
-8. Type Narrowing & Control Flow _(planned)_
-9. Recursive & Advanced Types _(planned)_
+4. [Structural Typing & Type Compatibility](type-system/structural-typing.md) — structural vs nominal, excess property checks, freshness, variance, branded types, `satisfies` _(2026-04-23)_
+5. [Generics & Constraints in Practice](type-system/generics-and-constraints.md) — generic functions, constraints with `extends`, inference, defaults, overloads vs generics, utility types, advanced patterns, Java comparison _(2026-04-23)_
+6. [Conditional Types & `infer`](type-system/conditional-types-and-infer.md) — distributive conditionals, `infer` for extraction, `never` as empty union, practical utility types _(2026-04-23)_
+7. [Mapped Types & Key Remapping](type-system/mapped-types.md) — mapped types, key remapping with `as`, template literal types, filtering by value type, built-in utility type internals _(2026-04-23)_
+8. [Type Narrowing & Control Flow](type-system/type-narrowing.md) — `typeof`/`instanceof` guards, discriminated unions, exhaustive `never` checks, type predicates, assertion functions, `satisfies` _(2026-04-23)_
+9. [Recursive & Advanced Types](type-system/recursive-and-advanced-types.md) — recursive types, variadic tuples, `const` assertions, branded/opaque types deep dive, template literal parsing, type-level programming _(2026-04-23)_
 
 ---
 
@@ -41,13 +41,13 @@ What actually happens when Node runs your code. The same depth your Java path gi
 
 ---
 
-## Tier 4 — Testing with Vitest _(planned)_
+## Tier 4 — Testing with Vitest
 
 Building a testing practice from zero. Vitest as the modern TS-first test runner.
 
-14. Vitest Fundamentals _(planned)_
-15. Mocking & Test Doubles in Vitest _(planned)_
-16. Integration & API Testing _(planned)_
+14. [Vitest Fundamentals](testing/vitest-fundamentals.md) — Vitest setup, test structure, matchers, lifecycle, coverage, JUnit 5 mapping _(2026-04-23)_
+15. [Mocking & Test Doubles in Vitest](testing/mocking-and-test-doubles.md) — test doubles taxonomy, vi.fn/vi.spyOn/vi.mock, Prisma mocking, external API mocking, DI for testability, Mockito parallel _(2026-04-23)_
+16. [Integration & API Testing](testing/integration-and-api-testing.md) — Supertest, database testing (Testcontainers/SQLite), fixtures, middleware testing, CI/CD, Spring Boot parallel _(2026-04-23)_
 
 ---
 
@@ -99,12 +99,27 @@ Running Node in production at scale. Full standalone reference, even where conce
 - [Module Resolution Deep Dive](tooling/module-resolution.md)
 - [Declaration Files & Type Acquisition](tooling/declaration-files.md)
 
+### Type System
+
+- [Structural Typing & Type Compatibility](type-system/structural-typing.md)
+- [Generics & Constraints in Practice](type-system/generics-and-constraints.md)
+- [Conditional Types & `infer`](type-system/conditional-types-and-infer.md)
+- [Mapped Types & Key Remapping](type-system/mapped-types.md)
+- [Type Narrowing & Control Flow](type-system/type-narrowing.md)
+- [Recursive & Advanced Types](type-system/recursive-and-advanced-types.md)
+
 ### Runtime Internals
 
 - [V8 Engine Pipeline](runtime/v8-engine-pipeline.md)
 - [Event Loop Internals](runtime/event-loop-internals.md)
 - [V8 Memory & Garbage Collection](runtime/v8-memory-and-gc.md)
 - [Worker Threads & Concurrency](runtime/worker-threads.md)
+
+### Testing
+
+- [Vitest Fundamentals](testing/vitest-fundamentals.md)
+- [Mocking & Test Doubles in Vitest](testing/mocking-and-test-doubles.md)
+- [Integration & API Testing](testing/integration-and-api-testing.md)
 
 ### Architecture
 
