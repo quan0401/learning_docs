@@ -1,13 +1,13 @@
 ---
 title: "Java Type System for TypeScript Developers"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [java, typescript, type-system, generics, nullability, fundamentals]
 ---
 
 # Java Type System for TypeScript Developers
 
-**Date:** 2026-04-17 | **Updated:** 2026-04-17
+**Date:** 2026-04-17 | **Updated:** 2026-04-24
 **Tags:** `java` `typescript` `type-system` `generics` `nullability` `fundamentals`
 
 ## Table of Contents
@@ -42,7 +42,7 @@ Java has a **nominal, class-based** type system with **static type checking at c
 - **Checked exceptions** are part of the method signature — the type system forces you to `throws` or `try/catch`.
 - **Everything that isn't a primitive can be `null`** — there is no `String | null`, it's just `String`, and `null` is always possible.
 
-This doc is a TS→Java translation guide for the type system specifically. If you already know the shape of a `class`, `method`, and `interface`, this focuses on what will actually trip you up.
+This doc is a TS→Java translation guide for the type system specifically. If you already know the shape of a `class`, `method`, and `interface`, this focuses on what will actually trip you up. For the TypeScript side of the same comparison, jump to [Structural Typing & Type Compatibility](../../typescript/type-system/structural-typing.md) and [Generics & Constraints in Practice](../../typescript/type-system/generics-and-constraints.md).
 
 ---
 
@@ -561,6 +561,8 @@ TS `const enum` is erased to literals. Java enums are real objects with identity
 - [Optional Deep Dive](optional-deep-dive.md) — `Optional<T>` as Java's null-safety story.
 - [Equality and Identity](equality-and-identity.md) — `==` vs `.equals()`, `hashCode` contract.
 - [Spring Fundamentals](../spring-fundamentals.md) — how the type system shapes DI and proxying.
+- [Structural Typing & Type Compatibility](../../typescript/type-system/structural-typing.md) — the TypeScript side of nominal vs structural typing.
+- [Generics & Constraints in Practice](../../typescript/type-system/generics-and-constraints.md) — TS generics, inference, and structural bounds.
 
 ---
 

@@ -1,6 +1,8 @@
 # Worker Threads & Concurrency
 
-> Node is "single-threaded" — but that is an oversimplification that collapses the moment you look inside V8 and libuv. When your code needs real parallelism, Node gives you three distinct mechanisms. This doc covers all of them, with Java parallels throughout.
+**Updated:** 2026-04-24
+
+> Node is "single-threaded" — but that is an oversimplification that collapses the moment you look inside V8 and libuv. When your code needs real parallelism, Node gives you three distinct mechanisms. This doc covers all of them, with Java parallels throughout. For the JVM side of the same ideas, keep [Java Concurrency Basics for TypeScript Developers](../../java/java-fundamentals/concurrency-basics.md), [Java Multithreading Deep Dive](../../java/java-fundamentals/multithreading-deep-dive.md), and [Virtual Threads in Java](../../java/java-fundamentals/virtual-threads.md) nearby.
 
 ---
 
@@ -661,6 +663,13 @@ After transferring an `ArrayBuffer`, it is **neutered** — zero bytes, unusable
 `workerData` is structured-cloned at worker creation. Passing large objects here blocks the main thread during cloning. Prefer `SharedArrayBuffer` or stream data via `postMessage` after creation.
 
 ---
+
+## Related
+
+- [Event Loop Internals](event-loop-internals.md) — the single-threaded scheduling model worker threads complement rather than replace.
+- [Java Concurrency Basics for TypeScript Developers](../../java/java-fundamentals/concurrency-basics.md) — shared memory, executors, `CompletableFuture`, and atomics on the JVM.
+- [Java Multithreading Deep Dive](../../java/java-fundamentals/multithreading-deep-dive.md) — locks, synchronizers, and thread-pool internals beyond the basics.
+- [Virtual Threads in Java](../../java/java-fundamentals/virtual-threads.md) — Java's answer to large-scale I/O concurrency without callback-heavy code.
 
 ## References
 

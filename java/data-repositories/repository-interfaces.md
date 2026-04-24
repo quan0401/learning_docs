@@ -1,13 +1,13 @@
 ---
 title: "Spring Data Repository Interfaces — The Data Access Abstraction"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [spring-data, repository, reactive, mongo, jpa, crud, query-methods, projections]
 ---
 
 # Spring Data Repository Interfaces — The Data Access Abstraction
 
-**Date:** 2026-04-17 | **Updated:** 2026-04-17
+**Date:** 2026-04-17 | **Updated:** 2026-04-24
 **Tags:** `spring-data` `repository` `reactive` `mongo` `jpa` `crud` `query-methods` `projections`
 
 ## Table of Contents
@@ -40,7 +40,7 @@ tags: [spring-data, repository, reactive, mongo, jpa, crud, query-methods, proje
 
 ## Summary
 
-Spring Data provides a **repository abstraction** that generates data access implementations from interface definitions. You declare a Java interface extending one of Spring Data's base repository types, parameterize it with your entity class and its ID type, and optionally add method signatures that follow a naming convention. At application startup Spring scans for these interfaces, parses the method names, and creates proxy implementations backed by the appropriate data store. You never write the implementation class yourself — Spring builds it, registers it as a bean, and injects it wherever needed.
+Spring Data provides a **repository abstraction** that generates data access implementations from interface definitions. You declare a Java interface extending one of Spring Data's base repository types, parameterize it with your entity class and its ID type, and optionally add method signatures that follow a naming convention. At application startup Spring scans for these interfaces, parses the method names, and creates proxy implementations backed by the appropriate data store. You never write the implementation class yourself — Spring builds it, registers it as a bean, and injects it wherever needed. For the closest TypeScript analogue, read this alongside [Prisma Deep Dive](../../typescript/data-access/prisma-deep-dive.md).
 
 ---
 
@@ -538,6 +538,7 @@ For development, `DEFAULT` is safest. For production apps with many repositories
 - [Database Configuration](../configurations/database-config.md)
 - [JPA Transactions](../jpa-transactions.md)
 - [Spring Fundamentals](../spring-fundamentals.md)
+- [Prisma Deep Dive](../../typescript/data-access/prisma-deep-dive.md)
 
 ---
 

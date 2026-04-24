@@ -1,13 +1,14 @@
 ---
 title: Build Tools and JVM Basics for TypeScript Developers
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [java, jvm, gradle, maven, build-tools, classpath, jar, fundamentals]
 ---
 
 # Build Tools and JVM Basics for TypeScript Developers
 
 _Date: 2026-04-17_
+_Updated: 2026-04-24_
 _Tags: java, jvm, gradle, maven, build-tools, classpath, jar, fundamentals_
 
 ## Table of Contents
@@ -41,7 +42,7 @@ and Gradle manage dependencies (like npm), compilation, packaging (JARs), and
 testing. Understanding the JVM basics — classpath, classloaders, JIT, garbage
 collection — separates "I wrote some Java" from "I can debug production Java."
 This doc walks you from `.java` source all the way to a running JAR in Docker,
-with TypeScript/Node analogies along the way.
+with TypeScript/Node analogies along the way. If you want the Node side of the runtime and packaging story in parallel, see [Module Resolution Deep Dive](../../typescript/tooling/module-resolution.md), [V8 Engine Pipeline](../../typescript/runtime/v8-engine-pipeline.md), and [V8 Memory & Garbage Collection](../../typescript/runtime/v8-memory-and-gc.md).
 
 ---
 
@@ -549,6 +550,9 @@ Two big philosophical differences to remember:
 - [Docker and Deployment](../configurations/docker-and-deployment.md) — containerizing JVM apps, layered JARs.
 - [Spring Fundamentals](../spring-fundamentals.md) — the framework that sits on top of all this.
 - [javac -parameters flag](../javac-parameters-flag.md) — a subtle compiler flag that affects Spring.
+- [Module Resolution Deep Dive](../../typescript/tooling/module-resolution.md) — the Node/TS equivalent of "how code gets found at runtime."
+- [V8 Engine Pipeline](../../typescript/runtime/v8-engine-pipeline.md) — the Node runtime/JIT counterpart to JVM execution.
+- [V8 Memory & Garbage Collection](../../typescript/runtime/v8-memory-and-gc.md) — the V8 side of heap layout and GC behavior.
 
 ## References
 

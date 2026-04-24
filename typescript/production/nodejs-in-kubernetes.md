@@ -1,6 +1,8 @@
 # Node.js in Kubernetes
 
-> **Problem**: Your pod gets OOMKilled at 3 AM. The container memory limit is 512Mi, but `--max-old-space-size` was never set. V8 happily allocates beyond the container ceiling, the kernel kills the process, and Kubernetes restarts it in a crash loop. This doc covers every operational concern for running Node.js in Kubernetes reliably.
+**Updated:** 2026-04-24
+
+> **Problem**: Your pod gets OOMKilled at 3 AM. The container memory limit is 512Mi, but `--max-old-space-size` was never set. V8 happily allocates beyond the container ceiling, the kernel kills the process, and Kubernetes restarts it in a crash loop. This doc covers every operational concern for running Node.js in Kubernetes reliably. For the Spring/JVM equivalent patterns, see [Kubernetes for Spring Boot](../../java/configurations/kubernetes-spring-boot.md).
 
 ---
 
@@ -523,6 +525,12 @@ Spring Boot Actuator gives you health checks out of the box with `management.end
 | Complexity | One-line config | ~20 lines of code |
 
 ---
+
+## Related
+
+- [Kubernetes for Spring Boot](../../java/configurations/kubernetes-spring-boot.md) — the Spring/Actuator version of probes, graceful shutdown, and HPA wiring.
+- [Spring Boot Actuator Deep Dive](../../java/actuator-deep-dive.md) — the Java side of health endpoints and probe groups.
+- [Observability for Node Services](observability.md) — metrics, traces, and logs that make K8s incidents debuggable.
 
 ## References
 

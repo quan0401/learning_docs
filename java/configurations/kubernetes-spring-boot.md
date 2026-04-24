@@ -1,13 +1,13 @@
 ---
 title: "Kubernetes for Spring Boot — Probes, Config, Scaling, Graceful Shutdown"
 date: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-24
 tags: [kubernetes, spring-boot, deployment, devops, cloud-native]
 ---
 
 # Kubernetes for Spring Boot — Probes, Config, Scaling, Graceful Shutdown
 
-**Date:** 2026-04-19 | **Updated:** 2026-04-19
+**Date:** 2026-04-19 | **Updated:** 2026-04-24
 **Tags:** `kubernetes` `spring-boot` `deployment` `devops` `cloud-native`
 
 ## Table of Contents
@@ -27,7 +27,7 @@ tags: [kubernetes, spring-boot, deployment, devops, cloud-native]
 
 ## Summary
 
-Running Spring Boot on [Kubernetes](https://kubernetes.io/docs/home/) means mapping four JVM behaviors onto k8s primitives: startup → startupProbe, readiness → readinessProbe, liveness → livenessProbe, shutdown → preStop + graceful termination. Get those four wrong and a pod either never takes traffic, takes traffic too early, gets killed mid-request, or lies about being healthy while deadlocked. This doc covers the minimum-viable-production Kubernetes setup for a Spring Boot 3.x service: probe wiring via Actuator, [JVM-aware resource limits](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-java-hotspot-vm.html#GUID-C6A5E0C6-8E20-4A5F-A2A6-60DE1FE3C6F8), ConfigMap/Secret mounting, HPA on CPU or custom Prometheus metrics, `spring.lifecycle.timeout-per-shutdown-phase` coordinated with `terminationGracePeriodSeconds`, and PDBs for node drains.
+Running Spring Boot on [Kubernetes](https://kubernetes.io/docs/home/) means mapping four JVM behaviors onto k8s primitives: startup → startupProbe, readiness → readinessProbe, liveness → livenessProbe, shutdown → preStop + graceful termination. Get those four wrong and a pod either never takes traffic, takes traffic too early, gets killed mid-request, or lies about being healthy while deadlocked. This doc covers the minimum-viable-production Kubernetes setup for a Spring Boot 3.x service: probe wiring via Actuator, [JVM-aware resource limits](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-java-hotspot-vm.html#GUID-C6A5E0C6-8E20-4A5F-A2A6-60DE1FE3C6F8), ConfigMap/Secret mounting, HPA on CPU or custom Prometheus metrics, `spring.lifecycle.timeout-per-shutdown-phase` coordinated with `terminationGracePeriodSeconds`, and PDBs for node drains. For the Node side of the same operational concerns, see [Node.js in Kubernetes](../../typescript/production/nodejs-in-kubernetes.md).
 
 ---
 
@@ -304,6 +304,7 @@ affinity:
 - [Secrets Management](../security/secrets-management.md) — Vault, external-secrets.
 - [JVM Collectors — Kubernetes recipe](../jvm-gc/collectors.md#rest-api-server-on-kubernetes)
 - [Feature Flags](feature-flags.md) — for release vs deploy decoupling.
+- [Node.js in Kubernetes](../../typescript/production/nodejs-in-kubernetes.md) — the Node/V8 side of probes, memory limits, and graceful shutdown.
 
 ---
 

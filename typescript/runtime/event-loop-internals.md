@@ -1,8 +1,10 @@
 # Event Loop Internals
 
+**Updated:** 2026-04-24
+
 > Not the "setTimeout goes to the callback queue" blog-post version — the actual libuv implementation that determines execution order in Node.js.
 
-Node.js delegates I/O to libuv, a C library that provides an event loop with **six distinct phases**. Each phase has a FIFO queue of callbacks. When the loop enters a phase, it drains that queue (up to a system-dependent limit), then moves to the next phase. Separately from those six phases, Node also drains the `process.nextTick` queue and then the microtask queue at callback boundaries.
+Node.js delegates I/O to libuv, a C library that provides an event loop with **six distinct phases**. Each phase has a FIFO queue of callbacks. When the loop enters a phase, it drains that queue (up to a system-dependent limit), then moves to the next phase. Separately from those six phases, Node also drains the `process.nextTick` queue and then the microtask queue at callback boundaries. If you are translating this model into Java terms, pair this doc with [Java Concurrency Basics for TypeScript Developers](../../java/java-fundamentals/concurrency-basics.md) and [Reactor Schedulers and Threading](../../java/reactive/schedulers-and-threading.md).
 
 ---
 
@@ -620,6 +622,12 @@ console.log("2: script end");
 Note: Lines 6-11 are non-deterministic relative to each other because `readFile` completion time is unpredictable. The **relative** ordering within each group (nextTick before microtasks, setImmediate after I/O callback) is deterministic.
 
 ---
+
+## Related
+
+- [Worker Threads & Concurrency](worker-threads.md) — what to do when the event loop is not enough and you need real parallelism.
+- [Java Concurrency Basics for TypeScript Developers](../../java/java-fundamentals/concurrency-basics.md) — event loop vs threads, promises vs `CompletableFuture`, and shared-memory differences.
+- [Reactor Schedulers and Threading](../../java/reactive/schedulers-and-threading.md) — the Java/WebFlux side of event loops and scheduler hand-offs.
 
 ## References
 

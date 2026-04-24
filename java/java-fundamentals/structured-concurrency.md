@@ -1,13 +1,13 @@
 ---
 title: "Structured Concurrency in Java — StructuredTaskScope, ScopedValue, and the End of CompletableFuture Hell"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [java, concurrency, structured-concurrency, virtual-threads, scopedvalue]
 ---
 
 # Structured Concurrency in Java — StructuredTaskScope, ScopedValue, and the End of CompletableFuture Hell
 
-**Date:** 2026-04-17 | **Updated:** 2026-04-17
+**Date:** 2026-04-17 | **Updated:** 2026-04-24
 **Tags:** `java` `concurrency` `structured-concurrency` `virtual-threads` `scopedvalue`
 
 ## Table of Contents
@@ -36,7 +36,7 @@ tags: [java, concurrency, structured-concurrency, virtual-threads, scopedvalue]
 
 ## Summary
 
-Structured concurrency treats a group of related concurrent subtasks as a single unit of work with a clear lexical lifetime — the same way try-with-resources treats a resource. When you `fork` subtasks inside a `StructuredTaskScope`, they must all complete (or be cancelled) before control leaves the scope, and if one fails the scope can cancel its siblings automatically. Introduced as a preview in [JEP 453 (JDK 21)](https://openjdk.org/jeps/453) and iterated through [JEP 525 (JDK 26)](https://openjdk.org/jeps/525) with API refinements, it pairs with [virtual threads](virtual-threads.md) and [`ScopedValue`](https://openjdk.org/jeps/506) to deliver the Loom trifecta: cheap threads, bounded lifetimes, and immutable context propagation. For a TypeScript developer, it's the closest thing Java has to `Promise.all` / `Promise.race` with first-class cancellation and structured error handling.
+Structured concurrency treats a group of related concurrent subtasks as a single unit of work with a clear lexical lifetime — the same way try-with-resources treats a resource. When you `fork` subtasks inside a `StructuredTaskScope`, they must all complete (or be cancelled) before control leaves the scope, and if one fails the scope can cancel its siblings automatically. Introduced as a preview in [JEP 453 (JDK 21)](https://openjdk.org/jeps/453) and iterated through [JEP 525 (JDK 26)](https://openjdk.org/jeps/525) with API refinements, it pairs with [virtual threads](virtual-threads.md) and [`ScopedValue`](https://openjdk.org/jeps/506) to deliver the Loom trifecta: cheap threads, bounded lifetimes, and immutable context propagation. For a TypeScript developer, it's the closest thing Java has to `Promise.all` / `Promise.race` with first-class cancellation and structured error handling. If you want the JavaScript side of that comparison, see [Structured Concurrency Before Project Loom](structured-concurrency-before-loom.md), which links the model back to `Promise.all`, `AbortController`, and other pre-structured patterns.
 
 ---
 
@@ -543,6 +543,7 @@ The subtasks see the parent's `REQUEST_ID` binding automatically.
 - [Exceptions and Error Handling](exceptions-and-error-handling.md) — `InterruptedException` and cancellation semantics
 - [Async Processing in Spring](../events-async/async-processing.md) — `@Async` and how it relates to structured concurrency
 - [Reactive Programming in Java](../reactive-programming-java.md) — the non-blocking alternative model
+- [Worker Threads & Concurrency](../../typescript/runtime/worker-threads.md) — Node's explicit parallelism model when `Promise` alone is not enough.
 
 ## References
 

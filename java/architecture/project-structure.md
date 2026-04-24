@@ -1,13 +1,14 @@
 ---
 title: Spring Boot Project Structure
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [architecture, project-structure, clean-architecture, hexagonal, package-organization]
 ---
 
 # Spring Boot Project Structure
 
 *Date: 2026-04-17*
+*Updated: 2026-04-24*
 *Tags: architecture, project-structure, clean-architecture, hexagonal, package-organization*
 
 ## Table of Contents
@@ -48,7 +49,7 @@ styles dominate production codebases:
 
 Each has trade-offs. Package-by-feature scales best for medium-large services
 and is the strongest default. Hexagonal is worth the ceremony when you have
-long-term maintenance pressure or strict testability requirements.
+long-term maintenance pressure or strict testability requirements. For the TypeScript version of the same architecture discussion, see [Hexagonal Architecture / Ports & Adapters](../../typescript/patterns/hexagonal-architecture.md).
 
 ---
 
@@ -573,9 +574,10 @@ need hexagonal treatment, you can introduce `order/domain/` and
 
 ## Related
 
-- [../spring-fundamentals.md](../spring-fundamentals.md)
-- [../configurations/java-bean-config.md](../configurations/java-bean-config.md)
-- [../java-fundamentals/common-design-patterns.md](../java-fundamentals/common-design-patterns.md)
+- [Spring Fundamentals](../spring-fundamentals.md)
+- [Java @Configuration Classes](../configurations/java-bean-config.md)
+- [Common Design Patterns in Java](../java-fundamentals/common-design-patterns.md)
+- [Hexagonal Architecture / Ports & Adapters](../../typescript/patterns/hexagonal-architecture.md)
 
 ---
 

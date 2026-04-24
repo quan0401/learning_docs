@@ -1,13 +1,13 @@
 ---
 title: "Spring Fundamentals — IoC, DI, AOP, Auto-Configuration, and the Ecosystem"
 date: 2026-04-16
-updated: 2026-04-16
+updated: 2026-04-24
 tags: [spring, spring-boot, ioc, dependency-injection, aop, fundamentals]
 ---
 
 # Spring Fundamentals — IoC, DI, AOP, Auto-Configuration, and the Ecosystem
 
-**Date:** 2026-04-16 | **Updated:** 2026-04-16
+**Date:** 2026-04-16 | **Updated:** 2026-04-24
 **Tags:** `spring` `spring-boot` `ioc` `dependency-injection` `aop` `fundamentals`
 
 ## Table of Contents
@@ -61,7 +61,7 @@ tags: [spring, spring-boot, ioc, dependency-injection, aop, fundamentals]
 
 ## Summary
 
-Spring is a Java framework built on one core idea — **Inversion of Control (IoC)**: instead of your code creating its dependencies with `new`, Spring creates them and hands them to you via **Dependency Injection (DI)**. Everything else — `@Autowired`, `@Transactional`, `@RestController`, auto-configuration, stereotype annotations — is built on this foundation. Spring Boot adds opinionated auto-configuration and embedded servers on top of the Spring Framework, and the wider ecosystem (Spring Data, Security, Cloud) provides focused modules that all plug into the same IoC container.
+Spring is a Java framework built on one core idea — **Inversion of Control (IoC)**: instead of your code creating its dependencies with `new`, Spring creates them and hands them to you via **Dependency Injection (DI)**. Everything else — `@Autowired`, `@Transactional`, `@RestController`, auto-configuration, stereotype annotations — is built on this foundation. Spring Boot adds opinionated auto-configuration and embedded servers on top of the Spring Framework, and the wider ecosystem (Spring Data, Security, Cloud) provides focused modules that all plug into the same IoC container. If you want the closest TypeScript framework analogue while reading, pair this with [NestJS for Spring Boot Developers](../typescript/frameworks/nestjs-for-spring-devs.md).
 
 ---
 

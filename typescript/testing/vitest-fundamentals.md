@@ -1,13 +1,13 @@
 ---
 title: "Vitest Fundamentals"
 date: 2026-04-23
-updated: 2026-04-23
+updated: 2026-04-24
 tags: [typescript, testing, vitest, coverage]
 ---
 
 # Vitest Fundamentals
 
-**Date:** 2026-04-23 | **Updated:** 2026-04-23
+**Date:** 2026-04-23 | **Updated:** 2026-04-24
 **Tags:** `typescript` `testing` `vitest` `coverage`
 
 ## Table of Contents
@@ -31,7 +31,7 @@ tags: [typescript, testing, vitest, coverage]
 
 You know JUnit 5 inside out. You have `@BeforeAll`, `@ParameterizedTest`, Mockito, and JaCoCo wired into every Spring Boot project. Now you are staring at a bare Express + Prisma codebase with zero tests. This doc takes you from `npm install` to a working test suite with coverage enforcement, mapping every JUnit concept you already know to its Vitest equivalent.
 
-Vitest is the modern default test runner for TypeScript projects. It is Vite-powered, understands ESM and TypeScript natively (no `ts-jest` config gymnastics), ships with a Jest-compatible API, and includes built-in coverage. If you are starting fresh in the TS ecosystem, this is the tool to learn.
+Vitest is the modern default test runner for TypeScript projects. It is Vite-powered, understands ESM and TypeScript natively (no `ts-jest` config gymnastics), ships with a Jest-compatible API, and includes built-in coverage. If you are starting fresh in the TS ecosystem, this is the tool to learn. For the Spring/JUnit side of the same testing ladder, pair this with [Spring Boot Testing Fundamentals](../../java/testing/spring-boot-test-basics.md).
 
 **Why this matters for architecture:** Clean [hexagonal architecture](../patterns/hexagonal-architecture.md) with port interfaces makes every layer independently testable. The patterns in this doc assume that separation. If your Express app mixes HTTP handling with business logic in one file, fix the architecture first — tests will fight you otherwise.
 
@@ -797,6 +797,8 @@ Notice: no `@InjectMocks` magic. You construct the service manually and pass the
 ### Tooling
 
 - [tsconfig Demystified](../tooling/tsconfig-demystified.md) — TypeScript compiler options that affect test compilation and path resolution
+- [Spring Boot Testing Fundamentals](../../java/testing/spring-boot-test-basics.md) — `@SpringBootTest`, test slices, and the Java side of the comparison
+- [Web Layer Testing](../../java/testing/web-layer-testing.md) — `WebTestClient` / `MockMvc` patterns parallel to route-level test clients
 
 ---
 

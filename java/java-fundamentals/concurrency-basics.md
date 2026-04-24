@@ -1,13 +1,14 @@
 ---
 title: "Java Concurrency Basics for TypeScript Developers"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [java, concurrency, threads, completablefuture, virtual-threads, reactive, typescript-to-java]
 ---
 
 # Java Concurrency Basics for TypeScript Developers
 
 **Date:** 2026-04-17
+**Updated:** 2026-04-24
 **Tags:** java, concurrency, threads, completablefuture, virtual-threads, reactive
 
 ## Table of Contents
@@ -36,13 +37,13 @@ tags: [java, concurrency, threads, completablefuture, virtual-threads, reactive,
 
 ## Summary
 
-TypeScript/JavaScript has a single-threaded event loop — no shared memory, no race conditions, no locks. Java is multi-threaded with shared memory — you get real parallelism but also real concurrency bugs. Modern Java offers three concurrency models: thread pools (classic), `CompletableFuture` (like TS Promises), and reactive streams (Project Reactor). Java 21 adds virtual threads for cheap I/O concurrency. Understanding these — plus the thread-safety rules — is what separates hobbyist Java code from production Java code.
+TypeScript/JavaScript has a single-threaded event loop — no shared memory, no race conditions, no locks. Java is multi-threaded with shared memory — you get real parallelism but also real concurrency bugs. Modern Java offers three concurrency models: thread pools (classic), `CompletableFuture` (like TS Promises), and reactive streams (Project Reactor). Java 21 adds virtual threads for cheap I/O concurrency. Understanding these — plus the thread-safety rules — is what separates hobbyist Java code from production Java code. If you want to refresh the Node side of that mental model first, see [Event Loop Internals](../../typescript/runtime/event-loop-internals.md) and [Worker Threads & Concurrency](../../typescript/runtime/worker-threads.md).
 
 ---
 
 ## The Core Mental Shift
 
-TypeScript is cooperative. Java is preemptive. In TS, your code runs in atomic turns on a single thread — any I/O yields back to the event loop via callbacks, Promises, or `await`. In Java, the OS scheduler can pause your thread mid-instruction and hand CPU to another thread that may touch the same memory.
+TypeScript is cooperative. Java is preemptive. In TS, your code runs in atomic turns on a single thread — any I/O yields back to the [event loop](../../typescript/runtime/event-loop-internals.md) via callbacks, Promises, or `await`. In Java, the OS scheduler can pause your thread mid-instruction and hand CPU to another thread that may touch the same memory.
 
 ```mermaid
 flowchart LR
@@ -130,7 +131,7 @@ Always call `shutdown()` (or use try-with-resources on Java 21+ — `ExecutorSer
 
 ## CompletableFuture — Java's Promise
 
-`CompletableFuture<T>` is the closest analog to a TypeScript `Promise<T>`. It represents a value that will arrive later, and it composes via chained methods.
+`CompletableFuture<T>` is the closest analog to a TypeScript `Promise<T>`. It represents a value that will arrive later, and it composes via chained methods. The closest Node mental model is still "Promise chaining on top of the event loop," not a Java thread magically suspended by `await`; for a refresher on where promise continuations actually run, see [Event Loop Internals](../../typescript/runtime/event-loop-internals.md).
 
 ```java
 CompletableFuture<String> future = CompletableFuture
@@ -157,7 +158,7 @@ String result = future.get();  // blocks — rarely done in production code
 | `Promise.race([p1, p2])` | `CompletableFuture.anyOf(f1, f2)` |
 | `await promise` | `.get()` or `.join()` (blocking!) |
 
-The key mental note: Java has no `await` keyword. Chaining with `thenApply` / `thenCompose` is how you sequence async work without blocking. Calling `.get()` or `.join()` on a future blocks the current thread — avoid it in request-handling code.
+The key mental note: Java has no `await` keyword. Chaining with `thenApply` / `thenCompose` is how you sequence async work without blocking. Calling `.get()` or `.join()` on a future blocks the current thread — avoid it in request-handling code. In Node, `await` pauses only the async function and resumes via the microtask queue; in Java, `.get()` parks or blocks a thread.
 
 ---
 
@@ -225,7 +226,7 @@ public class Counter {
 2. Add 1 in the register.
 3. Write the register back to memory.
 
-Two threads running concurrently can both read `5`, both compute `6`, and both write `6` — losing one increment. TS developers never have to think about this because only one callback ever runs at a time.
+Two threads running concurrently can both read `5`, both compute `6`, and both write `6` — losing one increment. TS developers never have to think about this because only one callback ever runs at a time on the main JS thread. That changes if you opt into [worker threads and shared memory](../../typescript/runtime/worker-threads.md).
 
 Beyond atomicity, Java also has **visibility** issues: a write from Thread A may not be seen by Thread B without proper synchronization, because of CPU caches and JIT reordering. This is where `synchronized`, `volatile`, and the atomics come in.
 
@@ -271,7 +272,7 @@ Does **not** make compound operations atomic — `counter++` on a `volatile int`
 
 ## java.util.concurrent.atomic — Lock-Free Atomicity
 
-The `atomic` package uses CPU compare-and-swap (CAS) instructions under the hood. No locks, no blocking.
+The `atomic` package uses CPU compare-and-swap (CAS) instructions under the hood. No locks, no blocking. If you've seen `SharedArrayBuffer` + `Atomics` in Node worker threads, this is the same family of "safe read-modify-write across shared memory" problems, just expressed through Java's standard library.
 
 ```java
 private final AtomicInteger count = new AtomicInteger();
@@ -427,6 +428,8 @@ See the dedicated doc: [Async Processing](../events-async/async-processing.md).
 - [Async Processing](../events-async/async-processing.md) — Spring's `@Async` and `TaskExecutor`.
 - [Spring Fundamentals](../spring-fundamentals.md) — IoC container and AOP proxies.
 - [Scaling MVC Before Virtual Threads](../web-layer/mvc-high-throughput.md) — applied thread pool tuning and `CompletableFuture` controllers.
+- [Event Loop Internals](../../typescript/runtime/event-loop-internals.md) — the Node/libuv side of callbacks, microtasks, and scheduling.
+- [Worker Threads & Concurrency](../../typescript/runtime/worker-threads.md) — Node's real parallelism model, `SharedArrayBuffer`, and `Atomics`.
 
 ---
 

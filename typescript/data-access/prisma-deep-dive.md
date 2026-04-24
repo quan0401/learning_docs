@@ -1,8 +1,10 @@
 # Prisma Deep Dive
 
+**Updated:** 2026-04-24
+
 > Problem frame: Handle a complex multi-table transaction with optimistic locking.
 
-Prisma is a type-safe ORM for Node.js and TypeScript that generates a fully typed client from a declarative schema. This guide covers schema design through production deployment patterns, with JPA parallels throughout for developers crossing between the Java and TypeScript ecosystems.
+Prisma is a type-safe ORM for Node.js and TypeScript that generates a fully typed client from a declarative schema. This guide covers schema design through production deployment patterns, with JPA parallels throughout for developers crossing between the Java and TypeScript ecosystems. For the Spring Data side of the same abstractions, see [Spring Data Repository Interfaces](../../java/data-repositories/repository-interfaces.md).
 
 ---
 
@@ -873,6 +875,12 @@ datasource db {
 **Schema management**: Flyway/Liquibase give you full control over SQL migration files, changelogs, and rollback scripts. Prisma generates migration SQL from schema diffs, which is more automated but less flexible for complex data migrations.
 
 ---
+
+## Related
+
+- [Spring Data Repository Interfaces](../../java/data-repositories/repository-interfaces.md) — generated repository implementations, CRUD hierarchies, and projections in Spring Data.
+- [Prisma vs Drizzle](prisma-vs-drizzle.md) — where Prisma sits on the abstraction spectrum versus a more SQL-forward tool.
+- [Hexagonal Architecture / Ports & Adapters](../patterns/hexagonal-architecture.md) — how to keep Prisma in adapters instead of leaking it into your domain.
 
 ## References
 

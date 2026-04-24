@@ -1,7 +1,7 @@
 ---
 title: "Integration & API Testing"
 date: 2026-04-23
-updated: 2026-04-23
+updated: 2026-04-24
 tags: [typescript, testing, vitest, integration, supertest]
 ---
 
@@ -48,7 +48,7 @@ A unit test for `createUser` with a mocked repository proves almost nothing — 
 | **Integration** | Routes, services with DB, middleware chains, auth flows | Logic has no external dependencies |
 | **E2E** | Critical journeys (signup, checkout, payment) | Every CRUD variation |
 
-> **Java parallel:** `@WebMvcTest` (unit-ish) vs `@SpringBootTest` + Testcontainers (integration) vs Selenium (e2e). The trophy says: spend most effort on `@SpringBootTest`-style tests.
+> **Java parallel:** `@WebMvcTest` (unit-ish) vs `@SpringBootTest` + Testcontainers (integration) vs Selenium (e2e). The trophy says: spend most effort on `@SpringBootTest`-style tests. See [Spring Boot Testing Fundamentals](../../java/testing/spring-boot-test-basics.md).
 
 See [Mocking & Test Doubles](mocking-and-test-doubles.md) for when mocking is the better choice.
 
@@ -159,7 +159,7 @@ describe('GET /users/me', () => {
 });
 ```
 
-> **Java parallel:** `request(app).get(path).set('Authorization', ...)` maps to `mockMvc.perform(get(path).header("Authorization", ...))`. The `.expect(200)` chain parallels `.andExpect(status().isOk())`.
+> **Java parallel:** `request(app).get(path).set('Authorization', ...)` maps to `mockMvc.perform(get(path).header("Authorization", ...))`. The `.expect(200)` chain parallels `.andExpect(status().isOk())`. See [Web Layer Testing](../../java/testing/web-layer-testing.md) for the Spring side.
 
 For framework-specific testing (Fastify's `inject()`, Hono's test client), see [Express vs Fastify vs Hono vs Elysia](../frameworks/express-vs-alternatives.md).
 
@@ -219,7 +219,7 @@ afterAll(() => teardownTestDatabase());
 afterEach(() => prisma.user.deleteMany());
 ```
 
-> **Java parallel:** Identical to `@Testcontainers` + `@Container` + `@DynamicPropertySource`. Container lifecycle is the same; only wiring syntax differs.
+> **Java parallel:** Identical to `@Testcontainers` + `@Container` + `@DynamicPropertySource`. Container lifecycle is the same; only wiring syntax differs. See [Testcontainers — Integration Testing with Real Infrastructure](../../java/testing/testcontainers.md).
 
 For Prisma migration details, see [Prisma Deep Dive](../data-access/prisma-deep-dive.md).
 
@@ -539,6 +539,9 @@ jobs:
 - [Error Handling Architecture](../patterns/error-handling-architecture.md) — error types that map to HTTP status codes
 - [Express vs Fastify vs Hono vs Elysia](../frameworks/express-vs-alternatives.md) — framework-specific testing APIs
 - [Node.js in Kubernetes](../production/nodejs-in-kubernetes.md) — health check endpoints worth integration testing
+- [Spring Boot Testing Fundamentals](../../java/testing/spring-boot-test-basics.md) — `@SpringBootTest`, slices, and test data setup on the Java side
+- [Web Layer Testing](../../java/testing/web-layer-testing.md) — `WebTestClient` / `MockMvc` endpoint verification patterns
+- [Testcontainers](../../java/testing/testcontainers.md) — the Java library and lifecycle model this doc parallels
 
 ---
 

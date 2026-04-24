@@ -1,13 +1,13 @@
 ---
 title: "Structured Concurrency Before Project Loom — Pre-Java-21 Approaches and Cross-Language Precedents"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [java, concurrency, structured-concurrency, history, cross-language]
 ---
 
 # Structured Concurrency Before Project Loom — Pre-Java-21 Approaches and Cross-Language Precedents
 
-**Date:** 2026-04-17 | **Updated:** 2026-04-17
+**Date:** 2026-04-17 | **Updated:** 2026-04-24
 **Tags:** `java` `concurrency` `structured-concurrency` `history` `cross-language`
 
 ## Table of Contents
@@ -194,7 +194,7 @@ Go is the cautionary tale that Java, Kotlin, Swift, and Python explicitly design
 
 ## JavaScript and TypeScript — AbortController as a Partial Answer
 
-JavaScript has no native structured concurrency. The ecosystem has partial building blocks:
+JavaScript has no native structured concurrency. The ecosystem has partial building blocks. If the event loop and worker model are not fresh in your head, review [Event Loop Internals](../../typescript/runtime/event-loop-internals.md) and [Worker Threads & Concurrency](../../typescript/runtime/worker-threads.md) alongside this section:
 
 - **`Promise.all([p1, p2])`** — waits for all promises. Rejects on the first failure — but the siblings keep running in the background. No automatic cancellation.
 - **`Promise.race([p1, p2])`** — resolves on the first settlement. Same issue: the loser keeps running.
@@ -417,6 +417,8 @@ The semantic core — "start N concurrent tasks bounded by this block; cancel si
 - [Concurrency Basics](concurrency-basics.md) — `ExecutorService`, `CompletableFuture`, and the pre-Loom tools covered in detail
 - [Reactive Programming in Java](../reactive-programming-java.md) — Project Reactor's approach, another pre-Loom structured model
 - [Modern Java Features](modern-java-features.md) — Java 17–21 features including sealed types and pattern matching that pair with the new concurrency API
+- [Event Loop Internals](../../typescript/runtime/event-loop-internals.md) — how promise continuations and callback scheduling actually work in Node.
+- [Worker Threads & Concurrency](../../typescript/runtime/worker-threads.md) — Node's real parallelism model, shared memory, and atomics.
 
 ## References
 

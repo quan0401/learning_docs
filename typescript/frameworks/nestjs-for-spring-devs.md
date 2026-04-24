@@ -1,8 +1,10 @@
 # NestJS for Spring Boot Developers
 
+**Updated:** 2026-04-24
+
 > Map your Spring mental model to Nest.
 
-If you already think in `@RestController`, `@Service`, `@Configuration`, `SecurityFilterChain`, and `@ControllerAdvice`, NestJS will feel immediately familiar. Both frameworks are opinionated, decorator-driven, and built around dependency injection. NestJS was explicitly inspired by Angular **and Spring**, so the mapping is almost 1:1.
+If you already think in `@RestController`, `@Service`, `@Configuration`, `SecurityFilterChain`, and `@ControllerAdvice`, NestJS will feel immediately familiar. Both frameworks are opinionated, decorator-driven, and built around dependency injection. NestJS was explicitly inspired by Angular **and Spring**, so the mapping is almost 1:1. For the Java side of the same mental model, keep [Spring Fundamentals](../../java/spring-fundamentals.md) nearby.
 
 ---
 
@@ -793,6 +795,13 @@ export class AuthService {
 | **Graceful Shutdown** | `SpringApplication.exit()` + shutdown hooks | `app.enableShutdownHooks()` + lifecycle interfaces |
 
 ---
+
+## Related
+
+- [Spring Fundamentals](../../java/spring-fundamentals.md) — IoC container, bean lifecycle, proxies, and auto-configuration on the Java side.
+- [Filters, Interceptors, and the Request Processing Pipeline](../../java/web-layer/filters-and-interceptors.md) — the Spring equivalents of middleware and interceptors.
+- [Exception Handling in Spring Boot — MVC and WebFlux](../../java/validation/exception-handling.md) — the `@ControllerAdvice` side of Nest exception filters.
+- [Jakarta Validation in Spring Boot](../../java/validation/bean-validation.md) — `@Valid` and constraint annotations compared to `ValidationPipe` and `class-validator`.
 
 ## References
 

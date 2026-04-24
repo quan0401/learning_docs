@@ -1,6 +1,8 @@
 # Observability for Node Services
 
-> **Problem**: A user reports checkout is slow. The request touches API Gateway, Order Service, Payment Service, and Notification Service. Latency is 4 seconds, but each service's own metrics show p99 under 200ms. Where is the time going? Without distributed tracing and correlated logs, you are guessing.
+**Updated:** 2026-04-24
+
+> **Problem**: A user reports checkout is slow. The request touches API Gateway, Order Service, Payment Service, and Notification Service. Latency is 4 seconds, but each service's own metrics show p99 under 200ms. Where is the time going? Without distributed tracing and correlated logs, you are guessing. If you already know the Spring stack, compare this with [Spring Boot Actuator Deep Dive](../../java/actuator-deep-dive.md) and [Distributed Tracing and Metrics Beyond Logs](../../java/observability/distributed-tracing.md).
 
 ---
 
@@ -545,6 +547,12 @@ Alert fires -> Grafana dashboard (error rate, latency, throughput) -> find slow 
 The Spring Boot ecosystem gives you more out of the box. The Node.js ecosystem requires more wiring but the OTel standard means it is fully interoperable -- a trace can start in a Spring Boot service and continue through Node.js services with no gaps.
 
 ---
+
+## Related
+
+- [Spring Boot Actuator Deep Dive](../../java/actuator-deep-dive.md) — health endpoints, Micrometer, and operational endpoints on the Java side.
+- [Distributed Tracing and Metrics Beyond Logs](../../java/observability/distributed-tracing.md) — the Spring/OpenTelemetry view of traces and metrics.
+- [Node.js in Kubernetes](nodejs-in-kubernetes.md) — how observability ties into probes, shutdown, and production operations.
 
 ## References
 

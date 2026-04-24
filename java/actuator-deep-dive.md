@@ -1,13 +1,14 @@
 ---
 title: Spring Boot Actuator Deep Dive
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-24
 tags: [actuator, spring-boot, observability, health, metrics]
 ---
 
 # Spring Boot Actuator Deep Dive
 
 **Date:** 2026-04-17
+**Updated:** 2026-04-24
 **Tags:** actuator, spring-boot, observability, health, metrics
 
 ## Table of Contents
@@ -59,7 +60,7 @@ fully pluggable. The three extension points you will reach for are:
 
 This doc walks through setup, the endpoint catalog, health composition
 (including Kubernetes probes), Micrometer metrics, custom endpoints, security,
-and the operational pitfalls that bite teams in production.
+and the operational pitfalls that bite teams in production. If you want the Node/OpenTelemetry side of the same concerns, pair this with [Observability for Node Services](../typescript/production/observability.md).
 
 ---
 
@@ -765,6 +766,7 @@ log correlation. Cross-ref [`reactive-observability.md`](reactive-observability.
 - [Docker and Deployment](configurations/docker-and-deployment.md) — container health probes.
 - [Kubernetes for Spring Boot](configurations/kubernetes-spring-boot.md) — liveness/readiness/startup probes from actuator.
 - [Performance Testing](testing/performance-testing.md) — Micrometer metrics during load tests.
+- [Observability for Node Services](../typescript/production/observability.md) — the Node/OpenTelemetry counterpart to Micrometer, health checks, and correlation IDs.
 
 ## References
 
