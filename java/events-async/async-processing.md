@@ -416,7 +416,7 @@ flowchart LR
 
 ## Virtual Threads (Java 21+)
 
-Spring Boot 3.2+ supports [virtual threads](../java-fundamentals/virtual-threads.md) with a single property (see also [Virtual Threads and Spring Boot](../spring-virtual-threads.md) for full migration guide):
+Spring Boot 3.2+ supports [virtual threads](../java-fundamentals/concurrency/virtual-threads.md) with a single property (see also [Virtual Threads and Spring Boot](../spring-virtual-threads.md) for full migration guide):
 
 ```yaml
 spring:

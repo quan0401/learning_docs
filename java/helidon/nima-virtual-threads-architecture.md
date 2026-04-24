@@ -30,7 +30,7 @@ tags: [helidon, nima, virtual-threads, java, web-server]
 
 ## Summary
 
-Nima (Greek for "thread") is Helidon 4's web server, written from scratch to run on Java 21 [virtual threads](../java-fundamentals/virtual-threads.md). Unlike Spring Boot (which retrofits Tomcat/Jetty to use virtual threads) or WebFlux (which uses Netty's event-loop model), Nima was designed with virtual threads as the only execution model — there is no fallback to platform threads or reactive types. The result: the simplicity of thread-per-request programming with throughput comparable to reactive servers, and a codebase free of Netty, Reactive Streams, and non-blocking I/O complexity.
+Nima (Greek for "thread") is Helidon 4's web server, written from scratch to run on Java 21 [virtual threads](../java-fundamentals/concurrency/virtual-threads.md). Unlike Spring Boot (which retrofits Tomcat/Jetty to use virtual threads) or WebFlux (which uses Netty's event-loop model), Nima was designed with virtual threads as the only execution model — there is no fallback to platform threads or reactive types. The result: the simplicity of thread-per-request programming with throughput comparable to reactive servers, and a codebase free of Netty, Reactive Streams, and non-blocking I/O complexity.
 
 ---
 
@@ -122,7 +122,7 @@ Three approaches to high-concurrency Java web serving in 2024+:
 - Existing servlet containers with `spring.threads.virtual.enabled=true`
 - Virtual threads replace the platform thread pool in the executor
 - The container's internal I/O still uses NIO in many paths
-- `synchronized` blocks in legacy code can cause [virtual thread pinning](../java-fundamentals/virtual-threads.md)
+- `synchronized` blocks in legacy code can cause [virtual thread pinning](../java-fundamentals/concurrency/virtual-threads.md)
 
 ### 3. Netty Event Loop (Spring WebFlux, Vert.x)
 
@@ -282,7 +282,7 @@ Virtual threads eliminate the primary motivation for reactive programming (effic
 - [Helidon Overview](helidon-overview.md) — framework positioning and comparison
 - [Helidon SE](helidon-se.md) — the functional model running on Nima
 - [Helidon MP](helidon-mp.md) — the MicroProfile model running on Nima
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — Project Loom, JEP 444, the JVM feature Nima is built on
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — Project Loom, JEP 444, the JVM feature Nima is built on
 - [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — Spring's approach: retrofitting Tomcat
 - [Reactive Programming in Java](../reactive-programming-java.md) — the model Helidon 4 deliberately replaced
 - [Reactor Schedulers and Threading](../reactive/schedulers-and-threading.md) — Netty event-loop model that Nima replaces

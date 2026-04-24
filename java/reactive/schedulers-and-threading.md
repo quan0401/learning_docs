@@ -386,7 +386,7 @@ Caveats:
   `boundedElastic()` is still a fine default unless you have measured
   improvements from virtual threads.
 
-See [`../java-fundamentals/virtual-threads.md`](../java-fundamentals/virtual-threads.md)
+See [`../java-fundamentals/concurrency/virtual-threads.md`](../java-fundamentals/concurrency/virtual-threads.md)
 for the deeper Project Loom treatment.
 
 ---
@@ -537,8 +537,8 @@ Rule of thumb:
 - [`../reactive-programming-java.md`](../reactive-programming-java.md)
 - [`../reactive-advanced-topics.md`](../reactive-advanced-topics.md)
 - [`../reactive-blocking-jpa-pattern.md`](../reactive-blocking-jpa-pattern.md)
-- [`../java-fundamentals/virtual-threads.md`](../java-fundamentals/virtual-threads.md)
-- [`../java-fundamentals/concurrency-basics.md`](../java-fundamentals/concurrency-basics.md)
+- [`../java-fundamentals/concurrency/virtual-threads.md`](../java-fundamentals/concurrency/virtual-threads.md)
+- [`../java-fundamentals/concurrency/concurrency-basics.md`](../java-fundamentals/concurrency/concurrency-basics.md)
 
 ---
 

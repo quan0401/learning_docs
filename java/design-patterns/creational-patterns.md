@@ -250,7 +250,7 @@ Reuse expensive-to-create objects instead of allocating new ones. Not a GoF patt
 
 - **[HikariCP](https://github.com/brettwooldridge/HikariCP)** — JDBC connection pool. Creating a DB connection takes ~5 ms; borrowing from the pool takes ~1 μs.
 - **Netty's `PooledByteBufAllocator`** — direct memory buffers are expensive to allocate; the pool recycles them. See [reactive-impact.md](../jvm-gc/reactive-impact.md#netty-direct-memory).
-- **`ThreadPoolExecutor`** — reuses platform threads. See [multithreading-deep-dive.md](../java-fundamentals/multithreading-deep-dive.md#threadpoolexecutor-internals).
+- **`ThreadPoolExecutor`** — reuses platform threads. See [multithreading-deep-dive.md](../java-fundamentals/concurrency/multithreading-deep-dive.md#threadpoolexecutor-internals).
 
 ```mermaid
 flowchart LR
@@ -295,7 +295,7 @@ The container is the factory, the pool manager, and the singleton registry — a
 - [Behavioral Patterns Deep Dive](behavioral-patterns.md) — Command, State, Visitor, Mediator.
 - [Enterprise Patterns Deep Dive](enterprise-patterns.md) — Service Layer, Specification, DTO Assembler.
 - [Lombok and Boilerplate](../java-fundamentals/lombok-and-boilerplate.md) — `@Builder`, `@SuperBuilder`.
-- [Multithreading Deep Dive](../java-fundamentals/multithreading-deep-dive.md) — ThreadPoolExecutor as object pool.
+- [Multithreading Deep Dive](../java-fundamentals/concurrency/multithreading-deep-dive.md) — ThreadPoolExecutor as object pool.
 - [Scaling MVC Before Virtual Threads](../web-layer/mvc-high-throughput.md) — HikariCP pool sizing.
 
 ---

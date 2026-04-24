@@ -388,7 +388,7 @@ flowchart TD
 
 - [Quarkus Overview](quarkus-overview.md) — architecture, Vert.x, build-time processing
 - [Quarkus Reactive with Mutiny](quarkus-reactive-mutiny.md) — the reactive model that VTs complement
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — Project Loom, JEP 444, the JVM feature
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — Project Loom, JEP 444, the JVM feature
 - [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — Spring's global config approach
 - [Helidon Nima Architecture](../helidon/nima-virtual-threads-architecture.md) — Helidon's VT-only approach
 

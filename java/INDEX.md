@@ -26,11 +26,18 @@ Skip this tier if you already write Java daily. Otherwise, these docs give you t
     - [Structural Patterns Deep Dive](design-patterns/structural-patterns.md) — Decorator chains, Composite, Facade, Flyweight _(2026-04-19)_
     - [Behavioral Patterns Deep Dive](design-patterns/behavioral-patterns.md) — Command, State machine, Visitor (modern Java), Mediator, Iterator, Memento _(2026-04-19)_
     - [Enterprise Patterns Deep Dive](design-patterns/enterprise-patterns.md) — Service Layer, Specification, DTO Assembler, Gateway, Unit of Work _(2026-04-19)_
-11. [Concurrency Basics](java-fundamentals/concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture`, virtual threads, `synchronized`/`volatile`/atomics _(2026-04-17)_
-11a. [Java Multithreading Deep Dive — Memory Model, Locks, Synchronizers, and Thread Pools](java-fundamentals/multithreading-deep-dive.md) — JMM happens-before, `ReentrantLock`/`StampedLock`, `CountDownLatch`/`Semaphore`/`Phaser`, `ThreadPoolExecutor` internals, deadlock diagnosis _(2026-04-18)_
-12. [Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request](java-fundamentals/virtual-threads.md) — Project Loom, JEP 444, pinning, and when virtual threads beat reactive _(2026-04-17)_
-13. [Structured Concurrency in Java](java-fundamentals/structured-concurrency.md) — StructuredTaskScope, ScopedValue, and the modern fork/join model _(2026-04-17)_
-14. [Structured Concurrency Before Project Loom](java-fundamentals/structured-concurrency-before-loom.md) — pre-Java-21 approaches, Trio, Kotlin, Swift, Reactor, and what Java borrowed _(2026-04-17)_
+11. [Concurrency Basics](java-fundamentals/concurrency/concurrency-basics.md) — threads, `ExecutorService`, `CompletableFuture`, virtual threads, `synchronized`/`volatile`/atomics _(2026-04-17)_
+11a. [Java Multithreading Deep Dive — Memory Model, Locks, Synchronizers, and Thread Pools](java-fundamentals/concurrency/multithreading-deep-dive.md) — JMM happens-before, `ReentrantLock`/`StampedLock`, `CountDownLatch`/`Semaphore`/`Phaser`, `ThreadPoolExecutor` internals, deadlock diagnosis _(2026-04-18)_
+11b. [CompletableFuture Deep Dive — Composition, Errors, Timeouts, Interop](java-fundamentals/concurrency/completablefuture-deep-dive.md) — `thenApply`/`thenCompose`/`thenCombine`, `allOf`/`anyOf`, exception handling, `orTimeout`, Reactor interop _(2026-04-24)_
+11c. [Interruption and Cancellation in Java — The InterruptedException Idiom](java-fundamentals/concurrency/interruption-and-cancellation.md) — cooperative cancellation, `Thread.interrupt`, `ExecutorService.shutdown`, `Future.cancel`, poison pills _(2026-04-24)_
+11d. [Concurrent Collections — ConcurrentHashMap, LongAdder, CAS, ABA Problem](java-fundamentals/concurrency/concurrent-collections.md) — `computeIfAbsent`/`merge`, `LongAdder`, `VarHandle`, `AtomicStampedReference`, memory-ordering modes _(2026-04-24)_
+11e. [ThreadLocal and Context Propagation — Leaks, ScopedValue, Reactor Context](java-fundamentals/concurrency/threadlocal-and-context.md) — TL leaks, `InheritableThreadLocal`, `ScopedValue` (JDK 25), Reactor `Context`, OpenTelemetry `Context` _(2026-04-24)_
+11f. [ForkJoinPool and Parallel Streams — Work Stealing, RecursiveTask, commonPool](java-fundamentals/concurrency/forkjoinpool-and-parallel-streams.md) — work-stealing deques, `RecursiveTask`, `ManagedBlocker`, parallel-stream pitfalls _(2026-04-24)_
+11g. [Concurrency Debugging Playbook — Thread Dumps, JFR, async-profiler, jcstress](java-fundamentals/concurrency/concurrency-debugging.md) — `jstack`/`jcmd`, deadlock detection, lock-contention flame graphs, JMM correctness testing _(2026-04-24)_
+11h. [Producer-Consumer Patterns — BlockingQueue, Backpressure, Disruptor](java-fundamentals/concurrency/producer-consumer-patterns.md) — queue variants, backpressure, graceful shutdown, Disruptor ring buffer, reactive comparison _(2026-04-24)_
+12. [Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request](java-fundamentals/concurrency/virtual-threads.md) — Project Loom, JEP 444, pinning, and when virtual threads beat reactive _(2026-04-17)_
+13. [Structured Concurrency in Java](java-fundamentals/concurrency/structured-concurrency.md) — StructuredTaskScope, ScopedValue, and the modern fork/join model _(2026-04-17)_
+14. [Structured Concurrency Before Project Loom](java-fundamentals/concurrency/structured-concurrency-before-loom.md) — pre-Java-21 approaches, Trio, Kotlin, Swift, Reactor, and what Java borrowed _(2026-04-17)_
 15. [Build Tools and JVM](java-fundamentals/build-tools-and-jvm.md) — Gradle/Maven, classpath, JAR packaging, JIT, GC, Docker for Java _(2026-04-17)_
 
 ---
@@ -256,11 +263,18 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Structural Patterns Deep Dive](design-patterns/structural-patterns.md)
 - [Behavioral Patterns Deep Dive](design-patterns/behavioral-patterns.md)
 - [Enterprise Patterns Deep Dive](design-patterns/enterprise-patterns.md)
-- [Concurrency Basics](java-fundamentals/concurrency-basics.md)
-- [Multithreading Deep Dive (JMM, locks, synchronizers, pools)](java-fundamentals/multithreading-deep-dive.md)
-- [Virtual Threads (Project Loom)](java-fundamentals/virtual-threads.md)
-- [Structured Concurrency](java-fundamentals/structured-concurrency.md)
-- [Structured Concurrency Before Project Loom](java-fundamentals/structured-concurrency-before-loom.md)
+- [Concurrency Basics](java-fundamentals/concurrency/concurrency-basics.md)
+- [Multithreading Deep Dive (JMM, locks, synchronizers, pools)](java-fundamentals/concurrency/multithreading-deep-dive.md)
+- [CompletableFuture Deep Dive](java-fundamentals/concurrency/completablefuture-deep-dive.md)
+- [Interruption and Cancellation](java-fundamentals/concurrency/interruption-and-cancellation.md)
+- [Concurrent Collections (ConcurrentHashMap, LongAdder, CAS)](java-fundamentals/concurrency/concurrent-collections.md)
+- [ThreadLocal and Context Propagation](java-fundamentals/concurrency/threadlocal-and-context.md)
+- [ForkJoinPool and Parallel Streams](java-fundamentals/concurrency/forkjoinpool-and-parallel-streams.md)
+- [Concurrency Debugging Playbook](java-fundamentals/concurrency/concurrency-debugging.md)
+- [Producer-Consumer Patterns](java-fundamentals/concurrency/producer-consumer-patterns.md)
+- [Virtual Threads (Project Loom)](java-fundamentals/concurrency/virtual-threads.md)
+- [Structured Concurrency](java-fundamentals/concurrency/structured-concurrency.md)
+- [Structured Concurrency Before Project Loom](java-fundamentals/concurrency/structured-concurrency-before-loom.md)
 - [Build Tools and JVM](java-fundamentals/build-tools-and-jvm.md)
 
 ### Core

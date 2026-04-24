@@ -607,7 +607,7 @@ Unlike `ThreadLocal`, scoped values are:
 - **Virtual-thread-friendly** — no per-carrier-thread storage confusion.
 - **Inherited** by child threads in structured concurrency automatically.
 
-Use scoped values for request-scoped context (trace IDs, auth principals, tenant IDs) instead of `ThreadLocal` in all new code. See [structured-concurrency.md](structured-concurrency.md) and [virtual-threads.md](virtual-threads.md).
+Use scoped values for request-scoped context (trace IDs, auth principals, tenant IDs) instead of `ThreadLocal` in all new code. See [structured-concurrency.md](concurrency/structured-concurrency.md) and [virtual-threads.md](concurrency/virtual-threads.md).
 
 ### Compact Object Headers ([JEP 519](https://openjdk.org/jeps/519))
 
@@ -689,10 +689,10 @@ Legacy patterns you'll see in old tutorials but should skip in new code:
 
 - [Type System for TS Devs](type-system-for-ts-devs.md) — nominal types, generics, nullability.
 - [Collections and Streams](collections-and-streams.md) — `Stream.toList()`, `mapMulti()`, `teeing()`.
-- [Concurrency Basics](concurrency-basics.md) — threads, executors, `CompletableFuture`.
-- [Virtual Threads in Java](virtual-threads.md) — full JEP 444 deep dive, pinning, Spring integration.
-- [Structured Concurrency](structured-concurrency.md) — `StructuredTaskScope`, `ScopedValue`.
-- [Multithreading Deep Dive](multithreading-deep-dive.md) — JMM, locks, synchronizers, `ThreadPoolExecutor`.
+- [Concurrency Basics](concurrency/concurrency-basics.md) — threads, executors, `CompletableFuture`.
+- [Virtual Threads in Java](concurrency/virtual-threads.md) — full JEP 444 deep dive, pinning, Spring integration.
+- [Structured Concurrency](concurrency/structured-concurrency.md) — `StructuredTaskScope`, `ScopedValue`.
+- [Multithreading Deep Dive](concurrency/multithreading-deep-dive.md) — JMM, locks, synchronizers, `ThreadPoolExecutor`.
 - [Lombok and Boilerplate](lombok-and-boilerplate.md) — `@Builder`, `@Value` as predecessors to records.
 - [DDD Tactical Patterns](../architecture/ddd-tactical-patterns.md) — records as value objects, sealed types as aggregate variants.
 

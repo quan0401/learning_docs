@@ -1118,7 +1118,7 @@ flowchart TB
 - [WebClient Configuration](configurations/webclient-config.md) — reactive HTTP client setup.
 - [Reactive Observability](reactive-observability.md) — Micrometer, tracing, MDC propagation in reactive.
 - [R2DBC Deep Dive](data-repositories/r2dbc-deep-dive.md) — reactive SQL data access.
-- [Virtual Threads in Java](java-fundamentals/virtual-threads.md) — the alternative concurrency model.
+- [Virtual Threads in Java](java-fundamentals/concurrency/virtual-threads.md) — the alternative concurrency model.
 - [GC Impact on Reactive and Streaming](jvm-gc/reactive-impact.md) — allocation patterns and GC pressure.
 
 ---

@@ -44,7 +44,7 @@ concurrency to servlet-stack applications. A single property —
 `@Async` executors, and `@Scheduled` to virtual threads. This document
 focuses on the **Spring-integration surface**. For language-level thread-model
 details, pinning diagnostics, and carrier-thread internals, see
-[`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md).
+[`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md).
 
 The practical promise: keep writing straightforward imperative Spring MVC
 code, drop the careful thread-pool tuning, and handle an order of magnitude
@@ -60,7 +60,7 @@ more concurrent I/O-bound requests per JVM.
   and auto-configuration of virtual-thread executors.
 - Familiarity with the language-level concepts: carrier threads, pinning,
   continuations. See
-  [`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md).
+  [`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md).
 
 ---
 
@@ -222,7 +222,7 @@ virtual threads:
    mostly unnecessary now. Keep bulkheads only where you need them.
 5. **Audit `synchronized` blocks that surround I/O**. On Java 21–23 these
    pin the carrier thread. See pinning guidance in
-   [`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md).
+   [`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md).
 6. **Switch `synchronized` to `ReentrantLock`** on Java 21–23 for any
    hotspot that wraps blocking I/O. On Java 24+, JEP 491 resolves most
    pinning — you can often leave `synchronized` alone.
@@ -274,7 +274,7 @@ flowchart TD
 
 Cross-ref:
 [`reactive-programming-java.md`](reactive-programming-java.md) and
-[`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md).
+[`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md).
 
 ---
 
@@ -371,7 +371,7 @@ Prints a stack trace every time a virtual thread pins. Start there, then
 refactor hotspots to `ReentrantLock` or upgrade the offending library.
 
 See
-[`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md)
+[`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md)
 for a detailed pinning workflow.
 
 ---
@@ -574,9 +574,9 @@ Rules of thumb:
 
 ## Related
 
-- [`java-fundamentals/virtual-threads.md`](java-fundamentals/virtual-threads.md) — language-level model
-- [`java-fundamentals/concurrency-basics.md`](java-fundamentals/concurrency-basics.md)
-- [`java-fundamentals/structured-concurrency.md`](java-fundamentals/structured-concurrency.md)
+- [`java-fundamentals/concurrency/virtual-threads.md`](java-fundamentals/concurrency/virtual-threads.md) — language-level model
+- [`java-fundamentals/concurrency/concurrency-basics.md`](java-fundamentals/concurrency/concurrency-basics.md)
+- [`java-fundamentals/concurrency/structured-concurrency.md`](java-fundamentals/concurrency/structured-concurrency.md)
 - [`events-async/async-processing.md`](events-async/async-processing.md)
 - [`events-async/scheduling.md`](events-async/scheduling.md)
 - [`reactive-blocking-jpa-pattern.md`](reactive-blocking-jpa-pattern.md)

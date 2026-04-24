@@ -191,7 +191,7 @@ No special Maven plugins, no wrapper scripts — just `java -jar`.
 - [Helidon MP — MicroProfile Runtime](helidon-mp.md) — CDI, JAX-RS, and MicroProfile specs
 - [Helidon Nima — Virtual-Thread-Native Architecture](nima-virtual-threads-architecture.md) — how the web server works under the hood
 - [Spring Fundamentals](../spring-fundamentals.md) — IoC, DI, AOP — the Spring model Helidon contrasts with
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — the JVM feature Helidon 4 is built on
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — the JVM feature Helidon 4 is built on
 - [GraalVM Native Image](../configurations/graalvm-native-image.md) — native compilation, which Helidon supports well
 
 ## References

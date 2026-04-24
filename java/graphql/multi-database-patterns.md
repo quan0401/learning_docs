@@ -465,7 +465,7 @@ Heuristics:
 - [Reactive Observability](../reactive-observability.md) — OTel tracing and Micrometer metrics.
 - [Actuator Deep Dive](../actuator-deep-dive.md) — subgraph health and readiness probes.
 - [JPA Transactions](../jpa-transactions.md) — transactional boundaries inside an entity fetcher.
-- [Multithreading Deep Dive](../java-fundamentals/multithreading-deep-dive.md) — DataLoader runs on thread pools.
+- [Multithreading Deep Dive](../java-fundamentals/concurrency/multithreading-deep-dive.md) — DataLoader runs on thread pools.
 
 ---
 

@@ -542,7 +542,7 @@ List<String> cleaned = list.stream().filter(s -> !s.isEmpty()).toList();
 - [Optional Deep Dive](optional-deep-dive.md) — `Optional.stream()` for flatMapping optionals in pipelines.
 - [Equality and Identity](equality-and-identity.md) — `equals`/`hashCode` contract for `HashSet`/`HashMap` keys.
 - [Reactive Programming](../reactive-programming-java.md) — `Flux` is the reactive analogue of `Stream`.
-- [Multithreading Deep Dive](multithreading-deep-dive.md) — `ForkJoinPool` powers parallel streams.
+- [Multithreading Deep Dive](concurrency/multithreading-deep-dive.md) — `ForkJoinPool` powers parallel streams.
 
 ---
 

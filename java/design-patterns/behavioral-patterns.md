@@ -356,7 +356,7 @@ In enterprise systems, **event sourcing** is Memento at scale — the event log 
 - [Modern Java Features](../java-fundamentals/modern-java-features.md) — sealed types and pattern matching replace Visitor.
 - [Event Sourcing and CQRS](../architecture/event-sourcing-cqrs.md) — Command pattern at scale.
 - [Application Events](../events-async/application-events.md) — Mediator pattern in Spring.
-- [Multithreading Deep Dive](../java-fundamentals/multithreading-deep-dive.md) — Runnable/Callable as Command.
+- [Multithreading Deep Dive](../java-fundamentals/concurrency/multithreading-deep-dive.md) — Runnable/Callable as Command.
 
 ---
 

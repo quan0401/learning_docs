@@ -266,7 +266,7 @@ Both strategies work. SATB is slightly simpler and is what modern collectors use
 - [JVM Collectors — Serial, Parallel, CMS, G1, ZGC, Shenandoah](collectors.md) — which collector to pick and why.
 - [GC Pause Diagnosis Playbook](pause-diagnosis.md) — log reading, JFR, async-profiler, heap dumps.
 - [Reactive / WebFlux / VT impact on GC](reactive-impact.md) — how allocation patterns from Reactor and virtual threads shape GC behavior.
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — VTs interact closely with GC through stack scanning and allocation rate.
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — VTs interact closely with GC through stack scanning and allocation rate.
 - [Build Tools and JVM](../java-fundamentals/build-tools-and-jvm.md) — general JVM-flag basics.
 
 ---

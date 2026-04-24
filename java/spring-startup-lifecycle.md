@@ -529,7 +529,7 @@ the other silently misses the event.
 - [`events-async/application-events.md`](events-async/application-events.md)
 - [`configurations/docker-and-deployment.md`](configurations/docker-and-deployment.md)
 - [`actuator-deep-dive.md`](actuator-deep-dive.md)
-- [`java-fundamentals/concurrency-basics.md`](java-fundamentals/concurrency-basics.md)
+- [`java-fundamentals/concurrency/concurrency-basics.md`](java-fundamentals/concurrency/concurrency-basics.md)
 
 ## References
 

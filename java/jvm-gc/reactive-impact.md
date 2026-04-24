@@ -58,7 +58,7 @@ Consequence: the right collector and allocation discipline matter more here than
 
 ## Virtual Threads and GC
 
-[Virtual threads](../java-fundamentals/virtual-threads.md) (JEP 444, Java 21) scale to millions of concurrent threads by scheduling them on a small pool of platform carrier threads. They are a different axis of scale from reactive, but with similar GC implications.
+[Virtual threads](../java-fundamentals/concurrency/virtual-threads.md) (JEP 444, Java 21) scale to millions of concurrent threads by scheduling them on a small pool of platform carrier threads. They are a different axis of scale from reactive, but with similar GC implications.
 
 ### Stack Scanning at Scale
 
@@ -305,7 +305,7 @@ JAVA_OPTS="\
 - [GC Concepts and Mental Model](concepts.md) — vocabulary used here.
 - [JVM Collectors](collectors.md) — G1 vs ZGC vs Shenandoah tradeoffs.
 - [GC Pause Diagnosis Playbook](pause-diagnosis.md) — heap dumps, JFR, async-profiler.
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — stacks, continuations, pinning.
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — stacks, continuations, pinning.
 - [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — enabling VTs in Spring, JDBC + VT traps.
 - [Reactive Programming in Java](../reactive-programming-java.md) — Reactor fundamentals.
 - [Reactive Advanced Topics](../reactive-advanced-topics.md) — operator internals.

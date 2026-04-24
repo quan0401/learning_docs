@@ -592,7 +592,7 @@ Caveats, however:
 
 So: upgrade to JDK 21+ and flip `spring.threads.virtual.enabled=true` when you can. Until then, this doc is your playbook. And even after — connection sizing, caching, and Resilience4j stay exactly the same.
 
-See [Virtual Threads and Spring Boot](../spring-virtual-threads.md) for the migration guide and [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) for the underlying JEP 444 mechanics.
+See [Virtual Threads and Spring Boot](../spring-virtual-threads.md) for the migration guide and [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) for the underlying JEP 444 mechanics.
 
 ---
 
@@ -600,8 +600,8 @@ See [Virtual Threads and Spring Boot](../spring-virtual-threads.md) for the migr
 
 - [Spring MVC Fundamentals](spring-mvc-fundamentals.md) — `DispatcherServlet`, controller return types, the async plumbing this doc tunes.
 - [Virtual Threads and Spring Boot](../spring-virtual-threads.md) — the post-Loom way to do all of this.
-- [Virtual Threads in Java](../java-fundamentals/virtual-threads.md) — how VTs work internally.
-- [Concurrency Basics](../java-fundamentals/concurrency-basics.md) — `ExecutorService`, `CompletableFuture`, synchronization.
+- [Virtual Threads in Java](../java-fundamentals/concurrency/virtual-threads.md) — how VTs work internally.
+- [Concurrency Basics](../java-fundamentals/concurrency/concurrency-basics.md) — `ExecutorService`, `CompletableFuture`, synchronization.
 - [Async Processing in Spring](../events-async/async-processing.md) — `@Async` for background work (not request handling).
 - [Wrapping Blocking JPA Calls in a Reactive Chain](../reactive-blocking-jpa-pattern.md) — the reactive counterpart pattern.
 - [Reactive Programming in Java](../reactive-programming-java.md) — WebFlux alternative.

@@ -199,7 +199,7 @@ Every one of these has been a multi-hour outage at some company you've heard of.
 - [Federated GraphQL with Polyglot Persistence](../graphql/multi-database-patterns.md) — cross-service writes, idempotency in practice.
 - [JPA Transactions](../jpa-transactions.md) — the single-DB consistency model that distributed systems have to replace.
 - [Reactive Kafka](../messaging/reactive-kafka.md) — at-least-once delivery and EOS mode.
-- [Multithreading Deep Dive](../java-fundamentals/multithreading-deep-dive.md) — the single-process analogue of distributed consensus problems.
+- [Multithreading Deep Dive](../java-fundamentals/concurrency/multithreading-deep-dive.md) — the single-process analogue of distributed consensus problems.
 - [Event Sourcing and CQRS](event-sourcing-cqrs.md) — one pattern-stack for distributed state.
 
 ---
