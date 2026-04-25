@@ -148,94 +148,94 @@ The interview-style design problems. Each doc follows a consistent template: req
 
 ### 10.A Basic Designs
 
-70. [Design a URL Shortener](case-studies/basic/design-url-shortener.md) — counter vs hash vs base62, redirect infra, click analytics, custom aliases, abuse protection _(planned, easy)_
-71. [Design Pastebin](case-studies/basic/design-pastebin.md) — paste object model, expiry policies, key generation, read-vs-write skew, abuse / DMCA flow _(planned, easy)_
-72. [Design a Rate Limiter (Service)](case-studies/basic/design-rate-limiter.md) — centralized vs distributed, Redis-backed sliding window, policy engine, client SDKs, observability _(planned, medium)_
+70. [Design a URL Shortener](case-studies/basic/design-url-shortener.md) — counter vs hash vs base62, redirect infra, click analytics, custom aliases, abuse protection _(2026-04-25, easy)_
+71. [Design Pastebin](case-studies/basic/design-pastebin.md) — paste object model, expiry policies, key generation, read-vs-write skew, abuse / DMCA flow _(2026-04-25, easy)_
+72. [Design a Rate Limiter (Service)](case-studies/basic/design-rate-limiter.md) — centralized vs distributed, Redis-backed sliding window, policy engine, client SDKs, observability _(2026-04-25, medium)_
 
 ### 10.B Real-Time Communication
 
-73. [Design WhatsApp / Chat System](case-studies/real-time/design-whatsapp.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery, e2e encryption _(planned, medium)_
-74. [Design Slack](case-studies/real-time/design-slack.md) — workspace/channel hierarchy, threads, search, integrations, large-team fanout, presence at workspace scale _(planned, medium)_
-75. [Design Live Comments](case-studies/real-time/design-live-comments.md) — fan-out at thousands of viewers per second, ordering, moderation hooks, push channel selection _(planned, medium)_
-76. [Design Google Docs / Collaborative Editor](case-studies/real-time/design-google-docs.md) — OT vs CRDT, presence, cursor broadcast, offline merges, history, large-doc partitioning _(planned, hard)_
-77. [Design Zoom](case-studies/real-time/design-zoom.md) — selective forwarding unit (SFU) vs MCU vs P2P mesh, signaling, simulcast, recording, geographic routing _(planned, hard)_
+73. [Design WhatsApp / Chat System](case-studies/real-time/design-whatsapp.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery, e2e encryption _(2026-04-25, medium)_
+74. [Design Slack](case-studies/real-time/design-slack.md) — workspace/channel hierarchy, threads, search, integrations, large-team fanout, presence at workspace scale _(2026-04-25, medium)_
+75. [Design Live Comments](case-studies/real-time/design-live-comments.md) — fan-out at thousands of viewers per second, ordering, moderation hooks, push channel selection _(2026-04-25, medium)_
+76. [Design Google Docs / Collaborative Editor](case-studies/real-time/design-google-docs.md) — OT vs CRDT, presence, cursor broadcast, offline merges, history, large-doc partitioning _(2026-04-25, hard)_
+77. [Design Zoom](case-studies/real-time/design-zoom.md) — selective forwarding unit (SFU) vs MCU vs P2P mesh, signaling, simulcast, recording, geographic routing _(2026-04-25, hard)_
 
 ### 10.C Social Media
 
-78. [Design Instagram](case-studies/social-media/design-instagram.md) — photo upload pipeline, thumbnails, feed, stories, follow graph, hashtag/explore feed _(planned, medium)_
-79. [Design Facebook News Feed](case-studies/social-media/design-facebook-news-feed.md) — fan-out on write vs read, celebrity problem, timeline generation, ranking, freshness vs personalization _(planned, medium)_
-80. [Design TikTok](case-studies/social-media/design-tiktok.md) — short-video pipeline, ranking with implicit feedback, content moderation at scale, recommendation as the product _(planned, medium)_
-81. [Design Reddit](case-studies/social-media/design-reddit.md) — subreddits, threaded comments, voting + ranking (hot/new/top/controversial), moderation tooling _(planned, medium)_
-82. [Design Tinder](case-studies/social-media/design-tinder.md) — geo + preference matching, swipe storage, deck pre-loading, mutual-match flow, anti-bot defenses _(planned, medium)_
-83. [Design a Likes Counting System](case-studies/social-media/design-likes-counting-system.md) — counter sharding, eventual aggregation, Redis HLL/Count-Min, debouncing, accuracy vs cost _(planned, medium)_
+78. [Design Instagram](case-studies/social-media/design-instagram.md) — photo upload pipeline, thumbnails, feed, stories, follow graph, hashtag/explore feed _(2026-04-25, medium)_
+79. [Design Facebook News Feed](case-studies/social-media/design-facebook-news-feed.md) — fan-out on write vs read, celebrity problem, timeline generation, ranking, freshness vs personalization _(2026-04-25, medium)_
+80. [Design TikTok](case-studies/social-media/design-tiktok.md) — short-video pipeline, ranking with implicit feedback, content moderation at scale, recommendation as the product _(2026-04-25, medium)_
+81. [Design Reddit](case-studies/social-media/design-reddit.md) — subreddits, threaded comments, voting + ranking (hot/new/top/controversial), moderation tooling _(2026-04-25, medium)_
+82. [Design Tinder](case-studies/social-media/design-tinder.md) — geo + preference matching, swipe storage, deck pre-loading, mutual-match flow, anti-bot defenses _(2026-04-25, medium)_
+83. [Design a Likes Counting System](case-studies/social-media/design-likes-counting-system.md) — counter sharding, eventual aggregation, Redis HLL/Count-Min, debouncing, accuracy vs cost _(2026-04-25, medium)_
 
 ### 10.D Media Streaming & Delivery
 
-84. [Design Spotify](case-studies/media-streaming/design-spotify.md) — track CDN distribution, playlist + library service, recommendation intro, offline mode, royalty-counting precision _(planned, medium)_
-85. [Design YouTube](case-studies/media-streaming/design-youtube.md) — upload pipeline, transcoding fan-out, ABR, CDN strategy, comments + recommendations, creator analytics _(planned, medium)_
-86. [Design Netflix](case-studies/media-streaming/design-netflix.md) — content prep pipeline, Open Connect CDN, viewing-session tracking, regional licensing constraints, recommendation system _(planned, medium)_
-87. [Design Google Drive / Dropbox](case-studies/media-streaming/design-google-drive.md) — chunking, dedup, delta sync, metadata DB, block storage, sharing/permission, mobile constraints _(planned, medium)_
-88. [Design Gmail](case-studies/media-streaming/design-gmail.md) — IMAP/SMTP boundary, search index over mail, label/folder model, anti-spam pipeline, threading, attachment handling _(planned, hard)_
-89. [Design Twitch](case-studies/media-streaming/design-twitch.md) — live ingest, low-latency delivery (HLS-LL/CMAF), chat at viewer scale, VOD pipeline, subscription/monetization _(planned, hard)_
+84. [Design Spotify](case-studies/media-streaming/design-spotify.md) — track CDN distribution, playlist + library service, recommendation intro, offline mode, royalty-counting precision _(2026-04-25, medium)_
+85. [Design YouTube](case-studies/media-streaming/design-youtube.md) — upload pipeline, transcoding fan-out, ABR, CDN strategy, comments + recommendations, creator analytics _(2026-04-25, medium)_
+86. [Design Netflix](case-studies/media-streaming/design-netflix.md) — content prep pipeline, Open Connect CDN, viewing-session tracking, regional licensing constraints, recommendation system _(2026-04-25, medium)_
+87. [Design Google Drive / Dropbox](case-studies/media-streaming/design-google-drive.md) — chunking, dedup, delta sync, metadata DB, block storage, sharing/permission, mobile constraints _(2026-04-25, medium)_
+88. [Design Gmail](case-studies/media-streaming/design-gmail.md) — IMAP/SMTP boundary, search index over mail, label/folder model, anti-spam pipeline, threading, attachment handling _(2026-04-25, hard)_
+89. [Design Twitch](case-studies/media-streaming/design-twitch.md) — live ingest, low-latency delivery (HLS-LL/CMAF), chat at viewer scale, VOD pipeline, subscription/monetization _(2026-04-25, hard)_
 
 ### 10.E Location-Based Services
 
-90. [Design Airbnb](case-studies/location-based/design-airbnb.md) — listing search with geospatial filter, availability + booking concurrency, pricing/promo, reviews, payments _(planned, medium)_
-91. [Design DoorDash / Swiggy](case-studies/location-based/design-doordash.md) — restaurant index, dispatch + driver matching, ETAs, multi-leg pickup, surge pricing _(planned, medium)_
-92. [Design Uber / Ride-Hailing](case-studies/location-based/design-uber.md) — geo indexing (geohash/S2/H3), dispatch matching, trip lifecycle state machine, surge pricing, dual-write concerns _(planned, hard)_
-93. [Design Google Maps](case-studies/location-based/design-google-maps.md) — tile pyramid, road graph, routing (A*/contraction hierarchies), real-time traffic, address geocoding _(planned, hard)_
+90. [Design Airbnb](case-studies/location-based/design-airbnb.md) — listing search with geospatial filter, availability + booking concurrency, pricing/promo, reviews, payments _(2026-04-25, medium)_
+91. [Design DoorDash / Swiggy](case-studies/location-based/design-doordash.md) — restaurant index, dispatch + driver matching, ETAs, multi-leg pickup, surge pricing _(2026-04-25, medium)_
+92. [Design Uber / Ride-Hailing](case-studies/location-based/design-uber.md) — geo indexing (geohash/S2/H3), dispatch matching, trip lifecycle state machine, surge pricing, dual-write concerns _(2026-04-25, hard)_
+93. [Design Google Maps](case-studies/location-based/design-google-maps.md) — tile pyramid, road graph, routing (A*/contraction hierarchies), real-time traffic, address geocoding _(2026-04-25, hard)_
 
 ### 10.F Search & Aggregation
 
-94. [Design Search Autocomplete](case-studies/search-aggregation/design-search-autocomplete.md) — trie vs prefix index, ranking, typo tolerance, freshness, personalization _(planned, easy)_
-95. [Design a News Aggregator](case-studies/search-aggregation/design-news-aggregator.md) — crawl-vs-RSS ingest, deduplication (near-duplicate detection), ranking, topic clustering, personalization _(planned, medium)_
-96. [Design a Web Crawler](case-studies/search-aggregation/design-web-crawler.md) — frontier scheduling, politeness/robots, dedup, content-addressed storage, recrawl strategy, distributed coordination _(planned, medium)_
-97. [Design Google Search](case-studies/search-aggregation/design-google-search.md) — index sharding, query serving, ranking signals, freshness vs depth, query understanding _(planned, hard)_
-98. [Design an Ad Click Aggregator](case-studies/search-aggregation/design-ad-click-aggregator.md) — click capture at scale, fraud filtering, attribution windows, real-time aggregates, billing correctness _(planned, hard)_
+94. [Design Search Autocomplete](case-studies/search-aggregation/design-search-autocomplete.md) — trie vs prefix index, ranking, typo tolerance, freshness, personalization _(2026-04-25, easy)_
+95. [Design a News Aggregator](case-studies/search-aggregation/design-news-aggregator.md) — crawl-vs-RSS ingest, deduplication (near-duplicate detection), ranking, topic clustering, personalization _(2026-04-25, medium)_
+96. [Design a Web Crawler](case-studies/search-aggregation/design-web-crawler.md) — frontier scheduling, politeness/robots, dedup, content-addressed storage, recrawl strategy, distributed coordination _(2026-04-25, medium)_
+97. [Design Google Search](case-studies/search-aggregation/design-google-search.md) — index sharding, query serving, ranking signals, freshness vs depth, query understanding _(2026-04-25, hard)_
+98. [Design an Ad Click Aggregator](case-studies/search-aggregation/design-ad-click-aggregator.md) — click capture at scale, fraud filtering, attribution windows, real-time aggregates, billing correctness _(2026-04-25, hard)_
 
 ### 10.G E-Commerce & Marketplace
 
-99. [Design Amazon E-Commerce](case-studies/e-commerce/design-amazon-ecommerce.md) — catalog, search, cart, order, payment, fulfillment graph, recommendations — the HLD survey _(planned, medium)_
-100. [Design Shopify](case-studies/e-commerce/design-shopify.md) — multi-tenant store platform, plugin/app marketplace, checkout extensibility, multi-region payments _(planned, medium)_
-101. [Design a Flash Sale System](case-studies/e-commerce/design-flash-sale.md) — extreme write contention, queue-based admission, inventory reservation, anti-bot, graceful degradation _(planned, hard)_
-102. [Design an Online Auction System (HLD)](case-studies/e-commerce/design-online-auction.md) — bid storage, sniping protection, real-time price broadcast, payments + escrow, anti-fraud _(planned, hard)_
-103. [Design a Movie Booking System (HLD)](case-studies/e-commerce/design-movie-booking-system.md) — show / screen / seat, seat-hold concurrency, payment integration, refund flow, multi-cinema sharding _(planned, hard)_
+99. [Design Amazon E-Commerce](case-studies/e-commerce/design-amazon-ecommerce.md) — catalog, search, cart, order, payment, fulfillment graph, recommendations — the HLD survey _(2026-04-25, medium)_
+100. [Design Shopify](case-studies/e-commerce/design-shopify.md) — multi-tenant store platform, plugin/app marketplace, checkout extensibility, multi-region payments _(2026-04-25, medium)_
+101. [Design a Flash Sale System](case-studies/e-commerce/design-flash-sale.md) — extreme write contention, queue-based admission, inventory reservation, anti-bot, graceful degradation _(2026-04-25, hard)_
+102. [Design an Online Auction System (HLD)](case-studies/e-commerce/design-online-auction.md) — bid storage, sniping protection, real-time price broadcast, payments + escrow, anti-fraud _(2026-04-25, hard)_
+103. [Design a Movie Booking System (HLD)](case-studies/e-commerce/design-movie-booking-system.md) — show / screen / seat, seat-hold concurrency, payment integration, refund flow, multi-cinema sharding _(2026-04-25, hard)_
 
 ### 10.H Payment & Financial Systems
 
-104. [Design a Payment System](case-studies/payment/design-payment-system.md) — idempotency, double-entry ledgers, reconciliation, fraud gates, async settlement, processor adapters _(planned, medium)_
-105. [Design a Digital Wallet](case-studies/payment/design-digital-wallet.md) — balance ledger, top-up flow, transfers, KYC, transaction limits, regulatory + audit constraints _(planned, hard)_
-106. [Design an Online Stock Exchange](case-studies/payment/design-stock-exchange.md) — order book, matching engine, market vs limit, T+N settlement, market data fan-out, regulatory feeds _(planned, hard)_
+104. [Design a Payment System](case-studies/payment/design-payment-system.md) — idempotency, double-entry ledgers, reconciliation, fraud gates, async settlement, processor adapters _(2026-04-25, medium)_
+105. [Design a Digital Wallet](case-studies/payment/design-digital-wallet.md) — balance ledger, top-up flow, transfers, KYC, transaction limits, regulatory + audit constraints _(2026-04-25, hard)_
+106. [Design an Online Stock Exchange](case-studies/payment/design-stock-exchange.md) — order book, matching engine, market vs limit, T+N settlement, market data fan-out, regulatory feeds _(2026-04-25, hard)_
 
 ### 10.I Distributed Infrastructure
 
-107. [Design a Load Balancer (Service)](case-studies/distributed-infra/design-load-balancer.md) — L4/L7 pipeline, health probing, connection draining, hash-based affinity, autoscaling targets _(planned, medium)_
-108. [Design an API Gateway (Service)](case-studies/distributed-infra/design-api-gateway.md) — route table, auth offload, rate limiting, request transformation, plugin model, multi-tenant isolation _(planned, medium)_
-109. [Design a Notification System](case-studies/distributed-infra/design-notification-system.md) — fan-out, channel routing (push/email/SMS), preferences, rate limiting, DLQ handling _(planned, medium)_
-110. [Design a Key-Value Store](case-studies/distributed-infra/design-key-value-store.md) — Dynamo-style design, NWR, consistent hashing, replication, anti-entropy, conflict resolution _(planned, hard)_
-111. [Design a Distributed Cache](case-studies/distributed-infra/design-distributed-cache.md) — partitioning, replication, eviction, consistent hashing ring, client topology awareness _(planned, hard)_
-112. [Design a CDN](case-studies/distributed-infra/design-cdn.md) — edge POPs, anycast, cache hierarchies, purge propagation, origin shielding, edge compute _(planned, hard)_
-113. [Design Object Storage (S3-Style)](case-studies/distributed-infra/design-object-storage.md) — flat namespace, durability via erasure coding, multipart upload, lifecycle, presigned URLs, eventual → strong consistency story _(planned, hard)_
-114. [Design a Message Queue (Service)](case-studies/distributed-infra/design-message-queue.md) — log vs queue semantics, partitioning, consumer groups, durability, ordering guarantees _(planned, hard)_
-115. [Design a Time-Series Database](case-studies/distributed-infra/design-time-series-database.md) — write-optimized columnar storage, downsampling, retention, range query optimization, cardinality budget _(planned, hard)_
-116. [Design a Distributed Locking Service](case-studies/distributed-infra/design-distributed-locking.md) — lease-based locks, fencing tokens, ZooKeeper/etcd patterns, deadlock prevention, watchdog renewal _(planned, hard)_
+107. [Design a Load Balancer (Service)](case-studies/distributed-infra/design-load-balancer.md) — L4/L7 pipeline, health probing, connection draining, hash-based affinity, autoscaling targets _(2026-04-25, medium)_
+108. [Design an API Gateway (Service)](case-studies/distributed-infra/design-api-gateway.md) — route table, auth offload, rate limiting, request transformation, plugin model, multi-tenant isolation _(2026-04-25, medium)_
+109. [Design a Notification System](case-studies/distributed-infra/design-notification-system.md) — fan-out, channel routing (push/email/SMS), preferences, rate limiting, DLQ handling _(2026-04-25, medium)_
+110. [Design a Key-Value Store](case-studies/distributed-infra/design-key-value-store.md) — Dynamo-style design, NWR, consistent hashing, replication, anti-entropy, conflict resolution _(2026-04-25, hard)_
+111. [Design a Distributed Cache](case-studies/distributed-infra/design-distributed-cache.md) — partitioning, replication, eviction, consistent hashing ring, client topology awareness _(2026-04-25, hard)_
+112. [Design a CDN](case-studies/distributed-infra/design-cdn.md) — edge POPs, anycast, cache hierarchies, purge propagation, origin shielding, edge compute _(2026-04-25, hard)_
+113. [Design Object Storage (S3-Style)](case-studies/distributed-infra/design-object-storage.md) — flat namespace, durability via erasure coding, multipart upload, lifecycle, presigned URLs, eventual → strong consistency story _(2026-04-25, hard)_
+114. [Design a Message Queue (Service)](case-studies/distributed-infra/design-message-queue.md) — log vs queue semantics, partitioning, consumer groups, durability, ordering guarantees _(2026-04-25, hard)_
+115. [Design a Time-Series Database](case-studies/distributed-infra/design-time-series-database.md) — write-optimized columnar storage, downsampling, retention, range query optimization, cardinality budget _(2026-04-25, hard)_
+116. [Design a Distributed Locking Service](case-studies/distributed-infra/design-distributed-locking.md) — lease-based locks, fencing tokens, ZooKeeper/etcd patterns, deadlock prevention, watchdog renewal _(2026-04-25, hard)_
 
 ### 10.J Counting & Ranking Systems
 
-117. [Design a Real-Time Leaderboard](case-studies/counting-ranking/design-realtime-leaderboard.md) — sorted set semantics, sharded counters, periodic snapshots, top-K queries, percentile rankings _(planned, medium)_
-118. [Design a Top-K System](case-studies/counting-ranking/design-top-k-system.md) — count-min sketch + heap, sliding-window top-K, multi-region merge, accuracy vs memory _(planned, hard)_
+117. [Design a Real-Time Leaderboard](case-studies/counting-ranking/design-realtime-leaderboard.md) — sorted set semantics, sharded counters, periodic snapshots, top-K queries, percentile rankings _(2026-04-25, medium)_
+118. [Design a Top-K System](case-studies/counting-ranking/design-top-k-system.md) — count-min sketch + heap, sliding-window top-K, multi-region merge, accuracy vs memory _(2026-04-25, hard)_
 
 ### 10.K Asynchronous Systems
 
-119. [Design a Job Scheduler](case-studies/async/design-job-scheduler.md) — cron + one-shot triggers, distributed lock per job, retry + backoff, persistent queue, multi-tenant fairness _(planned, medium)_
-120. [Design a CI/CD Pipeline](case-studies/async/design-cicd-pipeline.md) — pipeline DAG, runner pool, artifact store, secrets, environment promotion, failure isolation _(planned, medium)_
-121. [Design a Monitoring & Alerting System (Datadog-Style)](case-studies/async/design-monitoring-alerting.md) — ingestion, time-series storage, rollups, alerting engine, dashboard compute, alert fatigue mitigation _(planned, medium)_
+119. [Design a Job Scheduler](case-studies/async/design-job-scheduler.md) — cron + one-shot triggers, distributed lock per job, retry + backoff, persistent queue, multi-tenant fairness _(2026-04-25, medium)_
+120. [Design a CI/CD Pipeline](case-studies/async/design-cicd-pipeline.md) — pipeline DAG, runner pool, artifact store, secrets, environment promotion, failure isolation _(2026-04-25, medium)_
+121. [Design a Monitoring & Alerting System (Datadog-Style)](case-studies/async/design-monitoring-alerting.md) — ingestion, time-series storage, rollups, alerting engine, dashboard compute, alert fatigue mitigation _(2026-04-25, medium)_
 
 ### 10.L Specialized Systems
 
-122. [Design LeetCode](case-studies/specialized/design-leetcode.md) — problem catalog, code execution sandbox, judging pipeline, contest mode, plagiarism detection _(planned, medium)_
-123. [Design a Calendar System](case-studies/specialized/design-calendar-system.md) — events, recurrence (RRULE), free-busy, scheduling assistant, time-zone correctness, conflict detection _(planned, hard)_
-124. [Design Online Chess](case-studies/specialized/design-online-chess.md) — matchmaking, anti-cheat, real-time move sync, ELO updates, time control state machine, spectator mode _(planned, hard)_
+122. [Design LeetCode](case-studies/specialized/design-leetcode.md) — problem catalog, code execution sandbox, judging pipeline, contest mode, plagiarism detection _(2026-04-25, medium)_
+123. [Design a Calendar System](case-studies/specialized/design-calendar-system.md) — events, recurrence (RRULE), free-busy, scheduling assistant, time-zone correctness, conflict detection _(2026-04-25, hard)_
+124. [Design Online Chess](case-studies/specialized/design-online-chess.md) — matchmaking, anti-cheat, real-time move sync, ELO updates, time control state machine, spectator mode _(2026-04-25, hard)_
 
 ---
 
