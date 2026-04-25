@@ -2,7 +2,7 @@
 
 A progressive path from mental models and building blocks through scalability, data consistency, reliability, and real-world design problems. System design is where the other learning paths compose — databases, protocols, caches, queues, and services become architectures that have to survive traffic, failure, and change.
 
-Cross-references to the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), the [Networking learning path](../networking/INDEX.md), and the [Kubernetes learning path](../kubernetes/INDEX.md) where topics overlap.
+Cross-references to the [Low-Level Design learning path](../low-level-design/INDEX.md) (class-level OOD, the layer below this one), the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), the [Networking learning path](../networking/INDEX.md), and the [Kubernetes learning path](../kubernetes/INDEX.md) where topics overlap.
 
 If you already know how to build and deploy a service, **start at Tier 1 (Foundations & Mental Models)** to install the reasoning vocabulary you'll use in every design discussion, then work forward. Tier 10 (case studies) exercises everything from Tiers 1–9 against real problems. Tiers 12–13 cover the algorithms and data-engineering surface most backend engineers eventually touch.
 
@@ -85,15 +85,15 @@ How services talk. Sync vs async, delivery guarantees, streaming.
 
 Designing for failure instead of against it.
 
-39. [Failure Modes and Fault Tolerance Taxonomy](reliability/failure-modes-and-fault-tolerance.md) — crash-stop, omission, timing, byzantine, gray failures, blast radius, failure domains _(planned)_
-40. [Failure Detection — Heartbeats, Phi-Accrual, and Gossip (SWIM)](reliability/failure-detection.md) — heartbeat protocols, phi-accrual detector, SWIM gossip-based failure detection, fencing tokens revisited _(planned)_
-41. [Network Partitions and Split Brain](reliability/network-partitions-and-split-brain.md) — how partitions actually manifest (asymmetric, gray, flaky), detection strategies, the choices split-brain forces, real outage examples _(planned)_
-42. [Single Point of Failure Analysis](reliability/single-point-of-failure-analysis.md) — finding SPOFs in a design, "what breaks if this dies" drills, HA patterns by failure class, SPOF audit checklist _(planned)_
-43. [Retry Strategies — Exponential Backoff, Jitter, Budgets](reliability/retry-strategies.md) — why naive retries make outages worse, full jitter, retry budgets, circuit-breaker integration _(planned)_
-44. [Chaos Engineering and Game Days](reliability/chaos-engineering-and-game-days.md) — chaos principles, blast-radius containment, game day structure, what to simulate first _(planned)_
-45. [Disaster Recovery — RPO, RTO, Backup Strategies](reliability/disaster-recovery.md) — RPO vs RTO, backup tiers, pilot light vs warm standby vs active-active, DR drills _(planned)_
-46. [Multi-Region Architectures — Active-Active, Active-Passive, Geo-Routing](reliability/multi-region-architectures.md) — regional failure domains, replication topologies, conflict resolution, geo-DNS vs anycast vs global LB _(planned)_
-47. [Graceful Degradation and Feature Flags](reliability/graceful-degradation-and-feature-flags.md) — degradation tiers, kill switches, circuit breaker + flag integration, flag lifecycle _(planned)_
+39. [Failure Modes and Fault Tolerance Taxonomy](reliability/failure-modes-and-fault-tolerance.md) — crash-stop, omission, timing, byzantine, gray failures, blast radius, failure domains _(2026-04-25)_
+40. [Failure Detection — Heartbeats, Phi-Accrual, and Gossip (SWIM)](reliability/failure-detection.md) — heartbeat protocols, phi-accrual detector, SWIM gossip-based failure detection, fencing tokens revisited _(2026-04-25)_
+41. [Network Partitions and Split Brain](reliability/network-partitions-and-split-brain.md) — how partitions actually manifest (asymmetric, gray, flaky), detection strategies, the choices split-brain forces, real outage examples _(2026-04-25)_
+42. [Single Point of Failure Analysis](reliability/single-point-of-failure-analysis.md) — finding SPOFs in a design, "what breaks if this dies" drills, HA patterns by failure class, SPOF audit checklist _(2026-04-25)_
+43. [Retry Strategies — Exponential Backoff, Jitter, Budgets](reliability/retry-strategies.md) — why naive retries make outages worse, full jitter, retry budgets, circuit-breaker integration _(2026-04-25)_
+44. [Chaos Engineering and Game Days](reliability/chaos-engineering-and-game-days.md) — chaos principles, blast-radius containment, game day structure, what to simulate first _(2026-04-25)_
+45. [Disaster Recovery — RPO, RTO, Backup Strategies](reliability/disaster-recovery.md) — RPO vs RTO, backup tiers, pilot light vs warm standby vs active-active, DR drills _(2026-04-25)_
+46. [Multi-Region Architectures — Active-Active, Active-Passive, Geo-Routing](reliability/multi-region-architectures.md) — regional failure domains, replication topologies, conflict resolution, geo-DNS vs anycast vs global LB _(2026-04-25)_
+47. [Graceful Degradation and Feature Flags](reliability/graceful-degradation-and-feature-flags.md) — degradation tiers, kill switches, circuit breaker + flag integration, flag lifecycle _(2026-04-25)_
 
 ---
 
@@ -142,22 +142,100 @@ How to slice the system.
 
 ## Tier 10 — Case Studies: Designing Real Systems
 
-The interview-style design problems. Each doc follows a consistent template: requirements → estimates → API → data model → high-level design → deep dives → bottlenecks → trade-offs.
+The interview-style design problems. Each doc follows a consistent template: requirements → estimates → API → data model → high-level design → deep dives → bottlenecks → trade-offs. Categories and difficulty markers track the [AlgoMaster system-design problem set](https://algomaster.io/learn/system-design).
 
-70. [Design a URL Shortener](case-studies/design-url-shortener.md) — counter vs hash vs base62, redirect infra, click analytics, custom aliases, abuse protection _(planned)_
-71. [Design a Rate Limiter (Service)](case-studies/design-rate-limiter.md) — centralized vs distributed, Redis-backed sliding window, policy engine, client SDKs, observability _(planned)_
-72. [Design a Distributed Cache](case-studies/design-distributed-cache.md) — partitioning, replication, eviction, consistent hashing ring, client topology awareness _(planned)_
-73. [Design a News Feed / Timeline (Twitter-Style)](case-studies/design-news-feed.md) — fan-out on write vs read, celebrity problem, timeline generation, ranking intro _(planned)_
-74. [Design a Chat System (WhatsApp-Style)](case-studies/design-chat-system.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery _(planned)_
-75. [Design a Notification System](case-studies/design-notification-system.md) — fan-out, channel routing (push/email/SMS), preferences, rate limiting, DLQ handling _(planned)_
-76. [Design a Video Streaming Service (YouTube/Netflix-Style)](case-studies/design-video-streaming.md) — upload pipeline, transcoding, CDN distribution, ABR, recommendation intro _(planned)_
-77. [Design a Ride-Sharing Service (Uber-Style)](case-studies/design-ride-sharing.md) — geo indexing (geohash/S2), dispatch matching, trip lifecycle, surge pricing, dual write concerns _(planned)_
-78. [Design a File Storage & Sync Service (Dropbox-Style)](case-studies/design-file-storage-and-sync.md) — chunking, dedup, delta sync, metadata DB, block storage, mobile constraints _(planned)_
-79. [Design a Collaborative Editor (Google Docs-Style)](case-studies/design-collaborative-editor.md) — OT vs CRDT, presence, cursor broadcast, offline merges, history _(planned)_
-80. [Design a Search Autocomplete](case-studies/design-search-autocomplete.md) — trie vs prefix index, ranking, typo tolerance, freshness, personalization _(planned)_
-81. [Design a Payment System](case-studies/design-payment-system.md) — idempotency, double-entry ledgers, reconciliation, fraud gates, async settlement _(planned)_
-82. [Design a Metrics & Monitoring System (Datadog-Style)](case-studies/design-metrics-monitoring-system.md) — ingestion, time-series storage, rollups, alerting engine, dashboard compute _(planned)_
-83. [Design an Ad Click Tracking Pipeline](case-studies/design-ad-click-tracking.md) — click-through capture, fraud filtering, attribution windows, real-time aggregates, billing correctness _(planned)_
+> Some problems also exist in the [Low-Level Design path](../low-level-design/INDEX.md) (URL Shortener, Rate Limiter, Search Autocomplete, Chat, Notifications, Online Auction, Movie Booking, Stock Exchange, etc.). The HLD entry below focuses on capacity, sharding, replication, infrastructure topology; the LLD twin focuses on classes, patterns, and concurrency primitives.
+
+### 10.A Basic Designs
+
+70. [Design a URL Shortener](case-studies/basic/design-url-shortener.md) — counter vs hash vs base62, redirect infra, click analytics, custom aliases, abuse protection _(planned, easy)_
+71. [Design Pastebin](case-studies/basic/design-pastebin.md) — paste object model, expiry policies, key generation, read-vs-write skew, abuse / DMCA flow _(planned, easy)_
+72. [Design a Rate Limiter (Service)](case-studies/basic/design-rate-limiter.md) — centralized vs distributed, Redis-backed sliding window, policy engine, client SDKs, observability _(planned, medium)_
+
+### 10.B Real-Time Communication
+
+73. [Design WhatsApp / Chat System](case-studies/real-time/design-whatsapp.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery, e2e encryption _(planned, medium)_
+74. [Design Slack](case-studies/real-time/design-slack.md) — workspace/channel hierarchy, threads, search, integrations, large-team fanout, presence at workspace scale _(planned, medium)_
+75. [Design Live Comments](case-studies/real-time/design-live-comments.md) — fan-out at thousands of viewers per second, ordering, moderation hooks, push channel selection _(planned, medium)_
+76. [Design Google Docs / Collaborative Editor](case-studies/real-time/design-google-docs.md) — OT vs CRDT, presence, cursor broadcast, offline merges, history, large-doc partitioning _(planned, hard)_
+77. [Design Zoom](case-studies/real-time/design-zoom.md) — selective forwarding unit (SFU) vs MCU vs P2P mesh, signaling, simulcast, recording, geographic routing _(planned, hard)_
+
+### 10.C Social Media
+
+78. [Design Instagram](case-studies/social-media/design-instagram.md) — photo upload pipeline, thumbnails, feed, stories, follow graph, hashtag/explore feed _(planned, medium)_
+79. [Design Facebook News Feed](case-studies/social-media/design-facebook-news-feed.md) — fan-out on write vs read, celebrity problem, timeline generation, ranking, freshness vs personalization _(planned, medium)_
+80. [Design TikTok](case-studies/social-media/design-tiktok.md) — short-video pipeline, ranking with implicit feedback, content moderation at scale, recommendation as the product _(planned, medium)_
+81. [Design Reddit](case-studies/social-media/design-reddit.md) — subreddits, threaded comments, voting + ranking (hot/new/top/controversial), moderation tooling _(planned, medium)_
+82. [Design Tinder](case-studies/social-media/design-tinder.md) — geo + preference matching, swipe storage, deck pre-loading, mutual-match flow, anti-bot defenses _(planned, medium)_
+83. [Design a Likes Counting System](case-studies/social-media/design-likes-counting-system.md) — counter sharding, eventual aggregation, Redis HLL/Count-Min, debouncing, accuracy vs cost _(planned, medium)_
+
+### 10.D Media Streaming & Delivery
+
+84. [Design Spotify](case-studies/media-streaming/design-spotify.md) — track CDN distribution, playlist + library service, recommendation intro, offline mode, royalty-counting precision _(planned, medium)_
+85. [Design YouTube](case-studies/media-streaming/design-youtube.md) — upload pipeline, transcoding fan-out, ABR, CDN strategy, comments + recommendations, creator analytics _(planned, medium)_
+86. [Design Netflix](case-studies/media-streaming/design-netflix.md) — content prep pipeline, Open Connect CDN, viewing-session tracking, regional licensing constraints, recommendation system _(planned, medium)_
+87. [Design Google Drive / Dropbox](case-studies/media-streaming/design-google-drive.md) — chunking, dedup, delta sync, metadata DB, block storage, sharing/permission, mobile constraints _(planned, medium)_
+88. [Design Gmail](case-studies/media-streaming/design-gmail.md) — IMAP/SMTP boundary, search index over mail, label/folder model, anti-spam pipeline, threading, attachment handling _(planned, hard)_
+89. [Design Twitch](case-studies/media-streaming/design-twitch.md) — live ingest, low-latency delivery (HLS-LL/CMAF), chat at viewer scale, VOD pipeline, subscription/monetization _(planned, hard)_
+
+### 10.E Location-Based Services
+
+90. [Design Airbnb](case-studies/location-based/design-airbnb.md) — listing search with geospatial filter, availability + booking concurrency, pricing/promo, reviews, payments _(planned, medium)_
+91. [Design DoorDash / Swiggy](case-studies/location-based/design-doordash.md) — restaurant index, dispatch + driver matching, ETAs, multi-leg pickup, surge pricing _(planned, medium)_
+92. [Design Uber / Ride-Hailing](case-studies/location-based/design-uber.md) — geo indexing (geohash/S2/H3), dispatch matching, trip lifecycle state machine, surge pricing, dual-write concerns _(planned, hard)_
+93. [Design Google Maps](case-studies/location-based/design-google-maps.md) — tile pyramid, road graph, routing (A*/contraction hierarchies), real-time traffic, address geocoding _(planned, hard)_
+
+### 10.F Search & Aggregation
+
+94. [Design Search Autocomplete](case-studies/search-aggregation/design-search-autocomplete.md) — trie vs prefix index, ranking, typo tolerance, freshness, personalization _(planned, easy)_
+95. [Design a News Aggregator](case-studies/search-aggregation/design-news-aggregator.md) — crawl-vs-RSS ingest, deduplication (near-duplicate detection), ranking, topic clustering, personalization _(planned, medium)_
+96. [Design a Web Crawler](case-studies/search-aggregation/design-web-crawler.md) — frontier scheduling, politeness/robots, dedup, content-addressed storage, recrawl strategy, distributed coordination _(planned, medium)_
+97. [Design Google Search](case-studies/search-aggregation/design-google-search.md) — index sharding, query serving, ranking signals, freshness vs depth, query understanding _(planned, hard)_
+98. [Design an Ad Click Aggregator](case-studies/search-aggregation/design-ad-click-aggregator.md) — click capture at scale, fraud filtering, attribution windows, real-time aggregates, billing correctness _(planned, hard)_
+
+### 10.G E-Commerce & Marketplace
+
+99. [Design Amazon E-Commerce](case-studies/e-commerce/design-amazon-ecommerce.md) — catalog, search, cart, order, payment, fulfillment graph, recommendations — the HLD survey _(planned, medium)_
+100. [Design Shopify](case-studies/e-commerce/design-shopify.md) — multi-tenant store platform, plugin/app marketplace, checkout extensibility, multi-region payments _(planned, medium)_
+101. [Design a Flash Sale System](case-studies/e-commerce/design-flash-sale.md) — extreme write contention, queue-based admission, inventory reservation, anti-bot, graceful degradation _(planned, hard)_
+102. [Design an Online Auction System (HLD)](case-studies/e-commerce/design-online-auction.md) — bid storage, sniping protection, real-time price broadcast, payments + escrow, anti-fraud _(planned, hard)_
+103. [Design a Movie Booking System (HLD)](case-studies/e-commerce/design-movie-booking-system.md) — show / screen / seat, seat-hold concurrency, payment integration, refund flow, multi-cinema sharding _(planned, hard)_
+
+### 10.H Payment & Financial Systems
+
+104. [Design a Payment System](case-studies/payment/design-payment-system.md) — idempotency, double-entry ledgers, reconciliation, fraud gates, async settlement, processor adapters _(planned, medium)_
+105. [Design a Digital Wallet](case-studies/payment/design-digital-wallet.md) — balance ledger, top-up flow, transfers, KYC, transaction limits, regulatory + audit constraints _(planned, hard)_
+106. [Design an Online Stock Exchange](case-studies/payment/design-stock-exchange.md) — order book, matching engine, market vs limit, T+N settlement, market data fan-out, regulatory feeds _(planned, hard)_
+
+### 10.I Distributed Infrastructure
+
+107. [Design a Load Balancer (Service)](case-studies/distributed-infra/design-load-balancer.md) — L4/L7 pipeline, health probing, connection draining, hash-based affinity, autoscaling targets _(planned, medium)_
+108. [Design an API Gateway (Service)](case-studies/distributed-infra/design-api-gateway.md) — route table, auth offload, rate limiting, request transformation, plugin model, multi-tenant isolation _(planned, medium)_
+109. [Design a Notification System](case-studies/distributed-infra/design-notification-system.md) — fan-out, channel routing (push/email/SMS), preferences, rate limiting, DLQ handling _(planned, medium)_
+110. [Design a Key-Value Store](case-studies/distributed-infra/design-key-value-store.md) — Dynamo-style design, NWR, consistent hashing, replication, anti-entropy, conflict resolution _(planned, hard)_
+111. [Design a Distributed Cache](case-studies/distributed-infra/design-distributed-cache.md) — partitioning, replication, eviction, consistent hashing ring, client topology awareness _(planned, hard)_
+112. [Design a CDN](case-studies/distributed-infra/design-cdn.md) — edge POPs, anycast, cache hierarchies, purge propagation, origin shielding, edge compute _(planned, hard)_
+113. [Design Object Storage (S3-Style)](case-studies/distributed-infra/design-object-storage.md) — flat namespace, durability via erasure coding, multipart upload, lifecycle, presigned URLs, eventual → strong consistency story _(planned, hard)_
+114. [Design a Message Queue (Service)](case-studies/distributed-infra/design-message-queue.md) — log vs queue semantics, partitioning, consumer groups, durability, ordering guarantees _(planned, hard)_
+115. [Design a Time-Series Database](case-studies/distributed-infra/design-time-series-database.md) — write-optimized columnar storage, downsampling, retention, range query optimization, cardinality budget _(planned, hard)_
+116. [Design a Distributed Locking Service](case-studies/distributed-infra/design-distributed-locking.md) — lease-based locks, fencing tokens, ZooKeeper/etcd patterns, deadlock prevention, watchdog renewal _(planned, hard)_
+
+### 10.J Counting & Ranking Systems
+
+117. [Design a Real-Time Leaderboard](case-studies/counting-ranking/design-realtime-leaderboard.md) — sorted set semantics, sharded counters, periodic snapshots, top-K queries, percentile rankings _(planned, medium)_
+118. [Design a Top-K System](case-studies/counting-ranking/design-top-k-system.md) — count-min sketch + heap, sliding-window top-K, multi-region merge, accuracy vs memory _(planned, hard)_
+
+### 10.K Asynchronous Systems
+
+119. [Design a Job Scheduler](case-studies/async/design-job-scheduler.md) — cron + one-shot triggers, distributed lock per job, retry + backoff, persistent queue, multi-tenant fairness _(planned, medium)_
+120. [Design a CI/CD Pipeline](case-studies/async/design-cicd-pipeline.md) — pipeline DAG, runner pool, artifact store, secrets, environment promotion, failure isolation _(planned, medium)_
+121. [Design a Monitoring & Alerting System (Datadog-Style)](case-studies/async/design-monitoring-alerting.md) — ingestion, time-series storage, rollups, alerting engine, dashboard compute, alert fatigue mitigation _(planned, medium)_
+
+### 10.L Specialized Systems
+
+122. [Design LeetCode](case-studies/specialized/design-leetcode.md) — problem catalog, code execution sandbox, judging pipeline, contest mode, plagiarism detection _(planned, medium)_
+123. [Design a Calendar System](case-studies/specialized/design-calendar-system.md) — events, recurrence (RRULE), free-busy, scheduling assistant, time-zone correctness, conflict detection _(planned, hard)_
+124. [Design Online Chess](case-studies/specialized/design-online-chess.md) — matchmaking, anti-cheat, real-time move sync, ELO updates, time control state machine, spectator mode _(planned, hard)_
 
 ---
 
@@ -165,9 +243,9 @@ The interview-style design problems. Each doc follows a consistent template: req
 
 How to actually run a system design discussion — useful even if you never interview again, because it mirrors how real architecture reviews should flow.
 
-84. [The 6-Step Framework — Requirements → Estimates → API → Data Model → HLD → Deep Dives](interview-framework/six-step-framework.md) — the canonical structure, time allocation, where candidates stumble _(planned)_
-85. [Trade-off Articulation and Bottleneck Analysis](interview-framework/tradeoff-articulation-and-bottlenecks.md) — naming trade-offs explicitly, identifying bottlenecks, the "what breaks at 10x?" drill _(planned)_
-86. [Common Anti-Patterns in System Design Interviews](interview-framework/common-anti-patterns.md) — premature detail, resume-driven design, ignoring NFRs, hand-waving at scale _(planned)_
+125. [The 6-Step Framework — Requirements → Estimates → API → Data Model → HLD → Deep Dives](interview-framework/six-step-framework.md) — the canonical structure, time allocation, where candidates stumble _(planned)_
+126. [Trade-off Articulation and Bottleneck Analysis](interview-framework/tradeoff-articulation-and-bottlenecks.md) — naming trade-offs explicitly, identifying bottlenecks, the "what breaks at 10x?" drill _(planned)_
+127. [Common Anti-Patterns in System Design Interviews](interview-framework/common-anti-patterns.md) — premature detail, resume-driven design, ignoring NFRs, hand-waving at scale _(planned)_
 
 ---
 
@@ -175,14 +253,14 @@ How to actually run a system design discussion — useful even if you never inte
 
 The algorithms and data structures that unlock system-design answers — what goes into the design diagram when "regular data structures won't scale".
 
-87. [Bloom Filters & Cuckoo Filters — Probabilistic Membership Tests](data-structures/bloom-and-cuckoo-filters.md) — false-positive math, CDN caching, LSM read path, duplicate detection, when cuckoo beats bloom _(planned)_
-88. [Merkle Trees — Efficient Diff at Scale](data-structures/merkle-trees.md) — anti-entropy in Dynamo/Cassandra, blockchain roots, rsync, S3 inventory comparisons, version trees _(planned)_
-89. [HyperLogLog — Cardinality Estimation in Constant Memory](data-structures/hyperloglog.md) — accuracy vs memory math, Redis HLL, BigQuery APPROX_COUNT_DISTINCT, merging HLL sketches across shards _(planned)_
-90. [Count-Min Sketch & Top-K — Frequency Estimation](data-structures/count-min-sketch-and-top-k.md) — heavy hitters, rate abuse detection, streaming aggregations, error bounds vs space _(planned)_
-91. [Skip Lists — Probabilistic Balanced Order](data-structures/skip-lists.md) — Redis sorted sets internals, LSM memtables, lock-free variants, vs balanced trees in practice _(planned)_
-92. [Consistent Hashing & Rendezvous Hashing — Beyond the Basics](data-structures/consistent-and-rendezvous-hashing.md) — virtual nodes math, jump hash, Maglev, rendezvous hashing comparison, hot-spot mitigation _(planned)_
-93. [Geohash — Encoding 2D Coordinates as Strings](data-structures/geohash.md) — bit-interleaving, prefix-based proximity, neighbor calculation, geohash limits, S2 and H3 alternatives _(planned)_
-94. [Quadtrees & R-Trees — Multi-Dimensional Indexing](data-structures/quadtrees-and-r-trees.md) — point quadtrees, region quadtrees, R-tree splits, ride-sharing dispatch, map rendering, k-NN queries _(planned)_
+128. [Bloom Filters & Cuckoo Filters — Probabilistic Membership Tests](data-structures/bloom-and-cuckoo-filters.md) — false-positive math, CDN caching, LSM read path, duplicate detection, when cuckoo beats bloom _(planned)_
+129. [Merkle Trees — Efficient Diff at Scale](data-structures/merkle-trees.md) — anti-entropy in Dynamo/Cassandra, blockchain roots, rsync, S3 inventory comparisons, version trees _(planned)_
+130. [HyperLogLog — Cardinality Estimation in Constant Memory](data-structures/hyperloglog.md) — accuracy vs memory math, Redis HLL, BigQuery APPROX_COUNT_DISTINCT, merging HLL sketches across shards _(planned)_
+131. [Count-Min Sketch & Top-K — Frequency Estimation](data-structures/count-min-sketch-and-top-k.md) — heavy hitters, rate abuse detection, streaming aggregations, error bounds vs space _(planned)_
+132. [Skip Lists — Probabilistic Balanced Order](data-structures/skip-lists.md) — Redis sorted sets internals, LSM memtables, lock-free variants, vs balanced trees in practice _(planned)_
+133. [Consistent Hashing & Rendezvous Hashing — Beyond the Basics](data-structures/consistent-and-rendezvous-hashing.md) — virtual nodes math, jump hash, Maglev, rendezvous hashing comparison, hot-spot mitigation _(planned)_
+134. [Geohash — Encoding 2D Coordinates as Strings](data-structures/geohash.md) — bit-interleaving, prefix-based proximity, neighbor calculation, geohash limits, S2 and H3 alternatives _(planned)_
+135. [Quadtrees & R-Trees — Multi-Dimensional Indexing](data-structures/quadtrees-and-r-trees.md) — point quadtrees, region quadtrees, R-tree splits, ride-sharing dispatch, map rendering, k-NN queries _(planned)_
 
 ---
 
@@ -190,11 +268,11 @@ The algorithms and data structures that unlock system-design answers — what go
 
 Data engineering in system design. The analytics and pipeline side that most backend engineers eventually have to reason about.
 
-95. [Batch vs Stream Processing](batch-and-stream/batch-vs-stream-processing.md) — when each wins, latency vs completeness trade-off, exactly-once in each model, hybrid patterns _(planned)_
-96. [MapReduce and Its Descendants](batch-and-stream/mapreduce-and-descendants.md) — the model not just Hadoop, map/shuffle/reduce, Spark/Flink as evolutions, why MapReduce-as-API faded _(planned)_
-97. [ETL, ELT, and Data Pipeline Architecture](batch-and-stream/etl-elt-and-pipelines.md) — Airflow, Dagster, Prefect, declarative vs imperative DAGs, data contracts, idempotent pipeline design _(planned)_
-98. [Lambda vs Kappa Architecture](batch-and-stream/lambda-vs-kappa-architecture.md) — dual-pipeline vs stream-only, reprocessing strategies, when each still applies, modern alternatives _(planned)_
-99. [Modern Streaming Engines — Flink, Spark Structured Streaming, Kafka Streams, Beam](batch-and-stream/modern-streaming-engines.md) — comparing engines, exactly-once across them, state backends, choosing for your workload _(planned)_
+136. [Batch vs Stream Processing](batch-and-stream/batch-vs-stream-processing.md) — when each wins, latency vs completeness trade-off, exactly-once in each model, hybrid patterns _(planned)_
+137. [MapReduce and Its Descendants](batch-and-stream/mapreduce-and-descendants.md) — the model not just Hadoop, map/shuffle/reduce, Spark/Flink as evolutions, why MapReduce-as-API faded _(planned)_
+138. [ETL, ELT, and Data Pipeline Architecture](batch-and-stream/etl-elt-and-pipelines.md) — Airflow, Dagster, Prefect, declarative vs imperative DAGs, data contracts, idempotent pipeline design _(planned)_
+139. [Lambda vs Kappa Architecture](batch-and-stream/lambda-vs-kappa-architecture.md) — dual-pipeline vs stream-only, reprocessing strategies, when each still applies, modern alternatives _(planned)_
+140. [Modern Streaming Engines — Flink, Spark Structured Streaming, Kafka Streams, Beam](batch-and-stream/modern-streaming-engines.md) — comparing engines, exactly-once across them, state backends, choosing for your workload _(planned)_
 
 ---
 
@@ -253,17 +331,17 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - [Dead-Letter Queues and Retries](communication/dead-letter-queues-and-retries.md)
 - [Stream Processing](communication/stream-processing.md)
 
-### Reliability & Resilience _(planned)_
+### Reliability & Resilience
 
-- Failure Modes and Fault Tolerance
-- Failure Detection (Heartbeats, Phi-Accrual, SWIM)
-- Network Partitions and Split Brain
-- Single Point of Failure Analysis
-- Retry Strategies
-- Chaos Engineering and Game Days
-- Disaster Recovery
-- Multi-Region Architectures
-- Graceful Degradation and Feature Flags
+- [Failure Modes and Fault Tolerance](reliability/failure-modes-and-fault-tolerance.md)
+- [Failure Detection (Heartbeats, Phi-Accrual, SWIM)](reliability/failure-detection.md)
+- [Network Partitions and Split Brain](reliability/network-partitions-and-split-brain.md)
+- [Single Point of Failure Analysis](reliability/single-point-of-failure-analysis.md)
+- [Retry Strategies](reliability/retry-strategies.md)
+- [Chaos Engineering and Game Days](reliability/chaos-engineering-and-game-days.md)
+- [Disaster Recovery](reliability/disaster-recovery.md)
+- [Multi-Region Architectures](reliability/multi-region-architectures.md)
+- [Graceful Degradation and Feature Flags](reliability/graceful-degradation-and-feature-flags.md)
 
 ### Performance & Observability _(planned)_
 
@@ -298,11 +376,18 @@ Data engineering in system design. The analytics and pipeline side that most bac
 
 ### Case Studies _(planned)_
 
-- URL Shortener, Rate Limiter, Distributed Cache
-- News Feed, Chat, Notifications
-- Video Streaming, Ride-Sharing, File Sync
-- Collaborative Editor, Search Autocomplete
-- Payment System, Metrics/Monitoring, Ad Click Tracking
+- **Basic:** URL Shortener, Pastebin, Rate Limiter
+- **Real-Time Communication:** WhatsApp, Slack, Live Comments, Google Docs, Zoom
+- **Social Media:** Instagram, Facebook News Feed, TikTok, Reddit, Tinder, Likes Counter
+- **Media Streaming:** Spotify, YouTube, Netflix, Google Drive, Gmail, Twitch
+- **Location-Based:** Airbnb, DoorDash, Uber, Google Maps
+- **Search & Aggregation:** Search Autocomplete, News Aggregator, Web Crawler, Google Search, Ad Click Aggregator
+- **E-commerce:** Amazon, Shopify, Flash Sale, Online Auction, Movie Booking
+- **Payment & Financial:** Payment System, Digital Wallet, Stock Exchange
+- **Distributed Infrastructure:** Load Balancer, API Gateway, Notification, Key-Value Store, Distributed Cache, CDN, Object Storage, Message Queue, Time-Series DB, Distributed Locking
+- **Counting & Ranking:** Real-Time Leaderboard, Top-K System
+- **Asynchronous:** Job Scheduler, CI/CD Pipeline, Monitoring & Alerting
+- **Specialized:** LeetCode, Calendar System, Online Chess
 
 ### Interview Framework _(planned)_
 
@@ -333,6 +418,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 
 ## Cross-Path Reading
 
+- [Low-Level Design Path](../low-level-design/INDEX.md) — class-level OOD, design patterns, SOLID, UML, and the canonical LLD interview problems. The layer below HLD; some case-study names overlap (URL Shortener, Rate Limiter, Chat) — different deliverable.
 - [Networking Path](../networking/INDEX.md) — the wire-level detail behind load balancers, TLS, WebSocket, gRPC, CDN, service mesh.
 - [Database Path](../database/INDEX.md) — the engine-internals (B-tree, LSM, MVCC, query planner) and query optimization layer underneath "databases as a component".
 - [Kubernetes Path](../kubernetes/INDEX.md) — how the scalability and reliability patterns materialize as platform primitives.
