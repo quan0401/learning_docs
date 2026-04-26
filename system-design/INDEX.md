@@ -16,7 +16,7 @@ Groundwork: what system design is, how to reason about trade-offs, and the numbe
 2. [CAP, PACELC, and Consistency Models — Strong, Eventual, Causal, Linearizable](foundations/cap-and-consistency-models.md) — CAP theorem in practice, PACELC extension, consistency hierarchy, read-your-writes, monotonic reads, session guarantees _(2026-04-24)_
 3. [SLA, SLO, SLI, and the Math of Availability — Error Budgets and Composition](foundations/sla-slo-sli-and-availability.md) — nines vs minutes, serial vs parallel availability composition, error budgets, burn rate alerts, SLO-driven engineering _(2026-04-24)_
 4. [Non-Functional Requirements Checklist — Scalability, Availability, Durability, Cost](foundations/non-functional-requirements.md) — the NFR taxonomy, how to elicit requirements, trade-off articulation, what "scale" actually means per dimension _(2026-04-24)_
-5. [Core Trade-offs Catalog — The Axes Every Design Must Resolve](foundations/core-tradeoffs-catalog.md) — concurrency vs parallelism, push vs pull, stateful vs stateless, strong vs eventual, sync vs async, latency vs throughput; "when you see X, articulate the trade-off as Y" reference _(planned)_
+5. [Core Trade-offs Catalog — The Axes Every Design Must Resolve](foundations/core-tradeoffs-catalog.md) — concurrency vs parallelism, push vs pull, stateful vs stateless, strong vs eventual, sync vs async, latency vs throughput; "when you see X, articulate the trade-off as Y" reference _(2026-04-26)_
 
 ---
 
@@ -101,12 +101,12 @@ Designing for failure instead of against it.
 
 Making it fast and knowing when it isn't.
 
-48. [Performance Budgets and Latency Analysis — Tail Latency and Coordinated Omission](performance-observability/performance-budgets-and-latency.md) — averages lie, p99/p99.9, coordinated omission, hedged requests, latency SLO sizing _(planned)_
-49. [Distributed Tracing, Metrics, and Logs — The Three Pillars](performance-observability/tracing-metrics-logs.md) — OpenTelemetry model, trace propagation, cardinality traps, structured logging, correlation IDs _(planned)_
-50. [Log Aggregation and Structured Logging](performance-observability/log-aggregation-and-structured-logging.md) — ELK/Loki/Splunk topologies, cardinality limits, log-to-metric conversion, correlation IDs across services _(planned)_
-51. [Monitoring and Alerting — RED, USE, and the Four Golden Signals](performance-observability/monitoring-red-use-golden-signals.md) — RED for services, USE for resources, golden signals, SLO-based alerting, alert fatigue _(planned)_
-52. [Dashboards, Runbooks, and On-Call](performance-observability/dashboards-runbooks-on-call.md) — dashboard design principles, runbook structure, auto-remediation, SLO burn-down dashboards, on-call ergonomics _(planned)_
-53. [Capacity Planning and Load Testing](performance-observability/capacity-planning-and-load-testing.md) — headroom planning, load test shapes (ramp/soak/spike), k6/Gatling/Locust, production shadowing _(planned)_
+48. [Performance Budgets and Latency Analysis — Tail Latency and Coordinated Omission](performance-observability/performance-budgets-and-latency.md) — averages lie, p99/p99.9, coordinated omission, hedged requests, latency SLO sizing _(2026-04-26)_
+49. [Distributed Tracing, Metrics, and Logs — The Three Pillars](performance-observability/tracing-metrics-logs.md) — OpenTelemetry model, trace propagation, cardinality traps, structured logging, correlation IDs _(2026-04-26)_
+50. [Log Aggregation and Structured Logging](performance-observability/log-aggregation-and-structured-logging.md) — ELK/Loki/Splunk topologies, cardinality limits, log-to-metric conversion, correlation IDs across services _(2026-04-26)_
+51. [Monitoring and Alerting — RED, USE, and the Four Golden Signals](performance-observability/monitoring-red-use-golden-signals.md) — RED for services, USE for resources, golden signals, SLO-based alerting, alert fatigue _(2026-04-26)_
+52. [Dashboards, Runbooks, and On-Call](performance-observability/dashboards-runbooks-on-call.md) — dashboard design principles, runbook structure, auto-remediation, SLO burn-down dashboards, on-call ergonomics _(2026-04-26)_
+53. [Capacity Planning and Load Testing](performance-observability/capacity-planning-and-load-testing.md) — headroom planning, load test shapes (ramp/soak/spike), k6/Gatling/Locust, production shadowing _(2026-04-26)_
 
 ---
 
@@ -114,13 +114,13 @@ Making it fast and knowing when it isn't.
 
 Design-level security decisions — not code-level hardening.
 
-54. [Authentication — Sessions, Tokens, JWT, and Refresh Flows](security/authentication.md) — session vs token, JWT structure and pitfalls, refresh tokens, sliding sessions, multi-device sign-in _(planned)_
-55. [Authorization — RBAC, ABAC, ReBAC, and Policy Engines](security/authorization.md) — role-based, attribute-based, relationship-based authorization, OPA/Cedar/Zanzibar-style systems, central vs distributed authz _(planned)_
-56. [Single Sign-On — SAML, OIDC, and Federation](security/single-sign-on.md) — SAML vs OIDC vs OAuth2, federation patterns, IdP-initiated vs SP-initiated, SCIM for provisioning _(planned)_
-57. [Secrets Management and Key Rotation](security/secrets-management-and-key-rotation.md) — secret storage (Vault, SM, KMS), rotation strategies, envelope encryption, workload identity _(planned)_
-58. [Encryption at Rest and in Transit](security/encryption-at-rest-and-in-transit.md) — at-rest: disk vs DB vs app; in-transit: TLS, mTLS, E2EE; KMS hierarchies, BYOK _(planned)_
-59. [Defense in Depth and Threat Modeling](security/defense-in-depth-and-threat-modeling.md) — layered defense, STRIDE, trust boundaries, attack surface, threat model in the design review _(planned)_
-60. [Zero Trust Architecture — BeyondCorp, Identity-Aware Proxies](security/zero-trust-architecture.md) — identity-centric model, microsegmentation, IAP, policy engines, what zero trust does NOT mean _(planned)_
+54. [Authentication — Sessions, Tokens, JWT, and Refresh Flows](security/authentication.md) — session vs token, JWT structure and pitfalls, refresh tokens, sliding sessions, multi-device sign-in _(2026-04-26)_
+55. [Authorization — RBAC, ABAC, ReBAC, and Policy Engines](security/authorization.md) — role-based, attribute-based, relationship-based authorization, OPA/Cedar/Zanzibar-style systems, central vs distributed authz _(2026-04-26)_
+56. [Single Sign-On — SAML, OIDC, and Federation](security/single-sign-on.md) — SAML vs OIDC vs OAuth2, federation patterns, IdP-initiated vs SP-initiated, SCIM for provisioning _(2026-04-26)_
+57. [Secrets Management and Key Rotation](security/secrets-management-and-key-rotation.md) — secret storage (Vault, SM, KMS), rotation strategies, envelope encryption, workload identity _(2026-04-26)_
+58. [Encryption at Rest and in Transit](security/encryption-at-rest-and-in-transit.md) — at-rest: disk vs DB vs app; in-transit: TLS, mTLS, E2EE; KMS hierarchies, BYOK _(2026-04-26)_
+59. [Defense in Depth and Threat Modeling](security/defense-in-depth-and-threat-modeling.md) — layered defense, STRIDE, trust boundaries, attack surface, threat model in the design review _(2026-04-26)_
+60. [Zero Trust Architecture — BeyondCorp, Identity-Aware Proxies](security/zero-trust-architecture.md) — identity-centric model, microsegmentation, IAP, policy engines, what zero trust does NOT mean _(2026-04-26)_
 
 ---
 
@@ -128,14 +128,14 @@ Design-level security decisions — not code-level hardening.
 
 How to slice the system.
 
-61. [Monolith, Modular Monolith, SOA, Microservices — When Each Wins](architectural-styles/monolith-to-microservices.md) — tech vs org trade-offs, modular monolith as the default, microservices prerequisites, "distributed monolith" anti-pattern _(planned)_
-62. [Event-Driven Architecture as a Style](architectural-styles/event-driven-architecture-style.md) — EDA beyond a pattern, event backbone, topology choices, when EDA is wrong _(planned)_
-63. [Serverless and FaaS Trade-offs](architectural-styles/serverless-and-faas.md) — cold starts, state, concurrency limits, vendor lock-in, cost curves, good vs bad fits _(planned)_
-64. [Hexagonal, Clean, and DDD — Ports, Adapters, Bounded Contexts](architectural-styles/hexagonal-clean-ddd.md) — domain-first design, ports/adapters, aggregates, bounded contexts, context maps _(planned)_
-65. [Service Discovery — Client-Side, Server-Side, DNS-Based](architectural-styles/service-discovery.md) — client-side (Ribbon/Eureka) vs server-side (LB-fronted) vs DNS-based, Consul/etcd, mesh-integrated discovery _(planned)_
-66. [Sidecar Pattern — Beyond Service Mesh](architectural-styles/sidecar-pattern.md) — sidecars for logging, config, crypto, traffic; Istio/Envoy/Linkerd comparison; resource overhead, ambient mesh alternative _(planned)_
-67. [Strangler Fig Pattern — Incremental Migration](architectural-styles/strangler-fig-pattern.md) — routing splits, dual-run, cutover mechanics, anti-corruption layer, real-world migration timelines _(planned)_
-68. [Service Mesh as an Architectural Decision](architectural-styles/service-mesh-as-architectural-decision.md) — what a mesh buys you, sidecar overhead, ambient mesh, when mesh is overkill _(planned)_
+61. [Monolith, Modular Monolith, SOA, Microservices — When Each Wins](architectural-styles/monolith-to-microservices.md) — tech vs org trade-offs, modular monolith as the default, microservices prerequisites, "distributed monolith" anti-pattern _(2026-04-26)_
+62. [Event-Driven Architecture as a Style](architectural-styles/event-driven-architecture-style.md) — EDA beyond a pattern, event backbone, topology choices, when EDA is wrong _(2026-04-26)_
+63. [Serverless and FaaS Trade-offs](architectural-styles/serverless-and-faas.md) — cold starts, state, concurrency limits, vendor lock-in, cost curves, good vs bad fits _(2026-04-26)_
+64. [Hexagonal, Clean, and DDD — Ports, Adapters, Bounded Contexts](architectural-styles/hexagonal-clean-ddd.md) — domain-first design, ports/adapters, aggregates, bounded contexts, context maps _(2026-04-26)_
+65. [Service Discovery — Client-Side, Server-Side, DNS-Based](architectural-styles/service-discovery.md) — client-side (Ribbon/Eureka) vs server-side (LB-fronted) vs DNS-based, Consul/etcd, mesh-integrated discovery _(2026-04-26)_
+66. [Sidecar Pattern — Beyond Service Mesh](architectural-styles/sidecar-pattern.md) — sidecars for logging, config, crypto, traffic; Istio/Envoy/Linkerd comparison; resource overhead, ambient mesh alternative _(2026-04-26)_
+67. [Strangler Fig Pattern — Incremental Migration](architectural-styles/strangler-fig-pattern.md) — routing splits, dual-run, cutover mechanics, anti-corruption layer, real-world migration timelines _(2026-04-26)_
+68. [Service Mesh as an Architectural Decision](architectural-styles/service-mesh-as-architectural-decision.md) — what a mesh buys you, sidecar overhead, ambient mesh, when mesh is overkill _(2026-04-26)_
 69. [Peer-to-Peer Architecture — DHTs, Gossip, BitTorrent, IPFS](architectural-styles/peer-to-peer-architecture.md) — Kademlia and Chord DHTs, gossip overlays, content-addressed storage, when P2P is the right answer _(planned)_
 
 ---
@@ -243,7 +243,7 @@ The interview-style design problems. Each doc follows a consistent template: req
 
 How to actually run a system design discussion — useful even if you never interview again, because it mirrors how real architecture reviews should flow.
 
-125. [The 6-Step Framework — Requirements → Estimates → API → Data Model → HLD → Deep Dives](interview-framework/six-step-framework.md) — the canonical structure, time allocation, where candidates stumble _(planned)_
+125. [The 6-Step Framework — Requirements → Estimates → API → Data Model → HLD → Deep Dives](interview-framework/six-step-framework.md) — the canonical structure, time allocation, where candidates stumble _(2026-04-26)_
 126. [Trade-off Articulation and Bottleneck Analysis](interview-framework/tradeoff-articulation-and-bottlenecks.md) — naming trade-offs explicitly, identifying bottlenecks, the "what breaks at 10x?" drill _(planned)_
 127. [Common Anti-Patterns in System Design Interviews](interview-framework/common-anti-patterns.md) — premature detail, resume-driven design, ignoring NFRs, hand-waving at scale _(planned)_
 
@@ -253,14 +253,14 @@ How to actually run a system design discussion — useful even if you never inte
 
 The algorithms and data structures that unlock system-design answers — what goes into the design diagram when "regular data structures won't scale".
 
-128. [Bloom Filters & Cuckoo Filters — Probabilistic Membership Tests](data-structures/bloom-and-cuckoo-filters.md) — false-positive math, CDN caching, LSM read path, duplicate detection, when cuckoo beats bloom _(planned)_
-129. [Merkle Trees — Efficient Diff at Scale](data-structures/merkle-trees.md) — anti-entropy in Dynamo/Cassandra, blockchain roots, rsync, S3 inventory comparisons, version trees _(planned)_
-130. [HyperLogLog — Cardinality Estimation in Constant Memory](data-structures/hyperloglog.md) — accuracy vs memory math, Redis HLL, BigQuery APPROX_COUNT_DISTINCT, merging HLL sketches across shards _(planned)_
-131. [Count-Min Sketch & Top-K — Frequency Estimation](data-structures/count-min-sketch-and-top-k.md) — heavy hitters, rate abuse detection, streaming aggregations, error bounds vs space _(planned)_
-132. [Skip Lists — Probabilistic Balanced Order](data-structures/skip-lists.md) — Redis sorted sets internals, LSM memtables, lock-free variants, vs balanced trees in practice _(planned)_
-133. [Consistent Hashing & Rendezvous Hashing — Beyond the Basics](data-structures/consistent-and-rendezvous-hashing.md) — virtual nodes math, jump hash, Maglev, rendezvous hashing comparison, hot-spot mitigation _(planned)_
-134. [Geohash — Encoding 2D Coordinates as Strings](data-structures/geohash.md) — bit-interleaving, prefix-based proximity, neighbor calculation, geohash limits, S2 and H3 alternatives _(planned)_
-135. [Quadtrees & R-Trees — Multi-Dimensional Indexing](data-structures/quadtrees-and-r-trees.md) — point quadtrees, region quadtrees, R-tree splits, ride-sharing dispatch, map rendering, k-NN queries _(planned)_
+128. [Bloom Filters & Cuckoo Filters — Probabilistic Membership Tests](data-structures/bloom-and-cuckoo-filters.md) — false-positive math, CDN caching, LSM read path, duplicate detection, when cuckoo beats bloom _(2026-04-26)_
+129. [Merkle Trees — Efficient Diff at Scale](data-structures/merkle-trees.md) — anti-entropy in Dynamo/Cassandra, blockchain roots, rsync, S3 inventory comparisons, version trees _(2026-04-26)_
+130. [HyperLogLog — Cardinality Estimation in Constant Memory](data-structures/hyperloglog.md) — accuracy vs memory math, Redis HLL, BigQuery APPROX_COUNT_DISTINCT, merging HLL sketches across shards _(2026-04-26)_
+131. [Count-Min Sketch & Top-K — Frequency Estimation](data-structures/count-min-sketch-and-top-k.md) — heavy hitters, rate abuse detection, streaming aggregations, error bounds vs space _(2026-04-26)_
+132. [Skip Lists — Probabilistic Balanced Order](data-structures/skip-lists.md) — Redis sorted sets internals, LSM memtables, lock-free variants, vs balanced trees in practice _(2026-04-26)_
+133. [Consistent Hashing & Rendezvous Hashing — Beyond the Basics](data-structures/consistent-and-rendezvous-hashing.md) — virtual nodes math, jump hash, Maglev, rendezvous hashing comparison, hot-spot mitigation _(2026-04-26)_
+134. [Geohash — Encoding 2D Coordinates as Strings](data-structures/geohash.md) — bit-interleaving, prefix-based proximity, neighbor calculation, geohash limits, S2 and H3 alternatives _(2026-04-26)_
+135. [Quadtrees & R-Trees — Multi-Dimensional Indexing](data-structures/quadtrees-and-r-trees.md) — point quadtrees, region quadtrees, R-tree splits, ride-sharing dispatch, map rendering, k-NN queries _(2026-04-26)_
 
 ---
 
@@ -268,11 +268,11 @@ The algorithms and data structures that unlock system-design answers — what go
 
 Data engineering in system design. The analytics and pipeline side that most backend engineers eventually have to reason about.
 
-136. [Batch vs Stream Processing](batch-and-stream/batch-vs-stream-processing.md) — when each wins, latency vs completeness trade-off, exactly-once in each model, hybrid patterns _(planned)_
-137. [MapReduce and Its Descendants](batch-and-stream/mapreduce-and-descendants.md) — the model not just Hadoop, map/shuffle/reduce, Spark/Flink as evolutions, why MapReduce-as-API faded _(planned)_
-138. [ETL, ELT, and Data Pipeline Architecture](batch-and-stream/etl-elt-and-pipelines.md) — Airflow, Dagster, Prefect, declarative vs imperative DAGs, data contracts, idempotent pipeline design _(planned)_
-139. [Lambda vs Kappa Architecture](batch-and-stream/lambda-vs-kappa-architecture.md) — dual-pipeline vs stream-only, reprocessing strategies, when each still applies, modern alternatives _(planned)_
-140. [Modern Streaming Engines — Flink, Spark Structured Streaming, Kafka Streams, Beam](batch-and-stream/modern-streaming-engines.md) — comparing engines, exactly-once across them, state backends, choosing for your workload _(planned)_
+136. [Batch vs Stream Processing](batch-and-stream/batch-vs-stream-processing.md) — when each wins, latency vs completeness trade-off, exactly-once in each model, hybrid patterns _(2026-04-26)_
+137. [MapReduce and Its Descendants](batch-and-stream/mapreduce-and-descendants.md) — the model not just Hadoop, map/shuffle/reduce, Spark/Flink as evolutions, why MapReduce-as-API faded _(2026-04-26)_
+138. [ETL, ELT, and Data Pipeline Architecture](batch-and-stream/etl-elt-and-pipelines.md) — Airflow, Dagster, Prefect, declarative vs imperative DAGs, data contracts, idempotent pipeline design _(2026-04-26)_
+139. [Lambda vs Kappa Architecture](batch-and-stream/lambda-vs-kappa-architecture.md) — dual-pipeline vs stream-only, reprocessing strategies, when each still applies, modern alternatives _(2026-04-26)_
+140. [Modern Streaming Engines — Flink, Spark Structured Streaming, Kafka Streams, Beam](batch-and-stream/modern-streaming-engines.md) — comparing engines, exactly-once across them, state backends, choosing for your workload _(2026-04-26)_
 
 ---
 
