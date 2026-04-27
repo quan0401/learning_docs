@@ -1,41 +1,44 @@
 ---
 title: "Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request"
 date: 2026-04-17
-updated: 2026-04-17
+updated: 2026-04-27
 tags: [java, concurrency, virtual-threads, project-loom, spring-boot]
 ---
 
 # Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request
 
-**Date:** 2026-04-17 | **Updated:** 2026-04-17
+**Date:** 2026-04-17 | **Updated:** 2026-04-27
 **Tags:** `java` `concurrency` `virtual-threads` `project-loom` `spring-boot`
 
 ## Table of Contents
 
-- [Summary](#summary)
-- [The Problem Virtual Threads Solve](#the-problem-virtual-threads-solve)
-- [Platform Threads vs Virtual Threads](#platform-threads-vs-virtual-threads)
-- [How Virtual Threads Work Internally](#how-virtual-threads-work-internally)
-  - [Carrier Threads](#carrier-threads)
-  - [Continuations](#continuations)
-  - [Mount and Unmount](#mount-and-unmount)
-- [Creating and Using Virtual Threads](#creating-and-using-virtual-threads)
-  - [Direct Creation](#direct-creation)
-  - [ExecutorService](#executorservice)
-  - [Thread Builder](#thread-builder)
-- [The Pinning Problem](#the-pinning-problem)
-  - [What Causes Pinning](#what-causes-pinning)
-  - [Detecting Pinning](#detecting-pinning)
-  - [The ReentrantLock Fix](#the-reentrantlock-fix)
-- [JEP 491: Synchronize Without Pinning (Java 24)](#jep-491-synchronize-without-pinning-java-24)
-- [Spring Boot Integration](#spring-boot-integration)
-- [Virtual Threads vs Reactive WebFlux](#virtual-threads-vs-reactive-webflux)
-- [Structured Concurrency](#structured-concurrency)
-- [Common Pitfalls](#common-pitfalls)
-- [When to Use Virtual Threads](#when-to-use-virtual-threads)
-- [Migration Path for an Existing Spring MVC App](#migration-path-for-an-existing-spring-mvc-app)
-- [Related](#related)
-- [References](#references)
+- [Virtual Threads in Java — Project Loom, JEP 444, and the Return of Thread-per-Request](#virtual-threads-in-java--project-loom-jep-444-and-the-return-of-thread-per-request)
+  - [Table of Contents](#table-of-contents)
+  - [Summary](#summary)
+  - [The Problem Virtual Threads Solve](#the-problem-virtual-threads-solve)
+  - [Platform Threads vs Virtual Threads](#platform-threads-vs-virtual-threads)
+  - [How Virtual Threads Work Internally](#how-virtual-threads-work-internally)
+    - [Carrier Threads](#carrier-threads)
+    - [Continuations](#continuations)
+    - [Mount and Unmount](#mount-and-unmount)
+  - [Creating and Using Virtual Threads](#creating-and-using-virtual-threads)
+    - [Direct Creation](#direct-creation)
+    - [ExecutorService](#executorservice)
+    - [Thread Builder](#thread-builder)
+  - [The Pinning Problem](#the-pinning-problem)
+    - [What Causes Pinning](#what-causes-pinning)
+    - [Detecting Pinning](#detecting-pinning)
+    - [The ReentrantLock Fix](#the-reentrantlock-fix)
+  - [JEP 491: Synchronize Without Pinning (Java 24)](#jep-491-synchronize-without-pinning-java-24)
+  - [Spring Boot Integration](#spring-boot-integration)
+  - [Virtual Threads vs Reactive WebFlux](#virtual-threads-vs-reactive-webflux)
+    - [Loom on Netty: Deep Dive](#loom-on-netty-deep-dive)
+  - [Structured Concurrency](#structured-concurrency)
+  - [Common Pitfalls](#common-pitfalls)
+  - [When to Use Virtual Threads](#when-to-use-virtual-threads)
+  - [Migration Path for an Existing Spring MVC App](#migration-path-for-an-existing-spring-mvc-app)
+  - [Related](#related)
+  - [References](#references)
 
 ---
 
@@ -246,7 +249,7 @@ What this does NOT automatically fix:
 
 - **JDBC drivers and connection pools** that use `synchronized` internally — on Java 21–23, check whether your driver (Postgres, MySQL, MongoDB sync driver) pins virtual threads. Most modern drivers are virtual-thread-aware by 2025.
 - **Your own code.** Audit any `synchronized` critical section that does I/O and migrate to `ReentrantLock` on Java 21–23.
-- **WebFlux endpoints.** Spring Boot uses Reactor Netty by default for WebFlux, but WebFlux itself is not limited to Netty. Virtual threads are an alternative to the reactive stack, not an addition to it. See the comparison below.
+- **WebFlux endpoints.** Spring Boot uses Reactor Netty by default for WebFlux, but WebFlux itself is not limited to Netty. In standard Spring Boot setups, virtual-thread mode and reactive request handling are alternative defaults, not both active for the same request pipeline. See the comparison below.
 
 ---
 
@@ -288,9 +291,68 @@ flowchart TB
 - **New service, mostly CRUD + REST:** Spring MVC + virtual threads. Simpler code, easier hiring pool.
 - **New service, streaming / WebSockets / complex async orchestration:** WebFlux. Its abstractions are worth the learning curve.
 
-Benchmark evidence from [Chris Gleissner's loom-webflux comparisons](https://github.com/chrisgleissner/loom-webflux-benchmarks) shows virtual threads on Netty leading in ~45% of scenarios and Reactor leading in ~30%. The rest are roughly tied. Performance is rarely the deciding factor — code style, team skill, and ecosystem match are.
+Benchmark evidence from [Chris Gleissner's loom-webflux comparisons](https://github.com/chrisgleissner/loom-webflux-benchmarks) shows virtual threads on Netty leading in ~45% of scenarios and Reactor leading in ~30%. The rest are roughly tied. That percentage split comes from the **Netty-only comparison** (`loom-netty` vs `webflux-netty`); the full benchmark matrix also includes `loom-tomcat` (and often `platform-tomcat`). Performance is rarely the deciding factor — code style, team skill, and ecosystem match are.
 
-See also [this project's WebFlux reactive guide](../reactive-programming-java.md) for the alternative model.
+### Loom on Netty: Deep Dive
+
+When people say "Loom on Netty", they usually mean a **hybrid model** (as in dedicated benchmark setups or custom runtime wiring), not the out-of-the-box default in Spring Boot:
+
+1. Netty still owns socket I/O (accept, read, write) on a small event-loop pool.
+2. Request handling logic is explicitly offloaded to virtual threads.
+3. Blocking service/repository calls are expected to run on those virtual threads, not on Netty event-loop threads.
+
+That is different from pure WebFlux (where request handling stays in Reactor pipelines) and different from classic servlet containers (Tomcat/Jetty request threads).
+
+```mermaid
+sequenceDiagram
+  participant C as Client
+  participant N as Netty Event Loop
+  participant V as Virtual Thread
+  participant U as Upstream/DB
+
+  C->>N: HTTP request
+  N->>V: Dispatch request handling
+  V->>U: Blocking call (HTTP/JDBC/etc.)
+  U-->>V: Response
+  V-->>N: Response payload
+  N-->>C: HTTP response
+```
+
+Why this can win in benchmarks:
+
+- **Netty stays excellent at connection management.** Its event-loop model remains efficient for many TCP connections.
+- **Imperative code path is cheaper cognitively and often computationally.** You avoid long operator chains (`map/flatMap/onErrorResume`) for simple CRUD-like flows.
+- **Blocking no longer burns OS threads.** Virtual-thread parking keeps carrier threads reusable when waiting on I/O.
+
+Where it can lose:
+
+- **Very small, CPU-light endpoints** can favor pure Reactor because each handoff from event loop to virtual thread has overhead.
+- **CPU-bound work** gains little from virtual threads and can starve carrier threads under load.
+- **Accidental event-loop blocking** is catastrophic. If any blocking call stays on Netty's event loop, tail latency explodes quickly.
+
+Operational guardrails for Loom+Netty:
+
+- Ensure all blocking work is offloaded away from event-loop threads.
+- Track `P99`, connection errors, and queueing under spikes; average latency will hide problems.
+- Tune both schedulers together, not independently:
+  - Netty/Reactor worker pool settings (event-loop side)
+  - `jdk.virtualThreadScheduler.parallelism` (virtual-thread carrier side)
+- Keep outbound client pools realistic. Too-small pools make both Reactor and Loom look worse for the wrong reason.
+
+How to interpret the 45% vs 30% result correctly:
+
+- The benchmark compares **approaches under the same scenario matrix**, not a universal winner for all apps.
+- The ~45% vs ~30% split is specifically from the Netty-only chart; the all-approaches view includes Tomcat-based Loom results as well.
+- Many scenarios simulate I/O wait (`delayInMillis`) and upstream call depth, which is exactly where virtual threads tend to shine.
+- Once the host becomes CPU-contended, both Netty-based approaches converge or trade wins depending on endpoint shape and payload mix.
+
+A practical decision rule:
+
+- Choose **Loom+Netty hybrid** if your team wants imperative code and your workload is mostly request/response with blocking dependencies.
+- Choose **WebFlux+Netty** if you need end-to-end reactive pipelines, built-in backpressure semantics, or heavy streaming/WebSocket flows.
+- Keep both in your toolbox; treat them as two strong points on the same Netty foundation, not ideological opposites.
+
+See also [this project's WebFlux reactive guide](../../reactive-programming-java.md) for the alternative model.
 
 ---
 
