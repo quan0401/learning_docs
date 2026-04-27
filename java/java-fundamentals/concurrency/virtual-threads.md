@@ -295,13 +295,54 @@ Benchmark evidence from [Chris Gleissner's loom-webflux comparisons](https://git
 
 ### Loom on Netty: Deep Dive
 
-When people say "Loom on Netty", they usually mean a **hybrid model** (as in dedicated benchmark setups or custom runtime wiring), not the out-of-the-box default in Spring Boot:
+The reason you mostly see Loom paired with Tomcat is that Spring Boot's `spring.threads.virtual.enabled=true` flag wires virtual threads into the **servlet container** (Tomcat by default, Jetty optionally) — there is no built-in Spring Boot mode that combines a Netty server with virtual-thread request handling for Spring MVC. The servlet stack was a natural fit: requests already block on a per-request thread, so swapping that platform thread for a virtual thread is a one-line change. Netty, by contrast, was designed around non-blocking event loops, and "blocking on Netty" sounds like an oxymoron at first. Loom-on-Netty exists, but it lives outside the default Spring Boot path — in frameworks that built it deliberately.
 
-1. Netty still owns socket I/O (accept, read, write) on a small event-loop pool.
-2. Request handling logic is explicitly offloaded to virtual threads.
-3. Blocking service/repository calls are expected to run on those virtual threads, not on Netty event-loop threads.
+There are three distinct architectural models that all get called "Loom on Netty," and they are not interchangeable:
 
-That is different from pure WebFlux (where request handling stays in Reactor pipelines) and different from classic servlet containers (Tomcat/Jetty request threads).
+| Model | What runs on virtual threads | Who owns sockets | Examples |
+|-------|------------------------------|------------------|----------|
+| **A. Replace Netty entirely** | Everything — accept, read, parse, handle | A from-scratch blocking server (no Netty at all) | [Helidon 4 / Níma](https://medium.com/helidon/helidon-n%C3%ADma-helidon-on-virtual-threads-130bb2ea2088) |
+| **B. Hybrid: Netty I/O + VT handlers** | Application handler / controller logic | Netty event loops (unchanged) | [Quarkus `@RunOnVirtualThread`](https://quarkus.io/guides/virtual-threads), [Vert.x `ThreadingModel.VIRTUAL_THREAD`](https://vertx.io/docs/vertx-core/java/) |
+| **C. Loom carrier on event loop** | Virtual threads are scheduled directly onto Netty event-loop threads (instead of the default JDK ForkJoinPool) | Netty event loops, doubling as VT carriers | [Micronaut 4.9 experimental loom-carrier](https://micronaut.io/2025/06/30/transitioning-to-virtual-threads-using-the-micronaut-loom-carrier/) |
+
+```mermaid
+flowchart TB
+  subgraph A["A. Replace Netty (Helidon 4 / Níma)"]
+    A1[Client] --> A2[Blocking listener]
+    A2 --> A3["Virtual thread per request<br/>(no Netty, no event loop)"]
+    A3 --> A4[Blocking I/O — unmounts]
+  end
+  subgraph B["B. Hybrid (Quarkus, Vert.x VT verticle)"]
+    B1[Client] --> B2[Netty event loop]
+    B2 --> B3["@RunOnVirtualThread<br/>handler dispatch"]
+    B3 --> B4[Virtual thread]
+    B4 --> B5[Blocking I/O — unmounts]
+  end
+  subgraph C["C. Carrier-on-event-loop (Micronaut 4.9 experimental)"]
+    C1[Client] --> C2[Netty event loop]
+    C2 -.serves as carrier.-> C3[Virtual thread]
+    C3 --> C4[Blocking I/O — unmounts<br/>back to event loop]
+  end
+```
+
+**Model A — Helidon 4 / Níma: replace Netty.** Helidon 3 was a Netty-based reactive stack. For Helidon 4 (October 2023), Oracle [rewrote the web server from scratch](https://medium.com/helidon/helidon-4-is-released-a06756e1562a) on a thread-per-request virtual-thread model and dropped Netty. Their stated motivation: once virtual threads exist, the engineering complexity of running Netty pipelines plus reactive operators stops paying for itself. Helidon 4 mandates Java 21+. Performance reportedly matches the Netty-based predecessor. This is the purest "Loom server" — no event loop at all — and it is the canonical evidence that you can match Netty's throughput without Netty.
+
+**Model B — Quarkus and Vert.x: Netty I/O, virtual-thread handlers.** This is the most common production pattern that genuinely runs on Netty. Quarkus is built on a [reactive engine of Netty + Eclipse Vert.x](https://quarkus.io/guides/virtual-threads). The Netty event loops still own all socket I/O. When you annotate a JAX-RS handler with `@RunOnVirtualThread`, Quarkus dispatches that handler off the event loop onto a fresh virtual thread:
+
+```java
+@GET
+@Path("/profile/{id}")
+@RunOnVirtualThread
+public Profile profile(@PathParam("id") long id) {
+    var user = userRepo.findById(id);          // blocking JDBC — fine on a VT
+    var orders = orderRepo.findByUser(id);     // also blocking
+    return new Profile(user, orders);
+}
+```
+
+Vert.x 4.5+ exposes the same idea as a verticle threading model — `new DeploymentOptions().setThreadingModel(ThreadingModel.VIRTUAL_THREAD)` — and adds `Future.await()` so a virtual-thread verticle can call Vert.x async APIs in straight-line synchronous style. The contract in both frameworks is identical: never block on the event-loop thread, but the application code on the virtual thread can block freely.
+
+**Model C — Micronaut 4.9 loom-carrier: virtual threads scheduled by Netty itself.** Released [June 2025 as experimental](https://micronaut.io/2025/06/30/transitioning-to-virtual-threads-using-the-micronaut-loom-carrier/), this is the most aggressive integration. Instead of the default JVM scheduler (a `ForkJoinPool` of carrier threads), Micronaut uses internal JDK APIs to make Netty's event-loop threads themselves act as virtual-thread carriers. The result: when a virtual thread parks on I/O, the same Netty event loop that was carrying it can immediately go back to dispatching its socket events; when the I/O completes, the same event loop resumes the virtual thread. Micronaut reports latency and CPU cost close to its async path and "far better than Loom with FJP" — at the cost of lower peak request rate compared to pure async Netty. Configuration lives under `micronaut.netty.loom-carrier` with knobs like `timeSliceLatency`, `taskFifoThreshold`, and `workSpillThreshold`; the docs explicitly warn these are subject to change in patch releases.
 
 ```mermaid
 sequenceDiagram
@@ -310,47 +351,44 @@ sequenceDiagram
   participant V as Virtual Thread
   participant U as Upstream/DB
 
+  Note over N,V: Model B — Hybrid (Quarkus / Vert.x VT verticle)
   C->>N: HTTP request
-  N->>V: Dispatch request handling
-  V->>U: Blocking call (HTTP/JDBC/etc.)
+  N->>V: Dispatch handler onto VT (different thread)
+  V->>U: Blocking call
   U-->>V: Response
-  V-->>N: Response payload
+  V-->>N: Hand response payload back to event loop
   N-->>C: HTTP response
 ```
 
-Why this can win in benchmarks:
+Why these models exist at all (the throughput intuition):
 
-- **Netty stays excellent at connection management.** Its event-loop model remains efficient for many TCP connections.
-- **Imperative code path is cheaper cognitively and often computationally.** You avoid long operator chains (`map/flatMap/onErrorResume`) for simple CRUD-like flows.
-- **Blocking no longer burns OS threads.** Virtual-thread parking keeps carrier threads reusable when waiting on I/O.
+- Netty's event-loop thread is precious — it must never block. Anything that blocks must be offloaded.
+- The classic offload target was a fixed worker pool (`executeBlocking`, `@Blocking`) — bounded, prone to queueing.
+- Virtual threads make offload essentially free. The hybrid model swaps a finite worker pool for an effectively unlimited virtual-thread executor.
+- Model C goes further: it removes the offload itself. The event loop and the carrier are the same OS thread, so handoff overhead disappears.
 
-Where it can lose:
+Operational guardrails for any Loom+Netty setup:
 
-- **Very small, CPU-light endpoints** can favor pure Reactor because each handoff from event loop to virtual thread has overhead.
-- **CPU-bound work** gains little from virtual threads and can starve carrier threads under load.
-- **Accidental event-loop blocking** is catastrophic. If any blocking call stays on Netty's event loop, tail latency explodes quickly.
+- **Never block on the event loop.** This was already true for Netty. Virtual threads do not relax it. A blocking call on the event-loop thread still freezes that loop's connections.
+- **Audit `ThreadLocal` use.** Netty's `FastThreadLocal` and many older filters were designed for a small, stable set of carrier threads. With one virtual thread per request, naive `ThreadLocal` use [allocates per virtual thread](https://github.com/netty/netty/issues/15449) and balloons memory. Migrate hot-path context to [`ScopedValue`](modern-java-features.md) or framework-managed context propagation.
+- **Tune both schedulers together.** Event-loop pool sizing (`io.netty.eventLoopThreads`, framework equivalents) and virtual-thread carrier parallelism (`jdk.virtualThreadScheduler.parallelism`) are no longer independent — especially in Model C where they are the same threads.
+- **Watch tail latency, not averages.** P99/P99.9 are the only numbers that catch event-loop blocking, pinning, and carrier saturation under spikes.
+- **Outbound HTTP and JDBC pool sizes still matter.** Too-small pools cap throughput regardless of how cheap virtual threads are.
 
-Operational guardrails for Loom+Netty:
+How to interpret the loom-vs-webflux 45% vs 30% benchmark result correctly:
 
-- Ensure all blocking work is offloaded away from event-loop threads.
-- Track `P99`, connection errors, and queueing under spikes; average latency will hide problems.
-- Tune both schedulers together, not independently:
-  - Netty/Reactor worker pool settings (event-loop side)
-  - `jdk.virtualThreadScheduler.parallelism` (virtual-thread carrier side)
-- Keep outbound client pools realistic. Too-small pools make both Reactor and Loom look worse for the wrong reason.
+- The split is from [`loom-webflux-benchmarks`](https://github.com/chrisgleissner/loom-webflux-benchmarks) and reflects scenario wins, not a universal verdict.
+- The ~45% vs ~30% number specifically compares **`loom-netty` vs `webflux-netty`** — the dedicated Loom-on-Netty research configuration, not stock Spring Boot. The full benchmark matrix also includes `loom-tomcat` and `platform-tomcat`.
+- Scenarios that simulate upstream I/O wait favor virtual threads; CPU-bound or very small endpoints can flip the result.
+- This benchmark is a research artifact. Spring Boot's default supported pairings remain MVC+Tomcat (with virtual threads as a flag) and WebFlux+Netty (reactive). "Spring Boot MVC on Netty with virtual threads" is not a default option.
 
-How to interpret the 45% vs 30% result correctly:
+Decision rule, distilled:
 
-- The benchmark compares **approaches under the same scenario matrix**, not a universal winner for all apps.
-- The ~45% vs ~30% split is specifically from the Netty-only chart; the all-approaches view includes Tomcat-based Loom results as well.
-- Many scenarios simulate I/O wait (`delayInMillis`) and upstream call depth, which is exactly where virtual threads tend to shine.
-- Once the host becomes CPU-contended, both Netty-based approaches converge or trade wins depending on endpoint shape and payload mix.
-
-A practical decision rule:
-
-- Choose **Loom+Netty hybrid** if your team wants imperative code and your workload is mostly request/response with blocking dependencies.
-- Choose **WebFlux+Netty** if you need end-to-end reactive pipelines, built-in backpressure semantics, or heavy streaming/WebSocket flows.
-- Keep both in your toolbox; treat them as two strong points on the same Netty foundation, not ideological opposites.
+- New Java service, blocking-style code preferred → **Helidon 4 / Níma** (pure Loom, no Netty) or **Spring Boot MVC + virtual threads on Tomcat** (most familiar).
+- Already on Quarkus → **Quarkus `@RunOnVirtualThread`** (Model B).
+- Already on Vert.x → **`ThreadingModel.VIRTUAL_THREAD` verticles** (Model B).
+- Already on Micronaut and willing to run experimental → **loom-carrier mode** (Model C).
+- Streaming, WebSockets, or heavy backpressure-sensitive pipelines → **WebFlux + Netty** stays the right tool; Loom does not replace Reactive Streams semantics.
 
 See also [this project's WebFlux reactive guide](../../reactive-programming-java.md) for the alternative model.
 
@@ -485,5 +523,12 @@ Look in the log for `jdk.tracePinnedThreads` output. Each entry is a call site t
 - [Task Execution and Scheduling — Spring Boot Reference](https://docs.spring.io/spring-boot/reference/features/task-execution-and-scheduling.html) — how Spring Boot 3.2+ auto-configures virtual threads
 - [All together now: Spring Boot 3.2, GraalVM native images, Java 21, and virtual threads](https://spring.io/blog/2023/09/09/all-together-now-spring-boot-3-2-graalvm-native-images-java-21-and-virtual/) — Spring team's launch post
 - [Java 21 Virtual Threads — Dude, Where's My Lock? (Netflix TechBlog)](https://netflixtechblog.com/java-21-virtual-threads-dude-wheres-my-lock-3052540e231d) — production incident write-up on pinning
-- [loom-webflux-benchmarks (GitHub)](https://github.com/chrisgleissner/loom-webflux-benchmarks) — empirical performance comparison between virtual threads and WebFlux
+- [loom-webflux-benchmarks (GitHub)](https://github.com/chrisgleissner/loom-webflux-benchmarks) — empirical performance comparison between virtual threads and WebFlux, including the `loom-netty` vs `webflux-netty` matrix
 - [Working with Virtual Threads in Spring — Baeldung](https://www.baeldung.com/spring-6-virtual-threads) — practical walkthrough across Spring Boot features
+- [Helidon Níma — Helidon on Virtual Threads (Tomas Langer)](https://medium.com/helidon/helidon-n%C3%ADma-helidon-on-virtual-threads-130bb2ea2088) — the from-scratch Loom server that replaced Netty in Helidon 4
+- [Helidon 4 released! (Helidon team)](https://medium.com/helidon/helidon-4-is-released-a06756e1562a) — release post documenting the Netty → Níma transition
+- [Virtual Thread support reference — Quarkus](https://quarkus.io/guides/virtual-threads) — `@RunOnVirtualThread`, Netty + Vert.x event-loop interaction, pinning caveats
+- [Vert.x Core Manual — Virtual Threads / `ThreadingModel.VIRTUAL_THREAD`](https://vertx.io/docs/vertx-core/java/) — virtual-thread verticles, `Future.await`, threading-model semantics
+- [Transitioning to virtual threads using the Micronaut loom carrier](https://micronaut.io/2025/06/30/transitioning-to-virtual-threads-using-the-micronaut-loom-carrier/) — Micronaut 4.9's experimental Netty-event-loop-as-VT-carrier mode
+- [`LoomCarrierConfiguration` (Micronaut API docs)](https://docs.micronaut.io/latest/api/io/micronaut/http/netty/channel/loom/LoomCarrierConfiguration.html) — tuning knobs for the Netty loom carrier
+- [Netty issue #15449 — `FastThreadLocal` with virtual threads](https://github.com/netty/netty/issues/15449) — context for the `ThreadLocal` allocation pitfall on Loom+Netty
