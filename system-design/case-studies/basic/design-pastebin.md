@@ -404,6 +404,17 @@ The dominant trade-off is **latency vs cost vs durability**, and it tilts toward
 
 ## Related
 
+### Deep-Dive Companions
+
+- [ID Generation](pastebin/id-generation.md) — random base62 vs UUID, content-addressed IDs, salting, visibility tiers, crawler resistance
+- [Storage Choice](pastebin/storage-choice.md) — DB vs S3 split, hot/cold tiering, compression, encryption, lifecycle
+- [Expiry Handling](pastebin/expiry-handling.md) — TTL semantics, sweepers, time-partitioned tables, burn-after-reading, GDPR
+- [Abuse Defense](pastebin/abuse-defense.md) — content scanning, secret detection, DMCA, CSAM, ban lists, transparency
+- [Caching and CDN](pastebin/caching-and-cdn.md) — immutable Cache-Control, private/password caching, edge compression
+- [Optional Features](pastebin/optional-features.md) — passwords, zero-knowledge encryption, syntax highlighting, oEmbed, webhooks
+
+### Cross-References
+
 - `../../building-blocks/object-and-blob-storage.md` — S3-class storage primitives, presigned URLs, multipart uploads.
 - `../../building-blocks/rate-limiters.md` — token bucket, sliding window, distributed rate limiting.
 - `design-url-shortener.md` — sibling case study; same ID-generation problem, different payload shape.

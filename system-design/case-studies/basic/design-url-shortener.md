@@ -383,6 +383,16 @@ You can have both: send a **301 with a short `Cache-Control: max-age`** to retai
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Code Generation Strategies](url-shortener/code-generation-strategies.md) — base62, Snowflake, hash+truncate, random+collision, allocator architecture
+- [Cache Strategy](url-shortener/cache-strategy.md) — multi-tier caching, hot keys, thundering herd, negative caching, edge-native pattern
+- [Custom Aliases](url-shortener/custom-aliases.md) — namespace design, uniqueness, banned words, homoglyphs, squatting, i18n
+- [Click Analytics Pipeline](url-shortener/click-analytics-pipeline.md) — Kafka, ClickHouse, HyperLogLog, S3 archive, late events, bot filtering
+- [301 vs 302 Redirects](url-shortener/redirect-301-vs-302.md) — RFC 9110/9111 semantics, browser/CDN behavior, analytics impact, SEO
+
+### Cross-References
+
 - LLD twin: [`../../../low-level-design/case-studies/developer-tools/design-url-shortener-lld.md`](../../../low-level-design/case-studies/developer-tools/design-url-shortener-lld.md)
 - Sharding when the mapping table outgrows one node: [`../../scalability/sharding-strategies.md`](../../scalability/sharding-strategies.md)
 - Cache layer choices and pitfalls: [`../../building-blocks/caching-layers.md`](../../building-blocks/caching-layers.md)

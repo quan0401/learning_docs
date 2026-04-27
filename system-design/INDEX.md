@@ -32,9 +32,9 @@ The named components every design reuses. One doc per block, deep enough to reas
 11. [Search Systems — Inverted Index, Elasticsearch / OpenSearch](building-blocks/search-systems.md) — what a search engine really is, index pipeline, relevance scoring, facets, when search belongs next to vs on top of the DB _(2026-04-24)_
 12. [API Gateways and BFFs — Routing, Auth Offload, Composition](building-blocks/api-gateways-and-bff.md) — gateway responsibilities, BFF pattern, gateway vs service mesh, common anti-patterns, Kong/Envoy/AWS API Gateway/Apollo _(2026-04-24)_
 13. [Rate Limiters — Token Bucket, Leaky Bucket, Sliding Window](building-blocks/rate-limiters.md) — algorithms with pseudocode, distributed rate limiting with Redis, per-user vs per-IP vs per-key, graceful degradation _(2026-04-24)_
-14. [API Design Styles — REST, GraphQL, gRPC, and Data Formats](building-blocks/api-design-styles.md) — REST vs GraphQL vs gRPC trade-offs, data formats (JSON, Protobuf, Avro, MessagePack), versioning models, when each style wins _(planned)_
-15. [REST API Design in Depth — Resources, Pagination, Versioning, Errors](building-blocks/rest-api-design-in-depth.md) — resource naming, pagination patterns (offset vs cursor vs keyset), versioning approaches, error envelopes, idempotency at the API layer, HATEOAS reality check _(planned)_
-16. [Distributed File Systems & Erasure Coding](building-blocks/distributed-file-systems-and-erasure-coding.md) — HDFS/GFS lineage, Ceph, MinIO erasure modes, erasure coding vs replication cost/durability math, when DFS replaces or supplements object storage _(planned)_
+14. [API Design Styles — REST, GraphQL, gRPC, and Data Formats](building-blocks/api-design-styles.md) — REST vs GraphQL vs gRPC trade-offs, data formats (JSON, Protobuf, Avro, MessagePack), versioning models, when each style wins _(2026-04-26)_
+15. [REST API Design in Depth — Resources, Pagination, Versioning, Errors](building-blocks/rest-api-design-in-depth.md) — resource naming, pagination patterns (offset vs cursor vs keyset), versioning approaches, error envelopes, idempotency at the API layer, HATEOAS reality check _(2026-04-26)_
+16. [Distributed File Systems & Erasure Coding](building-blocks/distributed-file-systems-and-erasure-coding.md) — HDFS/GFS lineage, Ceph, MinIO erasure modes, erasure coding vs replication cost/durability math, when DFS replaces or supplements object storage _(2026-04-26)_
 
 ---
 
@@ -48,7 +48,7 @@ How you grow a system past a single box. These patterns compose on top of the Ti
 20. [Read/Write Splitting & Cache Strategies — Through, Back, Around, Aside](scalability/read-write-splitting-and-cache-strategies.md) — write-through/back/around, cache-aside in depth, TTL vs event invalidation, stampede locks, negative caching, thundering herd _(2026-04-24)_
 21. [CQRS and Event Sourcing — Commands, Queries, and the Event Log](scalability/cqrs-and-event-sourcing.md) — why split read and write models, event sourcing mechanics, projections, snapshotting, trade-offs vs classic CRUD _(2026-04-24)_
 22. [Backpressure, Bulkhead, and Circuit Breakers — Failing Loudly Under Load](scalability/backpressure-bulkhead-circuit-breaker.md) — reactive streams backpressure, bulkhead isolation, three-state circuit breaker, timeouts vs deadlines, load shedding _(2026-04-24)_
-23. [Read-Path Optimizations — Denormalization, Materialized Views, Compression](scalability/read-path-optimizations.md) — denormalization patterns, materialized views (pull and pre-aggregated), covering and projection indexes, row vs column storage, compression (Zstd/LZ4/Snappy) trade-offs _(planned)_
+23. [Read-Path Optimizations — Denormalization, Materialized Views, Compression](scalability/read-path-optimizations.md) — denormalization patterns, materialized views (pull and pre-aggregated), covering and projection indexes, row vs column storage, compression (Zstd/LZ4/Snappy) trade-offs _(2026-04-26)_
 
 ---
 
@@ -136,7 +136,7 @@ How to slice the system.
 66. [Sidecar Pattern — Beyond Service Mesh](architectural-styles/sidecar-pattern.md) — sidecars for logging, config, crypto, traffic; Istio/Envoy/Linkerd comparison; resource overhead, ambient mesh alternative _(2026-04-26)_
 67. [Strangler Fig Pattern — Incremental Migration](architectural-styles/strangler-fig-pattern.md) — routing splits, dual-run, cutover mechanics, anti-corruption layer, real-world migration timelines _(2026-04-26)_
 68. [Service Mesh as an Architectural Decision](architectural-styles/service-mesh-as-architectural-decision.md) — what a mesh buys you, sidecar overhead, ambient mesh, when mesh is overkill _(2026-04-26)_
-69. [Peer-to-Peer Architecture — DHTs, Gossip, BitTorrent, IPFS](architectural-styles/peer-to-peer-architecture.md) — Kademlia and Chord DHTs, gossip overlays, content-addressed storage, when P2P is the right answer _(planned)_
+69. [Peer-to-Peer Architecture — DHTs, Gossip, BitTorrent, IPFS](architectural-styles/peer-to-peer-architecture.md) — Kademlia and Chord DHTs, gossip overlays, content-addressed storage, when P2P is the right answer _(2026-04-26)_
 
 ---
 
@@ -149,8 +149,26 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.A Basic Designs
 
 70. [Design a URL Shortener](case-studies/basic/design-url-shortener.md) — counter vs hash vs base62, redirect infra, click analytics, custom aliases, abuse protection _(2026-04-25, easy)_
+    - 70.1 [Code Generation Strategies](case-studies/basic/url-shortener/code-generation-strategies.md) — base62, Snowflake, hash+truncate, random+collision, allocator architecture _(2026-04-27)_
+    - 70.2 [Cache Strategy](case-studies/basic/url-shortener/cache-strategy.md) — multi-tier caching, hot keys, thundering herd, negative caching, edge-native pattern _(2026-04-27)_
+    - 70.3 [Custom Aliases](case-studies/basic/url-shortener/custom-aliases.md) — namespace design, uniqueness, banned words, homoglyphs, squatting, i18n _(2026-04-27)_
+    - 70.4 [Click Analytics Pipeline](case-studies/basic/url-shortener/click-analytics-pipeline.md) — Kafka, ClickHouse, HyperLogLog, S3 archive, late events, bot filtering _(2026-04-27)_
+    - 70.5 [301 vs 302 Redirects](case-studies/basic/url-shortener/redirect-301-vs-302.md) — RFC 9110/9111 semantics, browser/CDN behavior, analytics impact, SEO, retirement _(2026-04-27)_
 71. [Design Pastebin](case-studies/basic/design-pastebin.md) — paste object model, expiry policies, key generation, read-vs-write skew, abuse / DMCA flow _(2026-04-25, easy)_
+    - 71.1 [ID Generation](case-studies/basic/pastebin/id-generation.md) — random base62 vs UUID, content-addressed IDs, salting, visibility tiers, crawler resistance _(2026-04-27)_
+    - 71.2 [Storage Choice](case-studies/basic/pastebin/storage-choice.md) — DB vs S3 split, hot/cold tiering, compression, encryption, lifecycle _(2026-04-27)_
+    - 71.3 [Expiry Handling](case-studies/basic/pastebin/expiry-handling.md) — TTL semantics, sweepers, time-partitioned tables, burn-after-reading, GDPR _(2026-04-27)_
+    - 71.4 [Abuse Defense](case-studies/basic/pastebin/abuse-defense.md) — content scanning, secret detection, DMCA, CSAM, ban lists, transparency _(2026-04-27)_
+    - 71.5 [Caching and CDN](case-studies/basic/pastebin/caching-and-cdn.md) — immutable Cache-Control, private/password caching, edge compression, multi-region _(2026-04-27)_
+    - 71.6 [Optional Features](case-studies/basic/pastebin/optional-features.md) — passwords, zero-knowledge encryption, syntax highlighting, oEmbed, webhooks _(2026-04-27)_
 72. [Design a Rate Limiter (Service)](case-studies/basic/design-rate-limiter.md) — centralized vs distributed, Redis-backed sliding window, policy engine, client SDKs, observability _(2026-04-25, medium)_
+    - 72.1 [Algorithm Choice](case-studies/basic/rate-limiter/algorithm-choice.md) — fixed/sliding/token/leaky/GCRA/concurrency/adaptive, decision matrix _(2026-04-27)_
+    - 72.2 [Centralized vs Distributed](case-studies/basic/rate-limiter/centralized-vs-distributed.md) — single Redis, two-tier Envoy, gossip, CRDT, multi-region trade-offs _(2026-04-27)_
+    - 72.3 [Race Conditions and Atomicity](case-studies/basic/rate-limiter/race-conditions-and-atomicity.md) — INCR+EXPIRE race, Lua atomicity, Redlock debate, DynamoDB, SQL alternatives _(2026-04-27)_
+    - 72.4 [Hot Keys and Sharding](case-studies/basic/rate-limiter/hot-keys-and-sharding.md) — random/hash suffix sharding, local pre-aggregation, CMS detection, hash tags _(2026-04-27)_
+    - 72.5 [Failure Modes](case-studies/basic/rate-limiter/failure-modes.md) — fail open/closed/local, watchdog, cascading failure, chaos engineering _(2026-04-27)_
+    - 72.6 [Multi-Tier Limits](case-studies/basic/rate-limiter/multi-tier-limits.md) — nested vs orthogonal quotas, dry-run-then-commit, Stripe 4-tier, refunds _(2026-04-27)_
+    - 72.7 [Distributed Synchronization](case-studies/basic/rate-limiter/distributed-synchronization.md) — gossip, periodic flush, CRDTs, drift bounds, clock sync _(2026-04-27)_
 
 ### 10.B Real-Time Communication
 
@@ -244,8 +262,8 @@ The interview-style design problems. Each doc follows a consistent template: req
 How to actually run a system design discussion — useful even if you never interview again, because it mirrors how real architecture reviews should flow.
 
 125. [The 6-Step Framework — Requirements → Estimates → API → Data Model → HLD → Deep Dives](interview-framework/six-step-framework.md) — the canonical structure, time allocation, where candidates stumble _(2026-04-26)_
-126. [Trade-off Articulation and Bottleneck Analysis](interview-framework/tradeoff-articulation-and-bottlenecks.md) — naming trade-offs explicitly, identifying bottlenecks, the "what breaks at 10x?" drill _(planned)_
-127. [Common Anti-Patterns in System Design Interviews](interview-framework/common-anti-patterns.md) — premature detail, resume-driven design, ignoring NFRs, hand-waving at scale _(planned)_
+126. [Trade-off Articulation and Bottleneck Analysis](interview-framework/tradeoff-articulation-and-bottlenecks.md) — naming trade-offs explicitly, identifying bottlenecks, the "what breaks at 10x?" drill _(2026-04-26)_
+127. [Common Anti-Patterns in System Design Interviews](interview-framework/common-anti-patterns.md) — premature detail, resume-driven design, ignoring NFRs, hand-waving at scale _(2026-04-26)_
 
 ---
 
@@ -284,7 +302,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - [CAP, PACELC, and Consistency Models](foundations/cap-and-consistency-models.md)
 - [SLA, SLO, SLI, and Availability](foundations/sla-slo-sli-and-availability.md)
 - [Non-Functional Requirements Checklist](foundations/non-functional-requirements.md)
-- [Core Trade-offs Catalog](foundations/core-tradeoffs-catalog.md) _(planned)_
+- [Core Trade-offs Catalog](foundations/core-tradeoffs-catalog.md)
 
 ### Building Blocks
 
@@ -296,9 +314,9 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - [Search Systems](building-blocks/search-systems.md)
 - [API Gateways and BFFs](building-blocks/api-gateways-and-bff.md)
 - [Rate Limiters](building-blocks/rate-limiters.md)
-- [API Design Styles](building-blocks/api-design-styles.md) _(planned)_
-- [REST API Design in Depth](building-blocks/rest-api-design-in-depth.md) _(planned)_
-- [Distributed File Systems & Erasure Coding](building-blocks/distributed-file-systems-and-erasure-coding.md) _(planned)_
+- [API Design Styles](building-blocks/api-design-styles.md)
+- [REST API Design in Depth](building-blocks/rest-api-design-in-depth.md)
+- [Distributed File Systems & Erasure Coding](building-blocks/distributed-file-systems-and-erasure-coding.md)
 
 ### Scalability Patterns
 
@@ -308,7 +326,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - [Read/Write Splitting & Cache Strategies](scalability/read-write-splitting-and-cache-strategies.md)
 - [CQRS and Event Sourcing](scalability/cqrs-and-event-sourcing.md)
 - [Backpressure, Bulkhead, Circuit Breaker](scalability/backpressure-bulkhead-circuit-breaker.md)
-- [Read-Path Optimizations](scalability/read-path-optimizations.md) _(planned)_
+- [Read-Path Optimizations](scalability/read-path-optimizations.md)
 
 ### Data & Consistency
 
@@ -343,7 +361,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - [Multi-Region Architectures](reliability/multi-region-architectures.md)
 - [Graceful Degradation and Feature Flags](reliability/graceful-degradation-and-feature-flags.md)
 
-### Performance & Observability _(planned)_
+### Performance & Observability
 
 - Performance Budgets and Latency
 - Distributed Tracing, Metrics, Logs
@@ -352,7 +370,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - Dashboards, Runbooks, On-Call
 - Capacity Planning and Load Testing
 
-### Security in System Design _(planned)_
+### Security in System Design
 
 - Authentication (Sessions, Tokens, JWT)
 - Authorization (RBAC, ABAC, ReBAC)
@@ -362,7 +380,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - Defense in Depth and Threat Modeling
 - Zero Trust Architecture
 
-### Architectural Styles _(planned)_
+### Architectural Styles
 
 - Monolith → Microservices
 - Event-Driven Architecture (style)
@@ -374,7 +392,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - Service Mesh (architectural decision)
 - Peer-to-Peer Architecture
 
-### Case Studies _(planned)_
+### Case Studies
 
 - **Basic:** URL Shortener, Pastebin, Rate Limiter
 - **Real-Time Communication:** WhatsApp, Slack, Live Comments, Google Docs, Zoom
@@ -389,13 +407,13 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - **Asynchronous:** Job Scheduler, CI/CD Pipeline, Monitoring & Alerting
 - **Specialized:** LeetCode, Calendar System, Online Chess
 
-### Interview Framework _(planned)_
+### Interview Framework
 
 - 6-Step Framework
 - Trade-off Articulation and Bottleneck Analysis
 - Common Anti-Patterns
 
-### Data Structures for Scale _(planned)_
+### Data Structures for Scale
 
 - Bloom & Cuckoo Filters
 - Merkle Trees
@@ -406,7 +424,7 @@ Data engineering in system design. The analytics and pipeline side that most bac
 - Geohash
 - Quadtrees & R-Trees
 
-### Batch & Stream Processing _(planned)_
+### Batch & Stream Processing
 
 - Batch vs Stream Processing
 - MapReduce and Its Descendants

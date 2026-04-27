@@ -487,6 +487,18 @@ A useful framing: **you cannot have low-latency, strongly-consistent, multi-regi
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Algorithm Choice](rate-limiter/algorithm-choice.md) — fixed/sliding/token/leaky/GCRA/concurrency/adaptive, decision matrix
+- [Centralized vs Distributed](rate-limiter/centralized-vs-distributed.md) — single Redis, two-tier Envoy, gossip, CRDT, multi-region trade-offs
+- [Race Conditions and Atomicity](rate-limiter/race-conditions-and-atomicity.md) — INCR+EXPIRE race, Lua atomicity, Redlock debate, alternatives
+- [Hot Keys and Sharding](rate-limiter/hot-keys-and-sharding.md) — random/hash suffix sharding, local pre-aggregation, CMS heavy-hitter detection
+- [Failure Modes](rate-limiter/failure-modes.md) — fail open/closed/local, watchdog, cascading failure, chaos engineering
+- [Multi-Tier Limits](rate-limiter/multi-tier-limits.md) — nested vs orthogonal quotas, dry-run-then-commit, refunds
+- [Distributed Synchronization](rate-limiter/distributed-synchronization.md) — gossip, periodic flush, CRDTs, drift bounds, clock sync
+
+### Cross-References
+
 - **Algorithms deep-dive:** [`../../building-blocks/rate-limiters.md`](../../building-blocks/rate-limiters.md) — token bucket, leaky bucket, sliding window math.
 - **Companion patterns:** [`../../scalability/backpressure-bulkhead-circuit-breaker.md`](../../scalability/backpressure-bulkhead-circuit-breaker.md) — when rate limiting alone is not enough.
 - **LLD twin:** [`../../../low-level-design/case-studies/developer-tools/design-rate-limiter-lld.md`](../../../low-level-design/case-studies/developer-tools/design-rate-limiter-lld.md) — class diagram, interface contracts, in-process token bucket implementation.
