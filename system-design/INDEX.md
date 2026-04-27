@@ -173,6 +173,11 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.B Real-Time Communication
 
 73. [Design WhatsApp / Chat System](case-studies/real-time/design-whatsapp.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery, e2e encryption _(2026-04-25, medium)_
+    - 73.1 [Presence Service](case-studies/real-time/whatsapp/presence-service.md) — online/offline state, heartbeats, fan-out of presence changes, last-seen semantics, privacy controls _(2026-04-27)_
+    - 73.2 [Per-Conversation Ordering](case-studies/real-time/whatsapp/per-conversation-ordering.md) — sequence assignment, causal expectations, retries, duplicate suppression, ordering across reconnects _(2026-04-27)_
+    - 73.3 [Offline Delivery and Push](case-studies/real-time/whatsapp/offline-delivery-and-push.md) — durable inbox, reconnect catch-up, APNs/FCM wake-up flow, battery constraints, device fan-in _(2026-04-27)_
+    - 73.4 [Read Receipts and Typing Indicators](case-studies/real-time/whatsapp/read-receipts-and-typing.md) — ephemeral signals vs durable state, idempotent updates, privacy toggles, fan-out control _(2026-04-27)_
+    - 73.5 [Group Chat Fanout](case-studies/real-time/whatsapp/group-chat-fanout.md) — sender-side vs server-side fanout, large-group amplification, membership snapshots, ack aggregation _(2026-04-27)_
 74. [Design Slack](case-studies/real-time/design-slack.md) — workspace/channel hierarchy, threads, search, integrations, large-team fanout, presence at workspace scale _(2026-04-25, medium)_
 75. [Design Live Comments](case-studies/real-time/design-live-comments.md) — fan-out at thousands of viewers per second, ordering, moderation hooks, push channel selection _(2026-04-25, medium)_
 76. [Design Google Docs / Collaborative Editor](case-studies/real-time/design-google-docs.md) — OT vs CRDT, presence, cursor broadcast, offline merges, history, large-doc partitioning _(2026-04-25, hard)_
