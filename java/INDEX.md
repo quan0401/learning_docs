@@ -103,6 +103,8 @@ Talk to databases, manage transactions, optimize queries.
 42. [Database Configuration in Spring Boot — MongoDB Reactive, R2DBC, and JPA](configurations/database-config.md) — connection pools, multiple datasources, driver selection _(2026-04-15)_
 43. [JPA Transactions in Spring Boot — With Reactive WebFlux Caveats](jpa-transactions.md) — `@Transactional`, propagation, isolation, self-invocation trap _(2026-04-16)_
 44. [JPA Transaction Propagation and Isolation](jpa-transaction-propagation.md) — all 7 propagation levels, 5 isolation levels, rollback rules, `TransactionTemplate`, reactive caveat _(2026-04-17)_
+44a. [JPA Stale Collection Trap — Why a Re-Query Doesn't Refresh an Already-Managed Entity](jpa-stale-collection-trap.md) — first-level cache identity guarantee, soft-delete in-memory mutations, `saveAndFlush` ≠ evict, fix patterns _(2026-04-28)_
+44b. [Inspecting the JPA First-Level Cache from a Spring Shared EntityManager Proxy](inspecting-jpa-cache-debugger.md) — `SharedEntityManagerCreator` proxy, `unwrap(Session)`, `getEntityEntriesByKey`, debugger watch expressions _(2026-04-28)_
 45. [Cache Configuration in Spring Boot — Caffeine, Redis, and Reactive Caching](configurations/cache-config.md) — `@Cacheable`, cache managers, eviction strategies _(2026-04-15)_
 46. [R2DBC Deep Dive — Reactive SQL in Spring WebFlux](data-repositories/r2dbc-deep-dive.md) — `DatabaseClient`, `R2dbcRepository`, drivers, pooling, migrations _(2026-04-18)_
 47. [Building a Reactive Data Layer](data-repositories/reactive-data-layer.md) — mixing Mongo + R2DBC + Redis, pagination, auditing, decision guide _(2026-04-18)_
@@ -313,6 +315,8 @@ If you need to look something up rather than learn linearly, here is the same co
 - [Database Configuration](configurations/database-config.md)
 - [JPA Transactions](jpa-transactions.md)
 - [JPA Transaction Propagation and Isolation](jpa-transaction-propagation.md)
+- [JPA Stale Collection Trap](jpa-stale-collection-trap.md)
+- [Inspecting the JPA First-Level Cache from a Spring Shared EntityManager Proxy](inspecting-jpa-cache-debugger.md)
 - [Cache Configuration](configurations/cache-config.md)
 - [R2DBC Deep Dive](data-repositories/r2dbc-deep-dive.md)
 - [Building a Reactive Data Layer](data-repositories/reactive-data-layer.md)

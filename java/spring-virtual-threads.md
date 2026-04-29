@@ -93,7 +93,7 @@ flowchart TB
     Prop -->|wires| Tomcat[Tomcat request executor]
     Prop -->|wires| AppExec[SimpleAsyncTaskExecutor]
     Prop -->|wires| Sched[SimpleAsyncTaskScheduler]
-    Prop -->|wires| Async[@Async default executor]
+    Prop -->|wires| Async["@Async default executor"]
 
     Tomcat -->|per request| VT1[virtual thread]
     AppExec -->|per task| VT2[virtual thread]
