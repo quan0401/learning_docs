@@ -264,6 +264,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.G E-Commerce & Marketplace
 
 104. [Design Amazon E-Commerce](case-studies/e-commerce/design-amazon-ecommerce.md) — catalog, search, cart, order, payment, fulfillment graph, recommendations — the HLD survey _(2026-04-25, medium)_
+    - 104.1 [Catalog at Planet Scale](case-studies/e-commerce/amazon-ecommerce/catalog-service.md) — ASIN, marketplace vs direct, variations, regional differences, taxonomy, A+ content, SKU dedup _(2026-04-30)_
+    - 104.2 [Search and Browse](case-studies/e-commerce/amazon-ecommerce/search-and-browse.md) — A9, attribute index, facets, ranking layer, semantic search, sponsored ads, OOS handling _(2026-04-30)_
+    - 104.3 [Inventory Consistency](case-studies/e-commerce/amazon-ecommerce/inventory-consistency.md) — per-FC counts, reservation flow, over-sell protection, FBA vs MFN, reconciliation, flash sale concurrency _(2026-04-30)_
+    - 104.4 [Cart Service](case-studies/e-commerce/amazon-ecommerce/cart-service.md) — Dynamo origin, conflict resolution, cross-device merge, guest cart, abandonment, share cart _(2026-04-30)_
+    - 104.5 [Checkout Saga](case-studies/e-commerce/amazon-ecommerce/checkout-saga.md) — orchestration vs choreography, auth vs capture, order ID, idempotency, retry semantics, failure recovery _(2026-04-30)_
+    - 104.6 [Payment Integration](case-studies/e-commerce/amazon-ecommerce/payment-integration.md) — multi-processor abstraction, pre-auth, capture at ship-time, 3DS2/SCA, PCI scope, fraud, regional methods _(2026-04-30)_
+    - 104.7 [Fulfillment Graph](case-studies/e-commerce/amazon-ecommerce/fulfillment-graph.md) — FC topology, sourcing routing, SLA tiers, carrier assignment, zone skip, returns, lockers _(2026-04-30)_
+    - 104.8 [Recommendation Pipeline](case-studies/e-commerce/amazon-ecommerce/recommendation-pipeline.md) — item-to-item CF, FBT, two-tower DL, multi-objective, vs Netflix, cold start _(2026-04-30)_
 105. [Design Shopify](case-studies/e-commerce/design-shopify.md) — multi-tenant store platform, plugin/app marketplace, checkout extensibility, multi-region payments _(2026-04-25, medium)_
 106. [Design a Flash Sale System](case-studies/e-commerce/design-flash-sale.md) — extreme write contention, queue-based admission, inventory reservation, anti-bot, graceful degradation _(2026-04-25, hard)_
 107. [Design an Online Auction System (HLD)](case-studies/e-commerce/design-online-auction.md) — bid storage, sniping protection, real-time price broadcast, payments + escrow, anti-fraud _(2026-04-25, hard)_

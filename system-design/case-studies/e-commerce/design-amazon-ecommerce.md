@@ -735,6 +735,19 @@ For the marketplace-specific HLD and seller-side architecture, see [`./design-sh
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`amazon-ecommerce/catalog-service.md`](amazon-ecommerce/catalog-service.md) — ASIN, marketplace vs direct, variations, regional differences, taxonomy, A+ content, SKU dedup.
+- [`amazon-ecommerce/search-and-browse.md`](amazon-ecommerce/search-and-browse.md) — A9 engine, attribute index, facets, ranking layer, semantic search, sponsored ads, OOS handling.
+- [`amazon-ecommerce/inventory-consistency.md`](amazon-ecommerce/inventory-consistency.md) — per-FC counts, reservation flow, over-sell protection, FBA vs MFN, reconciliation, flash-sale concurrency.
+- [`amazon-ecommerce/cart-service.md`](amazon-ecommerce/cart-service.md) — Dynamo origin, conflict resolution, cross-device merge, guest cart, abandonment, share cart.
+- [`amazon-ecommerce/checkout-saga.md`](amazon-ecommerce/checkout-saga.md) — orchestration vs choreography, auth vs capture, order ID, idempotency, retry semantics, failure recovery.
+- [`amazon-ecommerce/payment-integration.md`](amazon-ecommerce/payment-integration.md) — multi-processor abstraction, pre-auth, capture at ship-time, 3DS2/SCA, PCI scope, fraud, regional methods.
+- [`amazon-ecommerce/fulfillment-graph.md`](amazon-ecommerce/fulfillment-graph.md) — FC topology, sourcing routing, SLA tiers, carrier assignment, zone skip, returns, lockers.
+- [`amazon-ecommerce/recommendation-pipeline.md`](amazon-ecommerce/recommendation-pipeline.md) — item-to-item CF, FBT, two-tower DL, multi-objective, vs Netflix, cold start.
+
+### Foundations and Adjacent Systems
+
 - [`../../architectural-styles/microservices-vs-monolith.md`](../../architectural-styles/microservices-vs-monolith.md) — why this design is microservice-shaped and what the team-topology implications are.
 - [`../../data-consistency/distributed-transactions.md`](../../data-consistency/distributed-transactions.md) — sagas vs 2PC, compensation, idempotency at length.
 - [`../../building-blocks/databases-as-a-component.md`](../../building-blocks/databases-as-a-component.md) — polyglot persistence rationale: when to pick relational vs document vs KV vs search.
