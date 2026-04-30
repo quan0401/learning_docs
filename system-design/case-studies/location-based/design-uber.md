@@ -545,6 +545,19 @@ Alternative: **CDC** straight off the trip table's binlog. Works if every consum
 
 ## Related
 
+### Deep-Dive Companions
+
+- [H3 Geo-Indexing](uber/h3-geo-indexing.md) — hexagonal grid, 16 resolutions, k-ring queries, pentagon distortion
+- [Driver Location Ingestion](uber/driver-location-ingestion.md) — wire protocol, regional sharding, Kalman filtering, time-series compression
+- [Matching and Dispatch](uber/matching-and-dispatch.md) — DISCO geosearch, batched assignment, Hungarian, fairness
+- [Trip State Machine](uber/trip-state-machine.md) — lifecycle states, idempotent transitions, saga compensation
+- [Surge Pricing](uber/surge-pricing.md) — demand-supply ratio, smoothing, honored surge, regulatory caps
+- [ETA Prediction](uber/eta-prediction.md) — routing engine + ML correction, DeepETA, confidence intervals
+- [Real-Time Tracking](uber/real-time-tracking.md) — WebSocket protocol, snap-to-road, smoothing, geofences
+- [Payment and Receipts](uber/payment-and-receipts.md) — pre-auth, settlement, double-entry ledger, multi-currency
+
+### Cross-References
+
 - [`design-doordash.md`](./design-doordash.md) — three-sided variant (customer, courier, restaurant); much of the geo-dispatch carries over with delivery-specific twists (batched pickups, prep time).
 - [`../../data-structures/geohash.md`](../../data-structures/geohash.md) _(planned)_ — comparison of geohash, S2, and H3 with curve-continuity and neighbor-distance properties.
 - [`../../scalability/sharding-strategies.md`](../../scalability/sharding-strategies.md) — H3-cell sharding is a worked example of geographic sharding with hand-off.

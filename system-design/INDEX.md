@@ -236,6 +236,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 95. [Design Airbnb](case-studies/location-based/design-airbnb.md) — listing search with geospatial filter, availability + booking concurrency, pricing/promo, reviews, payments _(2026-04-25, medium)_
 96. [Design DoorDash / Swiggy](case-studies/location-based/design-doordash.md) — restaurant index, dispatch + driver matching, ETAs, multi-leg pickup, surge pricing _(2026-04-25, medium)_
 97. [Design Uber / Ride-Hailing](case-studies/location-based/design-uber.md) — geo indexing (geohash/S2/H3), dispatch matching, trip lifecycle state machine, surge pricing, dual-write concerns _(2026-04-25, hard)_
+    - 97.1 [H3 Geo-Indexing](case-studies/location-based/uber/h3-geo-indexing.md) — hexagonal grid, 16 resolutions, k-ring queries, pentagon distortion _(2026-04-29)_
+    - 97.2 [Driver Location Ingestion](case-studies/location-based/uber/driver-location-ingestion.md) — wire protocol, regional sharding, Kalman filtering, time-series compression _(2026-04-29)_
+    - 97.3 [Matching and Dispatch](case-studies/location-based/uber/matching-and-dispatch.md) — DISCO geosearch, batched assignment, Hungarian, fairness _(2026-04-29)_
+    - 97.4 [Trip State Machine](case-studies/location-based/uber/trip-state-machine.md) — lifecycle states, idempotent transitions, saga compensation _(2026-04-29)_
+    - 97.5 [Surge Pricing](case-studies/location-based/uber/surge-pricing.md) — demand-supply ratio, smoothing, honored surge, regulatory caps _(2026-04-29)_
+    - 97.6 [ETA Prediction](case-studies/location-based/uber/eta-prediction.md) — routing engine + ML correction, DeepETA, confidence intervals _(2026-04-29)_
+    - 97.7 [Real-Time Tracking](case-studies/location-based/uber/real-time-tracking.md) — WebSocket protocol, snap-to-road, smoothing, geofences _(2026-04-29)_
+    - 97.8 [Payment and Receipts](case-studies/location-based/uber/payment-and-receipts.md) — pre-auth, settlement, double-entry ledger, multi-currency _(2026-04-29)_
 98. [Design Google Maps](case-studies/location-based/design-google-maps.md) — tile pyramid, road graph, routing (A*/contraction hierarchies), real-time traffic, address geocoding _(2026-04-25, hard)_
 
 ### 10.F Search & Aggregation
@@ -244,6 +252,13 @@ The interview-style design problems. Each doc follows a consistent template: req
 100. [Design a News Aggregator](case-studies/search-aggregation/design-news-aggregator.md) — crawl-vs-RSS ingest, deduplication (near-duplicate detection), ranking, topic clustering, personalization _(2026-04-25, medium)_
 101. [Design a Web Crawler](case-studies/search-aggregation/design-web-crawler.md) — frontier scheduling, politeness/robots, dedup, content-addressed storage, recrawl strategy, distributed coordination _(2026-04-25, medium)_
 102. [Design Google Search](case-studies/search-aggregation/design-google-search.md) — index sharding, query serving, ranking signals, freshness vs depth, query understanding _(2026-04-25, hard)_
+    - 102.1 [Web Crawling at Scale](case-studies/search-aggregation/google-search/web-crawling.md) — Googlebot, URL frontier, politeness, dedup (SimHash), JS rendering _(2026-04-30)_
+    - 102.2 [Inverted Index Sharding](case-studies/search-aggregation/google-search/inverted-index-sharding.md) — doc-partitioned, scatter-gather, compression, tiered indexes _(2026-04-30)_
+    - 102.3 [Query Serving and Latency](case-studies/search-aggregation/google-search/query-serving-latency.md) — Tail at Scale, hedged requests, cache layers, per-stage math _(2026-04-30)_
+    - 102.4 [Ranking Signals](case-studies/search-aggregation/google-search/ranking-signals.md) — PageRank, BM25, BERT/MUM, RankBrain, learn-to-rank _(2026-04-30)_
+    - 102.5 [Freshness vs Depth](case-studies/search-aggregation/google-search/freshness-vs-depth.md) — Caffeine, instant indexing, sitemap hints, QDF _(2026-04-30)_
+    - 102.6 [Autocomplete and Query Rewriting](case-studies/search-aggregation/google-search/autocomplete-and-rewriting.md) — trie, spell correction, query expansion _(2026-04-30)_
+    - 102.7 [Federated SERP Composition](case-studies/search-aggregation/google-search/federated-serp.md) — verticals, OneBox, Knowledge Panel, AI Overviews _(2026-04-30)_
 103. [Design an Ad Click Aggregator](case-studies/search-aggregation/design-ad-click-aggregator.md) — click capture at scale, fraud filtering, attribution windows, real-time aggregates, billing correctness _(2026-04-25, hard)_
 
 ### 10.G E-Commerce & Marketplace

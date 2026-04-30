@@ -564,6 +564,18 @@ The SERP composer is the system's last-mile latency-sensitive component. It runs
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Web Crawling at Scale](google-search/web-crawling.md) — Googlebot, URL frontier, politeness, SimHash dedup, JS rendering
+- [Inverted Index Sharding](google-search/inverted-index-sharding.md) — doc-partitioned, scatter-gather, compression, tiered indexes
+- [Query Serving and Latency](google-search/query-serving-latency.md) — Tail at Scale, hedged requests, cache layers
+- [Ranking Signals](google-search/ranking-signals.md) — PageRank, BM25, BERT/MUM, RankBrain, learn-to-rank
+- [Freshness vs Depth](google-search/freshness-vs-depth.md) — Caffeine, instant indexing, sitemap hints, QDF
+- [Autocomplete and Query Rewriting](google-search/autocomplete-and-rewriting.md) — trie, spell correction, query expansion
+- [Federated SERP Composition](google-search/federated-serp.md) — verticals, OneBox, Knowledge Panel, AI Overviews
+
+### Cross-References
+
 - [Design Web Crawler](./design-web-crawler.md) — the upstream subsystem in detail.
 - [Design Search Autocomplete](./design-search-autocomplete.md) — the autocomplete design in depth, including trie/FST and ranking.
 - [Search Systems building block](../../building-blocks/search-systems.md) — inverted indexes, retrieval, ranking primitives.
