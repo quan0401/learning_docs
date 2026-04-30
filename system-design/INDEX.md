@@ -176,6 +176,15 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.B Real-Time Communication
 
 76. [Design WhatsApp / Chat System](case-studies/real-time/design-whatsapp.md) — 1:1 vs group, presence, delivery receipts, message ordering, media handling, offline delivery, e2e encryption _(2026-04-25, medium)_
+    - 76.1 [Per-Conversation Ordering](case-studies/real-time/whatsapp/per-conversation-ordering.md) — server-assigned IDs, Lamport/HLC, reorder buffers, idempotent inserts _(2026-04-27)_
+    - 76.2 [Group Chat Fanout](case-studies/real-time/whatsapp/group-chat-fanout.md) — per-user mailbox, group size tiers, Sender Keys, mention priority _(2026-04-27)_
+    - 76.3 [Presence Service](case-studies/real-time/whatsapp/presence-service.md) — subscription model, TTL heartbeat, privacy controls, battery impact _(2026-04-27)_
+    - 76.4 [Read Receipts and Typing](case-studies/real-time/whatsapp/read-receipts-and-typing.md) — sent/delivered/read tiers, group aggregation, privacy controls _(2026-04-27)_
+    - 76.5 [Offline Delivery and Push](case-studies/real-time/whatsapp/offline-delivery-and-push.md) — APNs/FCM, mailbox retention, push-as-hint, VoIP push _(2026-04-27)_
+    - 76.6 [Media Handling](case-studies/real-time/whatsapp/media-handling.md) — direct upload, E2E media encryption, TUS chunking, EXIF stripping _(2026-04-27)_
+    - 76.7 [End-to-End Encryption](case-studies/real-time/whatsapp/end-to-end-encryption.md) — Signal Protocol, X3DH, Double Ratchet, Sender Keys, PQXDH _(2026-04-27)_
+    - 76.8 [Multi-Device Sync](case-studies/real-time/whatsapp/multi-device-sync.md) — companion model, Sesame, key transparency, CRDT read state _(2026-04-27)_
+    - 76.9 [Connection Scaling](case-studies/real-time/whatsapp/connection-scaling.md) — Erlang/BEAM, sticky LB, reconnect storm, TLS 1.3 0-RTT, QUIC _(2026-04-27)_
     - 76.1 [Presence Service](case-studies/real-time/whatsapp/presence-service.md) — online/offline state, heartbeats, fan-out of presence changes, last-seen semantics, privacy controls _(2026-04-27)_
     - 76.2 [Per-Conversation Ordering](case-studies/real-time/whatsapp/per-conversation-ordering.md) — sequence assignment, causal expectations, retries, duplicate suppression, ordering across reconnects _(2026-04-27)_
     - 76.3 [Offline Delivery and Push](case-studies/real-time/whatsapp/offline-delivery-and-push.md) — durable inbox, reconnect catch-up, APNs/FCM wake-up flow, battery constraints, device fan-in _(2026-04-27)_
@@ -191,6 +200,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.C Social Media
 
 83. [Design Instagram](case-studies/social-media/design-instagram.md) — photo upload pipeline, thumbnails, feed, stories, follow graph, hashtag/explore feed _(2026-04-25, medium)_
+    - 83.1 [Photo Upload Pipeline](case-studies/social-media/instagram/photo-upload-pipeline.md) — presigned PUT, derivatives, perceptual dedup, format choice _(2026-04-29)_
+    - 83.2 [Feed Generation](case-studies/social-media/instagram/feed-generation.md) — pull/push/hybrid, celebrity threshold, ranking layer _(2026-04-29)_
+    - 83.3 [Stories](case-studies/social-media/instagram/stories.md) — 24h TTL, ephemeral reads, viewer tracking, Highlights archival _(2026-04-29)_
+    - 83.4 [Hashtag and Location Search](case-studies/social-media/instagram/hashtag-and-location-search.md) — inverted index, hot tags, geohash/H3, trending CMS _(2026-04-29)_
+    - 83.5 [Explore](case-studies/social-media/instagram/explore.md) — two-tower retrieval, account suggestions, cold start, safety filters _(2026-04-29)_
+    - 83.6 [Like and Comment Counters](case-studies/social-media/instagram/like-and-comment-counters.md) — sharded counters, write buffer, HLL, recent likers _(2026-04-29)_
+    - 83.7 [Direct Messages](case-studies/social-media/instagram/direct-messages.md) — cross-app messaging, E2E rollout, vanish mode, request inbox _(2026-04-29)_
+    - 83.8 [CDN Strategy](case-studies/social-media/instagram/cdn-strategy.md) — immutable derivatives, multi-CDN, origin shield, format negotiation _(2026-04-29)_
 84. [Design Facebook News Feed](case-studies/social-media/design-facebook-news-feed.md) — fan-out on write vs read, celebrity problem, timeline generation, ranking, freshness vs personalization _(2026-04-25, medium)_
 85. [Design TikTok](case-studies/social-media/design-tiktok.md) — short-video pipeline, ranking with implicit feedback, content moderation at scale, recommendation as the product _(2026-04-25, medium)_
 86. [Design Reddit](case-studies/social-media/design-reddit.md) — subreddits, threaded comments, voting + ranking (hot/new/top/controversial), moderation tooling _(2026-04-25, medium)_
@@ -202,6 +219,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 89. [Design Spotify](case-studies/media-streaming/design-spotify.md) — track CDN distribution, playlist + library service, recommendation intro, offline mode, royalty-counting precision _(2026-04-25, medium)_
 90. [Design YouTube](case-studies/media-streaming/design-youtube.md) — upload pipeline, transcoding fan-out, ABR, CDN strategy, comments + recommendations, creator analytics _(2026-04-25, medium)_
 91. [Design Netflix](case-studies/media-streaming/design-netflix.md) — content prep pipeline, Open Connect CDN, viewing-session tracking, regional licensing constraints, recommendation system _(2026-04-25, medium)_
+    - 91.1 [Open Connect CDN](case-studies/media-streaming/netflix/open-connect.md) — purpose-built ISP-deployed CDN, OCAs, pre-fill, peering economics _(2026-04-29)_
+    - 91.2 [Encoding Pipeline](case-studies/media-streaming/netflix/encoding-pipeline.md) — bitrate ladder, per-title/per-shot, AV1, HDR/Dolby Vision _(2026-04-29)_
+    - 91.3 [Viewing Session and ABR](case-studies/media-streaming/netflix/viewing-session-and-abr.md) — HLS/DASH, BOLA/MPC, stall avoidance, resume tokens _(2026-04-29)_
+    - 91.4 [Recommendation System](case-studies/media-streaming/netflix/recommendation-system.md) — recall+ranking, personalized rows/artwork, contextual bandits _(2026-04-29)_
+    - 91.5 [Microservices on AWS](case-studies/media-streaming/netflix/microservices-on-aws.md) — 8-year migration, Hystrix/Eureka/Zuul, Spinnaker, deploy cadence _(2026-04-29)_
+    - 91.6 [Chaos Engineering](case-studies/media-streaming/netflix/chaos-engineering.md) — Chaos Monkey, Simian Army, FIT, ChAP, steady-state hypothesis _(2026-04-29)_
+    - 91.7 [Multi-Region Active-Active](case-studies/media-streaming/netflix/multi-region-active-active.md) — 3 AWS regions, Cassandra, Chaos Kong, regional evacuation _(2026-04-29)_
+    - 91.8 [DRM](case-studies/media-streaming/netflix/drm.md) — CENC, Widevine/FairPlay/PlayReady, EME, key ladder, per-tier security _(2026-04-29)_
 92. [Design Google Drive / Dropbox](case-studies/media-streaming/design-google-drive.md) — chunking, dedup, delta sync, metadata DB, block storage, sharing/permission, mobile constraints _(2026-04-25, medium)_
 93. [Design Gmail](case-studies/media-streaming/design-gmail.md) — IMAP/SMTP boundary, search index over mail, label/folder model, anti-spam pipeline, threading, attachment handling _(2026-04-25, hard)_
 94. [Design Twitch](case-studies/media-streaming/design-twitch.md) — live ingest, low-latency delivery (HLS-LL/CMAF), chat at viewer scale, VOD pipeline, subscription/monetization _(2026-04-25, hard)_

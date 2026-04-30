@@ -573,6 +573,19 @@ Instagram has multiple layers, each with different latency budgets:
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Photo Upload Pipeline](instagram/photo-upload-pipeline.md) — presigned PUT, derivatives, perceptual dedup, format choice
+- [Feed Generation](instagram/feed-generation.md) — pull/push/hybrid, celebrity threshold, ranking layer
+- [Stories](instagram/stories.md) — 24h TTL, ephemeral reads, viewer tracking, Highlights archival
+- [Hashtag and Location Search](instagram/hashtag-and-location-search.md) — inverted index, hot tags, geohash/H3, trending CMS
+- [Explore](instagram/explore.md) — two-tower retrieval, account suggestions, cold start, safety filters
+- [Like and Comment Counters](instagram/like-and-comment-counters.md) — sharded counters, write buffer, HLL, recent likers
+- [Direct Messages](instagram/direct-messages.md) — cross-app messaging, E2E rollout, vanish mode, request inbox
+- [CDN Strategy](instagram/cdn-strategy.md) — immutable derivatives, multi-CDN, origin shield, format negotiation
+
+### Cross-References
+
 - [`design-facebook-news-feed.md`](./design-facebook-news-feed.md) — deeper treatment of fanout, ranking, and feed cache strategies that Instagram's home feed inherits.
 - [`design-tiktok.md`](./design-tiktok.md) — ranked-recommendation-first architecture; contrasts with Instagram's graph-first model.
 - [`../../building-blocks/object-and-blob-storage.md`](../../building-blocks/object-and-blob-storage.md) — Haystack-style blob store, content-addressed keys, GC.

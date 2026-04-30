@@ -462,6 +462,19 @@ This is genuinely a hard ML system — the action space is huge and the feedback
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Open Connect CDN](netflix/open-connect.md) — purpose-built ISP-deployed CDN, OCAs, pre-fill, peering economics
+- [Encoding Pipeline](netflix/encoding-pipeline.md) — bitrate ladder, per-title/per-shot, AV1, HDR/Dolby Vision
+- [Viewing Session and ABR](netflix/viewing-session-and-abr.md) — HLS/DASH, BOLA/MPC, stall avoidance, resume tokens
+- [Recommendation System](netflix/recommendation-system.md) — recall+ranking, personalized rows/artwork, contextual bandits
+- [Microservices on AWS](netflix/microservices-on-aws.md) — 8-year migration, Hystrix/Eureka/Zuul, Spinnaker, deploy cadence
+- [Chaos Engineering](netflix/chaos-engineering.md) — Chaos Monkey, Simian Army, FIT, ChAP, steady-state hypothesis
+- [Multi-Region Active-Active](netflix/multi-region-active-active.md) — 3 AWS regions, Cassandra, Chaos Kong, regional evacuation
+- [DRM](netflix/drm.md) — CENC, Widevine/FairPlay/PlayReady, EME, key ladder, per-tier security
+
+### Cross-References
+
 - [`design-youtube.md`](./design-youtube.md) — UGC video at scale; different problem (uploads, copyright, livestreaming) but same CDN and ABR fundamentals
 - [`../../reliability/multi-region-architectures.md`](../../reliability/multi-region-architectures.md) — active-active patterns
 - [`../../reliability/chaos-engineering-and-game-days.md`](../../reliability/chaos-engineering-and-game-days.md) — Chaos Monkey, Simian Army, game day practice

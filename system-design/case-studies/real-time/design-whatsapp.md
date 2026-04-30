@@ -432,6 +432,20 @@ Trade-offs worth naming explicitly:
 
 ## Related
 
+### Deep-Dive Companions
+
+- [Per-Conversation Ordering](whatsapp/per-conversation-ordering.md) — server-assigned IDs, Lamport/HLC, reorder buffers, idempotent inserts
+- [Group Chat Fanout](whatsapp/group-chat-fanout.md) — per-user mailbox, group size tiers, Sender Keys, mention priority
+- [Presence Service](whatsapp/presence-service.md) — subscription model, TTL heartbeat, privacy controls, battery impact
+- [Read Receipts and Typing](whatsapp/read-receipts-and-typing.md) — sent/delivered/read tiers, group aggregation, privacy controls
+- [Offline Delivery and Push](whatsapp/offline-delivery-and-push.md) — APNs/FCM, mailbox retention, push-as-hint, VoIP push
+- [Media Handling](whatsapp/media-handling.md) — direct upload, E2E media encryption, TUS chunking, EXIF stripping
+- [End-to-End Encryption](whatsapp/end-to-end-encryption.md) — Signal Protocol, X3DH, Double Ratchet, Sender Keys, PQXDH
+- [Multi-Device Sync](whatsapp/multi-device-sync.md) — companion model, Sesame, key transparency, CRDT read state
+- [Connection Scaling](whatsapp/connection-scaling.md) — Erlang/BEAM, sticky LB, reconnect storm, TLS 1.3 0-RTT, QUIC
+
+### Cross-References
+
 - LLD twin: [design-chat-application-lld.md](../../../low-level-design/case-studies/communication/design-chat-application-lld.md)
 - [real-time-channels.md](../../communication/real-time-channels.md) — WebSocket, SSE, MQTT, long-poll trade-offs.
 - [sharding-strategies.md](../../scalability/sharding-strategies.md) — partition key selection, hot-shard mitigation.
