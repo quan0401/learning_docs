@@ -597,6 +597,19 @@ The headline trade-off is **single-thread determinism vs throughput-per-symbol**
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`stock-exchange/order-book-data-structure.md`](stock-exchange/order-book-data-structure.md) — price levels, FIFO at price, cache locality, intrusive lists, top-of-book caching.
+- [`stock-exchange/matching-engine-determinism.md`](stock-exchange/matching-engine-determinism.md) — single-threaded design, mechanical sympathy, bit-identical replay, hot standby.
+- [`stock-exchange/sequencer-pattern.md`](stock-exchange/sequencer-pattern.md) — total ordering, gap detection, sequencer failover, atomic broadcast.
+- [`stock-exchange/market-data-fan-out.md`](stock-exchange/market-data-fan-out.md) — UDP multicast, A/B feeds, snapshot recovery, ITCH/MDP, kernel bypass.
+- [`stock-exchange/pre-trade-risk-and-circuit-breakers.md`](stock-exchange/pre-trade-risk-and-circuit-breakers.md) — fat-finger, buying power, kill switch, market-wide circuit breakers, Knight Capital lessons.
+- [`stock-exchange/settlement-pipeline.md`](stock-exchange/settlement-pipeline.md) — T+1, CCP, multilateral netting, DvP, default management.
+- [`stock-exchange/audit-replay-regulatory-feeds.md`](stock-exchange/audit-replay-regulatory-feeds.md) — append-only journals, CAT, MiFID II, PTP clocks, WORM archival.
+- [`stock-exchange/order-type-semantics.md`](stock-exchange/order-type-semantics.md) — market/limit/stop/IOC/FOK, iceberg, TIF, auctions, ISO routing, self-match prevention.
+
+### Foundations and Adjacent Systems
+
 - [Designing a Payment System](./design-payment-system.md) — the auth-vs-settlement split mirrors the match-vs-clearing split here; both systems separate latency-sensitive decisions from durable money movement.
 - [Consensus: Raft and Paxos](../../data-consistency/consensus-raft-paxos.md) — used by the sequencer's replicated journal to provide gap-free, durable total ordering across nodes.
 - [Performance Budgets and Latency Analysis](../../performance-observability/performance-budgets-latency-analysis.md) — the discipline of decomposing a sub-250-µs end-to-end latency target across protocol decode, risk, sequencing, matching, and publish.

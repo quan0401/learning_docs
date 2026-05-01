@@ -583,6 +583,18 @@ A useful framing: **a scheduler trades latency for correctness.** The dispatch l
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`job-scheduler/distributed-lock-per-job.md`](job-scheduler/distributed-lock-per-job.md) — lease + TTL, fencing tokens, ZK/etcd/Postgres/Redis backends, split-brain mitigation.
+- [`job-scheduler/retry-and-idempotency.md`](job-scheduler/retry-and-idempotency.md) — backoff/jitter, retry budgets, idempotency keys, inbox pattern, DLQ.
+- [`job-scheduler/multi-tenant-fairness.md`](job-scheduler/multi-tenant-fairness.md) — WFQ, DRR, stride/lottery, hierarchical fairness, priority classes.
+- [`job-scheduler/time-zone-correctness.md`](job-scheduler/time-zone-correctness.md) — IANA tzdata, DST gap/overlap policies, RRULE, run-history schema.
+- [`job-scheduler/missed-fire-policies.md`](job-scheduler/missed-fire-policies.md) — catch-up vs skip vs coalesce, watermark detection, multi-region coordination.
+- [`job-scheduler/dependency-dag.md`](job-scheduler/dependency-dag.md) — topological scheduling, branching trigger rules, fan-out/fan-in, sub-DAGs.
+- [`job-scheduler/leader-election-for-scheduler.md`](job-scheduler/leader-election-for-scheduler.md) — single-decider HA, lease TTL, fencing tokens, sharded schedulers.
+
+### Foundations and Adjacent Systems
+
 - **Coordination primitive:** [`../../data-consistency/leader-election-coordination.md`](../../data-consistency/leader-election-coordination.md) — Raft, ZooKeeper, etcd patterns for the scheduler tier.
 - **Locking primitive:** [`../distributed-infra/design-distributed-locking.md`](../distributed-infra/design-distributed-locking.md) — Redlock, fencing tokens, advisory locks.
 - **Queue substrate:** [`../distributed-infra/design-message-queue.md`](../distributed-infra/design-message-queue.md) — durable queue semantics, at-least-once delivery, dead-letter queues.

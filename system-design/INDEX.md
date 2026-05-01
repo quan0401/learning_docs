@@ -282,6 +282,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 109. [Design a Payment System](case-studies/payment/design-payment-system.md) — idempotency, double-entry ledgers, reconciliation, fraud gates, async settlement, processor adapters _(2026-04-25, medium)_
 110. [Design a Digital Wallet](case-studies/payment/design-digital-wallet.md) — balance ledger, top-up flow, transfers, KYC, transaction limits, regulatory + audit constraints _(2026-04-25, hard)_
 111. [Design an Online Stock Exchange](case-studies/payment/design-stock-exchange.md) — order book, matching engine, market vs limit, T+N settlement, market data fan-out, regulatory feeds _(2026-04-25, hard)_
+    - 111.1 [Order Book Data Structure](case-studies/payment/stock-exchange/order-book-data-structure.md) — price levels, FIFO at price, cache locality, intrusive lists _(2026-04-30)_
+    - 111.2 [Matching Engine Determinism](case-studies/payment/stock-exchange/matching-engine-determinism.md) — single-threaded design, mechanical sympathy, bit-identical replay _(2026-04-30)_
+    - 111.3 [Sequencer Pattern](case-studies/payment/stock-exchange/sequencer-pattern.md) — total ordering, gap detection, sequencer failover _(2026-04-30)_
+    - 111.4 [Market Data Fan-Out](case-studies/payment/stock-exchange/market-data-fan-out.md) — UDP multicast, A/B feeds, snapshot recovery, ITCH/MDP _(2026-04-30)_
+    - 111.5 [Pre-Trade Risk and Circuit Breakers](case-studies/payment/stock-exchange/pre-trade-risk-and-circuit-breakers.md) — fat-finger, buying power, kill switch, market-wide halts _(2026-04-30)_
+    - 111.6 [T+1 Settlement Pipeline](case-studies/payment/stock-exchange/settlement-pipeline.md) — CCP, multilateral netting, DvP, default management _(2026-04-30)_
+    - 111.7 [Audit, Replay, and Regulatory Feeds](case-studies/payment/stock-exchange/audit-replay-regulatory-feeds.md) — append-only journals, CAT, MiFID II, PTP clocks _(2026-04-30)_
+    - 111.8 [Order Type Semantics](case-studies/payment/stock-exchange/order-type-semantics.md) — market/limit/stop/IOC/FOK, iceberg, TIF, auctions _(2026-04-30)_
 
 ### 10.I Distributed Infrastructure
 
@@ -290,6 +298,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 114. [Design a Notification System](case-studies/distributed-infra/design-notification-system.md) — fan-out, channel routing (push/email/SMS), preferences, rate limiting, DLQ handling _(2026-04-25, medium)_
 115. [Design a Key-Value Store](case-studies/distributed-infra/design-key-value-store.md) — Dynamo-style design, NWR, consistent hashing, replication, anti-entropy, conflict resolution _(2026-04-25, hard)_
 116. [Design a Distributed Cache](case-studies/distributed-infra/design-distributed-cache.md) — partitioning, replication, eviction, consistent hashing ring, client topology awareness _(2026-04-25, hard)_
+    - 116.1 [Partitioning and Hash Slots](case-studies/distributed-infra/distributed-cache/partitioning-and-hash-slots.md) — consistent hashing, virtual nodes, jump hash, Maglev, slot migration _(2026-05-01)_
+    - 116.2 [Replication per Partition](case-studies/distributed-infra/distributed-cache/replication-per-partition.md) — primary-replica, async streams, Sentinel, multi-AZ/region trade-offs _(2026-05-01)_
+    - 116.3 [Eviction Policies](case-studies/distributed-infra/distributed-cache/eviction-policies.md) — LRU, sampling-LRU, LFU, TinyLFU, TTL active vs lazy expiry _(2026-05-01)_
+    - 116.4 [Topology Awareness](case-studies/distributed-infra/distributed-cache/topology-awareness.md) — smart clients vs proxies, CLUSTER SLOTS, slot map drift _(2026-05-01)_
+    - 116.5 [Cache Stampede Protection](case-studies/distributed-infra/distributed-cache/cache-stampede-protection.md) — singleflight, distributed locks, probabilistic early expiration _(2026-05-01)_
+    - 116.6 [Hot Key Handling](case-studies/distributed-infra/distributed-cache/hot-key-handling.md) — fan-out replicas, local L1 tier, sharded counters, hot pool promotion _(2026-05-01)_
+    - 116.7 [Write Strategies](case-studies/distributed-infra/distributed-cache/write-strategies.md) — cache-aside, write-through, write-behind, invalidation patterns _(2026-05-01)_
+    - 116.8 [Multi-Tier Caching](case-studies/distributed-infra/distributed-cache/multi-tier-caching.md) — L1 in-process + L2 distributed, coherence via invalidation broadcast _(2026-05-01)_
 117. [Design a CDN](case-studies/distributed-infra/design-cdn.md) — edge POPs, anycast, cache hierarchies, purge propagation, origin shielding, edge compute _(2026-04-25, hard)_
 118. [Design Object Storage (S3-Style)](case-studies/distributed-infra/design-object-storage.md) — flat namespace, durability via erasure coding, multipart upload, lifecycle, presigned URLs, eventual → strong consistency story _(2026-04-25, hard)_
 119. [Design a Message Queue (Service)](case-studies/distributed-infra/design-message-queue.md) — log vs queue semantics, partitioning, consumer groups, durability, ordering guarantees _(2026-04-25, hard)_
@@ -299,11 +315,26 @@ The interview-style design problems. Each doc follows a consistent template: req
 ### 10.J Counting & Ranking Systems
 
 122. [Design a Real-Time Leaderboard](case-studies/counting-ranking/design-realtime-leaderboard.md) — sorted set semantics, sharded counters, periodic snapshots, top-K queries, percentile rankings _(2026-04-25, medium)_
+    - 122.1 [Redis Sorted Set Internals](case-studies/counting-ranking/realtime-leaderboard/redis-sorted-set-internals.md) — skip lists, span counters, ZADD/ZRANGE/ZREVRANK semantics _(2026-05-01)_
+    - 122.2 [Sharded Score Aggregation](case-studies/counting-ranking/realtime-leaderboard/sharded-score-aggregation.md) — hot-write sharding, batching, stream aggregator _(2026-05-01)_
+    - 122.3 [Snapshots to Durable Storage](case-studies/counting-ranking/realtime-leaderboard/snapshots-to-durable-storage.md) — event-log replay, RDB/AOF, hybrid recovery _(2026-05-01)_
+    - 122.4 [Top-K Queries](case-studies/counting-ranking/realtime-leaderboard/top-k-queries.md) — global/friends/region, pre-materialized vs live merge, streaming top-K _(2026-05-01)_
+    - 122.5 [Percentile Rankings via t-digest](case-studies/counting-ranking/realtime-leaderboard/percentile-rankings-t-digest.md) — t-digest, HDR, KLL, mergeable sketches _(2026-05-01)_
+    - 122.6 [Rolling Windows](case-studies/counting-ranking/realtime-leaderboard/rolling-windows.md) — tumbling/sliding, bucketed mini-ZSETs, watermarks _(2026-05-01)_
+    - 122.7 [Tie-Breaking](case-studies/counting-ranking/realtime-leaderboard/tie-breaking.md) — composite double encoding, IEEE 754 budget _(2026-05-01)_
+    - 122.8 [Tournament Mode](case-studies/counting-ranking/realtime-leaderboard/tournament-mode.md) — lifecycle, brackets, idempotent prize-grant saga _(2026-05-01)_
 123. [Design a Top-K System](case-studies/counting-ranking/design-top-k-system.md) — count-min sketch + heap, sliding-window top-K, multi-region merge, accuracy vs memory _(2026-04-25, hard)_
 
 ### 10.K Asynchronous Systems
 
 124. [Design a Job Scheduler](case-studies/async/design-job-scheduler.md) — cron + one-shot triggers, distributed lock per job, retry + backoff, persistent queue, multi-tenant fairness _(2026-04-25, medium)_
+    - 124.1 [Distributed Lock per Job](case-studies/async/job-scheduler/distributed-lock-per-job.md) — lease + TTL, fencing tokens, ZK/etcd/Postgres/Redis backends _(2026-05-01)_
+    - 124.2 [Retry and Idempotency](case-studies/async/job-scheduler/retry-and-idempotency.md) — backoff/jitter, retry budgets, inbox pattern, DLQ _(2026-05-01)_
+    - 124.3 [Multi-Tenant Fairness](case-studies/async/job-scheduler/multi-tenant-fairness.md) — WFQ, DRR, stride/lottery, hierarchical fairness _(2026-05-01)_
+    - 124.4 [Time-Zone Correctness](case-studies/async/job-scheduler/time-zone-correctness.md) — IANA tzdata, DST gap/overlap policies, RRULE _(2026-05-01)_
+    - 124.5 [Missed-Fire Policies](case-studies/async/job-scheduler/missed-fire-policies.md) — catch-up vs skip vs coalesce, watermark detection _(2026-05-01)_
+    - 124.6 [Dependency DAG](case-studies/async/job-scheduler/dependency-dag.md) — topological scheduling, trigger rules, fan-out/fan-in _(2026-05-01)_
+    - 124.7 [Leader Election for Scheduler](case-studies/async/job-scheduler/leader-election-for-scheduler.md) — single-decider HA, lease TTL, sharded schedulers _(2026-05-01)_
 125. [Design a CI/CD Pipeline](case-studies/async/design-cicd-pipeline.md) — pipeline DAG, runner pool, artifact store, secrets, environment promotion, failure isolation _(2026-04-25, medium)_
 126. [Design a Monitoring & Alerting System (Datadog-Style)](case-studies/async/design-monitoring-alerting.md) — ingestion, time-series storage, rollups, alerting engine, dashboard compute, alert fatigue mitigation _(2026-04-25, medium)_
 127. [Design a Distributed Cron](case-studies/async/design-distributed-cron.md) — time-wheel algorithm, distributed execution, misfire handling _(planned, hard)_

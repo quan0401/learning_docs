@@ -690,6 +690,19 @@ The headline trade-off remains **hot-path latency vs durability**. We achieve su
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`realtime-leaderboard/redis-sorted-set-internals.md`](realtime-leaderboard/redis-sorted-set-internals.md) — skip lists, listpack threshold, ZADD/ZRANGE/ZREVRANK semantics, span counters.
+- [`realtime-leaderboard/sharded-score-aggregation.md`](realtime-leaderboard/sharded-score-aggregation.md) — hot-write sharding axes, in-process batching, stream-consumer aggregator.
+- [`realtime-leaderboard/snapshots-to-durable-storage.md`](realtime-leaderboard/snapshots-to-durable-storage.md) — RPO/RTO targets, event-log replay, RDB/AOF, hybrid recovery.
+- [`realtime-leaderboard/top-k-queries.md`](realtime-leaderboard/top-k-queries.md) — global/friends/region top-K, pre-materialized vs live merge, streaming top-K.
+- [`realtime-leaderboard/percentile-rankings-t-digest.md`](realtime-leaderboard/percentile-rankings-t-digest.md) — t-digest, HDR, KLL, mergeable digests across shards.
+- [`realtime-leaderboard/rolling-windows.md`](realtime-leaderboard/rolling-windows.md) — tumbling vs sliding, bucketed mini-ZSETs, watermarks, midnight stampede.
+- [`realtime-leaderboard/tie-breaking.md`](realtime-leaderboard/tie-breaking.md) — composite double encoding, IEEE 754 budget, ZRANGEBYLEX patterns.
+- [`realtime-leaderboard/tournament-mode.md`](realtime-leaderboard/tournament-mode.md) — lifecycle states, brackets, idempotent prize-grant saga, anti-cheat hooks.
+
+### Foundations and Adjacent Systems
+
 - [Designing a Likes Counting System](../social-media/design-likes-counting-system.md) — same sharded-counter and Kafka-buffer pattern applied to single-counter increments.
 - [Caching Layers](../../building-blocks/caching-layers.md) — TTL strategies, write-through and cache-aside patterns referenced in the snapshot and rebuild flow.
 - [Sharding Strategies](../../scalability/sharding-strategies.md) — generalized partitioning patterns; the two-tier ZSET sharding here is one instance.

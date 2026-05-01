@@ -674,6 +674,19 @@ The headline trade-off is **speed vs durability**. We chose speed. That means ca
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`distributed-cache/partitioning-and-hash-slots.md`](distributed-cache/partitioning-and-hash-slots.md) — consistent hashing, virtual nodes, jump hash, Maglev, slot migration with MOVED/ASKING.
+- [`distributed-cache/replication-per-partition.md`](distributed-cache/replication-per-partition.md) — primary-replica, async streams, Sentinel/Cluster gossip, multi-AZ and multi-region trade-offs.
+- [`distributed-cache/eviction-policies.md`](distributed-cache/eviction-policies.md) — LRU, sampling-LRU, LFU, TinyLFU, TTL active vs lazy expiry.
+- [`distributed-cache/topology-awareness.md`](distributed-cache/topology-awareness.md) — smart clients vs proxies (twemproxy, mcrouter, Envoy), CLUSTER SLOTS, slot map drift.
+- [`distributed-cache/cache-stampede-protection.md`](distributed-cache/cache-stampede-protection.md) — singleflight, distributed locks, probabilistic early expiration, stale-while-revalidate.
+- [`distributed-cache/hot-key-handling.md`](distributed-cache/hot-key-handling.md) — read fan-out replicas, local L1 tier, sharded counters, hot pool promotion.
+- [`distributed-cache/write-strategies.md`](distributed-cache/write-strategies.md) — cache-aside, write-through, write-behind, invalidation patterns, dual-write races.
+- [`distributed-cache/multi-tier-caching.md`](distributed-cache/multi-tier-caching.md) — L1 in-process + L2 distributed, coherence via invalidation broadcast, RESP3 tracking.
+
+### Foundations and Adjacent Systems
+
 - [Caching Layers (Building Block)](../../building-blocks/caching-layers.md) — where caches live in the architecture and how they compose with other layers.
 - [Read-Write Splitting and Cache Strategies](../../scalability/read-write-splitting-and-cache-strategies.md) — the strategy-level treatment of cache-aside, write-through, write-back, and read-through.
 - [Design a Key-Value Store](./design-key-value-store.md) — sister case study for the durable side of the same family. Shares consistent hashing, replication, and gossip patterns; differs sharply on durability and consistency.
