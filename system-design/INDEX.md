@@ -343,6 +343,14 @@ The interview-style design problems. Each doc follows a consistent template: req
 
 128. [Design LeetCode](case-studies/specialized/design-leetcode.md) — problem catalog, code execution sandbox, judging pipeline, contest mode, plagiarism detection _(2026-04-25, medium)_
 129. [Design a Calendar System](case-studies/specialized/design-calendar-system.md) — events, recurrence (RRULE), free-busy, scheduling assistant, time-zone correctness, conflict detection _(2026-04-25, hard)_
+    - 129.1 [RRULE Expansion](case-studies/specialized/calendar-system/rrule-expansion.md) — materialize vs compute on demand, EXDATE, RECURRENCE-ID overrides _(2026-05-01)_
+    - 129.2 [Calendar Time-Zone Correctness](case-studies/specialized/calendar-system/time-zone-correctness.md) — IANA tzdata, DST gap/overlap, per-attendee display _(2026-05-01)_
+    - 129.3 [Free-Busy Queries](case-studies/specialized/calendar-system/free-busy-queries.md) — interval merge, GiST range index, privacy projection _(2026-05-01)_
+    - 129.4 [Scheduling Assistant](case-studies/specialized/calendar-system/scheduling-assistant.md) — multi-user intersection, working-hours mask, top-K slot ranking _(2026-05-01)_
+    - 129.5 [Conflict Detection](case-studies/specialized/calendar-system/conflict-detection.md) — overlap predicate, interval trees, Postgres EXCLUDE constraints _(2026-05-01)_
+    - 129.6 [Reminders and Notifications](case-studies/specialized/calendar-system/reminders-and-notifications.md) — delayed queues, DST re-anchoring, idempotent delivery _(2026-05-01)_
+    - 129.7 [Sharing, Permissions, and Delegation](case-studies/specialized/calendar-system/sharing-permissions-delegation.md) — ACL tiers, per-event visibility, delegation, audit log _(2026-05-01)_
+    - 129.8 [ICS and CalDAV Interop](case-studies/specialized/calendar-system/ics-and-caldav-interop.md) — iCalendar wire format, CalDAV REPORT, iTIP/iMIP, JMAP _(2026-05-01)_
 130. [Design Online Chess](case-studies/specialized/design-online-chess.md) — matchmaking, anti-cheat, real-time move sync, ELO updates, time control state machine, spectator mode _(2026-04-25, hard)_
 131. [Design GitHub](case-studies/specialized/design-github.md) — git operations at scale, delta compression, packfiles, Git LFS, code search _(2026-04-27, hard)_
 

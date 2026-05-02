@@ -678,6 +678,19 @@ The two `VEVENT` blocks share a `UID`: the second is a per-instance override ide
 
 ## Related
 
+### Deep-Dive Companions
+
+- [`calendar-system/rrule-expansion.md`](calendar-system/rrule-expansion.md) — RFC 5545 RRULE, materialize vs compute on demand, EXDATE/RECURRENCE-ID overrides, series splits.
+- [`calendar-system/time-zone-correctness.md`](calendar-system/time-zone-correctness.md) — IANA tzdata, DST gap/overlap, per-attendee display, VTIMEZONE.
+- [`calendar-system/free-busy-queries.md`](calendar-system/free-busy-queries.md) — interval merge, GiST range index, privacy projection, scheduling-assistant fan-out.
+- [`calendar-system/scheduling-assistant.md`](calendar-system/scheduling-assistant.md) — multi-user intersection, working-hours mask, top-K slot ranking.
+- [`calendar-system/conflict-detection.md`](calendar-system/conflict-detection.md) — overlap predicate, interval trees, Postgres EXCLUDE constraints, OCC + per-resource locks.
+- [`calendar-system/reminders-and-notifications.md`](calendar-system/reminders-and-notifications.md) — delayed queues, per-attendee preferences, DST re-anchoring, idempotent delivery.
+- [`calendar-system/sharing-permissions-delegation.md`](calendar-system/sharing-permissions-delegation.md) — ACL tiers, per-event visibility, delegation, audit log.
+- [`calendar-system/ics-and-caldav-interop.md`](calendar-system/ics-and-caldav-interop.md) — iCalendar wire format, CalDAV REPORT, iTIP/iMIP, JMAP Calendars.
+
+### Foundations and Adjacent Systems
+
 - [`../../data-consistency/time-and-ordering.md`](../../data-consistency/time-and-ordering.md) — clocks, monotonic vs wall time, ordering guarantees that underpin "what time did this happen" semantics.
 - [`../distributed-infra/design-notification-system.md`](../distributed-infra/design-notification-system.md) — reminder firing, channel routing, retries, and idempotency at scale.
 - [`./design-online-chess.md`](./design-online-chess.md) — turn-based, time-bound coordination across users; matchmaking shares the structural shape of slot-finding.
