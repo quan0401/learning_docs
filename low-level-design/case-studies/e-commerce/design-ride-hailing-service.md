@@ -2,14 +2,13 @@
 title: "Design Ride-Hailing Service"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, e-commerce, dispatch, surge, state-machine]
+tags: [low-level-design, case-study, e-commerce, dispatch, surge, state-machines]
 ---
 
 # Design Ride-Hailing Service
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `e-commerce` `dispatch` `surge` `state-machine`
-
+**Tags:** `low-level-design` `case-study` `e-commerce` `dispatch` `surge` `state-machines`
 ## Summary
 
 A ride-hailing service matches riders requesting trips to drivers in real time,

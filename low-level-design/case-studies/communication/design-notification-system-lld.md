@@ -2,14 +2,13 @@
 title: "Design Notification System (LLD)"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, communication, notifications, observer, strategy, state-machine]
+tags: [low-level-design, case-study, communication, notifications, observer, strategy, state-machines]
 ---
 
 # Design Notification System (LLD)
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `communication` `notifications` `observer` `strategy` `state-machine`
-
+**Tags:** `low-level-design` `case-study` `communication` `notifications` `observer` `strategy` `state-machines`
 ## Summary
 
 A notification system delivers messages across multiple channels (email, SMS, push, in-app) based on user preferences and per-event templates. The LLD focuses on a clean separation between **what** to send (event + template), **how** to send it (channel strategy), and **whether** to send it (preference + rate-limiting + opt-outs). Delivery is modeled as a small state machine so retries, failures, and acknowledgements remain auditable.

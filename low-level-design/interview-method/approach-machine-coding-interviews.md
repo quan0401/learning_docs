@@ -2,14 +2,13 @@
 title: "How to Approach Machine-Coding Interviews"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, interview-method, machine-coding, interview-prep, scaffolding]
+tags: [low-level-design, interview-method, machine-coding, scaffolding]
 ---
 
 # How to Approach Machine-Coding Interviews
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `interview-method` `machine-coding` `interview-prep` `scaffolding`
-
+**Tags:** `low-level-design` `interview-method` `machine-coding` `scaffolding`
 ## Summary
 
 Machine-coding interviews are 60-120 minute timed problems where you must produce runnable code that demonstrates a real domain model. Unlike OOD whiteboard rounds, the deliverable is compiled, executable, and often tested. Success comes from aggressive scaffolding choices — in-memory over database, command-line over REST, clarity over completeness — and from polishing the right surfaces while skipping cosmetics.

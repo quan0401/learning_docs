@@ -2,14 +2,13 @@
 title: "Design Online Food Delivery Service"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, e-commerce, marketplace, dispatch, state-machine]
+tags: [low-level-design, case-study, e-commerce, marketplace, dispatch, state-machines]
 ---
 
 # Design Online Food Delivery Service
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `e-commerce` `marketplace` `dispatch` `state-machine`
-
+**Tags:** `low-level-design` `case-study` `e-commerce` `marketplace` `dispatch` `state-machines`
 ## Summary
 
 A food-delivery service is a three-sided marketplace: customers, restaurants, and

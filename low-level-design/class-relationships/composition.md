@@ -2,14 +2,13 @@
 title: "Composition — A Owns B (Strong)"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, class-relationships, uml, oop, modeling]
+tags: [low-level-design, class-relationships, uml, oop-fundamentals, modeling]
 ---
 
 # Composition — A Owns B (Strong)
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `class-relationships` `uml` `oop` `modeling`
-
+**Tags:** `low-level-design` `class-relationships` `uml` `oop-fundamentals` `modeling`
 ## Summary
 
 Composition is the **strongest** structural relationship: the whole exclusively owns its parts and the parts share the whole's lifetime. When the whole is destroyed, its parts go with it. Parts cannot be shared between wholes, and parts are typically created and managed entirely inside the whole. The textbook example: a `House` is composed of `Room` objects — destroy the house, and the rooms cease to exist as meaningful entities.

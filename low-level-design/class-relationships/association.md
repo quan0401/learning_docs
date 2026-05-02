@@ -2,14 +2,13 @@
 title: "Association — A Knows About B"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, class-relationships, uml, oop, modeling]
+tags: [low-level-design, class-relationships, uml, oop-fundamentals, modeling]
 ---
 
 # Association — A Knows About B
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `class-relationships` `uml` `oop` `modeling`
-
+**Tags:** `low-level-design` `class-relationships` `uml` `oop-fundamentals` `modeling`
 ## Summary
 
 Association is the most general structural relationship in object-oriented design: one class **knows about** another and can interact with it. It is weaker than aggregation or composition (no ownership implied) and stronger than dependency (the link tends to persist as a field rather than appearing only inside a single method call).

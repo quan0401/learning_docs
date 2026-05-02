@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, creational, factory-method, polymorphi
 # Factory Method — Subclass Decides the Concrete Type
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `creational` `factory-method` `polymorphism`
-
+**Tags:** `low-level-design` `design-patterns` `creational` `factory-method` `polymorphism` `java` `typescript` `spring`
 ## Summary
 
 Factory Method defines an interface for creating an object but lets subclasses decide which concrete class to instantiate. It is a polymorphism-based answer to the question "what type should we `new` here?" — by deferring the answer to a subclass that knows. In modern code it is most visible as a *template-method-style hook*: a base class implements an algorithm and calls `createX()` at the right moment, expecting subclasses to fill in the concrete type.

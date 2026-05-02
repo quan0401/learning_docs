@@ -2,14 +2,13 @@
 title: "Design Snake and Ladder"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, games, strategy-pattern, builder-pattern]
+tags: [low-level-design, case-study, games, strategy, builder]
 ---
 
 # Design Snake and Ladder
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `games` `strategy-pattern` `builder-pattern`
-
+**Tags:** `low-level-design` `case-study` `games` `strategy` `builder`
 ## Summary
 
 Snake and Ladder is a turn-based race game: each player rolls a die and advances along a numbered board where ladders shortcut upward and snakes slide downward. The interesting LLD bits are not the gameplay but the modeling — board built from immutable `Jump` objects, dice as a swappable strategy (fair, loaded, multi-die), and rules (exact-finish, bonus-on-six, jump-chains) injected via configuration so the same engine handles regional variants.

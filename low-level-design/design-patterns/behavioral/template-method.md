@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, behavioral, template-method, inheritan
 # Template Method — Skeleton With Hookable Steps
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `template-method` `inheritance`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `template-method` `inheritance` `hook`
 ## Summary
 
 Template Method defines the *skeleton* of an algorithm in a base class, deferring some steps to subclasses. Subclasses fill in the variable parts without changing the overall structure. It's the pattern that says "here is the recipe; you bring the eggs".

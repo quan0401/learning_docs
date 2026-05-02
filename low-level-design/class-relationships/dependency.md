@@ -2,14 +2,13 @@
 title: "Dependency — A Uses B Briefly"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, class-relationships, uml, oop, dip]
+tags: [low-level-design, class-relationships, uml, oop-fundamentals, dip]
 ---
 
 # Dependency — A Uses B Briefly
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `class-relationships` `uml` `oop` `dip`
-
+**Tags:** `low-level-design` `class-relationships` `uml` `oop-fundamentals` `dip`
 ## Summary
 
 Dependency is the **weakest** structural relationship between classes: A *uses* B transiently — through a method parameter, a return value, a local variable, or a thrown exception type — without holding B as a field. Because the coupling is short-lived and non-structural, dependencies are the easiest relationships to refactor and the natural target for the Dependency Inversion Principle.

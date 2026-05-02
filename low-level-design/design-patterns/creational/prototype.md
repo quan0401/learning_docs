@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, creational, prototype, cloning, java, 
 # Prototype — Clone Existing Instances
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `creational` `prototype` `cloning`
-
+**Tags:** `low-level-design` `design-patterns` `creational` `prototype` `cloning` `java` `typescript`
 ## Summary
 
 Prototype creates new objects by *copying an existing prototypical instance* rather than instantiating a class through its constructor. It shines when constructing a fresh object from scratch is expensive (heavy initialization, network hops, complex configuration) but cloning a fully formed exemplar is cheap. It also fits naturally when the *number of variants* is large and runtime-defined — keep one prototype per variant in a registry and clone on demand.

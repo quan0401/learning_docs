@@ -2,14 +2,13 @@
 title: "Design Vending Machine"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, state-machines, state-pattern, inventory]
+tags: [low-level-design, case-study, state-machines, state, inventory]
 ---
 
 # Design Vending Machine
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `state-machines` `state-pattern` `inventory`
-
+**Tags:** `low-level-design` `case-study` `state-machines` `state` `inventory`
 ## Summary
 
 A vending machine accepts coins (or notes), lets the user select a product,

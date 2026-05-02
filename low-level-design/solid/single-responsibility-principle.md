@@ -2,14 +2,13 @@
 title: "Single Responsibility Principle (SRP)"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, solid, srp, oop, design-principles]
+tags: [low-level-design, solid, srp, oop-fundamentals, design-principles]
 ---
 
 # Single Responsibility Principle (SRP)
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `solid` `srp` `oop` `design-principles`
-
+**Tags:** `low-level-design` `solid` `srp` `oop-fundamentals` `design-principles`
 ## Summary
 
 The Single Responsibility Principle states that a class (or module) should have one, and only one, reason to change. Robert C. Martin's modern phrasing reframes "responsibility" as "axis of change driven by a single actor" — a department, a stakeholder group, or a role. SRP is less about counting methods and more about asking *whose* request would force this code to change.

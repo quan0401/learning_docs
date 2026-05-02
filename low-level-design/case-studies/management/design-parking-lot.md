@@ -2,14 +2,13 @@
 title: "Design Parking Lot"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, management, parking, state-machine]
+tags: [low-level-design, case-study, management, parking, state-machines]
 ---
 
 # Design Parking Lot
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `management` `parking` `state-machine`
-
+**Tags:** `low-level-design` `case-study` `management` `parking` `state-machines`
 ## Summary
 
 A parking-lot system manages a fixed inventory of physical spots distributed across multiple floors, allocates them to vehicles of varying sizes, tracks how long each vehicle stays, and charges for the visit. The interesting LLD problems are: (1) modelling spot/vehicle compatibility cleanly, (2) finding the "best" spot fast — usually nearest entrance and tightest fit, (3) the ticket lifecycle with concurrent issue/exit, and (4) a pricing engine that can change without touching the allocation core.

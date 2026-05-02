@@ -2,14 +2,13 @@
 title: "Realization — A Implements Interface B"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, class-relationships, uml, oop, interfaces]
+tags: [low-level-design, class-relationships, uml, oop-fundamentals, interfaces]
 ---
 
 # Realization — A Implements Interface B
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `class-relationships` `uml` `oop` `interfaces`
-
+**Tags:** `low-level-design` `class-relationships` `uml` `oop-fundamentals` `interfaces`
 ## Summary
 
 Realization is the relationship between a **specification** (typically an interface or abstract type) and a **provider** that fulfills it. The class promises to honor the contract declared by the interface — every operation, every signature, every documented behavior. In code, this is `implements` in Java and TypeScript; in UML, it is a dashed line ending in a hollow triangle pointing at the interface.

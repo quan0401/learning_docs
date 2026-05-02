@@ -2,14 +2,13 @@
 title: "Design Chess"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, games, strategy-pattern, state-pattern]
+tags: [low-level-design, case-study, games, strategy, state]
 ---
 
 # Design Chess
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `games` `strategy-pattern` `state-pattern`
-
+**Tags:** `low-level-design` `case-study` `games` `strategy` `state`
 ## Summary
 
 Chess is the canonical "complicated rules engine" interview problem: six piece types each with their own move geometry, special moves (castling, en passant, promotion), legality checks that depend on whether your own king is in check, and terminal conditions (checkmate, stalemate, draw by various rules). The LLD partitions this into a piece-strategy hierarchy producing pseudo-legal moves, a board that applies/undoes moves, a `MoveValidator` that filters for self-check, and a game state machine that detects check, checkmate, and stalemate after each move.

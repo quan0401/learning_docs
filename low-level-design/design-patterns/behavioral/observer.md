@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, behavioral, observer, pub-sub, reactiv
 # Observer — Many Subscribers React to State Change
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `observer` `pub-sub`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `observer` `pub-sub` `reactive`
 ## Summary
 
 Observer lets one *subject* notify many *observers* when its state changes, without the subject knowing who they are or what they'll do. It's pub/sub at the object level — and the conceptual root of every event-emitter, reactive stream, and UI binding system.

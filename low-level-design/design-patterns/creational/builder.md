@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, creational, builder, immutability, jav
 # Builder — Step-by-Step Object Construction
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `creational` `builder` `immutability`
-
+**Tags:** `low-level-design` `design-patterns` `creational` `builder` `immutability` `java` `typescript` `lombok`
 ## Summary
 
 Builder separates the *construction* of a complex object from its *representation*, letting the same construction process produce different results. In modern code the most common form is the fluent immutable builder — a small mutable helper that accumulates parameters and finally produces an immutable target. It is the standard answer to "this constructor has too many parameters."

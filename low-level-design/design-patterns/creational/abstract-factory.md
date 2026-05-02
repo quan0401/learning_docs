@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, creational, abstract-factory, polymorp
 # Abstract Factory — Families of Related Products
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `creational` `abstract-factory` `polymorphism`
-
+**Tags:** `low-level-design` `design-patterns` `creational` `abstract-factory` `polymorphism` `java` `typescript`
 ## Summary
 
 Abstract Factory provides an interface for creating *families of related or dependent objects* without specifying their concrete classes. The classic motivation is a GUI toolkit where every widget — button, scrollbar, menu, dialog — must match one platform's look-and-feel; mixing a Mac button with a Windows scrollbar is incoherent. Abstract Factory ensures the entire family ships together.

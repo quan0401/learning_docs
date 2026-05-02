@@ -2,14 +2,13 @@
 title: "Types of LLD Interviews — OOD, Machine Coding, Live Pairing"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, foundations, interviews, ood, machine-coding]
+tags: [low-level-design, foundations, interview-method, ood, machine-coding]
 ---
 
 # Types of LLD Interviews — OOD, Machine Coding, Live Pairing
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `foundations` `interviews` `ood` `machine-coding`
-
+**Tags:** `low-level-design` `foundations` `interview-method` `ood` `machine-coding`
 ## Summary
 
 LLD interviews come in three main shapes — the OOD whiteboard round (concept-first, ~45–60 min), the machine-coding round (code-first, ~60–120 min), and the live pairing or take-home (collaboration-first, hours to days). Each evaluates a distinct skill: the whiteboard tests *conceptual clarity*, the machine-coding test rewards *working code with tests*, and pairing rewards *communication and incremental delivery*. Knowing which format you're in changes how you should spend the first ten minutes.

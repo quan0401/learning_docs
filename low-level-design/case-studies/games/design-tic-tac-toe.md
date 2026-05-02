@@ -2,14 +2,13 @@
 title: "Design Tic-Tac-Toe"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, games, state-pattern, strategy-pattern]
+tags: [low-level-design, case-study, games, state, strategy]
 ---
 
 # Design Tic-Tac-Toe
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `games` `state-pattern` `strategy-pattern`
-
+**Tags:** `low-level-design` `case-study` `games` `state` `strategy`
 ## Summary
 
 Tic-Tac-Toe is a two-player, perfect-information game played on a 3x3 grid where each player alternately places their mark (`X` or `O`) and the first to align three in a row, column, or diagonal wins. The LLD focuses on a clean separation between the board model, player abstraction, win-detection algorithm, and a state machine that drives game phases. The same skeleton extends to NxN boards (Gomoku-style) without changes to the core logic.

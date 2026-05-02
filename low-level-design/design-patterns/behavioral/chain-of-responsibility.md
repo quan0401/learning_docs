@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, behavioral, chain-of-responsibility, m
 # Chain of Responsibility — Pass Request Down a Chain
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `chain-of-responsibility` `middleware`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `chain-of-responsibility` `middleware` `pipeline`
 ## Summary
 
 Chain of Responsibility lets a request flow through a series of handlers, each deciding to handle it, transform it, pass it on, or short-circuit. The sender doesn't know which handler will deal with the request — middleware pipelines, servlet filters, Express middleware, and logging chains are all this pattern.

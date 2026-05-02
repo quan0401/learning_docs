@@ -2,14 +2,13 @@
 title: "State — Behavior Varies With Internal State"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, design-patterns, behavioral, state, fsm, state-machine]
+tags: [low-level-design, design-patterns, behavioral, state, fsm, state-machines]
 ---
 
 # State — Behavior Varies With Internal State
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `state` `state-machine`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `state` `fsm` `state-machines`
 ## Summary
 
 State lets an object change its behavior when its internal mode changes — by delegating method calls to a *state object* and swapping that object on transitions. It replaces sprawling `switch (status)` blocks with one class per state, each handling its own behavior and transitions.

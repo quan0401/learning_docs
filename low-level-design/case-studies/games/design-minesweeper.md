@@ -2,14 +2,13 @@
 title: "Design Minesweeper"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, games, state-pattern, observer-pattern]
+tags: [low-level-design, case-study, games, state, observer]
 ---
 
 # Design Minesweeper
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `games` `state-pattern` `observer-pattern`
-
+**Tags:** `low-level-design` `case-study` `games` `state` `observer`
 ## Summary
 
 Minesweeper is a grid-based deduction game: the player reveals cells trying to avoid hidden mines, using neighbor-mine counts to deduce safe moves. The design pivots on three things — a per-cell state machine (`HIDDEN`, `REVEALED`, `FLAGGED`), a flood-fill that opens contiguous zero-count regions on a single click, and an observer pipeline so any UI (CLI, Swing, browser) can subscribe to incremental cell updates rather than re-render the whole board.

@@ -2,14 +2,13 @@
 title: "What Is Low-Level Design?"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, foundations, ood, sdlc, interviews]
+tags: [low-level-design, foundations, ood, sdlc, interview-method]
 ---
 
 # What Is Low-Level Design?
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `foundations` `ood` `sdlc` `interviews`
-
+**Tags:** `low-level-design` `foundations` `ood` `sdlc` `interview-method`
 ## Summary
 
 Low-Level Design (LLD) is the practice of describing software at the granularity of classes, interfaces, methods, and the interactions between them, so that an engineer can implement the system without having to re-decide its internal shape. It sits one zoom level below system architecture and one zoom level above source code, and its primary deliverables are class diagrams, sequence diagrams, interface contracts, and code skeletons that compile.

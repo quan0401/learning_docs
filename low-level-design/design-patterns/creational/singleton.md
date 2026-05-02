@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, creational, singleton, thread-safety, 
 # Singleton — One Instance, Globally Accessible
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `creational` `singleton` `thread-safety`
-
+**Tags:** `low-level-design` `design-patterns` `creational` `singleton` `thread-safety` `java` `typescript`
 ## Summary
 
 Singleton ensures a class has exactly one instance and provides a global access point to it. It is the simplest and most controversial of the GoF creational patterns — easy to write, easy to abuse, and notoriously hostile to unit testing. Use it only when a single instance is a real domain invariant, not because "there's only one for now."

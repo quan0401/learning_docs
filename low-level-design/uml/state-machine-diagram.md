@@ -2,14 +2,13 @@
 title: "State Machine Diagram"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, uml, state-machine, behavior, modeling]
+tags: [low-level-design, uml, state-machines, behavior, modeling]
 ---
 
 # State Machine Diagram
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `uml` `state-machine` `behavior` `modeling`
-
+**Tags:** `low-level-design` `uml` `state-machines` `behavior` `modeling`
 ## Summary
 
 A UML state machine (state chart) models the lifecycle of a single object: the discrete states it can be in, the events that move it between states, the guards that filter those events, and the actions that fire on entry, exit, or transition. Reach for it whenever your business logic is being shredded by a growing pile of `if (status == ...)` branches.

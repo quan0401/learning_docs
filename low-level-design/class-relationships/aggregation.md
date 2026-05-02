@@ -2,14 +2,13 @@
 title: "Aggregation — A Has B (Loose)"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, class-relationships, uml, oop, modeling]
+tags: [low-level-design, class-relationships, uml, oop-fundamentals, modeling]
 ---
 
 # Aggregation — A Has B (Loose)
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `class-relationships` `uml` `oop` `modeling`
-
+**Tags:** `low-level-design` `class-relationships` `uml` `oop-fundamentals` `modeling`
 ## Summary
 
 Aggregation is a **whole–part** association where the whole *has* the parts but does **not** own their lifetime. Parts can exist independently of the whole, can be shared with other wholes, and survive when the whole is destroyed. The classic test is: "if I delete the whole, do the parts make sense on their own?" If yes, it is aggregation.

@@ -2,14 +2,13 @@
 title: "Design Shopping Cart"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, e-commerce, cart, strategy-pattern]
+tags: [low-level-design, case-study, e-commerce, cart, strategy]
 ---
 
 # Design Shopping Cart
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `e-commerce` `cart` `strategy-pattern`
-
+**Tags:** `low-level-design` `case-study` `e-commerce` `cart` `strategy`
 ## Summary
 
 A shopping cart sounds trivial — a list of items — but the LLD pulls in several interesting forces: **line-item identity** (a "cart item" is not just a product reference), **discount composition** (item-level vs cart-level vs shipping-level, stacking rules, exclusivity), **session persistence** (anonymous → logged-in merge), and **a clean handoff to checkout** so the cart never silently mutates after a price was quoted.

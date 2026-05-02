@@ -2,14 +2,13 @@
 title: "LLD vs HLD — Where the Boundary Sits"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, foundations, hld, system-design, interviews]
+tags: [low-level-design, foundations, hld, system-design, interview-method]
 ---
 
 # LLD vs HLD — Where the Boundary Sits
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `foundations` `hld` `system-design` `interviews`
-
+**Tags:** `low-level-design` `foundations` `hld` `system-design` `interview-method`
 ## Summary
 
 High-Level Design (HLD) describes a system as a set of services, datastores, queues, and infrastructure pieces talking over a network; Low-Level Design (LLD) describes the inside of any one of those services as classes, interfaces, and method-level interactions. The boundary sits at the process edge: anything that crosses a wire belongs to HLD, and anything that lives inside a single deployable unit belongs to LLD.

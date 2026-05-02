@@ -2,14 +2,13 @@
 title: "Design Amazon Locker"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, e-commerce, locker, state-machine]
+tags: [low-level-design, case-study, e-commerce, locker, state-machines]
 ---
 
 # Design Amazon Locker
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `e-commerce` `locker` `state-machine`
-
+**Tags:** `low-level-design` `case-study` `e-commerce` `locker` `state-machines`
 ## Summary
 
 Amazon Locker is a self-service pickup service where a courier deposits a parcel into a physical locker compartment and the customer retrieves it later using a one-time code. The LLD problem is interesting because it combines spatial allocation (which compartment fits this package?), reservation under concurrency (two parcels cannot land in the same compartment), and a strict pickup state machine (deposit → notify → retrieve, with timeouts and reclamation).

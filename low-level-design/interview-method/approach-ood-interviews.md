@@ -2,14 +2,13 @@
 title: "How to Approach OOD Interviews"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, interview-method, ood, oop, interview-prep]
+tags: [low-level-design, interview-method, ood, oop-fundamentals]
 ---
 
 # How to Approach OOD Interviews
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `interview-method` `ood` `oop` `interview-prep`
-
+**Tags:** `low-level-design` `interview-method` `ood` `oop-fundamentals`
 ## Summary
 
 Object-Oriented Design (OOD) interviews are typically 45-60 minute discussions where you must turn a fuzzy prompt ("Design a parking lot") into a concrete object model. The canonical structure is five steps: clarify requirements, identify entities, model relationships, define behaviors, and produce a diagram. The deliverable is not the "right" answer but a defensible model the interviewer can poke at.

@@ -2,14 +2,13 @@
 title: "Anti-Patterns in OO Design"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, design-principles, anti-patterns, oop, refactoring]
+tags: [low-level-design, design-principles, anti-patterns, oop-fundamentals, refactoring]
 ---
 
 # Anti-Patterns in OO Design
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-principles` `anti-patterns` `oop` `refactoring`
-
+**Tags:** `low-level-design` `design-principles` `anti-patterns` `oop-fundamentals` `refactoring`
 ## Summary
 
 Anti-patterns are recurring "solutions" that look like patterns but consistently produce worse outcomes than naive code. They have names because we keep seeing them in real codebases — recognizing the shape lets you call out the problem and refactor toward a known good alternative. This document covers the most common OO anti-patterns: god object, anemic domain model, spaghetti, lasagna, golden hammer, premature optimization, copy-paste programming, magic numbers, base bean, and circular dependency.

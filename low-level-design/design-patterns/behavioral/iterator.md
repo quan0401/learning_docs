@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, behavioral, iterator, generator, trave
 # Iterator — Traverse a Collection Without Exposing It
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `iterator` `generator`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `iterator` `generator` `traversal`
 ## Summary
 
 Iterator provides a uniform way to walk over a collection's elements without revealing how the collection stores them. Modern languages bake this in (`Iterable`/`Iterator`, `IEnumerable`, `Symbol.iterator`, generators), so the pattern usually shows up as "implement the language protocol" rather than "hand-roll a class".

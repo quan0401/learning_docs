@@ -2,14 +2,13 @@
 title: "Design Payment Gateway"
 date: 2026-05-02
 updated: 2026-05-02
-tags: [low-level-design, case-study, financial, payments, adapter, state-machine, idempotency]
+tags: [low-level-design, case-study, financial, payment, adapter, state-machines, idempotency]
 ---
 
 # Design Payment Gateway
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `case-study` `financial` `payments` `adapter` `state-machine` `idempotency`
-
+**Tags:** `low-level-design` `case-study` `financial` `payment` `adapter` `state-machines` `idempotency`
 ## Summary
 
 A payment gateway sits between merchants and external payment processors (Stripe, PayPal, Adyen, bank rails), exposing a single, idempotent API for charging cards, capturing/voiding authorizations, and issuing refunds. The LLD focuses on three pillars:

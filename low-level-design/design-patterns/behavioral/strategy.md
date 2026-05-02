@@ -8,8 +8,7 @@ tags: [low-level-design, design-patterns, behavioral, strategy, polymorphism, la
 # Strategy — Swap Algorithms at Runtime
 
 **Date:** 2026-05-02 | **Updated:** 2026-05-02
-**Tags:** `low-level-design` `design-patterns` `behavioral` `strategy` `polymorphism`
-
+**Tags:** `low-level-design` `design-patterns` `behavioral` `strategy` `polymorphism` `lambda`
 ## Summary
 
 Strategy defines a family of interchangeable algorithms behind a common interface so a *Context* can pick (or be configured with) one at runtime. It replaces sprawling `if`/`else` or `switch` chains with polymorphic dispatch and is the single most reused behavioral pattern — in modern languages, often as a lambda.
