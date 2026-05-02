@@ -9,6 +9,8 @@ tags: [system-design, case-study, infrastructure, caching, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `infrastructure` `caching` `hard`
+**LLD Twin:** [LRU Cache (LLD) — Hash Map + Doubly-Linked List Implementation](../../../low-level-design/case-studies/data-structures/design-lru-cache.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

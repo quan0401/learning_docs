@@ -9,6 +9,8 @@ tags: [system-design, case-study, slack, team-chat, real-time]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `slack` `team-chat` `real-time`
+**LLD Twin:** [Chat Application (LLD) — Conversation, Participant, Message Classes](../../../low-level-design/case-studies/communication/design-chat-application-lld.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

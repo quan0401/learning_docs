@@ -9,6 +9,8 @@ tags: [system-design, case-study, rate-limiter, distributed, redis]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `rate-limiter` `distributed` `redis`
+**LLD Twin:** [Rate Limiter (LLD) — Strategy Pattern Class Design](../../../low-level-design/case-studies/developer-tools/design-rate-limiter-lld.md) — class-level OOD with entities, relationships, and patterns.
+
 **Difficulty:** Medium | **Type:** HLD | **Estimated read:** 25–30 min
 
 ## Table of Contents

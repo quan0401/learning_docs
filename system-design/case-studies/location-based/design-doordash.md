@@ -9,6 +9,8 @@ tags: [system-design, case-study, doordash, food-delivery, dispatch]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `doordash` `food-delivery` `dispatch`
+**LLD Twin:** [Online Food Delivery (LLD) — Order State Machine, Dispatch Strategy](../../../low-level-design/case-studies/e-commerce/design-online-food-delivery-service.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

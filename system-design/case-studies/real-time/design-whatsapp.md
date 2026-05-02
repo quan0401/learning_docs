@@ -9,6 +9,8 @@ tags: [system-design, case-study, chat, real-time, whatsapp]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `chat` `real-time` `whatsapp`
+**LLD Twin:** [Chat Application (LLD) — Conversation, Participant, Message Classes](../../../low-level-design/case-studies/communication/design-chat-application-lld.md) — class-level OOD with entities, relationships, and patterns.
+
 **Difficulty:** Medium | **Audience:** Senior Backend Engineer
 
 ## Table of Contents

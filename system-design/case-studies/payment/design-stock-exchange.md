@@ -9,6 +9,8 @@ tags: [system-design, case-study, fintech, low-latency, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `fintech` `low-latency` `hard`
+**LLD Twin:** [Online Stock Exchange (LLD) — Order Book, Matching Engine Classes](../../../low-level-design/case-studies/financial/design-online-stock-exchange.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

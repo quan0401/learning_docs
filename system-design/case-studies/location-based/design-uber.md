@@ -9,6 +9,8 @@ tags: [system-design, case-study, uber, ride-hailing, geo-indexing, dispatch]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `uber` `ride-hailing` `geo-indexing` `dispatch`
+**LLD Twin:** [Ride-Hailing Service (LLD) — Trip State Machine, Dispatch Matching](../../../low-level-design/case-studies/e-commerce/design-ride-hailing-service.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

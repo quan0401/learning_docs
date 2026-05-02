@@ -9,6 +9,8 @@ tags: [system-design, case-study, infrastructure, messaging, medium]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `infrastructure` `messaging` `medium`
+**LLD Twin:** [Notification System (LLD) — Channels, Templates, Delivery State Machine](../../../low-level-design/case-studies/communication/design-notification-system-lld.md) — class-level OOD with entities, relationships, and patterns.
+
 **Difficulty:** Medium | **Type:** HLD | **Estimated read:** 30–35 min
 
 ## Table of Contents

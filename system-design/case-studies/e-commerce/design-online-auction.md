@@ -9,6 +9,8 @@ tags: [system-design, case-study, e-commerce, real-time, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `e-commerce` `real-time` `hard`
+**LLD Twin:** [Online Auction (LLD) — Auction Lifecycle, Bid History, Sniping Protection](../../../low-level-design/case-studies/e-commerce/design-online-auction-system.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

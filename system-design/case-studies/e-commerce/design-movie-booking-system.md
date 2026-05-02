@@ -9,6 +9,8 @@ tags: [system-design, case-study, e-commerce, booking, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `e-commerce` `booking` `hard`
+**LLD Twin:** [Movie Booking (LLD) — Show, Seat, Hold-TTL Concurrency](../../../low-level-design/case-studies/e-commerce/design-movie-booking-system.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

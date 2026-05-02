@@ -9,6 +9,8 @@ tags: [system-design, case-study, search, ranking, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `search` `ranking` `hard`
+**LLD Twin:** [Simple Search Engine (LLD) — Inverted Index, Tokenizer, TF-IDF](../../../low-level-design/case-studies/data-structures/design-simple-search-engine.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

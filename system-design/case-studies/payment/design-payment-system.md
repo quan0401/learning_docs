@@ -9,6 +9,8 @@ tags: [system-design, case-study, payments, medium]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `payments` `medium`
+**LLD Twin:** [Payment Gateway (LLD) — Intent State Machine, Processor Adapters](../../../low-level-design/case-studies/financial/design-payment-gateway.md) — class-level OOD with entities, relationships, and patterns.
+
 **Difficulty:** Medium | **Type:** HLD | **Estimated read:** 30–35 min
 
 ## Table of Contents

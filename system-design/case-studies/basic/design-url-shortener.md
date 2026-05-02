@@ -10,6 +10,8 @@ tags: [system-design, case-study, url-shortener, basic, scalability]
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `url-shortener` `basic` `scalability`
 **Difficulty:** Easy | **Surface:** High-Level Design
+**LLD Twin:** [URL Shortener (LLD) — Class Design](../../../low-level-design/case-studies/developer-tools/design-url-shortener-lld.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

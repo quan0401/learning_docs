@@ -9,6 +9,8 @@ tags: [system-design, case-study, specialized, calendar, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `specialized` `calendar` `hard`
+**LLD Twin:** [Meeting Scheduler (LLD) — Calendar, Free-Busy, Recurrence (RRULE)](../../../low-level-design/case-studies/e-commerce/design-meeting-scheduler.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

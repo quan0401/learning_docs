@@ -9,6 +9,8 @@ tags: [system-design, case-study, specialized, real-time, gaming, hard]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `specialized` `real-time` `gaming` `hard`
+**LLD Twin:** [Chess (LLD) — Piece Hierarchy, Move Validation, Check/Checkmate](../../../low-level-design/case-studies/games/design-chess.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

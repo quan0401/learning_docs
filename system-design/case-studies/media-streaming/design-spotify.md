@@ -9,6 +9,8 @@ tags: [system-design, case-study, spotify, audio-streaming, music]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `spotify` `audio-streaming` `music`
+**LLD Twin:** [Spotify (LLD) — Playlist, Library, Streaming Session Classes](../../../low-level-design/case-studies/social-content/design-spotify.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

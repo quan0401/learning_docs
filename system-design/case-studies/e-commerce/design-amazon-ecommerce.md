@@ -9,6 +9,8 @@ tags: [system-design, case-study, e-commerce, medium]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `e-commerce` `medium`
+**LLD Twin:** [Amazon (LLD) — Catalog, Cart, Order, Payment, Fulfillment Classes](../../../low-level-design/case-studies/e-commerce/design-amazon.md) — class-level OOD with entities, relationships, and patterns.
+
 
 ## Table of Contents
 

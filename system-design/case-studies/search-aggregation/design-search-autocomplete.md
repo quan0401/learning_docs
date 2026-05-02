@@ -9,6 +9,8 @@ tags: [system-design, case-study, autocomplete, trie, search]
 
 **Date:** 2026-04-25 | **Updated:** 2026-04-25
 **Tags:** `system-design` `case-study` `autocomplete` `trie` `search`
+**LLD Twin:** [Search Autocomplete (LLD) — Trie + Top-K Class Design](../../../low-level-design/case-studies/data-structures/design-search-autocomplete.md) — class-level OOD with entities, relationships, and patterns.
+
 **Difficulty:** Easy (HLD)
 
 ## Table of Contents
