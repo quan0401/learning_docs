@@ -2,7 +2,7 @@
 
 A progressive path from network fundamentals through transport and application protocols to modern infrastructure and observability. Practical and backend-oriented — connects protocol theory to what you actually debug and deploy as a TypeScript/Node or Java/Spring developer.
 
-Cross-references to the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), and the [Kubernetes learning path](../kubernetes/INDEX.md) where topics overlap.
+Cross-references to the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md), and the [System Design learning path](../system-design/INDEX.md) where topics overlap.
 
 ---
 

@@ -1,7 +1,7 @@
 # Documentation Index — Learning Path
 
 A progressive path from Java fundamentals through Spring to advanced reactive patterns.
-Work through the tiers in order — each builds on the previous one. Cross-references to the [Networking learning path](../networking/INDEX.md) for protocol and infrastructure topics, and the [Kubernetes learning path](../kubernetes/INDEX.md) for platform-level K8s understanding.
+Work through the tiers in order — each builds on the previous one. Cross-references to the [Networking learning path](../networking/INDEX.md) for protocol and infrastructure topics, the [Kubernetes learning path](../kubernetes/INDEX.md) for platform-level K8s understanding, the [Low-Level Design learning path](../low-level-design/INDEX.md) for class-level OOD, GoF design patterns, and OOD interview problems, and the [System Design learning path](../system-design/INDEX.md) for HLD.
 
 If you're already comfortable with Java (collections, generics, exceptions, streams), **skip to Tier 1 (Spring Foundation)**.
 If you come from TypeScript or another language, start at **Tier 0** below.

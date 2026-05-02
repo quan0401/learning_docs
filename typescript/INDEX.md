@@ -3,7 +3,7 @@
 A progressive path from TypeScript compiler internals through Node.js runtime to production architecture.
 Starting at an intermediate level — you already write TS backend daily. This path takes you from "I use TS" to "I truly understand TS."
 
-Cross-references to the [Java learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), and the [Kubernetes learning path](../kubernetes/INDEX.md) where concepts parallel.
+Cross-references to the [Java learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md) for class-level OOD and design patterns, and the [System Design learning path](../system-design/INDEX.md) where concepts parallel.
 
 ---
 

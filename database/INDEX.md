@@ -1,6 +1,6 @@
 # Database Documentation Index — Learning Path
 
-A progressive path from PostgreSQL engine internals through schema design, operations, query optimization, and polyglot persistence. Language-agnostic — complements the [Java/Spring learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), and the [Kubernetes learning path](../kubernetes/INDEX.md) by covering what happens inside and around the database.
+A progressive path from PostgreSQL engine internals through schema design, operations, query optimization, and polyglot persistence. Language-agnostic — complements the [Java/Spring learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md) (for repository pattern, ORM mapping, and domain-model design), and the [System Design learning path](../system-design/INDEX.md) by covering what happens inside and around the database.
 
 If you already work with JPA/R2DBC and Spring Data, **start at Tier 1 (Engine Internals)** to understand what your ORM is actually doing under the hood.
 
