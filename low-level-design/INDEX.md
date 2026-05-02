@@ -12,6 +12,43 @@ If you already write production OO code, **skim Tiers 1–3 and dive into Tiers 
 
 ---
 
+## ★ Must-Learn Recommended Path
+
+If your time is limited, these are the entries that pay back the most in interviews and daily production code. Items marked **★** are non-negotiable for a senior IC; the rest are strong supports.
+
+**Conceptual core (read in order):**
+1. [SOLID — all five](#tier-5--solid-principles) ★
+2. [GRASP Principles](design-principles/grasp-principles.md) ★ — fills the "where do I put this method?" gap that SOLID leaves
+3. [DDD Tactical Patterns](design-principles/ddd-tactical-patterns.md) ★ — every Java/Spring backend lives here
+4. [Coupling and Cohesion](design-principles/coupling-and-cohesion.md), [Composing Objects](design-principles/composing-objects-principle.md), [Code Smells](design-principles/code-smells-and-refactoring-triggers.md) + [Refactoring Catalog](design-principles/refactoring-catalog.md) ★
+
+**Patterns you will write or read every week:**
+- Strategy, Observer, Template Method, State, Command, Iterator, Adapter, Facade, Decorator, Composite, Factory Method, Builder, Singleton (with caveats)
+- Repository, Dependency Injection, MVC
+- Object Pool ★, Thread Pool, Producer-Consumer
+- [Concurrency Patterns Survey](design-patterns/additional/concurrency-patterns.md) ★ (Read-Write Lock, Active Object, Monitor, Double-Checked Locking)
+- [Circuit Breaker](design-patterns/additional/circuit-breaker-pattern.md) ★ — interview-frequent for backend roles
+
+**Interview craft:**
+- [Approach OOD Interviews](interview-method/approach-ood-interviews.md), [Identify Entities](interview-method/identify-entities-and-model-relationships.md), [Choose Patterns](interview-method/choose-design-patterns.md)
+- [Designing for Testability](interview-method/designing-for-testability.md) ★
+- [Object Lifecycle and Resource Management](interview-method/object-lifecycle-and-resource-management.md) ★
+- [Test Doubles](interview-method/test-doubles-in-ood.md), [Handle Concurrency Scenarios](interview-method/handle-concurrency-scenarios.md)
+
+**Case studies that exercise the most ground per problem (high transfer):**
+- [Parking Lot](case-studies/management/design-parking-lot.md) — the canonical warm-up
+- [Connection Pool](case-studies/data-structures/design-connection-pool.md) ★ — concurrency LLD distilled
+- [LRU Cache](case-studies/data-structures/design-lru-cache.md) — DSA + OOD bridge
+- [Elevator System](case-studies/state-machines/design-elevator-system.md) — multi-actor scheduling
+- [Chess](case-studies/games/design-chess.md) — polymorphism stress test
+- [Splitwise](case-studies/financial/design-splitwise.md) — graph + ledger + strategy
+- [Ride-Hailing](case-studies/e-commerce/design-ride-hailing-service.md) — trip state machine + dispatch (HLD twin: [Uber](../system-design/case-studies/location-based/design-uber.md))
+- [Stock Exchange](case-studies/financial/design-online-stock-exchange.md) — order book + matching engine
+
+If you do nothing else: SOLID + GRASP + DDD tactical + Connection Pool + Parking Lot + Chess + Designing-for-Testability. That is the minimum working kit for senior backend OOD interviews.
+
+---
+
 ## Tier 1 — LLD Foundations
 
 What LLD is, where it sits relative to HLD, and how interviews exercise it.
@@ -61,6 +98,9 @@ The principles that predate SOLID — the broader hygiene rules every clean code
 22. [Composing Objects Principle — Composition Over Inheritance](design-principles/composing-objects-principle.md) — why "is-a" via inheritance gets brittle, composition + interfaces as the default _(2026-05-02)_
 22a. [Code Smells and Refactoring Triggers](design-principles/code-smells-and-refactoring-triggers.md) — long method, large class, feature envy, shotgun surgery, primitive obsession, data clumps; Fowler's catalog as a design checklist _(2026-05-02)_
 22b. [Anti-Patterns in OO Design](design-principles/anti-patterns-in-oo-design.md) — god object, anemic domain model, spaghetti, lasagna, golden hammer, premature optimization, copy-paste programming _(2026-05-02)_
+22c. ★ [GRASP Principles](design-principles/grasp-principles.md) — Larman's 9: Information Expert, Creator, Controller, Low Coupling, High Cohesion, Polymorphism, Pure Fabrication, Indirection, Protected Variations. The procedural complement to SOLID — *how* to assign responsibilities _(2026-05-02)_
+22d. ★ [Domain-Driven Design — Tactical Patterns](design-principles/ddd-tactical-patterns.md) — Entity, Value Object, Aggregate Root, Domain Event, Domain Service, Application Service, Factory, Repository, Bounded Context. Evans + Vernon distilled _(2026-05-02)_
+22e. ★ [Refactoring Catalog](design-principles/refactoring-catalog.md) — Fowler's mechanics paired with code smells: Extract Method, Replace Conditional with Polymorphism, Introduce Parameter Object, Pull Up / Push Down, Replace Inheritance with Delegation _(2026-05-02)_
 
 ---
 
@@ -97,6 +137,7 @@ Object creation patterns. Pick one when "new ConcreteClass()" doesn't fit.
 35. [Factory Method — Subclass Decides the Concrete Type](design-patterns/creational/factory-method.md) — vs static factory methods, when factory method beats new(), framework hooks _(2026-05-02)_
 36. [Abstract Factory — Families of Related Products](design-patterns/creational/abstract-factory.md) — factory of factories, when "skin" or "platform" varies, GUI toolkit example _(2026-05-02)_
 37. [Prototype — Clone Existing Instances](design-patterns/creational/prototype.md) — shallow vs deep clone, registry of prototypes, when cloning beats constructing _(2026-05-02)_
+37a. ★ [Object Pool — Reuse Expensive-to-Create Instances](design-patterns/creational/object-pool.md) — pool of resources (not workers), borrow/return, validation, idle eviction, HikariCP / Apache Commons Pool shape _(2026-05-02)_
 
 ---
 
@@ -143,6 +184,9 @@ Patterns that predate or postdate the GoF book but show up daily in real codebas
 60. [Game Loop Pattern](design-patterns/additional/game-loop-pattern.md) — fixed timestep, variable timestep, accumulator pattern, decoupling update rate from render rate _(2026-05-02)_
 61. [Thread Pool Pattern](design-patterns/additional/thread-pool-pattern.md) — bounded worker pool, queue, work stealing, sizing (Little's Law), vs reactive / virtual threads _(2026-05-02)_
 62. [Producer-Consumer Pattern](design-patterns/additional/producer-consumer-pattern.md) — bounded buffer, blocking queue, backpressure, classic concurrency primitive _(2026-05-02)_
+62a. ★ [Concurrency Patterns Survey](design-patterns/additional/concurrency-patterns.md) — POSA Vol 2 distilled: Read-Write Lock, Active Object, Monitor Object, Double-Checked Locking, Reactor, Half-Sync/Half-Async _(2026-05-02)_
+62b. ★ [Circuit Breaker Pattern (LLD)](design-patterns/additional/circuit-breaker-pattern.md) — Closed → Open → Half-Open state machine, sliding-window failure tracking, threshold tuning. Class-level perspective on Nygard's pattern _(2026-05-02)_
+62c. [Retry with Backoff](design-patterns/additional/retry-with-backoff.md) — linear, exponential, exponential-with-jitter (full / equal / decorrelated). Idempotency keys, when not to retry, pairing with Circuit Breaker _(2026-05-02)_
 
 ---
 
@@ -157,6 +201,9 @@ How to actually run an LLD interview — useful even outside interviews because 
 67. [How to Choose Design Patterns Without Forcing Them](interview-method/choose-design-patterns.md) — pattern intent vs pattern shape, justifying choices, the "have I named the trade-off" rule _(2026-05-02)_
 68. [How to Handle Concurrency Scenarios](interview-method/handle-concurrency-scenarios.md) — shared state, locking strategies, immutability, async patterns, what concurrency the interviewer expects vs what they don't _(2026-05-02)_
 68a. [Test Doubles — Mocks, Stubs, Fakes, Spies](interview-method/test-doubles-in-ood.md) — Meszaros's taxonomy, when to use which, test-doubles as a design-quality signal, DIP making them possible _(2026-05-02)_
+68b. ★ [Designing for Testability](interview-method/designing-for-testability.md) — DI at boundaries (clock, random, network, FS), avoiding `static` and singletons in business logic, Humble Object, Feathers's seams, hard-to-test smells _(2026-05-02)_
+68c. ★ [Object Lifecycle and Resource Management](interview-method/object-lifecycle-and-resource-management.md) — construction phases, two-phase init, RAII / try-with-resources / `using` / context managers, AutoCloseable contract, idempotent close, finalizer deprecation _(2026-05-02)_
+68d. [Handling "Extend to Support X" Follow-ups](interview-method/handling-extension-followups.md) — when to use Strategy/Visitor/OCP extension points, when to refuse YAGNI, decision tree for stretch-existing-model vs introduce-new-abstraction _(2026-05-02)_
 
 ---
 
@@ -177,6 +224,7 @@ The canonical LLD problem set. Each doc follows the same template: requirements 
 74. [Design Bloom Filter](case-studies/data-structures/design-bloom-filter.md) — bit array, multiple hash functions, false-positive math, scalable / counting bloom variants _(2026-05-02, easy)_
 75. [Design Search Autocomplete](case-studies/data-structures/design-search-autocomplete.md) — trie + ranking, top-K per prefix, async fetch, debouncing _(2026-05-02, easy)_
 76. [Design Simple Search Engine](case-studies/data-structures/design-simple-search-engine.md) — inverted index, tokenizer, ranking, query parsing, document store _(2026-05-02, medium)_
+76a. ★ [Design Connection Pool](case-studies/data-structures/design-connection-pool.md) — bounded pool, borrow/return, max-wait timeout, leak detection, validation queries, idle-eviction thread; HikariCP / Apache DBCP shape _(2026-05-02, medium)_
 
 ### 12.C State-Machine Systems
 
@@ -235,6 +283,7 @@ The canonical LLD problem set. Each doc follows the same template: requirements 
 111. [Design In-Memory File System](case-studies/developer-tools/design-in-memory-file-system.md) — directory + file composite tree, path resolver, permissions, locking _(2026-05-02, hard)_
 112. [Design Version Control System](case-studies/developer-tools/design-version-control-system.md) — commit / branch / object store, content-addressed storage, diff/merge, refs _(2026-05-02, hard)_
 113. [Design Task Scheduler](case-studies/developer-tools/design-task-scheduler.md) — job, trigger (one-shot / cron / interval), executor pool, retry, persistence _(2026-05-02, hard)_
+113a. [Design Calculator with Operator Precedence](case-studies/developer-tools/design-calculator.md) — Tokenizer → Parser → Evaluator (Shunting Yard), Interpreter pattern, Visitor over expression tree, recursive descent _(2026-05-02, easy)_
 
 ---
 
@@ -277,6 +326,9 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [Composing Objects Principle](design-principles/composing-objects-principle.md)
 - [Code Smells and Refactoring Triggers](design-principles/code-smells-and-refactoring-triggers.md)
 - [Anti-Patterns in OO Design](design-principles/anti-patterns-in-oo-design.md)
+- ★ [GRASP Principles](design-principles/grasp-principles.md)
+- ★ [DDD Tactical Patterns](design-principles/ddd-tactical-patterns.md)
+- ★ [Refactoring Catalog](design-principles/refactoring-catalog.md)
 
 ### SOLID
 
@@ -301,6 +353,7 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [Factory Method](design-patterns/creational/factory-method.md)
 - [Abstract Factory](design-patterns/creational/abstract-factory.md)
 - [Prototype](design-patterns/creational/prototype.md)
+- ★ [Object Pool](design-patterns/creational/object-pool.md)
 
 ### Structural Patterns
 
@@ -335,6 +388,9 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [Game Loop](design-patterns/additional/game-loop-pattern.md)
 - [Thread Pool](design-patterns/additional/thread-pool-pattern.md)
 - [Producer-Consumer](design-patterns/additional/producer-consumer-pattern.md)
+- ★ [Concurrency Patterns Survey](design-patterns/additional/concurrency-patterns.md)
+- ★ [Circuit Breaker](design-patterns/additional/circuit-breaker-pattern.md)
+- [Retry with Backoff](design-patterns/additional/retry-with-backoff.md)
 
 ### Interview Method
 
@@ -345,6 +401,9 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [Choose Design Patterns Without Forcing Them](interview-method/choose-design-patterns.md)
 - [Handle Concurrency Scenarios](interview-method/handle-concurrency-scenarios.md)
 - [Test Doubles — Mocks, Stubs, Fakes, Spies](interview-method/test-doubles-in-ood.md)
+- ★ [Designing for Testability](interview-method/designing-for-testability.md)
+- ★ [Object Lifecycle and Resource Management](interview-method/object-lifecycle-and-resource-management.md)
+- [Handling "Extend to Support X" Follow-ups](interview-method/handling-extension-followups.md)
 
 ### Design Problems — Games
 
@@ -359,6 +418,7 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [Bloom Filter](case-studies/data-structures/design-bloom-filter.md) _(easy)_
 - [Search Autocomplete](case-studies/data-structures/design-search-autocomplete.md) _(easy)_
 - [Simple Search Engine](case-studies/data-structures/design-simple-search-engine.md) _(medium)_
+- ★ [Connection Pool](case-studies/data-structures/design-connection-pool.md) _(medium)_
 
 ### Design Problems — State Machines
 
@@ -417,6 +477,7 @@ All entries link to the planned doc paths above. Items marked _(2026-05-02)_ hav
 - [In-Memory File System](case-studies/developer-tools/design-in-memory-file-system.md) _(hard)_
 - [Version Control System](case-studies/developer-tools/design-version-control-system.md) _(hard)_
 - [Task Scheduler](case-studies/developer-tools/design-task-scheduler.md) _(hard)_
+- [Calculator with Operator Precedence](case-studies/developer-tools/design-calculator.md) _(easy)_
 
 ---
 
