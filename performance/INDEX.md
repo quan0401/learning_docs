@@ -100,6 +100,14 @@ Performance engineering once a single box is no longer the right mental model. T
 
 ---
 
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Tail Latency & Percentiles — Bug Spotting](fundamentals/tail-latency-bug-spotting.md) ★ — _(2026-05-03)_
+
+---
+
 ## Cross-Path References
 
 - **System Design — Foundations:** [Back-of-Envelope Estimation](../system-design/foundations/back-of-envelope-estimation.md), [SLA/SLO/SLI](../system-design/foundations/sla-slo-sli-and-availability.md), [Non-Functional Requirements](../system-design/foundations/non-functional-requirements.md)

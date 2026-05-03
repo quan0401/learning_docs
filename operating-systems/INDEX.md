@@ -63,3 +63,11 @@ How container runtimes (runc, containerd, crun) actually work: the seven Linux n
 ### I/O Notification
 
 - [epoll / kqueue / io_uring](fundamentals/07-epoll-kqueue-iouring.md)
+
+---
+
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Virtual Memory & Paging — Bug Spotting](fundamentals/vm-paging-bug-spotting.md) ★ — _(2026-05-03)_

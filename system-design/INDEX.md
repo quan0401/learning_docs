@@ -556,6 +556,14 @@ The systems and infrastructure that power modern GenAI and ML applications.
 
 ---
 
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Distributed Transactions — Bug Spotting](data-consistency/distributed-transactions-bug-spotting.md) ★ — _(2026-05-03)_
+
+---
+
 ## Cross-Path Reading
 
 - [Low-Level Design Path](../low-level-design/INDEX.md) — class-level OOD, design patterns, SOLID, UML, and the canonical LLD interview problems. The layer below HLD; some case-study names overlap (URL Shortener, Rate Limiter, Chat) — different deliverable.

@@ -101,3 +101,11 @@ When PostgreSQL isn't enough. Deep dives into complementary database engines and
 - [MongoDB — When and How](polyglot/mongodb-when-and-how.md)
 - [ClickHouse for Analytics](polyglot/clickhouse-analytics.md)
 - [DynamoDB Patterns](polyglot/dynamodb-patterns.md)
+
+---
+
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [PostgreSQL MVCC & Visibility — Bug Spotting](engine-internals/mvcc-bug-spotting.md) ★ — _(2026-05-03)_

@@ -116,6 +116,14 @@ The control plane your code runs on.
 
 ---
 
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [JWT — Bug Spotting](fundamentals/jwt-bug-spotting.md) ★ — _(2026-05-03)_
+
+---
+
 ## Related Learning Paths
 
 - [Spring Security tier in the Java path](../java/INDEX.md) — concrete `SecurityFilterChain`, OAuth2 resource server, OIDC, and Spring Cloud Vault implementations

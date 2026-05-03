@@ -146,3 +146,11 @@ Running Node in production at scale. Full standalone reference, even where conce
 - [Node.js Profiling & Debugging](production/profiling-and-debugging.md)
 - [Node.js in Kubernetes](production/nodejs-in-kubernetes.md)
 - [Observability for Node Services](production/observability.md)
+
+---
+
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Node.js Event Loop — Bug Spotting](runtime/event-loop-bug-spotting.md) ★ — _(2026-05-03)_

@@ -55,6 +55,14 @@ Always-on profilers (Pyroscope, Parca, Datadog Continuous Profiler), pprof for G
 - [Distributed Tracing Internals](fundamentals/06-distributed-tracing-internals.md)
 - [Prometheus and PromQL](fundamentals/07-prometheus-and-promql.md)
 
+---
+
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Distributed Tracing & Sampling — Bug Spotting](fundamentals/tracing-sampling-bug-spotting.md) ★ — _(2026-05-03)_
+
 ### Sibling docs in this repo
 
 - [Spring Boot Actuator Deep Dive](../java/actuator-deep-dive.md)

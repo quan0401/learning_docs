@@ -126,6 +126,14 @@ Patterns for running Kubernetes in production at scale. GitOps, multi-tenancy, d
 - [Disaster Recovery](production/disaster-recovery.md)
 - [Developer Experience](production/developer-experience.md)
 
+---
+
+## Bug Spotting
+
+Active-recall practice docs. Each presents 22+ broken snippets organized by difficulty (Easy / Subtle / Senior trap), with one-line `<details>` hints inline and full root-cause + fix in a Solutions section. Every bug cites a real reference (RFC, CVE, official-doc gotcha, postmortem, library issue). Use these to pressure-test concept knowledge after working through the tiers above.
+
+- [Kubernetes API — Bug Spotting](core-concepts/k8s-api-bug-spotting.md) ★ — _(2026-05-03)_
+
 ### Related Paths
 
 - [Spring Boot on Kubernetes](../java/configurations/kubernetes-spring-boot.md) — application-level K8s config for Java
