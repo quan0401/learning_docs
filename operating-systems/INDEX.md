@@ -2,7 +2,7 @@
 
 A progressive path through the parts of the operating system that backend engineers actually touch: the process and thread model, virtual memory, the page cache, the CPU scheduler, system calls, file descriptors, and the modern I/O notification mechanisms (epoll, kqueue, io_uring). Linux-first, with macOS/BSD notes where they diverge. Practical and backend-oriented — the goal is to debug a slow service, a runaway memory footprint, or a saturated event loop with confidence rather than reciting kernel trivia.
 
-Cross-references to the [Networking learning path](../networking/INDEX.md), the [Java learning path](../java/INDEX.md) (especially JVM GC and virtual threads), the [TypeScript learning path](../typescript/INDEX.md) (libuv, V8 internals), the [Database learning path](../database/INDEX.md) (page cache and fsync interactions), and the [Kubernetes learning path](../kubernetes/INDEX.md) (cgroups, resource limits) where topics overlap.
+Cross-references to the [Networking learning path](../networking/INDEX.md), the [Java learning path](../java/INDEX.md) (especially JVM GC and virtual threads), the [TypeScript learning path](../typescript/INDEX.md) (libuv, V8 internals), the [Go learning path](../golang/INDEX.md) (G-M-P scheduler as M:N over OS threads, syscall interaction), the [Database learning path](../database/INDEX.md) (page cache and fsync interactions), and the [Kubernetes learning path](../kubernetes/INDEX.md) (cgroups, resource limits) where topics overlap.
 
 **Markers:** **★** = core must-learn (everyday backend OS work, common in interviews and production debugging). **○** = supporting deep-dive (more ops/kernel-engineer territory or specialized advanced topics). Internalize all ★ before going deep on ○.
 

@@ -2,7 +2,7 @@
 
 A progressive path from observability fundamentals (the three pillars, OpenTelemetry, SLOs) through instrumentation, backends, alerting, and continuous profiling. Practical and backend-oriented — connects observability theory to what you actually instrument, query, and respond to as a TypeScript/Node or Java/Spring Boot developer.
 
-Cross-references to the [Java learning path](../java/INDEX.md) (Spring Boot Actuator, Micrometer, distributed tracing), the [TypeScript learning path](../typescript/INDEX.md) (Node profiling, production observability), the [Networking learning path](../networking/INDEX.md) (network-level observability and eBPF), the [Kubernetes learning path](../kubernetes/INDEX.md) (cluster monitoring and logging), and the [System Design learning path](../system-design/INDEX.md) (RED/USE, dashboards, runbooks) where topics overlap.
+Cross-references to the [Java learning path](../java/INDEX.md) (Spring Boot Actuator, Micrometer, distributed tracing), the [TypeScript learning path](../typescript/INDEX.md) (Node profiling, production observability), the [Go learning path](../golang/INDEX.md) (`runtime/pprof`, `runtime/trace`, `slog`, OpenTelemetry-go), the [Networking learning path](../networking/INDEX.md) (network-level observability and eBPF), the [Kubernetes learning path](../kubernetes/INDEX.md) (cluster monitoring and logging), and the [System Design learning path](../system-design/INDEX.md) (RED/USE, dashboards, runbooks) where topics overlap.
 
 **Markers:** **★** = core must-learn (everyday backend instrumentation work, what you reach for during incidents, common in interviews and SRE conversations). **○** = supporting deep-dive (more SRE/ops territory or specialized advanced topics). Internalize all ★ before going deep on ○.
 
