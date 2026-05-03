@@ -2,7 +2,7 @@
 
 A progressive path from network fundamentals through transport and application protocols to modern infrastructure and observability. Practical and backend-oriented — connects protocol theory to what you actually debug and deploy as a TypeScript/Node or Java/Spring developer.
 
-Cross-references to the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md), and the [System Design learning path](../system-design/INDEX.md) where topics overlap.
+Cross-references to the [TypeScript learning path](../typescript/INDEX.md), the [Java learning path](../java/INDEX.md), the [Database learning path](../database/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md), the [System Design learning path](../system-design/INDEX.md), the [Operating Systems learning path](../operating-systems/INDEX.md) for the kernel side of sockets/epoll/io_uring, the [Observability learning path](../observability/INDEX.md) for tracing and metrics across the wire, the [Performance Engineering learning path](../performance/INDEX.md) for latency/throughput analysis, and the [Security learning path](../security/INDEX.md) for TLS, OAuth/OIDC, and zero-trust application of these protocols.
 
 **Markers:** **★** = core must-learn (everyday backend protocol work, common in interviews and production debugging). **○** = supporting deep-dive (more ops/network-engineer territory or specialized advanced topics). Internalize all ★ before going deep on ○.
 

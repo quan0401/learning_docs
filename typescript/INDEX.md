@@ -3,7 +3,7 @@
 A progressive path from TypeScript compiler internals through Node.js runtime to production architecture.
 Starting at an intermediate level — you already write TS backend daily. This path takes you from "I use TS" to "I truly understand TS."
 
-Cross-references to the [Java learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md) for class-level OOD and design patterns, and the [System Design learning path](../system-design/INDEX.md) where concepts parallel.
+Cross-references to the [Java learning path](../java/INDEX.md), the [Networking learning path](../networking/INDEX.md), the [Kubernetes learning path](../kubernetes/INDEX.md), the [Low-Level Design learning path](../low-level-design/INDEX.md) for class-level OOD and design patterns, the [System Design learning path](../system-design/INDEX.md) where concepts parallel, the [Operating Systems learning path](../operating-systems/INDEX.md) for the Linux primitives Node sits on (epoll, page cache, fds), the [Observability learning path](../observability/INDEX.md) for metrics/logs/traces and SLO design, the [Performance Engineering learning path](../performance/INDEX.md) for latency/throughput/capacity, and the [Security learning path](../security/INDEX.md) for OWASP, OAuth/OIDC, JWT, TLS, and secrets.
 
 **Markers:** **★** = core must-learn (everyday TS/Node backend work, common in interviews and production debugging). **○** = supporting deep-dive (advanced type-level programming or specialized topics). Internalize all ★ before going deep on ○.
 
