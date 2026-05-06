@@ -2,7 +2,7 @@
 
 A progressive path through application and infrastructure security for backend engineers. Practical and protocol-grounded — connects threat models, identity, transport security, and secret handling to what you actually ship as a TypeScript/Node or Java/Spring developer.
 
-Cross-references to the [Networking learning path](../networking/INDEX.md), the [Java learning path](../java/INDEX.md) (Spring Security tier), the [TypeScript learning path](../typescript/INDEX.md), the [Go learning path](../golang/INDEX.md) (`crypto/tls`, `crypto/subtle`, `net/http` security headers), the [Kubernetes learning path](../kubernetes/INDEX.md) (Pod Security, RBAC), and the [System Design learning path](../system-design/INDEX.md) (security tier) where topics overlap.
+Cross-references to the [Networking learning path](../networking/INDEX.md), the [Java learning path](../java/INDEX.md) (Spring Security tier), the [TypeScript learning path](../typescript/INDEX.md), the [Go learning path](../golang/INDEX.md) (`crypto/tls`, `crypto/subtle`, `net/http` security headers), the [Kubernetes learning path](../kubernetes/INDEX.md) (Pod Security, RBAC), the [System Design learning path](../system-design/INDEX.md) (security tier), and the [Behavioral Interviews learning path](../behavioral-interviews/INDEX.md) (the interview-stage counterpart — STAR, story banking, and the question-by-category bank) where topics overlap.
 
 **Markers:** **★** = core must-learn (everyday backend security work, common in interviews and incident response). **○** = supporting deep-dive (specialized or compliance-driven). Internalize all ★ before going deep on ○.
 
