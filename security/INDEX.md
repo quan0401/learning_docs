@@ -22,11 +22,11 @@ The minimum every backend engineer needs to reason about threats, identity, tran
 
 ---
 
-## Tier 2 — Application-Layer Attacks (planned)
+## Tier 2 — Application-Layer Attacks
 
-Deeper coverage of the injection and parsing-class vulnerabilities the OWASP Top 10 only sketches. Each will get its own document with exploit walkthroughs and language-specific defenses.
+Deeper coverage of the injection and parsing-class vulnerabilities the OWASP Top 10 only sketches. Each gets its own document with exploit walkthroughs and language-specific defenses.
 
-- _SQL Injection — Parameterized Queries, ORMs, and Second-Order SQLi (planned)_
+1. [★ SQL Injection Deep Dive — Parameterized Queries, ORMs, and Second-Order SQLi](web-attacks/sql-injection-deep-dive.md) — JDBC/Prisma/Sequelize/JPA/MyBatis safe patterns, ORDER BY column injection, IN-list arity, second-order SQLi, blind SQLi, NoSQL `$where` (Mongoose CVE-2024-53900 / CVE-2025-23061), defense in depth, `pg_stat_statements` detection _(2026-05-07)_
 - _XSS — Reflected, Stored, DOM-based, and Modern CSP (planned)_
 - _SSRF — Cloud Metadata, DNS Rebinding, and Allowlists (planned)_
 - _XXE and Unsafe XML/YAML Parsing (planned)_
@@ -84,7 +84,7 @@ The control plane your code runs on.
 
 ### Application-Layer Attacks
 
-- _SQL Injection (planned)_
+- [SQL Injection Deep Dive](web-attacks/sql-injection-deep-dive.md) _(2026-05-07)_
 - _XSS (planned)_
 - _SSRF (planned)_
 - _XXE (planned)_
