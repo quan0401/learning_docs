@@ -77,6 +77,8 @@ Patterns for running Kubernetes in production at scale. GitOps, multi-tenancy, d
 21. [○ Multi-Tenancy, Cost Optimization, and Cluster Strategy](production/multi-tenancy-and-cost.md) — single vs multi-cluster, namespace isolation, vCluster, Kubecost, spot instances, FinOps _(2026-04-24)_
 22. [○ Backup, Disaster Recovery, and Cluster Lifecycle](production/disaster-recovery.md) — etcd backup, Velero, cluster upgrades, node drain/cordon, PDBs, multi-region patterns _(2026-04-24)_
 23. [○ Developer Experience on Kubernetes — Local Dev, Debugging, and Inner Loop](production/developer-experience.md) — local K8s (kind, minikube, k3d), Tilt/Skaffold, remote debugging, preview environments, when K8s is overkill _(2026-04-24)_
+24. [★ Homelab Kubernetes Setup — Bare-Metal k3s, MetalLB, and Tailscale](production/homelab-setup.md) — k3s vs Talos, OS prep, MetalLB L2/BGP, Tailscale operator, Longhorn storage, cert-manager DNS-01 _(2026-05-08)_
+25. [○ Homelab GitOps — Flux Bootstrap and Single-Operator Patterns](production/homelab-gitops.md) — Flux bootstrap, repo structure, SOPS+age, image automation, Velero+B2 backup, enterprise vs homelab contrast _(2026-05-08)_
 
 ---
 
@@ -125,6 +127,8 @@ Patterns for running Kubernetes in production at scale. GitOps, multi-tenancy, d
 - [Multi-Tenancy & Cost](production/multi-tenancy-and-cost.md)
 - [Disaster Recovery](production/disaster-recovery.md)
 - [Developer Experience](production/developer-experience.md)
+- [Homelab Kubernetes Setup](production/homelab-setup.md)
+- [Homelab GitOps](production/homelab-gitops.md)
 
 ---
 
